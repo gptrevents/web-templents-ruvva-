@@ -1,0 +1,6 @@
+Eight-petal bloom opening removes overlay and has no temple-door structure.
+Fine-pointer wheel easing works in a 421px preview.
+Horizontal event rail responds to visible arrows and keyboard; the last card is reachable and its flower marker appears.
+Gallery native TouchEvent swipe advances the counter; Escape restores the page.
+390px: correct background variant, initial images 83936 bytes.
+1440px: correct background variant, initial images 146332 bytes.
