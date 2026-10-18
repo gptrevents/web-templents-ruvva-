@@ -1,0 +1,14 @@
+PASS 320x844: no overflow, preview images loaded
+PASS 360x844: no overflow, preview images loaded
+PASS 390x844: no overflow, preview images loaded
+PASS 844x390: no overflow, preview images loaded
+PASS 820x1180: no overflow, preview images loaded
+PASS 1280x900: no overflow, preview images loaded
+PASS 1440x900: no overflow, preview images loaded
+PASS 1920x1080: no overflow, preview images loaded
+PASS 2560x1440: no overflow, preview images loaded
+PASS category filters, keyboard activation, search, empty state and reset
+PASS temple-dawn: actual invitation opens and browser Back returns to gallery
+PASS floral-elegant: actual invitation opens and browser Back returns to gallery
+PASS reduced motion, no page errors
+PASS future theme auto-discovery and no-image fallback
