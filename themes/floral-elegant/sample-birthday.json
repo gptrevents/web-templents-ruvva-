@@ -1,0 +1,26 @@
+{
+  "invLang": "en",
+  "eventType": "birthday",
+  "faithId": "none",
+  "name1": "Venkata Satya Sai Lakshmi Narasimha",
+  "name2": "",
+  "date": "2027-01-20",
+  "time": "18:30",
+  "venue": "Green Park Banquet Hall",
+  "address": "Begumpet, Hyderabad, Telangana 500016",
+  "ph1": "+91 98765 43210",
+  "ph2": "",
+  "message": "Please join us to celebrate a very special first birthday.",
+  "mainEventKey": "birthday",
+  "events": [
+    { "key": "birthday", "label": "", "date": "2027-01-20", "time": "18:30", "venue": "Green Park Banquet Hall", "address": "Begumpet, Hyderabad" }
+  ],
+  "families": [],
+  "photoSlots": { "hero": "", "groom": "", "bride": "", "venue": "", "closing": "", "story": [] },
+  "gallery": ["assets/sample/g3.webp"],
+  "videoUrl": "",
+  "liveStream": { "url": "", "note": "" },
+  "musicUrl": "assets/sample/music.mp3",
+  "rsvp": { "enabled": true, "maxGuests": 6, "askEvents": false, "askDiet": true },
+  "gifts": { "enabled": false, "upiId": "", "note": "", "qrUrl": "" }
+}
