@@ -190,11 +190,18 @@ const paths = {
   music: `<path d="M27 43V14l25-5v29M27 21l25-5"/><ellipse cx="19" cy="44" rx="8" ry="6" fill="currentColor" fill-opacity=".12"/><ellipse cx="44" cy="39" rx="8" ry="6" fill="currentColor" fill-opacity=".12"/>`,
   pause: `<path d="M23 15v34m18-34v34" stroke-width="5"/>`,
   share: `<circle cx="16" cy="32" r="6"/><circle cx="47" cy="14" r="6"/><circle cx="47" cy="50" r="6"/><path d="m21 29 21-12M21 35l21 12"/>`,
+  chevron: `<path d="m17 25 15 15 15-15"/>`,
+  previous: `<path d="m38 16-16 16 16 16M22 32h29"/>`,
+  next: `<path d="m26 16 16 16-16 16M13 32h29"/>`,
+  close: `<path d="m20 20 24 24m0-24L20 44"/>`,
   petal: `<path d="M9 34C4 19 19 6 35 5c4 16-5 35-20 34Z" fill="currentColor" fill-opacity=".7" stroke="none"/><path d="M11 35Q21 19 32 9" stroke-opacity=".25"/>`,
 };
 const icon = (k) => {
   const n = svg(paths[k] || paths.lamp, "0 0 64 64");
   n.classList.add("icon", "icon-" + k);
+  n.querySelectorAll("path").forEach((path) =>
+    path.setAttribute("pathLength", "1"),
+  );
   return n;
 };
 function ornament() {
@@ -308,6 +315,8 @@ function renderInvitation(root, data, ctx) {
     n.classList.add("reveal");
     observer.observe(n);
   });
+  initializeMotion(root);
+  initializeWheelScroll();
 }
 function buildEnvelope(d, c, ctx) {
   const cover = el("div", "opening");
@@ -396,7 +405,9 @@ function buildHero(d, c, ctx) {
     el("p", "hero-venue", d.venue),
   );
   add(w, text);
-  add(s, el("p", "scroll-hint", c.scroll + " ↓"));
+  const hint = el("p", "scroll-hint");
+  add(hint, el("span", "", c.scroll), icon("chevron"));
+  add(s, hint);
   return s;
 }
 function buildBlessing(d, c) {
@@ -618,16 +629,30 @@ function buildEvents(d, c, ctx) {
     list.append(card);
   });
   s.firstChild.append(list);
+  let scheduled = 0;
+  let visible = false;
   const update = () => {
+    scheduled = 0;
     const r = list.getBoundingClientRect();
+    if (!r.height) return;
     const progress = Math.max(
       0,
       Math.min(1, (innerHeight * 0.75 - r.top) / r.height),
     );
     spine.style.setProperty("--progress", reduced.matches ? 1 : progress);
   };
-  addEventListener("scroll", update, { passive: true });
-  update();
+  const schedule = () => {
+    if (visible && !scheduled) scheduled = requestAnimationFrame(update);
+  };
+  new IntersectionObserver(
+    (entries) => {
+      visible = entries[0].isIntersecting;
+      if (visible) schedule();
+    },
+    { rootMargin: "100px" },
+  ).observe(s);
+  addEventListener("scroll", schedule, { passive: true });
+  addEventListener("resize", schedule, { passive: true });
   return s;
 }
 function buildGallery(d, c) {
@@ -656,10 +681,11 @@ function buildGallery(d, c) {
       img.alt = c.photo + " " + (index + 1);
       counter.textContent = index + 1 + " / " + photos.length;
     };
-    const close = button("×", () => dialog.close(), "viewer-close");
+    const close = button("", () => dialog.close(), "viewer-close");
+    close.append(icon("close"));
     close.setAttribute("aria-label", c.close);
     const prev = button(
-      "←",
+      "",
       () => {
         index = (index + photos.length - 1) % photos.length;
         show();
@@ -667,8 +693,9 @@ function buildGallery(d, c) {
       "viewer-prev",
     );
     prev.setAttribute("aria-label", c.previous);
+    prev.append(icon("previous"));
     const next = button(
-      "→",
+      "",
       () => {
         index = (index + 1) % photos.length;
         show();
@@ -676,6 +703,7 @@ function buildGallery(d, c) {
       "viewer-next",
     );
     next.setAttribute("aria-label", c.next);
+    next.append(icon("next"));
     add(dialog, img, close, prev, next, counter);
     document.body.append(dialog);
     document.body.classList.add("locked");
@@ -1022,4 +1050,127 @@ function buildFloating(d, c, ctx) {
   share.append(icon("share"));
   box.append(share);
   return box;
+}
+
+// Keep decorative loops asleep outside the viewport and while the tab is hidden.
+function initializeMotion(root) {
+  const moving = [...root.querySelectorAll(".section,.opening,.ambient")];
+  const visible = new Set();
+  const sync = () =>
+    moving.forEach((node) =>
+      node.classList.toggle(
+        "motion-active",
+        visible.has(node) && !document.hidden && !reduced.matches,
+      ),
+    );
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) visible.add(entry.target);
+      else visible.delete(entry.target);
+    });
+    sync();
+  });
+  moving.forEach((node) => observer.observe(node));
+  document.addEventListener("visibilitychange", sync);
+  reduced.addEventListener("change", sync);
+}
+
+// Ease coarse mouse-wheel steps. Touch and precise trackpads retain native inertia.
+// Scroll the real document, so focus, sticky controls and browser navigation still work.
+function initializeWheelScroll() {
+  const eligible = matchMedia("(min-width:600px) and (pointer:fine)");
+  let frame = 0;
+  let position = 0;
+  let target = 0;
+  let previousTime = 0;
+  const stop = () => {
+    cancelAnimationFrame(frame);
+    frame = 0;
+    position = target = window.scrollY;
+    previousTime = 0;
+  };
+  const locked = () =>
+    document.body.classList.contains("locked") ||
+    !!document.querySelector("dialog[open]");
+  const step = (time) => {
+    if (locked() || reduced.matches || !eligible.matches) {
+      stop();
+      return;
+    }
+    const dt = previousTime ? Math.min(40, time - previousTime) : 16.67;
+    previousTime = time;
+    position += (target - position) * (1 - Math.exp(-dt / 78));
+    if (Math.abs(target - position) < 0.4) position = target;
+    window.scrollTo({ top: position, behavior: "instant" });
+    if (position === target) {
+      frame = 0;
+      previousTime = 0;
+    } else frame = requestAnimationFrame(step);
+  };
+  addEventListener(
+    "wheel",
+    (event) => {
+      if (
+        !eligible.matches ||
+        reduced.matches ||
+        locked() ||
+        event.ctrlKey ||
+        event.metaKey ||
+        event.shiftKey ||
+        Math.abs(event.deltaX) > Math.abs(event.deltaY)
+      )
+        return;
+      if (
+        event.target.closest("input,textarea,select,[contenteditable],dialog")
+      ) {
+        stop();
+        return;
+      }
+      // Fine trackpad deltas already carry browser/OS momentum; avoid double easing.
+      if (event.deltaMode === 0 && Math.abs(event.deltaY) < 45) {
+        stop();
+        return;
+      }
+      let parent = event.target.parentElement;
+      while (parent && parent !== document.body) {
+        const style = getComputedStyle(parent);
+        if (
+          /(auto|scroll)/.test(style.overflowY) &&
+          parent.scrollHeight > parent.clientHeight + 1
+        ) {
+          stop();
+          return;
+        }
+        parent = parent.parentElement;
+      }
+      const scale =
+        event.deltaMode === 1 ? 32 : event.deltaMode === 2 ? innerHeight : 1;
+      const max = Math.max(
+        0,
+        document.documentElement.scrollHeight - innerHeight,
+      );
+      if (!frame) position = target = window.scrollY;
+      // Accumulate intentional distance, but keep one frame's impulse bounded.
+      const next = Math.max(
+        0,
+        Math.min(
+          max,
+          target +
+            Math.max(-innerHeight, Math.min(innerHeight, event.deltaY * scale)),
+        ),
+      );
+      if (next === target) return;
+      event.preventDefault();
+      target = next;
+      if (!frame) frame = requestAnimationFrame(step);
+    },
+    { passive: false },
+  );
+  ["pointerdown", "touchstart", "keydown", "focusin"].forEach((type) =>
+    addEventListener(type, stop, { passive: true }),
+  );
+  document.addEventListener("visibilitychange", stop);
+  reduced.addEventListener("change", stop);
+  eligible.addEventListener("change", stop);
+  addEventListener("resize", stop, { passive: true });
 }
