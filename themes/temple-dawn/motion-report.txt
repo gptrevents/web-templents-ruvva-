@@ -1,0 +1,8 @@
+Desktop mouse wheel eases through intermediate positions, stays monotonic and settles at the intended 640px.
+Small 8px trackpad deltas are eased consistently; a 24-step gesture settles at 192px.
+Fine-pointer narrow preview panels receive the same smoothing.
+Keyboard Home cancels wheel inertia and reaches the top.
+Flame animation pauses offscreen and resumes when its section is visible.
+Gallery modal locks wheel scrolling and Escape still closes it.
+Reduced motion bypasses wheel easing and disables decorative animations.
+Coarse-pointer mobile context retains native scrolling.
