@@ -46,5 +46,21 @@
     "stage": "#e2ecd8",
     "desktop": "themes/storybook-garden/screenshots/desktop/preview.webp",
     "phone": "themes/storybook-garden/screenshots/phone/preview.webp"
+  },
+  {
+    "id": "ocean-serene",
+    "title": "Ocean Serene",
+    "category": "Coastal",
+    "description": "An endless blue horizon, drifting clouds and a sea breeze through every chapter of your celebration.",
+    "detail": "Calm & contemporary",
+    "palette": [
+      "#073c4d",
+      "#087e98",
+      "#a8d7e3",
+      "#f7fcfc"
+    ],
+    "stage": "#dfedf1",
+    "desktop": "themes/ocean-serene/screenshots/desktop/preview.webp",
+    "phone": "themes/ocean-serene/screenshots/phone/preview.webp"
   }
 ]

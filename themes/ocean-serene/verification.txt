@@ -1,0 +1,21 @@
+Opening removed; correct family matching; scroll unlocked.
+YouTube loads only after tap.
+Lightbox arrows, counter, Escape, focus restoration.
+RSVP inline errors, No hides guests, rejected callback preserves form, successful payload.
+ICS download generated.
+Additional 320–2560 widths: no horizontal overflow.
+Empty optional sections omitted; birthday and Telugu fit.
+Both long names and eight events fit.
+Reduced-motion loops disabled.
+Gallery counts 1, 2, 3, 6, 12 render and fit.
+Same-day and past-event countdown states verified.
+All four faith variants render the correct blessing condition.
+Invalid video and non-HTTPS live URLs omitted.
+Music play/pause and aria-pressed state verified.
+Keyboard Tab traversal reaches RSVP and controls with visible focus outlines.
+PASS 320: birthday single name centered on desktop, Telugu and two long names wrap without overflow.
+PASS 390: birthday single name centered on desktop, Telugu and two long names wrap without overflow.
+PASS 820: birthday single name centered on desktop, Telugu and two long names wrap without overflow.
+PASS 1440: birthday single name centered on desktop, Telugu and two long names wrap without overflow.
+PASS 2560: birthday single name centered on desktop, Telugu and two long names wrap without overflow.
+Eight distinct day tabs: keyboard End reveals day 8; horizontal tab rail does not overflow the page.

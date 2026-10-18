@@ -1,0 +1,103 @@
+{
+  "invLang": "en",
+  "eventType": "wedding",
+  "faithId": "hindu",
+  "name1": "Neel",
+  "name2": "Tara",
+  "date": "2026-12-12",
+  "time": "09:30",
+  "venue": "Sri Kalyana Mandapam",
+  "address": "Beach Road, Visakhapatnam, Andhra Pradesh 530002",
+  "ph1": "+91 98765 43210",
+  "ph2": "+91 91234 56780",
+  "message": "",
+  "mainEventKey": "wedding",
+  "events": [
+    {
+      "key": "haldi",
+      "label": "",
+      "date": "2026-12-10",
+      "time": "10:00",
+      "venue": "Our Residence",
+      "address": "MVP Colony, Visakhapatnam"
+    },
+    {
+      "key": "mehendi",
+      "label": "",
+      "date": "2026-12-10",
+      "time": "16:00",
+      "venue": "Our Residence",
+      "address": "MVP Colony, Visakhapatnam"
+    },
+    {
+      "key": "sangeet",
+      "label": "",
+      "date": "2026-12-11",
+      "time": "19:00",
+      "venue": "The Park Hotel",
+      "address": "Beach Road, Visakhapatnam"
+    },
+    {
+      "key": "wedding",
+      "label": "",
+      "date": "2026-12-12",
+      "time": "09:30",
+      "venue": "Sri Kalyana Mandapam",
+      "address": "Beach Road, Visakhapatnam"
+    },
+    {
+      "key": "reception",
+      "label": "",
+      "date": "2026-12-13",
+      "time": "19:00",
+      "venue": "Novotel Varun Beach",
+      "address": "Beach Road, Visakhapatnam"
+    }
+  ],
+  "families": [
+    {
+      "side": "bride",
+      "relation": "",
+      "names": "Mr. Suresh Kumar & Mrs. Lakshmi Devi"
+    },
+    {
+      "side": "groom",
+      "relation": "",
+      "names": "Mr. Ramesh Babu & Mrs. Padmaja"
+    }
+  ],
+  "photoSlots": {
+    "hero": "",
+    "groom": "assets/couple.webp",
+    "bride": "assets/couple.webp",
+    "venue": "assets/venue.webp",
+    "closing": "assets/sunset.webp",
+    "story": ["assets/walk.webp", "assets/boat.webp", "assets/sunset.webp"]
+  },
+  "gallery": [
+    "assets/couple.webp",
+    "assets/walk.webp",
+    "assets/boat.webp",
+    "assets/sunset.webp",
+    "assets/shore-phone.webp",
+    "assets/venue.webp"
+  ],
+  "videoUrl": "https://www.youtube.com/watch?v=aqz-KE-bpKQ",
+  "liveStream": {
+    "url": "https://www.youtube.com/@ruvva/live",
+    "note": ""
+  },
+  "musicUrl": "assets/sample/music.mp3",
+  "rsvp": {
+    "enabled": true,
+    "maxGuests": 10,
+    "askEvents": true,
+    "askDiet": true
+  },
+  "gifts": {
+    "enabled": false,
+    "upiId": "",
+    "note": "",
+    "qrUrl": ""
+  }
+}

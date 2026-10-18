@@ -1,0 +1,5 @@
+PASS 390: matching background only at opening, unique water filters, light phone sea transforms, clouds/gulls/waves in every section; offscreen/hidden/reduced motion pauses; day tabs click/arrows/Home/End and all day screenshots.
+PASS 1440: matching background only at opening, unique water filters, desktop SVG refraction, clouds/gulls/waves in every section; offscreen/hidden/reduced motion pauses; day tabs click/arrows/Home/End and all day screenshots.
+PASS 421px wheel inertia uses the real document and settles without lost distance.
+PASS native mobile viewer swipe.
+PASS budgets: common images 412958; desktop-only 144550; first-screen phone 106872; JS gzip 14275; CSS gzip 8183.

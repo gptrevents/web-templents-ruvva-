@@ -1,0 +1,1 @@
+Headless Chromium 1440x900, active ocean: mean animation frame 16.7 ms; p95 16.8 ms. This is a local measurement, not a cross-device performance guarantee.
