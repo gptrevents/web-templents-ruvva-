@@ -1,64 +1,60 @@
-# Temple Dawn
+# Temple Dawn — current edition
 
 ## Step 1 — Art direction
-A dawn ceremony in a South Indian temple, with carved sandalwood doors opening into a sunlit courtyard.
+A dawn ceremony in a South Indian temple: carved wooden doors open into a warm stone courtyard, with ivory silk, jasmine and antique brass details.
 
-| Axis | Choice |
-|---|---|
-| Palette | Sunrise warm: ivory #fff9ed, sandstone #ead8b7, saffron #b85122, brass #88652b, ink #423c2f |
-| Type | Fraunces soft serif + DM Sans; serif ampersand |
-| Opening | Two carved temple doors swing open |
-| Shapes | Pillar frames and stepped temple arches |
-| Ornament | Bells, rising sun and lotus |
-| Hero | Asymmetric names beside a hand-drawn temple courtyard |
-| Couple | Two arched portrait niches |
-| Countdown | Four pedestal lamps with luminous numbers |
-| Events | Paired ceremony bays along a central temple-pillar spine; paired rows on desktop |
-| Gallery | One large photograph with thumbnail contact sheet |
-| Motion | Slow and sacred |
-| Texture | Sandstone stipple using CSS |
-| Desktop | Architectural split stage, broad courtyard sections |
+User review guided the refinement from a flat architectural diagram to photographic depth, then from basic decorative marks to individually drawn SVG ornaments. The original Temple Dawn concept and door-opening ceremony are retained in the same theme folder.
 
-Font families are CSS variables; names never use a Latin script font. All interface copy is English. Responsive SVG art needs no raster background downloads.
+| # | DNA axis | Current choice |
+|---|---|---|
+| 1 | Palette | Sunrise warm limestone, ivory, olive shadows and restrained saffron |
+| 2 | Type | High-contrast Cormorant Garamond + DM Sans |
+| 3 | Opening | Carved temple door leaves swing open |
+| 4 | Shapes | Stepped temple arches and pillar frames |
+| 5 | Ornament | Lotus, jasmine, leaves, bells and brass lamps |
+| 6 | Hero | Names composed within a photographic architectural courtyard |
+| 7 | Couple | Two arched portrait niches |
+| 8 | Countdown | Four brass pedestal lamps with digits |
+| 9 | Events | Paired ceremony bays along a central spine on desktop |
+| 10 | Gallery | Featured photograph and thumbnail contact sheet |
+| 11 | Motion | Slow and sacred |
+| 12 | Texture | Photographic sandstone, wood grain and silk |
+| 13 | Desktop | Full-width architectural stage and broad courtyard sections |
 
-Comparison: Royal Maroon shares only axis 11 (slow/sacred). Rose Mandap shares no axes. There were no existing theme folders other than .gitkeep. Mandatory differences on palette, opening, shapes, events and gallery are satisfied. The seed's left-hand vertical timeline was improved to a paired ceremony-bay layout to avoid Royal Maroon's skeleton.
+Palette: paper #f8f4e9; sand #e7ddc7; olive ink #363b2d; muted text #696b59; saffron #875234; brass #85734c; dark bands #343d30. Every font family is a variable. All interface copy stays English in COPY.en.
 
 ## Step 2 — Design review
-Approved against all 13 axes. No maroon, velvet curtains, celebrity photographs, reference code or reference music. Phone uses a compact temple arch above names; tablet has a wider architectural stage; desktop puts temple art beside large left-aligned names.
+Compared against Royal Maroon and Rose Mandap from reference/existing-themes.md. No other implemented theme folders existed when this theme was started. Royal Maroon shares axes 2 and 11 only; Rose Mandap shares no axes. Both comparisons remain under the 3-axis limit, and palette/opening/shapes/events/gallery differ from both. The user-requested work updates the existing theme rather than adding another.
 
 ## Step 3 — Asset maker
-Temple, door carving, lamps, event icons and ornaments are original inline SVG, drawn for this theme (project-owned). Sample WebP silhouettes and six abstract images are copied unchanged from shared/sample-assets; repository-provided placeholders, no real people. Music is the repository's generated 24-second drone. Fonts: Fraunces and DM Sans via Google Fonts, SIL Open Font License. No generated bitmap assets, no alpha-channel ambiguity, no raster background switching required.
+Built-in imagegen produced original architectural backgrounds, a fictional adult couple and a ritual still life. Exact prompts, derivatives and attribution are in ASSETS.md. Portrait/landscape backgrounds are distinct files. All production media is local; source PNGs remain outside the repository. Generated people are sample imagery, not an actual wedding.
+
+Original static SVG code supplies layered lotus petals, veined botanical sprigs with jasmine blossoms, brass pedestal lamps with an inner flame, carved bells, ten occasion icons, floating petals and music/share controls. Each is drawn with currentColor strokes and translucent fills; decorative SVG is aria-hidden and nonfocusable. No external SVG library or icon font. Fonts have SIL Open Font Licences. Repository-provided sample drone and alternate-sample placeholders are retained.
 
 ## Step 4 — Builder
-Completed.
+Plain HTML, CSS and vanilla JavaScript. All thirteen builders follow the sample JSON contract; text and attributes receive data safely. Opening locks scroll and focus, reveals the page and starts music. Countdown uses India timezone and runs only while visible. Calendar export escapes and folds ICS lines. Native dialog handles the gallery focus trap, with keyboard and swipe controls. YouTube loads only after a tap. RSVP exposes window.onInviteRsvp(payload), with a local demo fallback and retained inputs on failure.
 
-Builder result: plain HTML/CSS/JS with all thirteen section builders. Data enters only through textContent/attributes; local asset paths and HTTPS destinations are validated. India timezone is explicit for event dates and calendar timestamps. External YouTube frame is deferred until a tap. SVG is static original artwork. RSVP is a local demo unless the integrator supplies window.onInviteRsvp.
+SVG refinements add layered details without extra image downloads. Flames move gently and petals drift; reduced motion disables both. Section content sits above the petal layer. Opening media is deferred correctly: hidden page sections do not load their lazy photographs until opening. Phones request portrait backgrounds; desktop requests landscape backgrounds. Non-Hindu fixtures use the neutral textile/ritual background and the correct faith-specific blessing.
 
 ## Step 5 — Build review
-Automated checks and visual review completed as recorded below.
+Passed: node tools/shoot.mjs temple-dawn. All seven required viewports, alternate samples, guest-name injection and reduced-motion capture passed; exact output is in shoot-report.txt. Interaction, edge-case and asset-network checks passed. Final section screenshots are committed at 390px and 1440px, with tablet, landscape, Telugu and gallery-count views.
 
-### Review evidence and judgements
-- `node tools/shoot.mjs temple-dawn`: all required widths, empty/birthday/Telugu variants and injection check passed; complete output is in `shoot-report.txt`.
-- Additional interaction assertions: `qa/interactions.mjs` and `qa/edge-cases.mjs`, with results in `verification.txt`. Run from repository root while a static server serves this theme at 127.0.0.1:4173. They use the repository Playwright dependency.
-- Viewed phone and desktop section screenshots, opening screens, tablet and landscape renders. Wide layouts use side-by-side portraits, paired event bays, featured/contact-sheet gallery, map/details columns, horizontal live band and two-column RSVP fields.
-- Visual review caught an orphan gallery thumbnail; corrected its desktop grid span. Section screenshots walk through events first so all once-only reveals are visible in the full-section capture.
-- Telugu names use natural text (no background clipping) and extra line height. Virama visible in hero; no tracking applied to Indic content. Interface copy remains English as required.
-- Keyboard traversal, lightbox Escape/arrows, focus restoration, visible focus outlines and form controls were exercised through Playwright keyboard input. Native dialog supplies focus trapping. Gallery touch swipe handler uses a 45px threshold.
-- Same-day and past countdown states, 1/2/3/6/12 gallery sizes, eight events, long names, invalid URLs and all four faith variants checked.
-- No raster backgrounds are used: scalable inline temple artwork adapts at CSS breakpoints, so portrait/landscape image-download switching is not applicable. No desktop-only image payload.
-- Music starts only on the opening gesture, fades toward volume .25, and exposes manual playback control. Actual speaker output was not subjectively listened to; browser playback state was tested.
-- Share uses the operating system share sheet when available; fallback is an encoded WhatsApp URL. No message was actually sent to another person during testing.
-- Template demo uses the supplied silhouette/abstract images. These are intentionally placeholders, not claimed as real wedding photographs.
-- RSVP intentionally has no backend; production persistence requires the documented `window.onInviteRsvp(payload)` integration. Callback rejection and success were tested.
-- The event spine uses CSS height driven by scroll rather than an SVG stroke; it has the required growing path/glowing tip behavior. Desktop ceremony bays share the central spine rather than alternating cards.
-- The supplied sample music path is a validated local asset; externally supplied media URLs are not fetched. External live/video links require HTTPS; YouTube is reconstructed from a validated 11-character ID.
+### Verification evidence and practical limits
+- Additional Playwright assertions passed for opening removal/scroll unlock, correct family matching, deferred YouTube, gallery counter/arrows/Escape/focus, calendar download, inline RSVP validation and callback failure/success, 320–2560px overflow, long names, eight events, optional-section removal and reduced motion. Results: verification.txt.
+- Edge-case assertions passed for gallery counts 1/2/3/6/12, all four faith variants, same-day/past countdown states, invalid media URLs, music state and keyboard traversal with focus outlines.
+- Network assertions passed: phone requests portrait backgrounds only; desktop requests landscape backgrounds only. Initial image payload is 95,812 bytes at 390px and 140,856 bytes at 1440px, both below 150 KB. Lazy photographs and hero backgrounds are deferred until opening.
+- Visual review examined opening/hero/couple/countdown/events/gallery/video/venue/live/RSVP/footer at phone and desktop sizes, plus tablet, landscape and Telugu stress views. Original SVG decorations stay clear of portrait faces and form controls; the veined sprigs remain within the viewport. Text uses no clipped gradients and no Indic tracking.
+- Local screenshot runner initially stalled at networkidle while browser media requests remained active. It now waits for page load instead; image/font layout still receives the existing capture delay. The same runner is committed as qa/visuals.mjs; from repository root use node themes/temple-dawn/qa/visuals.mjs temple-dawn. Other QA scripts expect the theme server at 127.0.0.1:4173 and the repository's Playwright installation.
+- Backgrounds are opaque WebP photographs. SVG artwork is inline, static source markup; no imported illustration or external icon library.
+- RSVP has no backend: production persistence requires window.onInviteRsvp(payload). Speaker output was not subjectively listened to, and no message was actually shared to another person. Browser music state and share URL construction were checked.
 
-### Asset budget (production files; screenshots excluded)
-- app.js: 9,786 bytes gzip / 60,000-byte budget.
-- style.css: 5,199 bytes gzip / 25,000-byte budget.
-- All WebP images: 39,066 bytes raw (already below the 450 KB budget). First-screen raster image payload: 0. Two Google Font families. No runtime libraries.
+### Production weight (screenshots excluded)
+- app.js: 11,968 bytes gzip; budget 60,000.
+- style.css: 8,796 bytes gzip; budget 25,000.
+- Phone/common images: 446,324 bytes raw (below 450 KB); desktop-only additional backgrounds: 301,066 bytes raw (below 400 KB). Already-compressed WebPs are measured raw, a conservative comparison. Two font families; no runtime library.
 
-### Section 6 — Completed parity checklist
+### Section 6 parity checklist
+Every required item below is implemented and reviewed; evidence and any practical limits are stated above.
 
 ### 0. Global
 - [x] Falling petals (or the theme's own falling motif: leaves, sparks, marigold, stars) — subtle, behind text, paused for reduced motion
@@ -122,6 +118,6 @@ Automated checks and visual review completed as recorded below.
 
 #
 ## Step 6 — Delivery
-Theme branch: `theme/temple-dawn`. User supplied repository: https://github.com/gptrevents/web-templents-ruvva-.git. It was empty, so an empty initial main commit was created; the implementation commit contains only this theme folder. Root brief, reference files and shared assets are left untouched and untracked in this newly initialized checkout.
+Branch: theme/temple-dawn. Existing PR: https://github.com/gptrevents/web-templents-ruvva-/pull/1. Commit only this theme directory. Root brief, reference and shared assets remain untouched.
 
-Local preview: serve this directory with any static server; opening index.html via file:// is not supported because data is loaded with fetch. The development preview used `python3 -m http.server 4173 --bind 127.0.0.1 --directory themes/temple-dawn`.
+Local preview: run `python3 -m http.server 4173 --bind 127.0.0.1 --directory themes/temple-dawn` from the repository root. A static HTTP server is required because sample JSON is fetched.

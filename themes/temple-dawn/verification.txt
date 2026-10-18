@@ -13,4 +13,5 @@ All four faith variants render the correct blessing condition.
 Invalid video and non-HTTPS live URLs omitted.
 Music play/pause and aria-pressed state verified.
 Keyboard Tab traversal reaches RSVP and controls with visible focus outlines.
-Synthetic native TouchEvent swipe advances viewer; Telugu opening/hero/couple/footer screenshots captured.
+390px opening image payload 95812 bytes; correct background variant only.
+1440px opening image payload 140856 bytes; correct background variant only.

@@ -12,35 +12,92 @@
   "ph2": "+91 91234 56780",
   "message": "",
   "mainEventKey": "wedding",
-
   "events": [
-    { "key": "haldi",     "label": "", "date": "2026-12-10", "time": "10:00", "venue": "Our Residence",        "address": "MVP Colony, Visakhapatnam" },
-    { "key": "mehendi",   "label": "", "date": "2026-12-10", "time": "16:00", "venue": "Our Residence",        "address": "MVP Colony, Visakhapatnam" },
-    { "key": "sangeet",   "label": "", "date": "2026-12-11", "time": "19:00", "venue": "The Park Hotel",       "address": "Beach Road, Visakhapatnam" },
-    { "key": "wedding",   "label": "", "date": "2026-12-12", "time": "09:30", "venue": "Sri Kalyana Mandapam", "address": "Beach Road, Visakhapatnam" },
-    { "key": "reception", "label": "", "date": "2026-12-13", "time": "19:00", "venue": "Novotel Varun Beach",  "address": "Beach Road, Visakhapatnam" }
+    {
+      "key": "haldi",
+      "label": "",
+      "date": "2026-12-10",
+      "time": "10:00",
+      "venue": "Our Residence",
+      "address": "MVP Colony, Visakhapatnam"
+    },
+    {
+      "key": "mehendi",
+      "label": "",
+      "date": "2026-12-10",
+      "time": "16:00",
+      "venue": "Our Residence",
+      "address": "MVP Colony, Visakhapatnam"
+    },
+    {
+      "key": "sangeet",
+      "label": "",
+      "date": "2026-12-11",
+      "time": "19:00",
+      "venue": "The Park Hotel",
+      "address": "Beach Road, Visakhapatnam"
+    },
+    {
+      "key": "wedding",
+      "label": "",
+      "date": "2026-12-12",
+      "time": "09:30",
+      "venue": "Sri Kalyana Mandapam",
+      "address": "Beach Road, Visakhapatnam"
+    },
+    {
+      "key": "reception",
+      "label": "",
+      "date": "2026-12-13",
+      "time": "19:00",
+      "venue": "Novotel Varun Beach",
+      "address": "Beach Road, Visakhapatnam"
+    }
   ],
-
   "families": [
-    { "side": "bride", "relation": "", "names": "Mr. Suresh Kumar & Mrs. Lakshmi Devi" },
-    { "side": "groom", "relation": "", "names": "Mr. Ramesh Babu & Mrs. Padmaja" }
+    {
+      "side": "bride",
+      "relation": "",
+      "names": "Mr. Suresh Kumar & Mrs. Lakshmi Devi"
+    },
+    {
+      "side": "groom",
+      "relation": "",
+      "names": "Mr. Ramesh Babu & Mrs. Padmaja"
+    }
   ],
-
   "photoSlots": {
     "hero": "",
-    "groom": "assets/sample/groom.webp",
-    "bride": "assets/sample/bride.webp",
+    "groom": "assets/groom.webp",
+    "bride": "assets/bride.webp",
     "venue": "",
     "closing": "",
     "story": []
   },
   "gallery": [
-    "assets/sample/g1.webp", "assets/sample/g2.webp", "assets/sample/g3.webp",
-    "assets/sample/g4.webp", "assets/sample/g5.webp", "assets/sample/g6.webp"
+    "assets/couple.webp",
+    "assets/ritual.webp",
+    "assets/groom.webp",
+    "assets/bride.webp",
+    "assets/silk.webp",
+    "assets/lamp.webp"
   ],
   "videoUrl": "https://www.youtube.com/watch?v=aqz-KE-bpKQ",
-  "liveStream": { "url": "https://www.youtube.com/@ruvva/live", "note": "" },
+  "liveStream": {
+    "url": "https://www.youtube.com/@ruvva/live",
+    "note": ""
+  },
   "musicUrl": "assets/sample/music.mp3",
-  "rsvp": { "enabled": true, "maxGuests": 10, "askEvents": true, "askDiet": true },
-  "gifts": { "enabled": false, "upiId": "", "note": "", "qrUrl": "" }
+  "rsvp": {
+    "enabled": true,
+    "maxGuests": 10,
+    "askEvents": true,
+    "askDiet": true
+  },
+  "gifts": {
+    "enabled": false,
+    "upiId": "",
+    "note": "",
+    "qrUrl": ""
+  }
 }
