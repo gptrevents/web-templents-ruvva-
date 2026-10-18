@@ -1075,10 +1075,10 @@ function initializeMotion(root) {
   reduced.addEventListener("change", sync);
 }
 
-// Ease coarse mouse-wheel steps. Touch and precise trackpads retain native inertia.
+// Give all desktop wheel/trackpad deltas one consistent time-based easing curve.
 // Scroll the real document, so focus, sticky controls and browser navigation still work.
 function initializeWheelScroll() {
-  const eligible = matchMedia("(min-width:600px) and (pointer:fine)");
+  const eligible = matchMedia("(pointer:fine)");
   let frame = 0;
   let position = 0;
   let target = 0;
@@ -1099,7 +1099,7 @@ function initializeWheelScroll() {
     }
     const dt = previousTime ? Math.min(40, time - previousTime) : 16.67;
     previousTime = time;
-    position += (target - position) * (1 - Math.exp(-dt / 78));
+    position += (target - position) * (1 - Math.exp(-dt / 110));
     if (Math.abs(target - position) < 0.4) position = target;
     window.scrollTo({ top: position, behavior: "instant" });
     if (position === target) {
@@ -1123,11 +1123,6 @@ function initializeWheelScroll() {
       if (
         event.target.closest("input,textarea,select,[contenteditable],dialog")
       ) {
-        stop();
-        return;
-      }
-      // Fine trackpad deltas already carry browser/OS momentum; avoid double easing.
-      if (event.deltaMode === 0 && Math.abs(event.deltaY) < 45) {
         stop();
         return;
       }

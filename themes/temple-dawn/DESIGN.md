@@ -49,7 +49,7 @@ Passed: node tools/shoot.mjs temple-dawn. All seven required viewports, alternat
 - RSVP has no backend: production persistence requires window.onInviteRsvp(payload). Speaker output was not subjectively listened to, and no message was actually shared to another person. Browser music state and share URL construction were checked.
 
 ### Production weight (screenshots excluded)
-- app.js: 13,367 bytes gzip; budget 60,000.
+- app.js: 13,286 bytes gzip; budget 60,000.
 - style.css: 9,265 bytes gzip; budget 25,000.
 - Phone/common images: 446,324 bytes raw (below 450 KB); desktop-only additional backgrounds: 301,066 bytes raw (below 400 KB). Already-compressed WebPs are measured raw, a conservative comparison. Two font families; no runtime library.
 
@@ -123,8 +123,10 @@ Branch: theme/temple-dawn. Existing PR: https://github.com/gptrevents/web-temple
 Local preview: run `python3 -m http.server 4173 --bind 127.0.0.1 --directory themes/temple-dawn` from the repository root. A static HTTP server is required because sample JSON is fetched.
 
 ## Scrolling and motion refinement
-Mouse-wheel steps on fine-pointer screens at 600px and wider are eased by a requestAnimationFrame loop with a time-based 78ms damping constant. It scrolls the actual document. Small precise trackpad deltas, touch/coarse-pointer screens, form/nested-scroll content, modifier gestures and reduced-motion contexts retain browser scrolling. Keyboard, focus, pointer, resize and modal interactions cancel residual easing. No new scrolling library.
+Wheel and trackpad steps on all fine-pointer screens are eased by a requestAnimationFrame loop with a time-based 110ms damping constant. It scrolls the actual document. Touch/coarse-pointer screens, form/nested-scroll content, modifier gestures and reduced-motion contexts retain browser scrolling. Keyboard, focus, pointer, resize and modal interactions cancel residual easing. No new scrolling library.
 
 Continuous text-shadow animation was replaced with a once-only opacity/transform name entrance. An IntersectionObserver pauses decorative loops outside the viewport and in hidden tabs. The event spine updates once per frame while nearby and uses scaleY rather than changing its height. Bells settle gently, jasmine sprigs sway slightly, event SVG strokes draw once and the scroll cue uses a drawn chevron. Lightbox close/arrows are matching original SVG.
 
 `qa/motion.mjs` passed intermediate-position, monotonic-distance and settling assertions for a 640px wheel gesture; keyboard cancellation; offscreen flame pause/resume; modal wheel lock; reduced-motion bypass; and coarse-pointer native-scroll checks. Results are in motion-report.txt. These are local Chromium functional checks, not a claim of a fixed frame rate on every device.
+
+Trackpad consistency fix: the small-delta bypass and minimum-width gate were removed after user feedback. Small 8px inputs now pass through the same easing as larger mouse-wheel impulses, including narrow preview panels. The entry script has an explicit scroll-2 cache revision. Motion checks cover a 24-step trackpad gesture and the actual 421px fine-pointer preview width.

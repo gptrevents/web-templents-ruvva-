@@ -43,6 +43,28 @@ assert.ok(
 notes.push(
   "Desktop mouse wheel eases through intermediate positions, stays monotonic and settles at the intended 640px.",
 );
+await page.evaluate(() => scrollTo({top:0,behavior:"instant"}));
+await page.waitForTimeout(80);
+await page.mouse.move(600,400);
+await page.evaluate(() => window.smallWheelPrevented = []);
+await page.evaluate(() => addEventListener("wheel", e => {
+  queueMicrotask(() => window.smallWheelPrevented.push(e.defaultPrevented));
+}));
+for(let i=0;i<24;i++) { await page.mouse.wheel(0,8); await page.waitForTimeout(8); }
+await page.waitForTimeout(900);
+assert.equal(await page.evaluate(() => window.smallWheelPrevented.every(Boolean)),true);
+assert.ok(Math.abs(await page.evaluate(() => scrollY)-192)<2);
+notes.push("Small 8px trackpad deltas are eased consistently; a 24-step gesture settles at 192px.");
+await page.setViewportSize({width:421,height:900});
+await page.evaluate(() => scrollTo({top:0,behavior:"instant"}));
+await page.waitForTimeout(80);
+await page.mouse.move(250,400);
+await page.mouse.wheel(0,120);
+await page.waitForTimeout(900);
+assert.ok(Math.abs(await page.evaluate(() => scrollY)-120)<2);
+notes.push("Fine-pointer narrow preview panels receive the same smoothing.");
+await page.setViewportSize({width:1440,height:900});
+await page.mouse.move(600,400);
 await page.mouse.wheel(0, 600);
 await page.waitForTimeout(60);
 await page.keyboard.press("Home");
