@@ -27,6 +27,7 @@ export async function buildCatalog() {
     const preview = async (size) => {
       const candidates = [
         `gallery/assets/${id}-${size}.webp`,
+        `themes/${id}/screenshots/${size}/preview.webp`,
         `themes/${id}/screenshots/${size}/section-hero.png`,
         `themes/${id}/screenshots/${size}/00-opening.png`,
       ];

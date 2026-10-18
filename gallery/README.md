@@ -1,6 +1,6 @@
 # Ruvva invitation collection
 
-The repository-root `index.html` is the shared home page. It links to the two independent invitation folders; existing invitation code and assets are unchanged.
+The repository-root `index.html` is the shared home page. It links to each independent invitation folder; existing invitation code and assets are unchanged.
 
 ## Preview
 
@@ -16,7 +16,7 @@ Open http://127.0.0.1:4175/ . Set `PORT=4176` if needed. This dependency-free lo
 
 1. Build `themes/<theme-id>/index.html` and the rest of that invitation using the repository brief.
 2. Optionally add an entry to `gallery/theme-details.json` with title, category, description, detail, palette and stage color. Unlisted folders get a readable title and an Other filter automatically.
-3. Include `screenshots/desktop/section-hero.png` and `screenshots/phone/section-hero.png`. The generator also recognizes `00-opening.png`. Optional smaller WebP previews go in `gallery/assets/<id>-desktop.webp` and `<id>-phone.webp`; these take priority. A theme without screenshots still gets a working card with its title.
+3. Include `screenshots/desktop/section-hero.png` and `screenshots/phone/section-hero.png`. The generator also recognizes `00-opening.png`. Optional smaller WebP previews go in `themes/<id>/screenshots/desktop/preview.webp` and `themes/<id>/screenshots/phone/preview.webp`, or in `gallery/assets/<id>-desktop.webp` and `<id>-phone.webp`; these take priority. A theme without screenshots still gets a working card with its title.
 4. Refresh the local gallery. Before a static release, run `node tools/build-catalog.mjs` and commit the regenerated `gallery/themes.json` along with the new theme. No app.js or HTML edits are needed.
 
 The generator ignores directories without index.html. All paths are relative, including when the project is served beneath a subdirectory. Production requires only static hosting of index.html, gallery/ and themes/; the preview server is not a production backend.

@@ -10,5 +10,6 @@ PASS 2560x1440: no overflow, preview images loaded
 PASS category filters, keyboard activation, search, empty state and reset
 PASS temple-dawn: actual invitation opens and browser Back returns to gallery
 PASS floral-elegant: actual invitation opens and browser Back returns to gallery
+PASS storybook-garden: actual invitation opens and browser Back returns to gallery
 PASS reduced motion, no page errors
 PASS future theme auto-discovery and no-image fallback

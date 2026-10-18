@@ -1,0 +1,64 @@
+{
+  "invLang": "te",
+  "eventType": "wedding",
+  "faithId": "hindu",
+  "name1": "అర్జున్",
+  "name2": "ప్రియ",
+  "date": "2026-12-12",
+  "time": "09:30",
+  "venue": "శ్రీ కళ్యాణ మండపం",
+  "address": "బీచ్ రోడ్, విశాఖపట్నం, ఆంధ్రప్రదేశ్",
+  "ph1": "+91 98765 43210",
+  "ph2": "",
+  "message": "మా పెద్దల ఆశీస్సులతో, మా కుటుంబాల ప్రేమతో ఈ వివాహ వేడుకకు మిమ్మల్ని సాదరంగా ఆహ్వానిస్తున్నాము.",
+  "mainEventKey": "wedding",
+  "events": [
+    {
+      "key": "haldi",
+      "label": "",
+      "date": "2026-12-10",
+      "time": "10:00",
+      "venue": "మా ఇంటి వద్ద",
+      "address": "ఎంవీపీ కాలనీ, విశాఖపట్నం"
+    },
+    {
+      "key": "wedding",
+      "label": "",
+      "date": "2026-12-12",
+      "time": "09:30",
+      "venue": "శ్రీ కళ్యాణ మండపం",
+      "address": "బీచ్ రోడ్, విశాఖపట్నం"
+    }
+  ],
+  "families": [
+    {
+      "side": "groom",
+      "relation": "",
+      "names": "శ్రీ రమేష్ బాబు & శ్రీమతి పద్మజ"
+    },
+    {
+      "side": "bride",
+      "relation": "",
+      "names": "శ్రీ సురేష్ కుమార్ & శ్రీమతి లక్ష్మీ దేవి"
+    }
+  ],
+  "photoSlots": {
+    "hero": "",
+    "groom": "",
+    "bride": "",
+    "venue": "",
+    "closing": "",
+    "story": []
+  },
+  "gallery": [],
+  "videoUrl": "",
+  "liveStream": { "url": "", "note": "" },
+  "musicUrl": "",
+  "rsvp": {
+    "enabled": true,
+    "maxGuests": 10,
+    "askEvents": true,
+    "askDiet": true
+  },
+  "gifts": { "enabled": false, "upiId": "", "note": "", "qrUrl": "" }
+}

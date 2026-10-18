@@ -5,7 +5,12 @@
     "category": "Traditional",
     "description": "Carved temple doors, warm sandstone and the quiet beauty of a new beginning.",
     "detail": "Sacred & timeless",
-    "palette": ["#343d30", "#85734c", "#c5ab7a", "#f8f4e9"],
+    "palette": [
+      "#343d30",
+      "#85734c",
+      "#c5ab7a",
+      "#f8f4e9"
+    ],
     "stage": "#e9e3d7",
     "desktop": "gallery/assets/temple-dawn-desktop.webp",
     "phone": "gallery/assets/temple-dawn-phone.webp"
@@ -16,9 +21,30 @@
     "category": "Floral",
     "description": "Blush blossoms, soft paper and little keepsakes of a love in full bloom.",
     "detail": "Soft & romantic",
-    "palette": ["#85304b", "#b33359", "#63816a", "#fce9ec"],
+    "palette": [
+      "#85304b",
+      "#b33359",
+      "#63816a",
+      "#fce9ec"
+    ],
     "stage": "#f3e4e6",
     "desktop": "gallery/assets/floral-elegant-desktop.webp",
     "phone": "gallery/assets/floral-elegant-phone.webp"
+  },
+  {
+    "id": "storybook-garden",
+    "title": "Storybook Garden",
+    "category": "Illustrated",
+    "description": "A lakeside love story, illustrated with playful characters, hanging wooden signs and little garden adventures.",
+    "detail": "Playful & full of wonder",
+    "palette": [
+      "#365d45",
+      "#af315d",
+      "#f4be83",
+      "#cceaf1"
+    ],
+    "stage": "#e2ecd8",
+    "desktop": "themes/storybook-garden/screenshots/desktop/preview.webp",
+    "phone": "themes/storybook-garden/screenshots/phone/preview.webp"
   }
 ]

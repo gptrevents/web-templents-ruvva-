@@ -10,7 +10,11 @@ const report = [];
 try {
   await page.goto(base, { waitUntil: "networkidle" });
   await page.waitForSelector(".theme-card");
-  assert.equal(await page.locator(".theme-card").count(), 2);
+  const catalog = await (
+    await page.request.get(base + "/gallery/themes.json")
+  ).json();
+  const total = catalog.length;
+  assert.equal(await page.locator(".theme-card").count(), total);
   for (const [width, height] of [
     [320, 844],
     [360, 844],
@@ -49,20 +53,20 @@ try {
   assert.match(await page.locator(".card-title").innerText(), /Floral Elegant/);
   await page.getByRole("button", { name: "All styles", exact: true }).focus();
   await page.keyboard.press("Enter");
-  assert.equal(await page.locator(".theme-card").count(), 2);
+  assert.equal(await page.locator(".theme-card").count(), total);
   await page.getByRole("searchbox").fill("temple");
   assert.equal(await page.locator(".theme-card").count(), 1);
   await page.getByRole("searchbox").fill("not-a-template");
   assert(await page.locator("#empty").isVisible());
   await page.getByRole("button", { name: "Show all invitations" }).click();
-  assert.equal(await page.locator(".theme-card").count(), 2);
+  assert.equal(await page.locator(".theme-card").count(), total);
   await page.getByRole("searchbox").fill("<img src=x onerror=alert(1)>");
   assert.equal(await page.locator("#search img").count(), 0);
   await page.getByRole("button", { name: "Show all invitations" }).click();
   report.push(
     "PASS category filters, keyboard activation, search, empty state and reset",
   );
-  for (const id of ["temple-dawn", "floral-elegant"]) {
+  for (const id of catalog.map((theme) => theme.id)) {
     await page.locator(`.open-link[href$="/${id}/"]`).click();
     await page
       .getByRole("button", { name: "Open Invitation", exact: true })
@@ -90,28 +94,41 @@ try {
   // A new folder should appear without editing app.js; a non-theme folder must not.
   const fixture = "themes/gallery-check-fixture";
   const original = await readFile("gallery/themes.json", "utf8");
+  let fixtureCreated = false;
   try {
     await mkdir(fixture);
+    fixtureCreated = true;
     await writeFile(
       `${fixture}/index.html`,
       "<!doctype html><title>Fixture</title>",
     );
     await page.reload({ waitUntil: "networkidle" });
-    assert.equal(await page.locator(".theme-card").count(), 3);
+    assert.equal(await page.locator(".theme-card").count(), total + 1);
     await page.getByRole("button", { name: "Other", exact: true }).click();
-    assert.equal(await page.locator(".theme-card").count(), 1);
     assert.equal(
-      await page.locator(".card-title").innerText(),
+      await page.locator(".theme-card").count(),
+      catalog.filter((t) => t.category === "Other").length + 1,
+    );
+    assert.equal(
+      await page
+        .locator('.card-title a[href$="/gallery-check-fixture/"]')
+        .innerText(),
       "Gallery Check Fixture",
     );
-    assert(await page.locator(".fallback-preview").isVisible());
+    assert(
+      await page
+        .locator(".theme-card")
+        .filter({ has: page.locator('a[href$="/gallery-check-fixture/"]') })
+        .locator(".fallback-preview")
+        .isVisible(),
+    );
     report.push("PASS future theme auto-discovery and no-image fallback");
   } finally {
-    await rm(fixture, { recursive: true, force: true });
+    if (fixtureCreated) await rm(fixture, { recursive: true, force: true });
     await writeFile("gallery/themes.json", original);
   }
   await page.reload({ waitUntil: "networkidle" });
-  assert.equal(await page.locator(".theme-card").count(), 2);
+  assert.equal(await page.locator(".theme-card").count(), total);
   console.log(report.join("\n"));
   await writeFile("gallery/verification.txt", report.join("\n") + "\n");
 } finally {
