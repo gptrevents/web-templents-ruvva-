@@ -12,5 +12,6 @@ PASS temple-dawn: actual invitation opens and browser Back returns to gallery
 PASS floral-elegant: actual invitation opens and browser Back returns to gallery
 PASS storybook-garden: actual invitation opens and browser Back returns to gallery
 PASS ocean-serene: actual invitation opens and browser Back returns to gallery
+PASS varnika: actual invitation opens and browser Back returns to gallery
 PASS reduced motion, no page errors
 PASS future theme auto-discovery and no-image fallback

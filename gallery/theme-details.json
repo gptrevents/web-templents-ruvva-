@@ -30,5 +30,13 @@
     "detail": "Calm & contemporary",
     "palette": ["#073c4d", "#087e98", "#a8d7e3", "#f7fcfc"],
     "stage": "#dfedf1"
+  },
+  "varnika": {
+    "title": "Varnika",
+    "category": "Premium",
+    "description": "An heirloom wedding folio brought to life with miniature garden paintings, copper details and a beautifully bound album.",
+    "detail": "The painted wedding · Premium",
+    "palette": ["#234d3f", "#193550", "#a63f2b", "#f5ead4"],
+    "stage": "#e4d6bc"
   }
 }
