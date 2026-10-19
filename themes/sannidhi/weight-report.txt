@@ -2,6 +2,6 @@ Common images: 432540 / 450000 bytes
 Desktop-only scene: 144742 / 400000 bytes
 First screen (toran only): 76268 / 150000 bytes
 JS gzip: 15051 / 60000 bytes
-CSS gzip: 9629 / 25000 bytes
+CSS gzip: 9641 / 25000 bytes
 Fonts: 2 families
 No runtime library

@@ -2377,3 +2377,8 @@ img {
     );
   }
 }
+@media (min-width: 1024px) and (max-height: 600px) {
+  .hero .temple-panorama {
+    background-image: url("assets/temple-desktop.webp");
+  }
+}
