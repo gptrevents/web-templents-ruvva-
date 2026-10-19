@@ -1,0 +1,1 @@
+PASS an exposed neighboring photograph opens the full viewer immediately; Escape restores focus to the selected photograph.

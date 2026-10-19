@@ -38,5 +38,13 @@
     "detail": "The painted wedding · Premium",
     "palette": ["#234d3f", "#193550", "#a63f2b", "#f5ead4"],
     "stage": "#e4d6bc"
+  },
+  "sannidhi": {
+    "title": "Sannidhi",
+    "category": "Premium",
+    "description": "A lamp-lit welcome opens into an original temple courtyard, with swaying jasmine, a folded ceremony calendar and a fan of cherished memories.",
+    "detail": "In the presence of joy · Premium",
+    "palette": ["#b94329", "#27314b", "#435d40", "#fff9ed"],
+    "stage": "#eee3cf"
   }
 }
