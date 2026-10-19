@@ -1,0 +1,6 @@
+Gallery counts 1, 2, 3, 6, 12 render and fit.
+Same-day and past-event countdown states verified.
+All four faith variants render the correct blessing condition.
+Invalid video and non-HTTPS live URLs omitted.
+Music play/pause and aria-pressed state verified.
+Keyboard Tab traversal reaches RSVP and controls with visible focus outlines.

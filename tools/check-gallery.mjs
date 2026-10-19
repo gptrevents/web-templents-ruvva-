@@ -54,7 +54,7 @@ try {
   await page.getByRole("button", { name: "All styles", exact: true }).focus();
   await page.keyboard.press("Enter");
   assert.equal(await page.locator(".theme-card").count(), total);
-  await page.getByRole("searchbox").fill("temple");
+  await page.getByRole("searchbox").fill("temple dawn");
   assert.equal(await page.locator(".theme-card").count(), 1);
   await page.getByRole("searchbox").fill("not-a-template");
   assert(await page.locator("#empty").isVisible());
