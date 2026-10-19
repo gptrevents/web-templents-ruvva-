@@ -62,5 +62,21 @@
     "stage": "#dfedf1",
     "desktop": "themes/ocean-serene/screenshots/desktop/preview.webp",
     "phone": "themes/ocean-serene/screenshots/phone/preview.webp"
+  },
+  {
+    "id": "varnika",
+    "title": "Varnika",
+    "category": "Premium",
+    "description": "An heirloom wedding folio brought to life with miniature garden paintings, copper details and a beautifully bound album.",
+    "detail": "The painted wedding · Premium",
+    "palette": [
+      "#234d3f",
+      "#193550",
+      "#a63f2b",
+      "#f5ead4"
+    ],
+    "stage": "#e4d6bc",
+    "desktop": "themes/varnika/screenshots/desktop/preview.webp",
+    "phone": "themes/varnika/screenshots/phone/preview.webp"
   }
 ]

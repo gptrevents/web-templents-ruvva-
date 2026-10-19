@@ -1,0 +1,101 @@
+{
+  "invLang": "en",
+  "eventType": "wedding",
+  "faithId": "hindu",
+  "name1": "Aarav",
+  "name2": "Meera",
+  "date": "2026-12-12",
+  "time": "09:30",
+  "venue": "Amara Garden Pavilion",
+  "address": "Sample Garden Road, Jaipur, Rajasthan 302001",
+  "ph1": "+91 98765 43210",
+  "ph2": "+91 91234 56780",
+  "message": "",
+  "mainEventKey": "wedding",
+  "events": [
+    {
+      "key": "haldi",
+      "label": "",
+      "date": "2026-12-10",
+      "time": "10:00",
+      "venue": "Family Courtyard",
+      "address": "Sample Garden Road, Jaipur, Rajasthan 302001"
+    },
+    {
+      "key": "mehendi",
+      "label": "",
+      "date": "2026-12-10",
+      "time": "16:00",
+      "venue": "Family Courtyard",
+      "address": "Sample Garden Road, Jaipur, Rajasthan 302001"
+    },
+    {
+      "key": "sangeet",
+      "label": "",
+      "date": "2026-12-11",
+      "time": "19:00",
+      "venue": "Amara Garden Pavilion",
+      "address": "Sample Garden Road, Jaipur, Rajasthan 302001"
+    },
+    {
+      "key": "wedding",
+      "label": "",
+      "date": "2026-12-12",
+      "time": "09:30",
+      "venue": "Amara Garden Pavilion",
+      "address": "Sample Garden Road, Jaipur, Rajasthan 302001"
+    },
+    {
+      "key": "reception",
+      "label": "",
+      "date": "2026-12-13",
+      "time": "19:00",
+      "venue": "Amara Garden Pavilion",
+      "address": "Sample Garden Road, Jaipur, Rajasthan 302001"
+    }
+  ],
+  "families": [
+    {
+      "side": "bride",
+      "relation": "",
+      "names": "Mr. Vikram Rao & Mrs. Ananya Rao"
+    },
+    {
+      "side": "groom",
+      "relation": "",
+      "names": "Mr. Dev Kumar & Mrs. Kavya Kumar"
+    }
+  ],
+  "photoSlots": {
+    "hero": "",
+    "groom": "assets/groom.webp",
+    "bride": "assets/bride.webp",
+    "venue": "assets/walk.webp",
+    "closing": "",
+    "story": []
+  },
+  "gallery": [
+    "assets/couple.webp",
+    "assets/walk.webp",
+    "assets/night.webp",
+    "assets/hands.webp"
+  ],
+  "videoUrl": "https://www.youtube.com/watch?v=aqz-KE-bpKQ",
+  "liveStream": {
+    "url": "https://www.youtube.com/@ruvva/live",
+    "note": ""
+  },
+  "musicUrl": "assets/sample/music.mp3",
+  "rsvp": {
+    "enabled": true,
+    "maxGuests": 10,
+    "askEvents": true,
+    "askDiet": true
+  },
+  "gifts": {
+    "enabled": false,
+    "upiId": "",
+    "note": "",
+    "qrUrl": ""
+  }
+}
