@@ -1,0 +1,21 @@
+390@2: .opening .tableau complete 960x320 from kalyanam-960.webp, rendered 354x118.
+390@2: #hero .tableau complete 960x320 from paanigrahanam-960.webp, rendered 354x118.
+390@2: #footer .tableau complete 960x320 from sacred-fire-960.webp, rendered 354x118.
+hero 390: 844px, viewport 844px.
+390@3: .opening .tableau complete 1440x480 from kalyanam-1440.webp, rendered 354x118.
+390@3: #hero .tableau complete 1440x480 from paanigrahanam-1440.webp, rendered 354x118.
+390@3: #footer .tableau complete 1440x480 from sacred-fire-1440.webp, rendered 354x118.
+hero 390: 844px, viewport 844px.
+820@2: .opening .tableau complete 2172x724 from kalyanam.webp, rendered 784x261.
+820@2: #hero .tableau complete 2172x724 from paanigrahanam.webp, rendered 784x261.
+820@2: #footer .tableau complete 2172x724 from sacred-fire.webp, rendered 784x261.
+hero 820: 1180px, viewport 1180px.
+1440@2: .opening .tableau complete 2172x724 from kalyanam.webp, rendered 1080x360.
+1440@2: #hero .tableau complete 2172x724 from paanigrahanam.webp, rendered 1080x360.
+1440@2: #footer .tableau complete 2172x724 from sacred-fire.webp, rendered 1080x360.
+hero 1440: 900px, viewport 900px.
+844@2: .opening .tableau complete 2172x724 from kalyanam.webp, rendered 301x100.
+844@2: #hero .tableau complete 2172x724 from paanigrahanam.webp, rendered 301x100.
+844@2: #footer .tableau complete 2172x724 from sacred-fire.webp, rendered 808x269.
+hero 844: 390px, viewport 390px.
+Visible architectural watermarks respond to scroll; reduced motion disables displacement.

@@ -20,7 +20,11 @@ try {
     await p.goto(base, { waitUntil: "networkidle" });
     const backdrop =
       width === 390 ? "palace-phone.webp" : "palace-desktop.webp";
-    assert.deepEqual([...images].sort(), [backdrop, "kalyanam.webp"].sort());
+    assert(images.has(backdrop));
+    assert([...images].some((n) => /^kalyanam(?:-\d+)?\.webp$/.test(n)));
+    assert(
+      !images.has(width === 390 ? "palace-desktop.webp" : "palace-phone.webp"),
+    );
     assert.equal(
       new Set(
         await p
@@ -74,7 +78,8 @@ try {
     );
     assert.equal(await p.locator('.tableau[src$="kalyanam.webp"]').count(), 0);
     assert.equal(await p.locator(".chapter-flow .palace-scene").count(), 0);
-    assert.equal(await p.locator(".count-engraving").count(), 1);
+    assert.equal(await p.locator(".count-sanctum .count-painting").count(), 1);
+    assert.equal(await p.locator(".scene-canopy").count(), 2);
     const initial = await p
       .locator("#hero")
       .evaluate((n) => n.style.getPropertyValue("--scene-y"));
@@ -165,7 +170,7 @@ try {
     );
     assert.deepEqual(errors, []);
     notes.push(
-      `PASS ${width}: matching opening background; three distinct ceremony sources; canopy only at opening; one continuous SVG edge; engraved vector frames; perspective opening and scroll/focus unlock; independent scene motion; visible-only countdown; flowering five-event vine; unique SVG IDs; viewer touch swipe; fixed controls clear of RSVP; hidden/reduced motion; no page errors.`,
+      `PASS ${width}: matching opening background; three distinct ceremony sources; canopies only on welcome/hero/closing; one continuous SVG edge; painted responsive countdown pavilion; perspective opening and scroll/focus unlock; independent scene motion; visible-only countdown; flowering five-event vine; unique SVG IDs; viewer touch swipe; fixed controls clear of RSVP; hidden/reduced motion; no page errors.`,
     );
     await p.close();
   }
@@ -212,17 +217,12 @@ try {
     desktopFirst = desktop + (await size("kalyanam.webp"));
   const js = gzipSync(await readFile(root + "/app.js")).length,
     css = gzipSync(await readFile(root + "/style.css")).length;
-  assert(
-    common <= 450000 &&
-      desktop <= 400000 &&
-      phoneFirst <= 150000 &&
-      desktopFirst <= 150000 &&
-      js <= 60000 &&
-      css <= 25000,
-  );
-  const weight = `Common images: ${common}/450000 bytes\nDesktop-only image: ${desktop}/400000 bytes\nFirst-screen phone images: ${phoneFirst}/150000 bytes\nFirst-screen desktop images: ${desktopFirst}/150000 bytes\nJS gzip: ${js}/60000 bytes\nCSS gzip: ${css}/25000 bytes\nThree font families; fonts fetched through allowed Google Fonts CSS.\n`;
+  assert(js <= 60000 && css <= 25000);
+  const weight = `All stored image variants: ${common + desktop} bytes\nDesktop opening background: ${desktop} bytes\nOpening phone background: ${await size("palace-phone.webp")} bytes\nOpening portrait artwork variant: ${await size("kalyanam-960.webp")} bytes (960px, browser selects by density)\nJS gzip: ${js}/60000 bytes\nCSS gzip: ${css}/25000 bytes\nQUALITY EXCEPTION: high-resolution complete artwork exceeds the older 450KB image/150KB first-screen limits. The user's latest explicit clarity request takes precedence. No image-budget compliance is claimed. Responsive srcset, tap-only video and lazy loading avoid loading every variant.\nThree font families; allowed Google Fonts CSS.\n`;
   await writeFile(root + "/weight-report.txt", weight);
-  notes.push("PASS runtime image, first-screen, JS and CSS budgets.");
+  notes.push(
+    "PASS JS/CSS budgets. High-resolution image-weight exception explicitly recorded; legacy image budgets do not pass.",
+  );
   await writeFile(root + "/experience-report.txt", notes.join("\n") + "\n");
   console.log(notes.join("\n"));
   console.log(weight);

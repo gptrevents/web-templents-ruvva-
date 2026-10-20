@@ -398,10 +398,20 @@ function buildCountdown(d, c, ctx) {
   const target = dateValue(d);
   if (!target || isNaN(target)) return null;
   const s = section("countdown", c.countdownTitle);
+  const sanctum = el("div", "count-sanctum");
+  const picture = el("picture", "count-art");
+  const source = el("source");
+  source.media = "(min-width:1024px)";
+  source.srcset = "assets/countdown-desktop.webp";
+  const painting = decorativeImage(
+    "assets/countdown-phone.webp",
+    "count-painting",
+  );
+  painting.width = 1122;
+  painting.height = 1402;
+  picture.append(source, painting);
   const row = el("div", "carved-count");
-  const carving = ornamentalFrame("count");
-  carving.classList.add("count-engraving");
-  row.append(carving);
+  sanctum.append(picture, row);
   const digits = ["days", "hours", "minutes", "seconds"].map((k) => {
     const unit = el("div", "count-unit");
     const n = el("span", "digit", "00");
@@ -452,7 +462,8 @@ function buildCountdown(d, c, ctx) {
   }).observe(s);
   document.addEventListener("visibilitychange", sync);
   tick();
-  add(s.firstChild, row, status, calendar(d, c));
+  sanctum.append(status);
+  add(s.firstChild, sanctum, calendar(d, c));
   return s;
 }
 function youtube(value) {
@@ -969,10 +980,19 @@ function ceremony(d, eager = false, kind = "opening") {
         : kind === "closing"
           ? "assets/sacred-fire.webp"
           : "assets/kalyanam.webp";
+    const picture = el("picture", "ceremony-picture");
+    const base = src.slice(0, -5);
+    const retina = el("source");
+    retina.media = "(max-width:479px) and (min-resolution:2.5dppx)";
+    retina.srcset = base + "-1440.webp";
+    const phone = el("source");
+    phone.media = "(max-width:479px)";
+    phone.srcset = base + "-960.webp";
     const img = decorativeImage(src, "tableau", eager);
-    img.width = 720;
-    img.height = 240;
-    n.append(img);
+    img.width = 2172;
+    img.height = 724;
+    picture.append(retina, phone, img);
+    n.append(picture);
   } else {
     n.append(ritualIllustration("wedding"));
   }
@@ -988,6 +1008,12 @@ function scene(node, d, eager = false, kind = "opening") {
     scenery.append(seal);
   }
   node.append(scenery, ceremony(d, eager, kind));
+  if (kind !== "opening") {
+    const canopy = decorativeImage("assets/scene-canopy.webp", "scene-canopy");
+    canopy.width = 2172;
+    canopy.height = 724;
+    node.append(canopy);
+  }
   if (kind === "opening") {
     const lamps = el("div", "lamps");
     lamps.setAttribute("aria-hidden", "true");
@@ -1012,6 +1038,16 @@ function section(id, title, kicker) {
   if (title) w.append(el("h2", "", title));
   s.append(w);
   if (!["hero", "footer"].includes(id)) {
+    if (id !== "countdown") {
+      const mural = el("div", "temple-mural");
+      mural.setAttribute("aria-hidden", "true");
+      mural.classList.add(
+        ["couple", "gallery", "venue", "rsvp"].includes(id)
+          ? "mural-gateway"
+          : "mural-courtyard",
+      );
+      s.append(mural);
+    }
     const rule = ornament();
     rule.classList.add("section-rule");
     s.append(rule);
@@ -1399,7 +1435,9 @@ function carvedVideoFrame() {
 }
 function initializeSceneMotion(root) {
   const scenes = [
-      ...root.querySelectorAll(".hero,.footer,.ritual-trail,.gallery-collage"),
+      ...root.querySelectorAll(
+        ".hero,.footer,.ritual-trail,.gallery-collage,.chapter-flow .section",
+      ),
     ],
     visible = new Set();
   let frame = 0;
@@ -1412,6 +1450,12 @@ function initializeSceneMotion(root) {
         n.style.setProperty(
           "--scene-y",
           (reduced.matches ? 0 : Math.max(-25, Math.min(45, -r.top * 0.055))) +
+            "px",
+        );
+      if (n.querySelector(":scope > .temple-mural"))
+        n.style.setProperty(
+          "--mural-y",
+          (reduced.matches ? 0 : Math.max(-32, Math.min(32, -r.top * 0.06))) +
             "px",
         );
       if (n.matches(".ritual-trail")) {

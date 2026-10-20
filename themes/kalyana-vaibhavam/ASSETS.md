@@ -1,5 +1,49 @@
 # Kalyana Vaibhavam — assets and exact generation prompts
 
+## Current delivery — clarity and temple artwork revision
+
+The user's latest request prioritizes full, sharp imagery over the initial basic-template image budget. The old 640–720px ceremony exports and 200% zoom rules are replaced. All three ceremony paintings preserve their complete 3:1 source composition; phones use explicit density-aware picture sources (960px at standard density, 1440px at high density), with native 2172px art on larger screens. RGB quality is 90 and original alpha is preserved. No artificial sharpening or detail-upscaling is applied. Gallery photos display their complete source ratios without zoom crops.
+
+New original canopy artwork appears only on the main hero and closing, as explicitly requested in this revision. Intermediate sections use original etched temple SVGs, with low-opacity scroll-dependent displacement. A new painted countdown pavilion has independently composed portrait and landscape images; the live clock remains HTML.
+
+### New built-in imagegen prompts
+
+#### canopy
+
+Use case: illustration-story. Asset: original premium South Indian wedding foreground canopy on REAL TRANSPARENT ALPHA, wide 3:1. Lush natural banana and mango leaves sweep inward from both upper corners, realistic veins and gracefully bent stems. Hand-strung ivory jasmine buds and dense saffron marigold clusters hang at the outer quarters, two small antique brass hanging oil lamps with delicate chains. Rich commissioned botanical gouache, lifelike petals and individually drawn buds, exquisite detail and natural warm light, no flat clipart or plastic render. Keep the middle 45 percent nearly empty below the uppermost 10 percent so live names/Ganesha beneath have breathing space. Decoration concentrated at the upper edge and side corners, irregular organic silhouettes, ends entirely visible. A few tiny ruby rose buds. No people, architecture, text, lettering, buttons, logos or watermark. Genuine transparent alpha throughout empty areas, no checkerboard, no opaque color rectangle. Whole artwork visible and sharp.
+
+#### clockPhone
+
+Use case: illustration-story. Original ornate temple pavilion illustration for a premium South Indian wedding countdown, portrait 4:5 composition, text-free. A finely carved antique gold and sandalwood mandapam with elegant narrow carved pillars at both sides, intricate lotus/palmette capitals and a shallow scalloped arch above. Small jasmine and orange marigold garlands dress the outer edges. Lower foreground has broad polished temple steps, two small glowing brass deepam lamps and soft pink lotuses at the bottom corners. The central architectural opening is a completely QUIET pale luminous ivory silk wall with subtle paper texture, covering x=20 to80 percent and y=28 to73 percent, blank and uniform for a live 2x2 clock. No deities, no people, no statues in the central opening. Exquisite high-resolution hand painted architectural wedding art, warm gold and sage green, elegant believable architectural proportions, subdued highlights and deep carved detail. Entire pavilion and both sides fully visible, no cut-off columns. No text, no numbers, no frames containing words, no watermark. Opaque background warm cream, 4:5 portrait.
+
+#### clockDesktop
+
+Use case: illustration-story. Original ornate temple mandapam illustration for a premium South Indian wedding countdown, wide 16:9 composition. Symmetrical finely carved antique gold and sandalwood pavilion, elegant slender sculpted pillars at left 10 percent and right 90 percent, intricate lotus/palmette capitals and broad low scalloped arch. A restrained jasmine and saffron marigold swag drapes the top edge. Polished temple steps across the lower fifth, two small brass deepam lamps and pink lotus bowls at far bottom corners. The very large central opening is an entirely QUIET pale luminous ivory silk wall, covering x=19 to81 percent and y=28 to68 percent, almost uniform and blank for four live clock numbers on one row. No deities, no people, no figures or painted text. Precise high resolution hand-painted invitation architecture, believable proportions, sophisticated warm natural light, fine engraved gold and sage accents, not a flat vector icon or plastic game render. Full pavilion visible without any cut-off edges. No writing, numbers, buttons, logo or watermark. Opaque warm cream background, wide 16:9.
+
+### Current exports (supersede all historical export settings below)
+
+| Delivery | Original source | Current export |
+| --- | --- | --- |
+| assets/scene-canopy.webp | exec-a3f61af6-da54-408c-9dc7-8abc28fd1d2a.png | 2172×724, quality 88, original alpha |
+| assets/countdown-phone.webp | exec-b4a003ec-2496-4192-a693-a9bbaec4a93c.png | 1122×1402, quality 88 |
+| assets/countdown-desktop.webp | exec-b8b77f02-6b56-461d-a028-c666cc40bf3f.png | 1672×941, quality 88 |
+| assets/kalyanam.webp | exec-75ea963e-57b6-497f-b6ac-8fee1960db20.png | 2172×724, quality 90; 960/1440px picture variants |
+| assets/paanigrahanam.webp | exec-a313ca52-fc11-4697-bd37-3a9600a99afa.png | 2172×724, quality 90; 960/1440px picture variants |
+| assets/sacred-fire.webp | exec-f39b691b-2273-48e7-a5b6-2532e9dd5d44.png | 2172×724, quality 90; 960/1440px picture variants |
+| assets/palace-phone.webp | original phone scene recorded below | 941×1672, quality 88 |
+| assets/palace-desktop.webp | original landscape scene recorded below | 1672×941, quality 88 |
+| assets/rituals.webp | original ritual atlas recorded below | 2172×724, quality 88 |
+| assets/couple.webp; assets/vows.webp; assets/evening.webp | original fictional-photo sources recorded below | 1536×1024, quality 90 |
+| assets/portrait-frame.webp | original gold-niche source recorded below | 1000×1333, quality 90 |
+| assets/groom.webp; assets/bride.webp | original fictional couple photo, recorded crop boxes | Native 530×960 / 500×935, quality 92 |
+| assets/gopuram-etching.svg; assets/temple-courtyard.svg | original authored SVG paths | Resolution-independent temple/gateway/tank architectural art |
+
+`qa/prepare-assets.py` is the reproducible current export source of truth. All generated originals remain untouched in the original generated-images directory recorded below. The higher-quality exports exceed the legacy 450KB image /150KB first-screen limits; this user-directed exception is explicit in DESIGN.md and weight-report.txt. Lazy loading and picture-source selection avoid requesting all variants. Earlier notes, lower-quality settings, removed assets and earlier canopy restrictions below are historical provenance, not current implementation.
+
+## Historical prompts and iteration notes
+
+
+
 ## Revision — separate narrative scenes and continuous vector margins
 
 The repeated corner canopy was removed from every scrolling section. The opening retains its original welcome artwork once; the main hero now uses a newly generated panoramic hand-taking ceremony, while the closing uses a separate seated sacred-fire ceremony. These are different source compositions, not crops or recolors of the opening. Two original author-drawn SVG margins continue across the entire page. Dividers, engraved countdown/video borders, botanical timeline sprigs, faint seals and floor geometry are authored vectors. The detailed painted ritual atlas is retained; simple vector bowls were visually rejected for the main event illustrations.

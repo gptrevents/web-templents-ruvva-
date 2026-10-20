@@ -8,3 +8,8 @@ PASS 390: birthday name fits the ceremonial name field, Telugu and two long name
 PASS 820: birthday name fits the ceremonial name field, Telugu and two long names wrap without overflow.
 PASS 1440: birthday name fits the ceremonial name field, Telugu and two long names wrap without overflow.
 PASS 2560: birthday name fits the ceremonial name field, Telugu and two long names wrap without overflow.
+PASS 320: birthday name fits the ceremonial name field, Telugu and two long names wrap without overflow.
+PASS 390: birthday name fits the ceremonial name field, Telugu and two long names wrap without overflow.
+PASS 820: birthday name fits the ceremonial name field, Telugu and two long names wrap without overflow.
+PASS 1440: birthday name fits the ceremonial name field, Telugu and two long names wrap without overflow.
+PASS 2560: birthday name fits the ceremonial name field, Telugu and two long names wrap without overflow.
