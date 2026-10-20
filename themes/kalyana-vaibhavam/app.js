@@ -399,6 +399,9 @@ function buildCountdown(d, c, ctx) {
   if (!target || isNaN(target)) return null;
   const s = section("countdown", c.countdownTitle);
   const row = el("div", "carved-count");
+  const carving = ornamentalFrame("count");
+  carving.classList.add("count-engraving");
+  row.append(carving);
   const digits = ["days", "hours", "minutes", "seconds"].map((k) => {
     const unit = el("div", "count-unit");
     const n = el("span", "digit", "00");
@@ -893,12 +896,12 @@ function initializeWheelScroll() {
 
 // All SVG instructions below are authored geometry; no JSON enters SVG markup.
 function ornament() {
-  const s = svg(
-    '<path d="M0 25h78m84 0h78M81 25c12-22 28-22 39 0-11 18-27 18-39 0Zm39 0c11-22 27-22 39 0-12 18-28 18-39 0Z"/><path d="M98 25q22-44 44 0-22 30-44 0Zm22-21v42M80 25q14-6 16 0m48 0q5-6 17 0M40 22l4 3-4 3m160-6-4 3 4 3M56 25q8-13 17 0-9 13-17 0Zm111 0q8-13 17 0-9 13-17 0Z"/><path d="m113 6 7-5 7 5-7 7Z" fill="currentColor" fill-opacity=".3"/>',
-    "0 0 240 50",
+  const n = svg(
+    '<path d="M1 35h50m198 0h50M54 35c22-18 31-9 20-2-11 8-17-7-7-13 15-9 24 10 34 15m145 0c-22-18-31-9-20-2 11 8 17-7 7-13-15-9-24 10-34 15M80 35q25 20 48 0m92 0q-25 20-48 0"/><path d="M150 43c-17-13-15-32 0-42 15 10 17 29 0 42Zm0 0c-28-2-41-16-36-31 18-1 29 11 36 31Zm0 0c28-2 41-16 36-31-18-1-29 11-36 31Zm-2 0c-29 9-47-2-48-17 19-6 37 2 48 17Zm4 0c29 9 47-2 48-17-19-6-37 2-48 17ZM130 49h40m-30 5h20M11 32l3 3-3 3m278-6-3 3 3 3"/><g fill="currentColor" stroke="none"><circle cx="39" cy="35" r="2"/><circle cx="261" cy="35" r="2"/><circle cx="93" cy="35" r="2"/><circle cx="207" cy="35" r="2"/></g>',
+    "0 0 300 60",
   );
-  s.classList.add("ornament");
-  return s;
+  n.classList.add("ornament");
+  return n;
 }
 function lotus() {
   const s = svg(
@@ -956,46 +959,41 @@ function decorativeImage(src, cls, eager = false) {
   n.decoding = "async";
   return n;
 }
-function corners(s) {
-  const frame = el("div", "section-art");
-  frame.setAttribute("aria-hidden", "true");
-  for (let i = 0; i < 2; i++) {
-    const img = decorativeImage(
-      "assets/banana-corner.webp",
-      "banana-corner corner-" + i,
-    );
-    img.width = 320;
-    img.height = 427;
-    frame.append(img);
-  }
-  const water = mandala();
-  water.classList.add("watermark");
-  frame.append(water);
-  s.append(frame);
-}
-function ceremony(d, eager = false) {
+function ceremony(d, eager = false, kind = "opening") {
   const n = el("div", "ceremony-art");
   n.setAttribute("aria-hidden", "true");
   if (d.faithId === "hindu") {
-    const img = decorativeImage("assets/kalyanam.webp", "tableau", eager);
+    const src =
+      kind === "hero"
+        ? "assets/paanigrahanam.webp"
+        : kind === "closing"
+          ? "assets/sacred-fire.webp"
+          : "assets/kalyanam.webp";
+    const img = decorativeImage(src, "tableau", eager);
     img.width = 720;
     img.height = 240;
     n.append(img);
   } else {
-    const a = el("div", "neutral-mandap");
-    n.append(a);
+    n.append(ritualIllustration("wedding"));
   }
   return n;
 }
-function scene(node, d, eager = false) {
+function scene(node, d, eager = false, kind = "opening") {
   const scenery = el("div", "palace-scene");
   scenery.setAttribute("aria-hidden", "true");
-  node.append(scenery);
-  node.append(ceremony(d, eager));
-  const lamps = el("div", "lamps");
-  lamps.setAttribute("aria-hidden", "true");
-  add(lamps, hangingLamp(), hangingLamp());
-  node.append(lamps);
+  if (kind !== "opening") {
+    scenery.append(architecturalStage(kind));
+    const seal = mandala();
+    seal.classList.add("scene-seal", kind + "-seal");
+    scenery.append(seal);
+  }
+  node.append(scenery, ceremony(d, eager, kind));
+  if (kind === "opening") {
+    const lamps = el("div", "lamps");
+    lamps.setAttribute("aria-hidden", "true");
+    add(lamps, hangingLamp(), hangingLamp());
+    node.append(lamps);
+  }
 }
 function faithMark(d) {
   return d.faithId === "hindu"
@@ -1014,7 +1012,6 @@ function section(id, title, kicker) {
   if (title) w.append(el("h2", "", title));
   s.append(w);
   if (!["hero", "footer"].includes(id)) {
-    corners(s);
     const rule = ornament();
     rule.classList.add("section-rule");
     s.append(rule);
@@ -1045,6 +1042,10 @@ function renderInvitation(root, d, ctx) {
   content.hidden = true;
   content.inert = true;
   root.append(content);
+  const flow = el("div", "chapter-flow");
+  const edge = el("div", "continuous-border");
+  edge.setAttribute("aria-hidden", "true");
+  content.append(edge, flow);
   [
     buildEnvelope,
     buildHero,
@@ -1061,7 +1062,13 @@ function renderInvitation(root, d, ctx) {
     buildFloating,
   ].forEach((fn) => {
     const n = fn(d, COPY.en, ctx);
-    if (n) (n.classList.contains("opening") ? root : content).append(n);
+    if (n) {
+      if (n.classList.contains("opening")) root.append(n);
+      else if (n.id === "hero") content.insertBefore(n, flow);
+      else if (n.id === "footer" || n.classList.contains("floating"))
+        content.append(n);
+      else flow.append(n);
+    }
   });
   const io = new IntersectionObserver(
     (es) =>
@@ -1147,7 +1154,7 @@ function buildEnvelope(d, c, ctx) {
 function buildHero(d, c, ctx) {
   const s = section("hero");
   s.tabIndex = -1;
-  scene(s, d);
+  scene(s, d, false, "hero");
   const w = s.firstChild;
   add(
     w,
@@ -1348,7 +1355,7 @@ function buildGallery(d, c) {
 }
 function buildFooter(d, c, ctx) {
   const s = section("footer");
-  scene(s, d);
+  scene(s, d, false, "closing");
   const w = s.firstChild;
   add(
     w,
@@ -1386,35 +1393,8 @@ function buildFooter(d, c, ctx) {
   return s;
 }
 function carvedVideoFrame() {
-  const n = svg(
-    '<rect x="8" y="8" width="984" height="634" rx="5" fill="#d39533"/><rect x="20" y="20" width="960" height="610" rx="2" fill="#f8d77e"/><rect x="33" y="33" width="934" height="584" fill="#b07921"/><rect x="50" y="50" width="900" height="550" fill="none" stroke="#fbe1a1" stroke-width="8"/><path d="M94 50v550m812-550v550M50 90h900M50 558h900" stroke="#8c5113" stroke-width="3"/>',
-    "0 0 1000 650",
-  );
-  for (const x of [65, 935])
-    for (let y = 112; y < 550; y += 66) {
-      const a = lotus();
-      a.setAttribute("x", String(x - 24));
-      a.setAttribute("y", String(y));
-      a.setAttribute("width", "48");
-      a.setAttribute("height", "52");
-      n.append(a);
-    }
-  for (let x = 120; x < 900; x += 67) {
-    const a = ornament();
-    a.setAttribute("x", String(x - 30));
-    a.setAttribute("y", "30");
-    a.setAttribute("width", "60");
-    a.setAttribute("height", "50");
-    n.append(a);
-    const b = lotus();
-    b.setAttribute("x", String(x - 20));
-    b.setAttribute("y", "570");
-    b.setAttribute("width", "40");
-    b.setAttribute("height", "40");
-    n.append(b);
-  }
+  const n = ornamentalFrame("video");
   n.classList.add("video-carving");
-  n.setAttribute("preserveAspectRatio", "none");
   return n;
 }
 function initializeSceneMotion(root) {
@@ -1447,10 +1427,7 @@ function initializeSceneMotion(root) {
           const svgRoot = n.querySelector(".ritual-vine");
           for (let i = 1; i < vineSprigCount(n); i++) {
             const t = path.getPointAtLength((len * i) / vineSprigCount(n));
-            const sprig = svg(
-              '<path class="vine-leaf" d="M0 0C-35-35-70-30-70-10c25 3 50 0 70 10ZM0 0c35-35 70-30 70-10-25 3-50 0-70 10Z"/><path class="vine-petal" d="M0 0C-22-25-28-55-10-60 7-55 12-30 0 0ZM0 0C22-25 28-55 10-60-7-55-12-30 0 0ZM0 0C-32 4-46-13-35-24c17-6 30 4 35 24Zm0 0c32 4 46-13 35-24-17-6-30 4-35 24Z"/><circle cy="-12" r="8" fill="#b67927"/>',
-              "-85 -75 170 105",
-            );
+            const sprig = botanicalSprig();
             sprig.classList.add("vine-botanical");
             sprig.setAttribute("x", String(t.x - 85));
             sprig.setAttribute("y", String(t.y - 48));
@@ -1488,4 +1465,119 @@ function initializeSceneMotion(root) {
 
 function vineSprigCount(n) {
   return Math.max(4, n.querySelectorAll(".event-card").length * 3);
+}
+
+// Original vector ornament library. All paths below are authored art, not JSON markup.
+function botanicalSprig() {
+  return svg(
+    '<g fill="none" stroke="#a8782c" stroke-width="1.1"><path d="M-76 13C-38 7-26-5 0-23 22-6 44 9 77 13M0-23v-24"/><g fill="#d7ad6840"><path d="M-49 7c-23-4-29-18-24-25 18 1 25 11 24 25Zm15-9c-25-4-29-19-23-25 17 2 25 12 23 25Zm14-10c-18-9-20-23-13-27 14 5 18 15 13 27Zm69 19c23-4 29-18 24-25-18 1-25 11-24 25ZM34-2c25-4 29-19 23-25-17 2-25 12-23 25ZM20-12c18-9 20-23 13-27-14 5-18 15-13 27Z"/></g><g fill="#f3cf86"><path d="M0-28c-10-9-12-22 0-31 12 9 10 22 0 31Zm0 0c-18-1-29-11-26-22 14-1 22 8 26 22Zm0 0c18-1 29-11 26-22-14-1-22 8-26 22Z"/></g><circle cy="-29" r="3" fill="#9d6927"/></g>',
+    "-85 -75 170 105",
+  );
+}
+function architecturalStage(kind) {
+  const n = svg("", "0 0 1600 1000");
+  const base = svg(
+    '<path d="M0 910h1600v90H0Z" fill="#d9b16c"/><path d="M0 910h1600v12H0m0 38h1600v9H0m0 23h1600" stroke="#a97a36" fill="none"/><path d="M50 895h1500v15H50m80-14h1340v-14H130" fill="#e8c88c" stroke="#b78d47"/>',
+    "0 0 1600 1000",
+  );
+  while (base.firstChild) n.append(base.firstChild);
+  n.classList.add("architectural-stage");
+  n.setAttribute("preserveAspectRatio", "none");
+  return n;
+}
+function ornamentalFrame(kind) {
+  const n = svg(
+    '<defs><linearGradient id="carved-metal"><stop stop-color="#936126"/><stop offset=".23" stop-color="#e5bd68"/><stop offset=".5" stop-color="#ffecaf"/><stop offset=".75" stop-color="#d9a94e"/><stop offset="1" stop-color="#9f6723"/></linearGradient></defs><path class="frame-metal" fill-rule="evenodd" d="M8 8H992V642H8ZM80 68V582H920V68Z"/><path d="M15 15H985V635H15ZM27 27H973V623H27ZM63 52H937V598H63ZM74 62H926V588H74Z" fill="none" stroke="#8f6029" stroke-width="2"/><path d="M31 32H969V618H31ZM57 49H943V602H57Z" fill="none" stroke="#fff0b1" stroke-width="3"/>',
+    "0 0 1000 650",
+  );
+  const id = "carved-metal-" + ++goldSerial;
+  n.querySelector("linearGradient").id = id;
+  n.querySelector(".frame-metal").setAttribute("fill", "url(#" + id + ")");
+  for (const [x, y, r] of [
+    [16, 16, 0],
+    [984, 16, 90],
+    [984, 634, 180],
+    [16, 634, 270],
+  ]) {
+    const c = svg(
+      '<path d="M0 76C3 43 26 41 34 62c9 22-14 24-17 11-3-11 11-13 14-5M76 0C43 3 41 26 62 34c22 9 24-14 11-17-11-3-13 11-5 14M7 7c12 30 28 46 56 56M12 12c31-4 51 11 51 51-40 0-55-20-51-51Z" fill="#eed08b" stroke="#99642b" stroke-width="1.5"/><path d="M17 17c12 1 28 10 40 38M24 26l19 4m-12 6 4 14M39 37l13 3" fill="none" stroke="#bc8e41"/>',
+      "0 0 84 84",
+    );
+    c.setAttribute("width", "84");
+    c.setAttribute("height", "84");
+    const group = document.createElementNS("http://www.w3.org/2000/svg", "g");
+    group.setAttribute("transform", `translate(${x} ${y}) rotate(${r})`);
+    group.append(c);
+    n.append(group);
+  }
+  for (let x = 114; x < 900; x += 48)
+    for (const y of [22, 600]) {
+      const leaf = botanicalSprig();
+      leaf.setAttribute("x", String(x));
+      leaf.setAttribute("y", String(y));
+      leaf.setAttribute("width", "48");
+      leaf.setAttribute("height", "30");
+      n.append(leaf);
+    }
+  for (let y = 104; y < 560; y += 48)
+    for (const x of [24, 950]) {
+      const flower = lotus();
+      flower.setAttribute("x", String(x));
+      flower.setAttribute("y", String(y));
+      flower.setAttribute("width", "26");
+      flower.setAttribute("height", "27");
+      n.append(flower);
+    }
+  if (kind === "count") n.classList.add("plaque-art");
+  n.setAttribute("preserveAspectRatio", "none");
+  n.setAttribute("aria-hidden", "true");
+  return n;
+}
+function ritualIllustration(key) {
+  const n = svg("", "0 0 400 300");
+  const id = "ritual-gold-" + ++goldSerial;
+  const defs = svg(
+    '<defs><linearGradient id="ritual-gold"><stop stop-color="#936126"/><stop offset=".24" stop-color="#d7a74e"/><stop offset=".45" stop-color="#ffde8e"/><stop offset=".7" stop-color="#c99741"/><stop offset="1" stop-color="#8f5c20"/></linearGradient></defs>',
+    "0 0 400 300",
+  );
+  defs.querySelector("linearGradient").id = id;
+  n.append(defs.firstChild);
+  const body =
+    key === "haldi" || key === "mehendi"
+      ? '<g fill="#426933" stroke="#294d24" stroke-width="1.5"><path d="M105 218C38 186 14 111 41 53c63 20 102 72 64 165Z"/><path d="M117 212C71 145 92 71 139 30c48 55 55 111-22 182Z"/><path d="M282 216c-10-76 21-135 86-150 17 64-14 119-86 150Z"/></g><path d="M105 218 41 53m76 159 22-182m143 186 86-150" fill="none" stroke="#a4b56c" stroke-width="2"/><ellipse cx="200" cy="251" rx="153" ry="15" fill="#a7742822"/><path class="bowl-metal" d="M88 170c1 72 52 91 112 91s111-19 112-91l-13-10H101Z" stroke="#85531d" stroke-width="2"/><ellipse cx="200" cy="171" rx="113" ry="34" fill="#ab772c" stroke="#f0d187" stroke-width="5"/><path class="powder" d="M104 169c10-4 15-34 39-40 12-17 26-20 41-43 10-16 22-11 31 4 25 9 28 37 48 42 21 3 29 25 34 37-28 20-162 23-193 0Z" fill="#eeb835" stroke="#cc921b" stroke-width="2"/><path d="M116 201q84 46 168 0m-159 13q75 43 150 0M136 233q64 30 128 0" fill="none" stroke="#f7da89" stroke-width="2"/><g fill="#f1be34" stroke="#c78b20"><path d="M66 250c-30-16-23-43 6-41 27-18 42 7 23 24 8 28-18 39-29 17ZM310 247c-23-20-13-39 10-32 22-12 43 9 23 26 0 25-23 28-33 6Z"/></g>'
+      : '<ellipse cx="200" cy="277" rx="170" ry="14" fill="#a7742822"/><path class="bowl-metal" d="M25 270h350v14H25Zm18-17h314v17H43ZM58 86h30v165H58Zm254 0h30v165h-30ZM45 70h310v22H45Zm19-20h272v20H64Z" stroke="#93632c" stroke-width="2"/><path d="M68 97v141m9-141v141m245-141v141m9-141v141" stroke="#fff0b4" stroke-width="3"/><path d="M64 50c40 6 59-13 80-19 25-8 33-12 56-25 23 13 31 17 56 25 21 6 40 25 80 19" fill="#e4c079" stroke="#a57734" stroke-width="3"/><path d="M89 90q30 55 58 0 26 55 53 0 27 55 53 0 28 55 58 0" fill="none" stroke="#4b7436" stroke-width="9"/><path d="M89 93q30 55 58 0 26 55 53 0 27 55 53 0 28 55 58 0" fill="none" stroke="#f5dfab" stroke-width="4" stroke-dasharray="3 5"/><path class="bowl-metal" d="M147 253h106v-22H147Zm10-22h86v-10h-86Z" stroke="#94612a"/><path d="M178 221c-13-23 13-25 17-47 25 17 9 23 22 32 8-20 13-24 14-32 16 31 0 50-24 51Z" fill="#eaa82e"/><path d="M193 220q-12-14 9-25 14 10 7 25" fill="#fff1ae"/>';
+  const art = svg(body, "0 0 400 300");
+  while (art.firstChild) n.append(art.firstChild);
+  n.querySelectorAll(".bowl-metal").forEach((e) =>
+    e.setAttribute("fill", "url(#" + id + ")"),
+  );
+  if (key === "mehendi") {
+    const powder = n.querySelector(".powder");
+    powder.setAttribute("fill", "#63813a");
+    powder.setAttribute("stroke", "#3e5c29");
+    powder.setAttribute("d", "M105 168c12-37 171-42 190 0-30 24-160 24-190 0Z");
+  }
+  const xs =
+    key === "haldi" || key === "mehendi"
+      ? [70, 102, 285, 326]
+      : [45, 95, 145, 200, 255, 305, 353];
+  xs.forEach((x, i) => {
+    const flower = svg(
+      '<g fill="#d99c28" stroke="#c48a23" stroke-width=".7"><path d="M0-11c-13-14-20 5-9 9-15 6-2 20 6 10 4 15 20 5 13-6 15-4 4-19-7-10Z"/><circle r="4" fill="#fff3cc"/></g>',
+      "-20 -20 40 40",
+    );
+    flower.setAttribute("x", String(x - 13));
+    flower.setAttribute(
+      "y",
+      String(
+        (key === "haldi" || key === "mehendi" ? 235 : 85 + (i % 2) * 16) - 13,
+      ),
+    );
+    flower.setAttribute("width", "26");
+    flower.setAttribute("height", "26");
+    n.append(flower);
+  });
+  n.classList.add("ritual-object", "ritual-svg");
+  n.setAttribute("aria-hidden", "true");
+  return n;
 }

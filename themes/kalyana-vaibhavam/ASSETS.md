@@ -1,6 +1,21 @@
 # Kalyana Vaibhavam — assets and exact generation prompts
 
-Nine original assets were generated with the built-in imagegen tool. The user's three attached mockups supplied composition and ornament direction for the architectural backgrounds; their photographs, names, embedded text and buttons are not delivered. The couple is fictional. The later couple photographs use our first generated fictional couple as an identity reference. Devotional figures are a newly generated painted composition, shown only for Hindu fixtures. All visible names, dates, addresses and controls remain live HTML.
+## Revision — separate narrative scenes and continuous vector margins
+
+The repeated corner canopy was removed from every scrolling section. The opening retains its original welcome artwork once; the main hero now uses a newly generated panoramic hand-taking ceremony, while the closing uses a separate seated sacred-fire ceremony. These are different source compositions, not crops or recolors of the opening. Two original author-drawn SVG margins continue across the entire page. Dividers, engraved countdown/video borders, botanical timeline sprigs, faint seals and floor geometry are authored vectors. The detailed painted ritual atlas is retained; simple vector bowls were visually rejected for the main event illustrations.
+
+### hero — exact built-in imagegen prompt
+
+Use case: illustration-story. Create an original richly detailed South Indian devotional wedding illustration on REAL TRANSPARENT ALPHA, wide 3:1 landscape composition. The Paanigrahanam of Rama and Sita: Rama blue skin wearing golden crown and yellow silk, Sita in red Kanjivaram and fine gold jewelry, both STANDING at center gently holding joined hands over a small ceremonial brass vessel; sage Vishwamitra and King Janaka on the left, Lakshmana and a few respectful royal attendants to right, kneeling Hanuman at far left. Full figures from crown to bare feet, respectful clear faces, traditional Indian devotional painting with fine jewel-like detail, warm ochre and vermilion, lifelike graceful anatomy, realistic hands. Composition is a symmetrical panoramic royal court with MANY smaller attendants, distinctly NOT a garland-exchange pose and NOT seated fire ritual. Flowers and tiny brass lamps at their feet, no grand background architecture, no banana leaves, no hanging garlands or upper canopy, no text. Isolated figures and floor flowers only, keep outer 4 percent clear so nobody is clipped. Soft precise handpainted shading, no flat vector icons, no photograph, no border. Transparent background.
+
+### closing — exact built-in imagegen prompt
+
+Use case: illustration-story. Create an original detailed devotional wedding painting on REAL TRANSPARENT ALPHA, wide 3:1 landscape. Sita–Rama sacred fire wedding ritual. Rama, blue skin, gold crown and yellow silk, and Sita, red silk sari, SEATED together on low ceremonial cushions behind a small sacred fire at center foreground, both gracefully offering flower petals toward the flame. Elder sage officiates at right, Lakshmana stands at far right, two royal women on left, Hanuman KNEELS with folded hands at far left. Beautiful traditional South Indian devotional painting, believable anatomy and respectful expressive faces, fine gold embroidery, jeweled crowns, tiny jasmine flowers and brass vessels arranged on the floor. Entire crowns, feet, and figures visible, all isolated as ONE clean broad group on genuine transparent alpha, no architecture, trees, banana leaves, upper garlands, text or frame. Different scene from standing garland exchange or hand-taking: this is a peaceful SEATED sacred fire ceremony. Warm rich vermilion, saffron, peacock green and deep natural gold detail. Precise hand-painted devotional illustration with elegant natural shading. No checkerboard or opaque background, keep 4 percent clearance around group.
+
+New delivery: `assets/paanigrahanam.webp` from `exec-a313ca52-fc11-4697-bd37-3a9600a99afa.png`, and `assets/sacred-fire.webp` from `exec-f39b691b-2273-48e7-a5b6-2532e9dd5d44.png`, both 640×213, quality 48. Their alpha edge channel is quantized to sixteen levels to reduce noisy transparency cost while preserving the original RGB artwork; real transparency is asserted. `assets/edge-vine.svg` is original vector path art. Generated originals remain untouched in the original directory. The obsolete banana corner delivery was removed; its historical prompt above is retained for provenance. Ritual atlas now exports 560×187 at quality 46; repository silhouette fixtures are optimized thumbnails, at most 120×160, quality 45. Main couple photographs, portrait frame and opening art retain their previous quality. See `qa/prepare-assets.py` for reproducible derivative settings.
+
+
+Eleven original assets were generated across the initial build and revision with the built-in imagegen tool. The user's three attached mockups supplied composition and ornament direction for the architectural backgrounds; their photographs, names, embedded text and buttons are not delivered. The couple is fictional. The later couple photographs use our first generated fictional couple as an identity reference. Devotional figures are a newly generated painted composition, shown only for Hindu fixtures. All visible names, dates, addresses and controls remain live HTML.
 
 ## phone
 
@@ -48,14 +63,14 @@ Generated originals are preserved locally at `/Users/raghuram/.codex/generated_i
 | assets/palace-desktop.webp | exec-268c4b63-88b7-4720-8dfd-7ecda4689501.png | 1151×648, quality 45; desktop only |
 | assets/kalyanam.webp | exec-75ea963e-57b6-497f-b6ac-8fee1960db20.png | 720×240, quality 50; real alpha |
 | assets/portrait-frame.webp | exec-ada08afd-6aa1-47e0-a700-bb92db8ff5aa.png | 330×440, quality 52; real alpha including opening |
-| assets/rituals.webp | exec-3d70d306-66d0-46ca-9589-2e04810f0edc.png | 640×213, quality 54; real alpha, three-part atlas |
-| assets/banana-corner.webp | exec-5213c824-5479-4439-87b4-79b819bbae10.png | 320×427, quality 52; real alpha |
+| assets/rituals.webp | exec-3d70d306-66d0-46ca-9589-2e04810f0edc.png | 560×187, quality 46; real alpha, three-part atlas |
+| Retired banana-corner output (not delivered) | exec-5213c824-5479-4439-87b4-79b819bbae10.png | Replaced by continuous authored vector margins |
 | assets/couple.webp | exec-8787afcf-4309-4785-bcaf-4da352d1c74c.png | 620×413, quality 60 |
 | assets/vows.webp | exec-50962f5c-2c0e-4146-bf39-80fa16405055.png | 620×413, quality 56 |
 | assets/evening.webp | exec-7a688224-30d9-4243-adab-86df71c4ff94.png | 620×413, quality 54 |
 | assets/groom.webp; assets/bride.webp | same original couple photograph | Individual portrait crops, max 250×450, quality 65 |
 | assets/celebration.mp3 | qa/make-music.py | Original 24-second synthesized plucked-string loop; no recording samples |
-| assets/sample/* | supplied shared/sample-assets/* | Repository placeholders and sample drone, used for alternate fixtures |
+| assets/sample/* | supplied shared/sample-assets/* | Repository silhouettes optimized to at most 120×160, quality 45, plus sample drone; alternate fixtures |
 | Inline SVG in app.js | authored project geometry | Ganesha, lamps, lotus, mandala, flowering vine, video carving, event/control icons |
 
 The built-in generated illustrations and fictional photographs were made for this project. No reference website artwork, celebrity photograph, song recording or source code is included. Optimization uses lower quality than the brief's example setting to meet its hard byte budgets; this visibly limits full-screen detail on high-density monitors. The original high-resolution images remain preserved. PNG originals are not charged to runtime budgets because they are not requested or included in the theme.

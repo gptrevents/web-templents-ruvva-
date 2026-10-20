@@ -5,3 +5,5 @@ Corrected landscape art/copy overlap, centered single-name layouts, preserved co
 Telugu virama remains visible; no horizontal clipping in tested views. Desktop has broad stage, paired niches, horizontal countdown, alternating rituals, wide collage/video and split venue.
 Network and motion observations are recorded in experience-report.txt. Keyboard, gallery, RSVP and alternate state reports are separate.
 Chromium was exercised; no physical iOS/Android device or Safari verification was available.
+
+Revision review: three unique paintings (opening garland exchange, hero hand-taking, footer seated fire). Single continuous SVG margin through hero, all middle sections and footer; no repeated banana corners/section canopy. Engraved SVG countdown/video frames and lotus dividers reviewed at phone and desktop. Original painted rituals retained.

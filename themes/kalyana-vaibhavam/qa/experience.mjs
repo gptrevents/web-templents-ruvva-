@@ -21,6 +21,14 @@ try {
     const backdrop =
       width === 390 ? "palace-phone.webp" : "palace-desktop.webp";
     assert.deepEqual([...images].sort(), [backdrop, "kalyanam.webp"].sort());
+    assert.equal(
+      new Set(
+        await p
+          .locator(".tableau")
+          .evaluateAll((ns) => ns.map((n) => n.getAttribute("src"))),
+      ).size,
+      3,
+    );
     assert(await p.evaluate(() => document.body.classList.contains("locked")));
     await p.keyboard.press("Tab");
     assert.equal(
@@ -53,20 +61,20 @@ try {
       await p.evaluate(() => document.body.classList.contains("locked")),
       false,
     );
-    assert.equal(
-      await p
-        .locator("#hero .hanging-lamp")
-        .first()
-        .evaluate((n) => getComputedStyle(n).animationPlayState),
-      "running",
+    assert.equal(await p.locator(".section-art,.banana-corner").count(), 0);
+    assert.equal(await p.locator(".continuous-border").count(), 1);
+    assert.equal(await p.locator(".hanging-lamp").count(), 0);
+    assert.match(
+      await p.locator("#hero .tableau").getAttribute("src"),
+      /paanigrahanam/,
     );
-    assert.equal(
-      await p
-        .locator("#footer .hanging-lamp")
-        .first()
-        .evaluate((n) => getComputedStyle(n).animationPlayState),
-      "paused",
+    assert.match(
+      await p.locator("#footer .tableau").getAttribute("src"),
+      /sacred-fire/,
     );
+    assert.equal(await p.locator('.tableau[src$="kalyanam.webp"]').count(), 0);
+    assert.equal(await p.locator(".chapter-flow .palace-scene").count(), 0);
+    assert.equal(await p.locator(".count-engraving").count(), 1);
     const initial = await p
       .locator("#hero")
       .evaluate((n) => n.style.getPropertyValue("--scene-y"));
@@ -134,7 +142,7 @@ try {
     });
     assert(
       await p
-        .locator(".hanging-lamp")
+        .locator(".rose-petal")
         .evaluateAll((ns) =>
           ns.every((n) => getComputedStyle(n).animationPlayState === "paused"),
         ),
@@ -150,14 +158,14 @@ try {
     assert.equal(await p.locator(".ambient").isVisible(), false);
     assert(
       await p
-        .locator(".hanging-lamp")
+        .locator(".rose-petal")
         .evaluateAll((ns) =>
           ns.every((n) => getComputedStyle(n).animationName === "none"),
         ),
     );
     assert.deepEqual(errors, []);
     notes.push(
-      `PASS ${width}: only matching background and tableau before opening; perspective opening, scroll/focus unlock; independent scene motion; visible-only countdown; flowering five-event vine; unique SVG IDs; viewer touch swipe; fixed controls clear of RSVP; offscreen/hidden/reduced motion; no page errors.`,
+      `PASS ${width}: matching opening background; three distinct ceremony sources; canopy only at opening; one continuous SVG edge; engraved vector frames; perspective opening and scroll/focus unlock; independent scene motion; visible-only countdown; flowering five-event vine; unique SVG IDs; viewer touch swipe; fixed controls clear of RSVP; hidden/reduced motion; no page errors.`,
     );
     await p.close();
   }

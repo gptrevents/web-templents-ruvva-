@@ -1,7 +1,7 @@
 # Kalyana Vaibhavam — A celebration, richly adorned
 
 ## Step 1 — Art direction
-An illuminated wedding scroll comes to life: a richly adorned Sita–Rama wedding tableau, sculpted gold niches, banana groves, jasmine strings and warm vermilion calligraphy accents, faithfully following the user's three supplied compositions.
+An illuminated wedding scroll comes to life: three distinct Sita–Rama ceremony scenes, sculpted gold niches, an opening banana canopy and uninterrupted floral SVG margins, faithfully following the user's three supplied compositions.
 
 This is a new template. Existing designs remain intact. Shared samples and sample assets were copied first. The mockups guide the artwork density, color, scale and section composition; no celebrity photographs are shipped. Names, dates, addresses, controls and forms stay live HTML. New fictional photographs and decorative illustrations were generated with built-in imagegen; ASSETS.md saves every exact prompt and derivative source.
 
@@ -11,13 +11,13 @@ This is a new template. Existing designs remain intact. Shared samples and sampl
 | 2 Type | Cormorant Infant italic/roman for live names/headings, Source Sans 3 for controls/body; Great Vibes only for fixed English decorative flourishes and ampersand. Indic names never use a Latin-only script. |
 | 3 Opening | A gilded invitation panel pivots away in perspective, revealing the living wedding tableau; no doors, velvet, manuscript winding or lamp-light expansion. |
 | 4 Shapes | Sculpted multifoil gold niches, carved temple frames and ornate rectangular picture borders, matching the mockups. |
-| 5 Ornament | Banana boughs, hanging jasmine/marigold strings, brass lamps, engraved lotus vines and Sita–Rama kalyanam illustration. |
-| 6 Hero | Centered live inscription above a broad wedding tableau, with full ornamental side pillars and a luminous paper field. |
+| 5 Ornament | Opening-only banana/jasmine canopy; a single continuous SVG lotus vine at both page edges; three separate Sita–Rama ceremonial paintings. |
+| 6 Hero | Centered live inscription above an original panoramic hand-taking ceremony, with etched lotus seal, continuous margins and a quiet illuminated field. |
 | 7 Couple | Two carved multifoil portrait niches, joined by a central gold lotus. |
 | 8 Countdown | A single engraved ceremonial plaque with four recessed numeral bays, placed between families and celebrations. |
 | 9 Events | Alternating illustrated ritual vignettes on a sinuous flowering gold vine, with open text opposite; no repeated cards or central straight spine. |
 | 10 Gallery | A framed five-tile photographic composition with a tall center and broad outer panels, adapting to all counts; full-screen viewer. |
-| 11 Motion | Gilded panel turn, separately swaying hanging lamps, growing flowering vine, gentle tableau depth and restrained photo drift. |
+| 11 Motion | Gilded panel turn with opening-only lamp sway, growing flowering vine, gentle scene depth and restrained photo drift; static SVG edges never restart between chapters. |
 | 12 Texture | Warm illuminated parchment, carved metal highlights and painted devotional tableau. |
 | 13 Desktop | Broad symmetrical ceremonial stage; paired niches, wide carved countdown, alternating large ritual illustrations and framed photographic composition. |
 
@@ -38,9 +38,9 @@ The explicit new visual request intentionally revisits traditional gold framing 
 Approved with the recorded user-directed palette/shape/paired-niche exception. Do not falsely claim the older <=3-axis test passes against Temple Dawn. The supplied references contain script-style names; an italic book serif preserves elegance while honoring the Indic-safe name-font rule. Fixed English decorative headings may use Great Vibes.
 
 ## Step 3 — Asset maker
-Delivered text-free portrait and landscape illuminated backgrounds, an original Sita–Rama wedding tableau isolated on alpha (shown for Hindu only), a transparent carved gold portrait/video frame, a transparent banana/floral corner, a three-ritual illustration atlas, and original fictional adult couple photographs. A neutral architectural base remains usable without religious figures for other faiths. No text or buttons will be embedded in a bitmap. Geometric icons, Ganesha line art, mandala and flowering timeline are authored SVG. New local synthesized music; no film recording.
+Delivered text-free portrait and landscape illuminated backgrounds, an original Sita–Rama wedding tableau isolated on alpha (shown for Hindu only), a transparent carved gold portrait frame, a three-ritual illustration atlas, and original fictional adult couple photographs. A neutral architectural base remains usable without religious figures for other faiths. No text or buttons will be embedded in a bitmap. Geometric icons, Ganesha line art, mandala and flowering timeline are authored SVG. New local synthesized music; no film recording.
 
-Core scene, tableau, frame, ritual atlas and banana-corner outputs have been visually reviewed: intricate ornament matches the supplied direction, no baked text/buttons, respectful distinct devotional figures, and large empty portrait opening. All transparent outputs passed alpha checks after optimization, including the fully transparent portrait opening. Three consistent fictional couple photographs and individual crops are complete. ASSETS.md records provenance, export quality and font licences.
+Core scene, three tableaux, portrait frame and ritual atlas have been visually reviewed: intricate ornament matches the supplied direction, no baked text/buttons, respectful distinct devotional figures, and large empty portrait opening. All transparent outputs passed alpha checks after optimization, including the fully transparent portrait opening. Three consistent fictional couple photographs and individual crops are complete. ASSETS.md records provenance, export quality and font licences.
 
 ## Step 4 — Builder
 Completed independent CSS and rewritten scene/section builders. Existing engine utilities for safe text insertion, dates/calendar, modal viewing, RSVP and native-document wheel easing are adapted locally; no old theme is imported at runtime. The new visual structure follows the supplied composition rather than re-skinning Sannidhi.
@@ -52,18 +52,18 @@ Ran the required `node tools/shoot.mjs kalyana-vaibhavam` successfully; see `sho
 
 Manual visual review completed for the 390px and 1440px section screenshots, 820px tablet, 844×390 landscape, Telugu opening/couple/footer, long names, birthday, empty data and reduced motion. Telugu virama and name bounds remain visible. Desktop uses a broad ceremonial stage, side-by-side niches, a four-column engraved countdown, alternating illustrated rituals, a three-column collage, a wide video surround, split map/details and paired form fields. Tablet has its own paired niches/four-digit arrangement and scaled reading widths. Landscape uses two independent art/copy regions so artwork does not cover the live names/button. Portrait gallery crops align at the top to preserve faces.
 
-Keyboard traversal and focus ring checks passed. The opening traps focus until it is removed; the viewer restores focus and handles Escape/arrows/swipe. Network checks at 390 and 1440 verified only the matching background and tableau before opening, and no incorrect background after opening. Scene movement, offscreen/hidden/reduced pauses, visible-only countdown and exact 640px wheel distance were exercised. Fixed controls were checked clear of RSVP fields. There were no runtime page errors in these checks. This is Chromium verification; real-device Safari and Android hardware were not available.
+Keyboard traversal and focus ring checks passed. The opening traps focus until it is removed; the viewer restores focus and handles Escape/arrows/swipe. Network checks at 390 and 1440 verified only the matching background and tableau before opening, and no incorrect background after opening. Scene movement, hidden/reduced petal pauses, visible-only countdown and exact 640px wheel distance were exercised. Fixed controls were checked clear of RSVP fields. There were no runtime page errors in these checks. This is Chromium verification; real-device Safari and Android hardware were not available.
 
 ## Runtime weight
 
 | Resource | Actual bytes | Limit bytes |
 | --- | ---: | ---: |
-| Common runtime images, including supplied fixture placeholders | 449,112 | 450,000 |
+| Common runtime images, including supplied fixture placeholders | 445,338 | 450,000 |
 | Desktop-only landscape image | 98,474 | 400,000 |
 | First-screen phone images | 122,798 | 150,000 |
 | First-screen desktop images | 145,742 | 150,000 |
-| app.js gzip | 15,848 | 60,000 |
-| style.css gzip | 10,407 | 25,000 |
+| app.js gzip | 18,119 | 60,000 |
+| style.css gzip | 11,199 | 25,000 |
 
 Three font families; no runtime library. Original synthesized audio is 192,620 bytes and starts only after opening. QA screenshots/previews are not runtime invitation images. Compressed exports trade some high-density full-screen sharpness for the brief's strict image budget; high-resolution originals are retained locally. All SVG marks and dividers remain sharp at every viewport.
 
@@ -76,6 +76,17 @@ Three font families; no runtime library. Original synthesized audio is 192,620 b
 - Main data from the supplied shared fixtures is retained except the main sample names and original local photo/audio paths. Missing photos use safe Unicode monograms within the same carved frame.
 - The optional story/wishes/gifts modules are not enabled by this concept; no backend, API key, paid CDN or external artwork is required.
 - The retained local gallery registers this as the seventh template, in Premium. Existing six themes are unchanged. Minimal gallery metadata/catalog/preview verification updates implement the user's standing request to list every new template on Home.
+
+
+## Revision — user feedback, 20 October 2026
+
+The first iteration incorrectly reused one devotional composition for opening, hero and closing, and repeated a fresh botanical corner canopy at every section boundary. Both are corrected in this revision. Opening keeps the garland-exchange scene only once. Hero uses a newly generated panoramic hand-taking ceremony with royal attendants; footer uses a separately generated seated fire ritual. These are different source paintings, not repeated crops. Non-Hindu fixtures omit all three deity compositions.
+
+A single `continuous-border` element now spans the whole invitation after opening, using one original `edge-vine.svg` on both outer margins. Section builders no longer insert banana corners, hanging strings, watermarks or restarting side borders. The opening canopy disappears with the opening panel. The hero/closing backgrounds use live vector seals and floor geometry without the opening background or toran. The content remains one naturally scrolling document.
+
+Original SVG work replaces the flat CSS countdown bevel and basic video surround with engraved floral frames. The divider has a layered lotus and fine scrollwork; the event vine uses fine botanical sprays. Detailed painted ritual objects and portrait niche artwork stay intact. Simple vector bowls were evaluated and rejected as the main event imagery to avoid losing their painted detail. All ornament remains decorative and pointer-transparent; data and controls stay live.
+
+`qa/experience.mjs` checks three unique devotional source paths before opening, opening-only canopy, exactly one continuous margin, no repeated section art, the new vector engraving, unique SVG IDs and hidden/reduced animation behavior. Existing interaction and edge-case suites were rerun. Main artwork quality is preserved by optimizing supplied silhouette placeholders to at most 120×160, using the ritual atlas at 560×187, and quantizing only the two new paintings' alpha edge channels; originals remain untouched. The full runtime image budget remains below 450,000 bytes. Exact new prompts and export provenance are recorded in ASSETS.md.
 
 ## Section 6 — Completed parity checklist
 

@@ -367,7 +367,7 @@ select:focus-visible {
 .neutral-mandap {
   position: absolute;
   inset: 0;
-  background: url("assets/rituals.webp") 100% 50%/300% 100% no-repeat;
+  background: none;
   width: 240px;
   max-width: 85%;
   margin: auto;
@@ -791,7 +791,7 @@ select:focus-visible {
   position: relative;
   width: 100%;
   aspect-ratio: 1/1;
-  background-image: url("assets/rituals.webp");
+  background-image: none;
   background-repeat: no-repeat;
   background-size: 300% 100%;
   background-position: 0 50%;
@@ -2673,4 +2673,236 @@ html:not([lang="en"]) .event-address {
   .hero .scroll-hint {
     left: 64.5%;
   }
+}
+
+/* A single continuous scroll: the botanical canopy belongs only to the opening. */
+.chapter-flow {
+  position: relative;
+  isolation: isolate;
+}
+.continuous-border {
+  position: absolute;
+  inset: 0;
+  z-index: 6;
+  pointer-events: none;
+}
+.continuous-border:before,
+.continuous-border:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 18px;
+  background: url("assets/edge-vine.svg") top center / 100% auto repeat-y;
+  opacity: 0.82;
+}
+.continuous-border:after {
+  left: auto;
+  right: 0;
+  transform: scaleX(-1);
+}
+.section:before {
+  display: none;
+}
+.chapter-flow .section {
+  background: none;
+}
+.hero .palace-scene,
+.footer .palace-scene {
+  background: radial-gradient(ellipse at 50% 45%, #fff9e4, #fff0c1 70%);
+  mask-image: none;
+  transform: translateY(var(--scene-y, 0px));
+}
+.architectural-stage {
+  width: 100%;
+  height: 100%;
+  color: #b38a43;
+  opacity: 0.65;
+}
+.closing-seal {
+  opacity: 0.2;
+}
+.hero .wrap {
+  padding-top: 64px;
+}
+.hero .ceremony-art {
+  bottom: 35px;
+  height: 270px;
+}
+.hero .tableau {
+  width: 225%;
+  height: auto;
+  max-width: none;
+}
+.footer .ceremony-art {
+  height: 265px;
+  bottom: 23px;
+}
+.footer .tableau {
+  width: 215%;
+  height: auto;
+  max-width: none;
+}
+.hero .scroll-hint {
+  bottom: 7px;
+}
+.ritual-object.ritual-svg {
+  background: none;
+  aspect-ratio: 4 / 3;
+  overflow: visible;
+  height: auto;
+  color: var(--gold);
+}
+.ceremony-art > .ritual-svg {
+  position: absolute;
+  bottom: 0;
+  left: 25%;
+  width: 50%;
+  height: 100%;
+}
+.carved-count {
+  background: #f9e6b5;
+  border: none;
+  box-shadow: none;
+  padding: 30px 22px;
+}
+.carved-count:before,
+.carved-count:after {
+  display: none;
+}
+.count-engraving {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  color: #a57430;
+  pointer-events: none;
+}
+.count-unit {
+  border: none;
+  background: none;
+  position: relative;
+  z-index: 1;
+}
+.count-unit + .count-unit {
+  border-left: 1px solid #ac7d3345;
+}
+.video-shell {
+  padding: 6% 8% 7%;
+}
+.video-carving {
+  filter: none;
+}
+.vine-botanical {
+  opacity: 0.76;
+}
+@media (min-width: 600px) {
+  .continuous-border:before,
+  .continuous-border:after {
+    width: 34px;
+  }
+  .hero .wrap {
+    padding-top: 95px;
+  }
+  .hero .ceremony-art {
+    height: 360px;
+  }
+  .hero .tableau {
+    width: 175%;
+  }
+  .footer .ceremony-art {
+    height: 345px;
+  }
+  .footer .tableau {
+    width: 175%;
+  }
+  .carved-count {
+    padding: 27px 38px;
+  }
+  .video-shell {
+    padding: 58px 75px 64px;
+  }
+}
+@media (min-width: 1024px) {
+  .continuous-border:before,
+  .continuous-border:after {
+    width: 46px;
+  }
+  .hero .wrap {
+    padding-top: 72px;
+  }
+  .hero .ceremony-art {
+    height: 36svh;
+  }
+  .hero .tableau {
+    width: auto;
+    height: 100%;
+    max-width: 94%;
+  }
+  .footer .ceremony-art {
+    height: 340px;
+  }
+  .footer .tableau {
+    width: auto;
+    height: 100%;
+    max-width: 94%;
+  }
+  .video-shell {
+    padding: 62px 82px 70px;
+  }
+}
+@media (max-height: 600px) and (min-width: 600px) {
+  .hero .wrap {
+    padding-top: 24px;
+  }
+  .hero .ceremony-art {
+    width: 34%;
+    height: 190px;
+    bottom: 28px;
+    overflow: hidden;
+  }
+  .hero .tableau {
+    width: auto;
+    height: 100%;
+    max-width: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero .palace-scene,
+  .footer .palace-scene {
+    transform: none;
+  }
+}
+/* Painted ritual objects remain detailed; SVG handles the engraving around them. */
+.ritual-object:not(.ritual-svg) {
+  background-image: url("assets/rituals.webp");
+}
+.architectural-stage {
+  opacity: 0.42;
+}
+/* The same uninterrupted woven margin frames the whole invitation, not each chapter. */
+.page-content {
+  position: relative;
+  isolation: isolate;
+}
+.scene-seal {
+  position: absolute;
+  left: 50%;
+  top: 40px;
+  transform: translateX(-50%);
+  width: min(106%, 940px);
+  height: auto;
+  color: #b1843f;
+  opacity: 0.11;
+}
+.scene-seal.closing-seal {
+  top: 80px;
+  width: min(100%, 700px);
+  opacity: 0.08;
+}
+.hero .palace-scene,
+.footer .palace-scene {
+  background: radial-gradient(ellipse at 50% 45%, #fff9e4, #fff0c1 70%);
 }
