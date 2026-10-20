@@ -2576,6 +2576,31 @@ html:not([lang="en"]) .event-address {
 .chapter-flow .section:nth-of-type(2n) .temple-mural {
   background-position: center 30%;
 }
+/* Middle chapters read like quiet paper, with architecture at the outer margins. */
+.chapter-flow .temple-mural {
+  opacity: 0.16;
+  mask-image:
+    linear-gradient(
+      90deg,
+      #000,
+      #0009 12%,
+      transparent 30%,
+      transparent 70%,
+      #0009 88%,
+      #000
+    ),
+    linear-gradient(transparent, #000 96px, #000 calc(100% - 96px), transparent);
+  mask-composite: intersect;
+}
+.chapter-flow :is(.blessing, .gallery) .temple-mural {
+  opacity: 0.12;
+}
+.chapter-flow :is(.events, .video, .venue) .temple-mural {
+  opacity: 0.09;
+}
+.chapter-flow :is(.live, .rsvp) .temple-mural {
+  opacity: 0.06;
+}
 /* Quiet paper immediately behind copy preserves contrast while the town stays visible. */
 .blessing .wrap,
 .couple .person > :is(h3, .label, .parents),

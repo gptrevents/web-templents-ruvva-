@@ -3,6 +3,6 @@ Desktop opening background: 414132 bytes
 Opening phone background: 349890 bytes
 Opening portrait artwork variant: 121340 bytes (960px, browser selects by density)
 JS gzip: 18510/60000 bytes
-CSS gzip: 11510/25000 bytes
+CSS gzip: 11661/25000 bytes
 QUALITY EXCEPTION: high-resolution complete artwork exceeds the older 450KB image/150KB first-screen limits. The user's latest explicit clarity request takes precedence. No image-budget compliance is claimed. Responsive srcset, tap-only video and lazy loading avoid loading every variant.
 Three font families; allowed Google Fonts CSS.

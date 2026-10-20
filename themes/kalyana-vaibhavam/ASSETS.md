@@ -10,7 +10,7 @@ Original sources under `/Users/raghuram/.codex/generated_images/01a14f05-92a1-7b
 - Landscape: `exec-d8a387ae-bf19-4a3d-ba71-73b36ee9b3ab.png`
 - Temple engraving: `exec-d6939ffd-5094-4917-902d-12ef7037c1b1.png`
 
-The old inset countdown pavilion and two faint SVG temple watermarks described in the historical revisions below are superseded. The original etched illustration now fills every scrolling chapter except the scenic countdown, including hero and closing. It is decorative, pointer-transparent, 30% opacity, with limited scroll displacement; no repeated intermediate torans.
+The old inset countdown pavilion and two faint SVG temple watermarks described in the historical revisions below are superseded. The original etched illustration now fills every scrolling chapter except the scenic countdown, including hero and closing. It is decorative and pointer-transparent, with limited scroll displacement; no repeated intermediate torans. The later balance refinement preserves 30% on hero/closing and softens middle chapters to 6–16% at the margins, masking out their central reading areas. Source artwork files and the prompts below are unchanged.
 
 ## Exact prompt — clockPhone
 
