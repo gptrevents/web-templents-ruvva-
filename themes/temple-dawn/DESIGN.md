@@ -49,8 +49,8 @@ Passed: node tools/shoot.mjs temple-dawn. All seven required viewports, alternat
 - RSVP has no backend: production persistence requires window.onInviteRsvp(payload). Speaker output was not subjectively listened to, and no message was actually shared to another person. Browser music state and share URL construction were checked.
 
 ### Production weight (screenshots excluded)
-- app.js: 13,286 bytes gzip; budget 60,000.
-- style.css: 9,265 bytes gzip; budget 25,000.
+- app.js: 14,271 bytes gzip; budget 60,000.
+- style.css: 9,412 bytes gzip; budget 25,000.
 - Phone/common images: 446,324 bytes raw (below 450 KB); desktop-only additional backgrounds: 301,066 bytes raw (below 400 KB). Already-compressed WebPs are measured raw, a conservative comparison. Two font families; no runtime library.
 
 ### Section 6 parity checklist
@@ -130,3 +130,11 @@ Continuous text-shadow animation was replaced with a once-only opacity/transform
 `qa/motion.mjs` passed intermediate-position, monotonic-distance and settling assertions for a 640px wheel gesture; keyboard cancellation; offscreen flame pause/resume; modal wheel lock; reduced-motion bypass; and coarse-pointer native-scroll checks. Results are in motion-report.txt. These are local Chromium functional checks, not a claim of a fixed frame rate on every device.
 
 Trackpad consistency fix: the small-delta bypass and minimum-width gate were removed after user feedback. Small 8px inputs now pass through the same easing as larger mouse-wheel impulses, including narrow preview panels. The entry script has an explicit scroll-2 cache revision. Motion checks cover a 24-step trackpad gesture and the actual 421px fine-pointer preview width.
+
+## Scroll experience refinement — 20 October 2026
+
+The user explicitly requested the refinement across all seven existing templates, overriding the usual one-theme scope for this update. The reference was inspected for behavior only: its root gains lenis/lenis-scrolling/lenis-smooth classes during scrolling, with independently moving scenery, portraits and headings. No reference code or assets were copied; no Lenis dependency was added.
+
+Original vanilla JS now eases real-document wheel/trackpad scrolling over a 210ms response constant, preserves full fast-gesture distance and reverses direction immediately. Pointer/keyboard/focus, navigation, nested scrollers, opening and viewer locks remain native. Touch keeps browser inertia; scroll-driven motion also works on touch layouts. Theme-specific depths move whole portrait cards and ritual art; headings reveal with the scroll and gallery depth stays within tile gaps. Existing transforms, image crops, artwork, typography and layouts are retained. Only visible elements update after scroll/resize/intersection events, with no idle animation loop. Hidden tabs and reduced motion are respected.
+
+Validation: required shoot passed. tools/check-scroll-motion.mjs verifies eased starts, exact 640px and 1800px gestures, reversal, scroll-linked depth, gallery lock/Escape, native keyboard End outside the gallery, reduced motion, touch behavior and 390/820/1440 widths. All seven results are in tools/scroll-motion-report.txt. Chromium automation and local in-app inspection were used; physical iOS/Android devices were unavailable. Latest gzip: JS 14271 bytes, CSS 9412 bytes, within 60KB/25KB limits. Earlier image-budget exceptions remain unchanged.

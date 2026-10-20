@@ -62,8 +62,8 @@ Keyboard traversal and focus ring checks passed. The opening traps focus until i
 | Desktop-only landscape image | 414,132 | 400,000 |
 | First-screen phone images | 471,230 (standard-density phone picture source) | 150,000 |
 | First-screen desktop images | 913,912 (native desktop painting) | 150,000 |
-| app.js gzip | 18,510 | 60,000 |
-| style.css gzip | 11,661 | 25,000 |
+| app.js gzip | 19,406 | 60,000 |
+| style.css gzip | 11,605 | 25,000 |
 
 Three font families; no runtime library. Original synthesized audio is 192,620 bytes and starts only after opening. QA screenshots/previews are not runtime invitation images. The latest explicit user request for sharp complete artwork takes precedence over the original basic-theme image budget. The old 450,000-byte image and 150,000-byte first-screen limits are exceeded and are NOT claimed as passing. These values cover all stored variants, not a single guest request. Native/960/1440 picture sources and lazy loading reduce each guest's actual transfer. JS and CSS remain within their original limits. All SVG marks and dividers remain resolution-independent.
 
@@ -227,3 +227,11 @@ Self-contained HTML/CSS/vanilla JS, four sample fixtures, optimized artwork/audi
 The user found the middle chapters visually crowded while approving the opening and closing. Only chapter-flow mural styling changed: horizontal and vertical masks keep artwork at the edges, with section-specific intensity according to content density. Opening, hero, closing, the full-screen countdown scene, all artwork source files, content layout and behavior are unchanged. The decorated edge, portrait niches, ritual vine and video frame remain. This is a CSS composition adjustment using existing assets; no new image generation or runtime dependencies.
 
 Required shoot screenshots, per-section captures, and motion/interaction checks were rerun for this refinement. Actual browser inspection and phone/tablet/desktop visual comparisons confirm a quiet center and softened architectural margins.
+
+## Scroll experience refinement — 20 October 2026
+
+The user explicitly requested the refinement across all seven existing templates, overriding the usual one-theme scope for this update. The reference was inspected for behavior only: its root gains lenis/lenis-scrolling/lenis-smooth classes during scrolling, with independently moving scenery, portraits and headings. No reference code or assets were copied; no Lenis dependency was added.
+
+Original vanilla JS now eases real-document wheel/trackpad scrolling over a 210ms response constant, preserves full fast-gesture distance and reverses direction immediately. Pointer/keyboard/focus, navigation, nested scrollers, opening and viewer locks remain native. Touch keeps browser inertia; scroll-driven motion also works on touch layouts. Theme-specific depths move whole portrait cards and ritual art; headings reveal with the scroll and gallery depth stays within tile gaps. Existing transforms, image crops, artwork, typography and layouts are retained. Only visible elements update after scroll/resize/intersection events, with no idle animation loop. Hidden tabs and reduced motion are respected.
+
+Validation: required shoot passed. tools/check-scroll-motion.mjs verifies eased starts, exact 640px and 1800px gestures, reversal, scroll-linked depth, gallery lock/Escape, native keyboard End outside the gallery, reduced motion, touch behavior and 390/820/1440 widths. All seven results are in tools/scroll-motion-report.txt. Chromium automation and local in-app inspection were used; physical iOS/Android devices were unavailable. Latest gzip: JS 19406 bytes, CSS 11605 bytes, within 60KB/25KB limits. Earlier image-budget exceptions remain unchanged.

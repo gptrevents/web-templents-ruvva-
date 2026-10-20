@@ -317,6 +317,7 @@ function renderInvitation(root, data, ctx) {
   });
   initializeMotion(root);
   initializeWheelScroll();
+  initializeScrollChoreography(root);
 }
 function buildEnvelope(d, c, ctx) {
   const cover = el("div", "opening");
@@ -1083,11 +1084,13 @@ function initializeWheelScroll() {
   let position = 0;
   let target = 0;
   let previousTime = 0;
+  let direction = 0;
   const stop = () => {
     cancelAnimationFrame(frame);
     frame = 0;
     position = target = window.scrollY;
     previousTime = 0;
+    direction = 0;
   };
   const locked = () =>
     document.body.classList.contains("locked") ||
@@ -1099,7 +1102,7 @@ function initializeWheelScroll() {
     }
     const dt = previousTime ? Math.min(40, time - previousTime) : 16.67;
     previousTime = time;
-    position += (target - position) * (1 - Math.exp(-dt / 110));
+    position += (target - position) * (1 - Math.exp(-dt / 210));
     if (Math.abs(target - position) < 0.4) position = target;
     window.scrollTo({ top: position, behavior: "instant" });
     if (position === target) {
@@ -1126,7 +1129,7 @@ function initializeWheelScroll() {
         stop();
         return;
       }
-      let parent = event.target.parentElement;
+      let parent = event.target;
       while (parent && parent !== document.body) {
         const style = getComputedStyle(parent);
         if (
@@ -1145,16 +1148,17 @@ function initializeWheelScroll() {
         document.documentElement.scrollHeight - innerHeight,
       );
       if (!frame) position = target = window.scrollY;
-      // Accumulate intentional distance, but keep one frame's impulse bounded.
-      const next = Math.max(
-        0,
-        Math.min(
-          max,
-          target +
-            Math.max(-innerHeight, Math.min(innerHeight, event.deltaY * scale)),
-        ),
-      );
-      if (next === target) return;
+      const nextDirection = Math.sign(event.deltaY);
+      // Reverse immediately instead of dragging the guest toward the old target.
+      if (direction && nextDirection && nextDirection !== direction)
+        position = target = window.scrollY;
+      if (nextDirection) direction = nextDirection;
+      // Preserve the full gesture distance, including fast multi-screen trackpad swipes.
+      const next = Math.max(0, Math.min(max, target + event.deltaY * scale));
+      if (next === target) {
+        if (frame) event.preventDefault();
+        return;
+      }
       event.preventDefault();
       target = next;
       if (!frame) frame = requestAnimationFrame(step);
@@ -1168,4 +1172,103 @@ function initializeWheelScroll() {
   reduced.addEventListener("change", stop);
   eligible.addEventListener("change", stop);
   addEventListener("resize", stop, { passive: true });
+  addEventListener("hashchange", stop);
+  addEventListener("popstate", stop);
+}
+
+// Compose motion with each theme's own transforms; never crop or zoom source images.
+function initializeScrollChoreography(root) {
+  const strength = 28;
+  const visible = new Set();
+  const entries = [
+    ...root.querySelectorAll(
+      ".section:not(.hero):not(.footer) > .wrap > h2, .section:not(.hero):not(.footer) > .wrap > .section-kicker, .person, .event-visual, .ritual-visual, .ritual-illustration, .photo",
+    ),
+  ].map((node, index) => ({
+    node,
+    index,
+    y: 0,
+    heading: node.matches("h2,.section-kicker"),
+    photo: node.matches(".photo"),
+    translate: node.style.translate,
+    opacity: node.style.opacity,
+    willChange: node.style.willChange,
+  }));
+  let frame = 0;
+  const restore = (entry) => {
+    entry.node.style.translate = entry.translate;
+    entry.node.style.opacity = entry.opacity;
+    entry.node.style.willChange = entry.willChange;
+    entry.y = 0;
+  };
+  const paint = () => {
+    frame = 0;
+    if (document.hidden) return;
+    if (reduced.matches) {
+      entries.forEach(restore);
+      return;
+    }
+    const height = innerHeight;
+    const compact = innerWidth < 600;
+    for (const entry of visible) {
+      const { node, index, heading, photo } = entry;
+      const rect = node.getBoundingClientRect();
+      const top = rect.top - entry.y;
+      let y;
+      if (heading) {
+        const progress = Math.max(
+          0,
+          Math.min(1, (height * 0.94 - top) / (height * 0.38)),
+        );
+        y = (1 - progress) * (compact ? 24 : 36);
+        node.style.opacity = String(0.35 + 0.65 * progress);
+      } else {
+        const limit = photo
+          ? compact
+            ? 4
+            : 6
+          : strength * (compact ? 0.65 : 1);
+        const depth = Math.max(
+          -1,
+          Math.min(
+            1,
+            (height * 0.5 - top - rect.height * 0.5) / (height * 0.65),
+          ),
+        );
+        y = depth * limit * (index % 2 ? -1 : 1);
+      }
+      if (node.matches(":focus-within")) y = 0;
+      entry.y = Math.round(y * 100) / 100;
+      node.style.translate = "0 " + entry.y + "px";
+      node.style.willChange = heading ? "translate, opacity" : "translate";
+    }
+  };
+  const schedule = () => {
+    if (document.hidden) {
+      cancelAnimationFrame(frame);
+      frame = 0;
+      return;
+    }
+    if (!frame) frame = requestAnimationFrame(paint);
+  };
+  const byNode = new Map(entries.map((entry) => [entry.node, entry]));
+  const observer = new IntersectionObserver(
+    (changes) => {
+      for (const change of changes) {
+        const entry = byNode.get(change.target);
+        if (change.isIntersecting) visible.add(entry);
+        else {
+          visible.delete(entry);
+          restore(entry);
+        }
+      }
+      schedule();
+    },
+    { rootMargin: "12% 0px" },
+  );
+  entries.forEach((entry) => observer.observe(entry.node));
+  addEventListener("scroll", schedule, { passive: true });
+  addEventListener("resize", schedule, { passive: true });
+  document.addEventListener("visibilitychange", schedule);
+  reduced.addEventListener("change", schedule);
 }
