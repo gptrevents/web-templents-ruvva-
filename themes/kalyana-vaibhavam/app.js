@@ -1,0 +1,1491 @@
+const p = new URLSearchParams(location.search);
+const SAMPLE = {
+  empty: "sample-empty.json",
+  birthday: "sample-birthday.json",
+  telugu: "sample-telugu.json",
+};
+fetch("./" + (SAMPLE[p.get("data")] || "sample-data.json"))
+  .then((r) => r.json())
+  .then((data) => {
+    renderInvitation(document.getElementById("app"), data, {
+      guest: p.get("g") || "",
+      lang: p.get("lang") || data.invLang || "en",
+    });
+  });
+const COPY = {
+  en: {
+    cordiallyInvited: "You are cordially invited",
+    dear: "Dear",
+    guest: "Guest",
+    openInvitation: "Open Invitation",
+    tagline: "With love, tradition and blessings.",
+    singleTagline: "A beautiful day, made brighter by you.",
+    shubh: "॥ Shubh Vivah ॥",
+    scroll: "Scroll to discover",
+    blessing:
+      "With grateful hearts and the blessings of our families, we invite you to share in the joy of our new beginning.",
+    hindu: "Shree Ganeshaya Namaha",
+    muslim: "Bismillah ir-Rahman ir-Rahim",
+    christian: "In the name of the Lord",
+    coupleTitle: "The Couple",
+    coupleLabel: "Two families, one beautiful journey",
+    son: "Son of",
+    daughter: "Daughter of",
+    countdownTitle: "Counting Down to Our Special Day",
+    days: "Days",
+    hours: "Hours",
+    minutes: "Minutes",
+    seconds: "Seconds",
+    today: "Today is the day",
+    past: "Thank you for celebrating with us",
+    save: "Save the Date",
+    google: "Google Calendar",
+    apple: "Apple / Outlook",
+    events: "Wedding Events",
+    otherEvents: "The Celebrations",
+    eventIntro: "The Wedding Journey",
+    maps: "View on Maps",
+    gallery: "Our Journey Together",
+    galleryIntro: "Before the Vows",
+    photo: "Celebration photograph",
+    close: "Close gallery",
+    previous: "Previous photograph",
+    next: "Next photograph",
+    video: "A Special Glimpse",
+    play: "Play video",
+    venue: "Wedding Venue",
+    otherVenue: "The Venue",
+    directions: "Get Directions",
+    call: "Call family",
+    live: "Can't Make It? Watch Live!",
+    liveSub: "Join us virtually as we celebrate this beautiful moment",
+    liveNote: "The live stream will begin 30 minutes before the ceremony",
+    watch: "Watch Live",
+    rsvp: "Kindly Respond",
+    rsvpSub: "We would be honoured by your presence",
+    attendance: "Will you join us?",
+    yes: "Yes",
+    no: "No",
+    maybe: "Maybe",
+    name: "Full Name",
+    phone: "Phone Number",
+    phoneHint: "+91 followed by your 10-digit mobile number",
+    guests: "Number of Guests",
+    attending: "Events Attending",
+    diet: "Dietary Preference",
+    diets: ["No Preference", "Vegetarian", "Non-Vegetarian", "Vegan", "Jain"],
+    message: "Message for the Couple",
+    otherMessage: "Your Message",
+    send: "Send RSVP",
+    sending: "Sending…",
+    nameError: "Please enter your full name.",
+    phoneError:
+      "Enter a valid 10-digit Indian mobile number, optionally with +91.",
+    failure: "Your response could not be sent. Please try again.",
+    thanks: "Thank You!",
+    success: "We look forward to celebrating with you.",
+    declineSuccess: "Thank you for letting us know. You will be missed.",
+    made: "Made with Ruvva",
+    music: "Play music",
+    pause: "Pause music",
+    share: "Share invitation",
+    calendarDescription: "Join us for this celebration.",
+    ceremony: "The celebration",
+    videoHint: "Our Story",
+    amp: "&",
+    closing: "With Love & Blessings",
+    hostNote: "With love, from our families",
+    anyDay: "The celebration",
+    thankYou: "Thank you",
+    closingNote: "We await your gracious presence and your blessings.",
+    lightNote: "A celebration of love, culture and togetherness.",
+    copyLink: "Copy Link",
+    copied: "Link copied",
+    copyFailed: "Please copy this page address from your browser",
+    shareTitle: "Share this invitation",
+    weddingOf: "The wedding of",
+    portraitCaption: "Bound by love, tradition and blessings",
+    gallerySub: "Little moments from the years that brought us here.",
+    wishes: "Bless us with your presence",
+    yourPlace:
+      "Let us know if you can join us, so we may keep a place for you.",
+    discover: "Discover the celebration",
+    fanHint: "Swipe, explore, and hold a moment a little longer",
+    photoSelect: "Show photograph",
+  },
+};
+const EVENT_NAMES = {
+  en: {
+    haldi: "Haldi",
+    mehendi: "Mehendi",
+    sangeet: "Sangeet",
+    engagement: "Engagement",
+    wedding: "Wedding",
+    reception: "Reception",
+    puja: "Puja",
+    housewarming: "Housewarming",
+    birthday: "Birthday",
+    nikah: "Nikah",
+  },
+};
+const LOCALE = {
+  en: "en-IN",
+  te: "te-IN",
+  hi: "hi-IN",
+  ta: "ta-IN",
+  ml: "ml-IN",
+  kn: "kn-IN",
+};
+const reduced = matchMedia("(prefers-reduced-motion: reduce)");
+const el = (tag, cls, text) => {
+  const n = document.createElement(tag);
+  if (cls) n.className = cls;
+  if (text !== undefined) n.textContent = text;
+  return n;
+};
+const add = (parent, ...children) => {
+  children.filter(Boolean).forEach((n) => parent.append(n));
+  return parent;
+};
+const button = (text, fn, cls = "button") => {
+  const b = el("button", cls, text);
+  b.type = "button";
+  if (fn) b.addEventListener("click", fn);
+  return b;
+};
+const link = (text, url, cls = "button") => {
+  const a = el("a", cls, text);
+  a.setAttribute("href", url);
+  a.target = "_blank";
+  a.rel = "noopener noreferrer";
+  return a;
+};
+function https(v) {
+  try {
+    const u = new URL(v);
+    return u.protocol === "https:" ? u.href : "";
+  } catch {
+    return "";
+  }
+}
+function local(v) {
+  return typeof v === "string" &&
+    /^assets\/[a-zA-Z0-9_./-]+$/.test(v) &&
+    !v.includes("..")
+    ? v
+    : "";
+}
+function svg(path, view = "0 0 48 48") {
+  const s = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+  s.setAttribute("viewBox", view);
+  s.setAttribute("fill", "none");
+  s.setAttribute("stroke", "currentColor");
+  s.setAttribute("stroke-width", "1.15");
+  s.setAttribute("stroke-linecap", "round");
+  s.setAttribute("stroke-linejoin", "round");
+  s.setAttribute("focusable", "false");
+  s.setAttribute("aria-hidden", "true");
+  s.innerHTML = path;
+  return s;
+}
+// Compact authored pen icons for ceremony and media controls.
+const paths = {
+  calendar:
+    '<rect x="4" y="7" width="24" height="23" rx="2"/><path d="M4 13h24M10 3v8m12-8v8M9 18h3m5 0h3m-11 6h3m5 0h3"/>',
+  clock: '<circle cx="16" cy="16" r="13"/><path d="M16 7v10l7 4"/>',
+  pin: '<path d="M16 30S5 19 5 12a11 11 0 0 1 22 0c0 7-11 18-11 18Z"/><circle cx="16" cy="12" r="4"/>',
+
+  lamp: '<path d="M7 19h18c-1 7-17 7-18 0Zm9-3c-5-4 0-10 0-10s5 6 0 10ZM11 27h10"/>',
+  haldi:
+    '<path d="M4 17h24c-1 14-23 14-24 0Z" fill="currentColor" fill-opacity=".12"/><path d="M9 15q0-7 7-10 7 3 7 10M7 12l3-3m16 3-3-3M11 29h10"/>',
+  mehendi:
+    '<path d="M10 29c-5-7-7-11-4-12l4 4V8c0-4 4-4 4 0v9V5c0-4 4-4 4 0v12V8c0-4 4-4 4 0v11-6c0-4 4-4 4 0v9c0 4-4 7-4 7"/><path d="M13 23c-3-5 6-7 6-1s-6 4-5 1"/>',
+  sangeet:
+    '<circle cx="12" cy="19" r="9" fill="currentColor" fill-opacity=".1"/><path d="M5 16h3m-1 9 2-2m8 3-1-3m4-7h-3M22 17V5l7-2v12"/><ellipse cx="25.5" cy="16" rx="3.5" ry="2.5"/>',
+  engagement:
+    '<circle cx="16" cy="21" r="9"/><path d="m11 6 5-4 5 4-5 6ZM12 6h8"/>',
+  wedding:
+    '<circle cx="11" cy="21" r="8"/><circle cx="22" cy="21" r="8"/><path d="m8 8 4-5 4 5-4 5ZM21 6l3-3 3 3-3 3ZM9 8h6m-3-5v10" fill="currentColor" fill-opacity=".1"/>',
+  reception:
+    '<path d="M3 22h26M5 21a11 11 0 0 1 22 0M16 9V6m-3 0h6M5 28h22"/><path d="M8 18a8 8 0 0 1 5-5" stroke-width="2"/>',
+  puja: '<path d="M10 11h12c-1 7 7 7 4 14-2 5-18 5-20 0-3-7 5-7 4-14ZM16 10c-8-8 0-8 0-8s8 0 0 8ZM8 19h16M10 24h12"/>',
+  housewarming:
+    '<path d="m3 15 13-12 13 12M6 13v16h20V13M12 29v-9h8v9"/><path d="M16 11c-6-7-11 2 0 7 11-5 6-14 0-7Z" fill="currentColor" fill-opacity=".12"/>',
+  birthday:
+    '<path d="M5 29V17h22v12M3 29h26M5 21q4 4 7 0 4 4 7 0 4 4 8 0M10 17v-6m6 6v-6m6 6v-6"/><path d="M10 8c-4-3 0-7 0-7s4 4 0 7Zm6 0c-4-3 0-7 0-7s4 4 0 7Zm6 0c-4-3 0-7 0-7s4 4 0 7Z" fill="currentColor" fill-opacity=".2"/>',
+  nikah:
+    '<path d="M20 3A13 13 0 1 0 29 24 12 12 0 0 1 20 3Z"/><path d="m25 7 1 3 3 1-3 1-1 3-1-3-3-1 3-1Z"/>',
+  christian: '<path d="M14 3h4v9h9v4h-9v13h-4V16H5v-4h9Z"/>',
+  play: '<circle cx="16" cy="16" r="13"/><path d="m13 10 9 6-9 6Z"/>',
+  music:
+    '<path d="M12 24V7l14-3v17M12 12l14-3"/><ellipse cx="8" cy="25" rx="4" ry="3"/><ellipse cx="22" cy="22" rx="4" ry="3"/>',
+  pause: '<path d="M11 8v16m10-16v16" stroke-width="3"/>',
+  share: '<path d="M8 19v8h18v-8M16 22V4m-6 6 6-6 6 6"/>',
+  chevron: '<path d="m9 13 7 7 7-7"/>',
+  previous: '<path d="m20 7-9 9 9 9M11 16h15"/>',
+  next: '<path d="m12 7 9 9-9 9M6 16h15"/>',
+  close: '<path d="m9 9 14 14m0-14L9 23"/>',
+  petal:
+    '<path d="M7 23C1 12 12 2 22 4c5 11-5 23-15 19Z" fill="currentColor" fill-opacity=".65" stroke="none"/>',
+};
+const icon = (k) => {
+  const n = svg(paths[k] || paths.wedding, "0 0 32 32");
+  n.classList.add("icon", "icon-" + k);
+  return n;
+};
+function names(d, cls = "names", tag = "div") {
+  const n = el(tag, cls);
+  n.setAttribute(
+    "data-long",
+    String(
+      [d.name1, d.name2].some((value) => String(value || " ").length > 28),
+    ),
+  );
+  if (d.name1) add(n, el("span", "", d.name1));
+  if (d.name2) {
+    if (d.name1) add(n, el("span", "amp", COPY.en.amp));
+    add(n, el("span", "", d.name2));
+  }
+  return n;
+}
+const dateValue = (d) =>
+  d.date ? new Date(d.date + "T" + (d.time || "00:00") + ":00+05:30") : null;
+function dateText(d, ctx) {
+  const v = dateValue(d);
+  return v && !isNaN(v)
+    ? v.toLocaleDateString(LOCALE[ctx.lang] || "en-IN", {
+        weekday: "long",
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+        timeZone: "Asia/Kolkata",
+      })
+    : "";
+}
+function timeText(d, ctx) {
+  return d.time && dateValue(d)
+    ? dateValue(d).toLocaleTimeString(LOCALE[ctx.lang] || "en-IN", {
+        hour: "numeric",
+        minute: "2-digit",
+        timeZone: "Asia/Kolkata",
+      })
+    : "";
+}
+function buildCouple(d, c) {
+  if (!d.name1 && !d.name2) return null;
+  const s = section(
+    "couple",
+    d.name2 ? c.coupleTitle : "",
+    d.name2 ? c.coupleLabel : "",
+  );
+  const row = el("div", "couple-row");
+  ["groom", "bride"].forEach((side, i) => {
+    const name = i ? d.name2 : d.name1;
+    if (!name) return;
+    if (i && row.children.length) {
+      const join = el("div", "join");
+      add(join, el("span", "", c.amp), ornament());
+      row.append(join);
+    }
+    const card = el("article", "person person-" + side);
+    const frame = el("div", "portrait");
+    const src = local(d.photoSlots?.[side]);
+    if (src) {
+      const img = el("img", "person-photo");
+      img.src = src;
+      img.alt = name;
+      img.loading = "lazy";
+      frame.append(img);
+    } else frame.append(el("span", "monogram", Array.from(name)[0]));
+
+    const carving = decorativeImage(
+      "assets/portrait-frame.webp",
+      "portrait-carving",
+    );
+    carving.width = 300;
+    carving.height = 400;
+    frame.append(carving);
+    const family = d.families?.find((f) => f.side === side);
+    add(card, frame, el("h3", "", name));
+    if (family?.names)
+      add(
+        card,
+        el("p", "label", family.relation || (i ? c.daughter : c.son)),
+        el("p", "parents", family.names),
+      );
+    row.append(card);
+  });
+  s.firstChild.append(row);
+  return s;
+}
+
+function calendar(d, c) {
+  const v = dateValue(d),
+    end = new Date(v.getTime() + 7200000);
+  const stamp = (x) =>
+    x
+      .toISOString()
+      .replace(/[-:]/g, "")
+      .replace(/\.\d{3}/, "");
+  const title = [d.name1, d.name2].filter(Boolean).join(" & ");
+  const where = [d.venue, d.address].filter(Boolean).join(", ");
+  const box = el("div", "calendar");
+  add(box, el("p", "label", c.save));
+  const actions = el("div", "actions");
+  const u = new URL("https://calendar.google.com/calendar/render");
+  u.search = new URLSearchParams({
+    action: "TEMPLATE",
+    text: title,
+    dates: stamp(v) + "/" + stamp(end),
+    location: where,
+    details: c.calendarDescription,
+  });
+  add(
+    actions,
+    link(c.google, u.href),
+    button(c.apple, () => {
+      const esc = (s) =>
+        String(s)
+          .replace(/\\/g, "\\\\")
+          .replace(/\r?\n/g, "\\n")
+          .replace(/,/g, "\\,")
+          .replace(/;/g, "\\;");
+      const lines = [
+        "BEGIN:VCALENDAR",
+        "VERSION:2.0",
+        "PRODID:-//Ruvva//Kalyana Vaibhavam//EN",
+        "BEGIN:VEVENT",
+        "UID:" + stamp(v) + "@ruvva.com",
+        "DTSTAMP:" + stamp(new Date()),
+        "DTSTART:" + stamp(v),
+        "DTEND:" + stamp(end),
+        "SUMMARY:" + esc(title),
+        "LOCATION:" + esc(where),
+        "DESCRIPTION:" + esc(c.calendarDescription),
+        "END:VEVENT",
+        "END:VCALENDAR",
+      ];
+      const fold = (line) => {
+        let result = "",
+          count = 0;
+        for (const char of line) {
+          const size = new TextEncoder().encode(char).length;
+          if (count + size > 73) {
+            result += "\r\n ";
+            count = 1;
+          }
+          result += char;
+          count += size;
+        }
+        return result;
+      };
+      const url = URL.createObjectURL(
+        new Blob([lines.map(fold).join("\r\n") + "\r\n"], {
+          type: "text/calendar;charset=utf-8",
+        }),
+      );
+      const a = el("a");
+      a.href = url;
+      a.download = "invitation.ics";
+      a.click();
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+    }),
+  );
+  box.append(actions);
+  return box;
+}
+function buildCountdown(d, c, ctx) {
+  const target = dateValue(d);
+  if (!target || isNaN(target)) return null;
+  const s = section("countdown", c.countdownTitle);
+  const row = el("div", "carved-count");
+  const digits = ["days", "hours", "minutes", "seconds"].map((k) => {
+    const unit = el("div", "count-unit");
+    const n = el("span", "digit", "00");
+    add(unit, n, el("span", "label", c[k]));
+    row.append(unit);
+    return n;
+  });
+  const status = el("p", "count-status");
+  const tick = () => {
+    const now = new Date();
+    const today = now.toLocaleDateString("en-CA", { timeZone: "Asia/Kolkata" });
+    const delta = target - now;
+    row.hidden = today === d.date || delta < 0;
+    status.textContent = today === d.date ? c.today : delta < 0 ? c.past : "";
+    const sec = Math.max(0, Math.floor(delta / 1000));
+    [
+      Math.floor(sec / 86400),
+      Math.floor(sec / 3600) % 24,
+      Math.floor(sec / 60) % 60,
+      sec % 60,
+    ].forEach((n, i) => {
+      const val = String(n).padStart(2, "0");
+      if (digits[i].textContent !== val) {
+        digits[i].textContent = val;
+        if (!reduced.matches)
+          digits[i].animate(
+            [
+              { transform: "translateY(8px)", opacity: 0.3 },
+              { transform: "scale(1)", opacity: 1 },
+            ],
+            { duration: 350 },
+          );
+      }
+    });
+  };
+  let timer,
+    visible = false;
+  const sync = () => {
+    clearInterval(timer);
+    if (visible && !document.hidden) {
+      tick();
+      timer = setInterval(tick, 1000);
+    }
+  };
+  new IntersectionObserver((es) => {
+    visible = es[0].isIntersecting;
+    sync();
+  }).observe(s);
+  document.addEventListener("visibilitychange", sync);
+  tick();
+  add(s.firstChild, row, status, calendar(d, c));
+  return s;
+}
+function youtube(value) {
+  try {
+    const u = new URL(https(value));
+    if (!["www.youtube.com", "youtube.com", "youtu.be"].includes(u.hostname))
+      return "";
+    const id =
+      u.hostname === "youtu.be"
+        ? u.pathname.slice(1)
+        : u.searchParams.get("v") || u.pathname.split("/").filter(Boolean)[1];
+    return /^[\w-]{11}$/.test(id || "") ? id : "";
+  } catch {
+    return "";
+  }
+}
+function buildVideo(d, c) {
+  const id = youtube(d.videoUrl);
+  if (!id) return null;
+  const s = section("video", c.video);
+  const frame = el("div", "video-frame");
+  const b = button(
+    "",
+    () => {
+      const iframe = el("iframe");
+      iframe.src = "https://www.youtube.com/embed/" + id + "?autoplay=1";
+      iframe.title = c.video;
+      iframe.allow = "autoplay; encrypted-media; fullscreen";
+      iframe.allowFullscreen = true;
+      frame.replaceChildren(iframe);
+    },
+    "video-poster",
+  );
+  b.setAttribute("aria-label", c.play);
+  add(b, icon("play"), el("span", "", c.videoHint));
+  frame.append(b);
+  const shell = el("div", "video-shell");
+  add(shell, carvedVideoFrame(), frame);
+  s.firstChild.append(shell);
+  return s;
+}
+function buildVenue(d, c) {
+  if (!d.venue && !d.address) return null;
+  const s = section(
+    "venue",
+    d.eventType === "wedding" ? c.venue : c.otherVenue,
+  );
+  const grid = el("div", "venue-grid");
+  const iframe = el("iframe");
+  iframe.src =
+    "https://maps.google.com/maps?q=" +
+    encodeURIComponent([d.venue, d.address].filter(Boolean).join(", ")) +
+    "&z=15&output=embed";
+  iframe.loading = "lazy";
+  iframe.title = c.venue;
+  iframe.referrerPolicy = "no-referrer-when-downgrade";
+  const details = el("div", "venue-details");
+  add(
+    details,
+    icon("housewarming"),
+    el("h3", "", d.venue),
+    el("p", "", d.address),
+    link(
+      c.directions,
+      "https://www.google.com/maps/dir/?api=1&destination=" +
+        encodeURIComponent(d.venue + " " + d.address),
+    ),
+  );
+  [d.ph1, d.ph2].filter(Boolean).forEach((ph) => {
+    const cleaned = ph.replace(/[^\d+]/g, "");
+    if (/^\+?\d{7,15}$/.test(cleaned)) {
+      const a = link(c.call + " · " + ph, "tel:" + cleaned, "text-link");
+      a.removeAttribute("target");
+      details.append(a);
+    }
+  });
+  const source = local(d.photoSlots?.venue);
+  if (source) {
+    const image = el("img", "venue-photo");
+    image.src = source;
+    image.alt = d.venue || c.venue;
+    image.loading = "lazy";
+    details.prepend(image);
+  }
+  add(grid, iframe, details);
+  s.firstChild.append(grid);
+  return s;
+}
+function buildLiveStream(d, c) {
+  const url = https(d.liveStream?.url);
+  if (!url) return null;
+  const s = section("live");
+  const text = el("div");
+  add(
+    text,
+    el("h2", "", c.live),
+    el("p", "", c.liveSub),
+    el("p", "live-note", d.liveStream.note || c.liveNote),
+  );
+  add(s.firstChild, icon("play"), text, link(c.watch, url));
+  return s;
+}
+function buildRsvp(d, c) {
+  if (!d.rsvp?.enabled) return null;
+  const s = section("rsvp", c.rsvp, c.wishes);
+  s.firstChild.append(el("p", "rsvp-intro", c.yourPlace));
+  const form = el("form", "rsvp-form");
+  form.noValidate = true;
+  const field = (label, type, name) => {
+    const wrap = el("div", "field");
+    const l = el("label", "label", label);
+    l.htmlFor = "rsvp-" + name;
+    const input = el(type === "textarea" ? "textarea" : "input");
+    input.id = l.htmlFor;
+    input.name = name;
+    if (type !== "textarea") input.type = type;
+    add(wrap, l, input);
+    return { wrap, input };
+  };
+  const select = (label, name, options) => {
+    const f = field(label, "text", name);
+    const input = el("select");
+    input.id = f.input.id;
+    input.name = name;
+    options.forEach((v) => {
+      const o = el("option", "", v);
+      o.value = v;
+      input.append(o);
+    });
+    f.input.replaceWith(input);
+    return { wrap: f.wrap, input };
+  };
+  const attendance = el("fieldset", "attendance");
+  add(attendance, el("legend", "label", c.attendance));
+  [c.yes, c.no, c.maybe].forEach((v, i) => {
+    const l = el("label");
+    const r = el("input");
+    r.type = "radio";
+    r.name = "attendance";
+    r.value = ["yes", "no", "maybe"][i];
+    r.checked = i === 0;
+    add(l, r, el("span", "", v));
+    attendance.append(l);
+  });
+  form.append(attendance);
+  const columns = el("div", "form-columns");
+  const name = field(c.name, "text", "name"),
+    phone = field(c.phone, "tel", "phone");
+  name.input.autocomplete = "name";
+  phone.input.autocomplete = "tel";
+  phone.input.inputMode = "tel";
+  [name, phone].forEach((f, i) => {
+    f.input.required = true;
+    const err = el("p", "error");
+    err.id = f.input.id + "-error";
+    err.setAttribute("aria-live", "polite");
+    f.input.setAttribute("aria-describedby", err.id + (i ? " phone-hint" : ""));
+    f.wrap.append(err);
+    f.error = err;
+    columns.append(f.wrap);
+  });
+  const hint = el("p", "hint", c.phoneHint);
+  hint.id = "phone-hint";
+  phone.wrap.append(hint);
+  form.append(columns);
+  const guests = select(
+    c.guests,
+    "guests",
+    Array.from(
+      { length: Math.min(100, Math.max(1, Number(d.rsvp.maxGuests) || 10)) },
+      (_, i) => String(i + 1),
+    ),
+  );
+  form.append(guests.wrap);
+  attendance.addEventListener("change", () => {
+    guests.wrap.hidden = new FormData(form).get("attendance") === "no";
+  });
+  if (d.rsvp.askEvents && d.events?.length) {
+    const group = el("fieldset", "event-choices");
+    group.append(el("legend", "label", c.attending));
+    d.events.forEach((e) => {
+      const l = el("label");
+      const input = el("input");
+      input.type = "checkbox";
+      input.name = "events";
+      input.value = e.key;
+      add(
+        l,
+        input,
+        el("span", "", e.label || EVENT_NAMES.en[e.key] || c.ceremony),
+      );
+      group.append(l);
+    });
+    form.append(group);
+  }
+  if (d.rsvp.askDiet) form.append(select(c.diet, "diet", c.diets).wrap);
+  form.append(
+    field(d.name2 ? c.message : c.otherMessage, "textarea", "message").wrap,
+  );
+  const error = el("p", "error");
+  error.setAttribute("role", "alert");
+  const submit = button(c.send);
+  submit.type = "submit";
+  add(form, error, submit);
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const validName = !!name.input.value.trim();
+    const validPhone = /^(?:\+?91)?[6-9]\d{9}$/.test(
+      phone.input.value.replace(/[\s()-]/g, ""),
+    );
+    name.error.textContent = validName ? "" : c.nameError;
+    phone.error.textContent = validPhone ? "" : c.phoneError;
+    name.input.setAttribute("aria-invalid", !validName);
+    phone.input.setAttribute("aria-invalid", !validPhone);
+    if (!validName || !validPhone) {
+      (!validName ? name.input : phone.input).focus();
+      return;
+    }
+    submit.disabled = true;
+    submit.textContent = c.sending;
+    error.textContent = "";
+    const fd = new FormData(form);
+    const payload = {
+      attendance: fd.get("attendance"),
+      name: fd.get("name").trim(),
+      phone: fd.get("phone"),
+      guests: fd.get("attendance") === "no" ? 0 : Number(fd.get("guests")),
+      events: fd.getAll("events"),
+      diet: fd.get("diet") || "",
+      message: fd.get("message"),
+    };
+    try {
+      if (typeof window.onInviteRsvp === "function")
+        await window.onInviteRsvp(payload);
+      else await new Promise((r) => setTimeout(r, 600));
+      const thanks = el("div", "thanks");
+      thanks.tabIndex = -1;
+      add(
+        thanks,
+        ornament(),
+        el("h3", "", c.thanks),
+        el("p", "", payload.attendance === "no" ? c.declineSuccess : c.success),
+      );
+      form.replaceWith(thanks);
+      thanks.focus();
+      if (!reduced.matches) {
+        const burst = el("div", "confetti");
+        for (let i = 0; i < 28; i++) {
+          const bit = el("i");
+          bit.style.setProperty("--i", i);
+          burst.append(bit);
+        }
+        document.body.append(burst);
+        setTimeout(() => burst.remove(), 2400);
+      }
+    } catch {
+      error.textContent = c.failure;
+      submit.disabled = false;
+      submit.textContent = c.send;
+    }
+  });
+  s.firstChild.append(form);
+  return s;
+}
+function buildFloating(d, c, ctx) {
+  const box = el("div", "floating");
+  box.hidden = true;
+  if (ctx.audio) {
+    const b = button(
+      "",
+      () => {
+        if (ctx.audio.paused) {
+          ctx.audio.volume = 0.25;
+          ctx.audio.play().catch(() => {});
+        } else ctx.audio.pause();
+      },
+      "control music",
+    );
+    const sync = () => {
+      b.setAttribute("aria-pressed", !ctx.audio.paused);
+      b.setAttribute("aria-label", ctx.audio.paused ? c.music : c.pause);
+      b.classList.toggle("playing", !ctx.audio.paused);
+      b.replaceChildren(icon(ctx.audio.paused ? "music" : "pause"));
+    };
+    ctx.audio.addEventListener("play", sync);
+    ctx.audio.addEventListener("pause", sync);
+    sync();
+    box.append(b);
+  }
+  const share = button(
+    "",
+    async () => {
+      if (navigator.share) {
+        try {
+          await navigator.share({ title: document.title, url: location.href });
+        } catch (e) {
+          if (e.name !== "AbortError")
+            window.open(
+              "https://wa.me/?text=" + encodeURIComponent(location.href),
+              "_blank",
+              "noopener",
+            );
+        }
+      } else
+        window.open(
+          "https://wa.me/?text=" + encodeURIComponent(location.href),
+          "_blank",
+          "noopener",
+        );
+    },
+    "control",
+  );
+  share.setAttribute("aria-label", c.share);
+  share.append(icon("share"));
+  box.append(share);
+  return box;
+}
+
+// Keep decorative loops asleep outside the viewport and while the tab is hidden.
+function initializeMotion(root) {
+  const moving = [
+      ...root.querySelectorAll(".section,.opening,.ambient,.floating"),
+    ],
+    visible = new Set();
+  const sync = () =>
+    moving.forEach((n) =>
+      n.classList.toggle(
+        "motion-active",
+        visible.has(n) && !document.hidden && !reduced.matches,
+      ),
+    );
+  const io = new IntersectionObserver((es) => {
+    es.forEach((e) => {
+      if (e.isIntersecting) visible.add(e.target);
+      else visible.delete(e.target);
+    });
+    sync();
+  });
+  moving.forEach((n) => io.observe(n));
+  sync();
+  document.addEventListener("visibilitychange", sync);
+  reduced.addEventListener("change", sync);
+}
+
+// Give all desktop wheel/trackpad deltas one consistent time-based easing curve.
+// Scroll the real document, so focus, sticky controls and browser navigation still work.
+function initializeWheelScroll() {
+  const eligible = matchMedia("(pointer:fine)");
+  let frame = 0;
+  let position = 0;
+  let target = 0;
+  let previousTime = 0;
+  const stop = () => {
+    cancelAnimationFrame(frame);
+    frame = 0;
+    position = target = window.scrollY;
+    previousTime = 0;
+  };
+  const locked = () =>
+    document.body.classList.contains("locked") ||
+    !!document.querySelector("dialog[open]");
+  const step = (time) => {
+    if (locked() || reduced.matches || !eligible.matches) {
+      stop();
+      return;
+    }
+    const dt = previousTime ? Math.min(40, time - previousTime) : 16.67;
+    previousTime = time;
+    position += (target - position) * (1 - Math.exp(-dt / 110));
+    if (Math.abs(target - position) < 0.4) position = target;
+    window.scrollTo({ top: position, behavior: "instant" });
+    if (position === target) {
+      frame = 0;
+      previousTime = 0;
+    } else frame = requestAnimationFrame(step);
+  };
+  addEventListener(
+    "wheel",
+    (event) => {
+      if (
+        !eligible.matches ||
+        reduced.matches ||
+        locked() ||
+        event.ctrlKey ||
+        event.metaKey ||
+        event.shiftKey ||
+        Math.abs(event.deltaX) > Math.abs(event.deltaY)
+      )
+        return;
+      if (
+        event.target.closest("input,textarea,select,[contenteditable],dialog")
+      ) {
+        stop();
+        return;
+      }
+      let parent = event.target.parentElement;
+      while (parent && parent !== document.body) {
+        const style = getComputedStyle(parent);
+        if (
+          /(auto|scroll)/.test(style.overflowY) &&
+          parent.scrollHeight > parent.clientHeight + 1
+        ) {
+          stop();
+          return;
+        }
+        parent = parent.parentElement;
+      }
+      const scale =
+        event.deltaMode === 1 ? 32 : event.deltaMode === 2 ? innerHeight : 1;
+      const max = Math.max(
+        0,
+        document.documentElement.scrollHeight - innerHeight,
+      );
+      if (!frame) position = target = window.scrollY;
+      // Accumulate intentional distance, but keep one frame's impulse bounded.
+      const next = Math.max(
+        0,
+        Math.min(
+          max,
+          target +
+            Math.max(-innerHeight, Math.min(innerHeight, event.deltaY * scale)),
+        ),
+      );
+      if (next === target) return;
+      event.preventDefault();
+      target = next;
+      if (!frame) frame = requestAnimationFrame(step);
+    },
+    { passive: false },
+  );
+  ["pointerdown", "touchstart", "keydown", "focusin"].forEach((type) =>
+    addEventListener(type, stop, { passive: true }),
+  );
+  document.addEventListener("visibilitychange", stop);
+  reduced.addEventListener("change", stop);
+  eligible.addEventListener("change", stop);
+  addEventListener("resize", stop, { passive: true });
+}
+
+// Original geometric rice-flour lattice; static authored SVG, never interpolated data.
+
+// All SVG instructions below are authored geometry; no JSON enters SVG markup.
+function ornament() {
+  const s = svg(
+    '<path d="M0 25h78m84 0h78M81 25c12-22 28-22 39 0-11 18-27 18-39 0Zm39 0c11-22 27-22 39 0-12 18-28 18-39 0Z"/><path d="M98 25q22-44 44 0-22 30-44 0Zm22-21v42M80 25q14-6 16 0m48 0q5-6 17 0M40 22l4 3-4 3m160-6-4 3 4 3M56 25q8-13 17 0-9 13-17 0Zm111 0q8-13 17 0-9 13-17 0Z"/><path d="m113 6 7-5 7 5-7 7Z" fill="currentColor" fill-opacity=".3"/>',
+    "0 0 240 50",
+  );
+  s.classList.add("ornament");
+  return s;
+}
+function lotus() {
+  const s = svg(
+    '<path d="M50 62C24 44 37 17 50 3c13 14 26 41 0 59Zm0 0C17 60 6 32 9 17c22 2 40 15 41 45Zm0 0c33-2 44-30 41-45-22 2-40 15-41 45ZM50 62C22 78 5 62 1 43c22-2 36 4 49 19Zm0 0c28 16 45 0 49-19-22-2-36 4-49 19ZM29 78h42M50 12v48M13 25l31 34m43-34L56 59"/>',
+    "0 0 100 90",
+  );
+  s.classList.add("lotus");
+  return s;
+}
+function ganesha() {
+  const s = svg(
+    '<path d="M54 33c-4-8-15-11-20-2-8 14-1 31 10 32m23-30c4-8 15-11 20-2 8 14 1 31-10 32M51 39c-7-4-13 3-11 9 2 5 5 8 10 9m20-18c7-4 13 3 11 9-2 5-5 8-10 9M52 30c-7 7-8 20-2 26 6 7 13 6 13 16 0 11-17 11-19 1m13-16c-2 7-1 10 4 12M61 33v13m-7-9h3m10 0h3M48 25h27L70 12H53Zm3-5h20M55 10l7-8 7 8M57 16h10M48 27q13-6 28 0M46 59c-13 5-19 20-13 30 9 13 46 14 55-2 6-11-4-23-13-27M42 67q-7 11 1 19m34-19q9 10-1 19M45 87q17-9 31 0M35 92l-15 5c-8 3-15-4-11-10l19-13m60 18 17 6c8 2 13-5 9-10L96 75M27 57 14 43l-5 6 13 21m75-15 13-15 5 6-14 22M15 40q-11-6-3-13 9 3 3 13m94-3q11-6 3-13-9 3-3 13M49 101q13-10 27 0m-34 3h40M58 83h10"/><path d="M6 110q15-15 30 0 13-12 25 0 14-13 28 0 15-13 28 0"/><circle cx="62" cy="18" r="1.5" fill="currentColor"/>',
+    "0 0 124 116",
+  );
+  s.classList.add("ganesha");
+  return s;
+}
+function mandala() {
+  const n = svg(
+    '<circle cx="160" cy="160" r="43"/><circle cx="160" cy="160" r="58"/><circle cx="160" cy="160" r="135"/>',
+    "0 0 320 320",
+  );
+  for (let i = 0; i < 16; i++) {
+    const g = document.createElementNS("http://www.w3.org/2000/svg", "g");
+    g.setAttribute("transform", "rotate(" + i * 22.5 + " 160 160)");
+    const p = svg(
+      '<path d="M160 25c-31 33-29 52 0 77 29-25 31-44 0-77Zm0 12c-17 20-18 37 0 51 18-14 17-31 0-51ZM160 107q-36-11-45 20 33 6 45-20Zm0 0q36-11 45 20-33 6-45-20M160 17v7"/>',
+      "0 0 320 320",
+    );
+    while (p.firstChild) g.append(p.firstChild);
+    n.append(g);
+  }
+  n.classList.add("mandala");
+  return n;
+}
+let goldSerial = 0;
+function hangingLamp() {
+  const id = "kv-metal-" + ++goldSerial;
+  const n = svg(
+    '<defs><linearGradient id="metal" x2="1"><stop stop-color="#79400b"/><stop offset=".27" stop-color="#e4a630"/><stop offset=".48" stop-color="#fff0ac"/><stop offset=".66" stop-color="#bb7517"/><stop offset="1" stop-color="#743b0e"/></linearGradient></defs><path d="M30 0v54m-3-49q6 3 0 6 6 3 0 6 6 3 0 6 6 3 0 6 6 3 0 6 6 3 0 6 6 3 0 6"/><path class="lamp-metal" d="M26 55h8l5 12-6 10v19H18l-7 5q19 10 38 0l-7-5H30V77l-8-10ZM10 103h40c-3 14-37 14-40 0Zm15 14v11h10v-11m-17 14h24v4H18Z"/><path d="M18 98c-8-9 0-18 0-18s8 9 0 18Zm24 0c-8-9 0-18 0-18s8 9 0 18Z" fill="#f4c04e"/><path d="M16 108q14 7 28 0m-18-42h8m-10 5h12"/>',
+    "0 0 60 145",
+  );
+  const grad = n.querySelector("linearGradient");
+  grad.id = id;
+  n.querySelector(".lamp-metal").setAttribute("fill", "url(#" + id + ")");
+  n.classList.add("hanging-lamp");
+  return n;
+}
+function decorativeImage(src, cls, eager = false) {
+  const n = el("img", cls);
+  n.src = src;
+  n.alt = "";
+  n.setAttribute("aria-hidden", "true");
+  n.loading = eager ? "eager" : "lazy";
+  n.decoding = "async";
+  return n;
+}
+function corners(s) {
+  const frame = el("div", "section-art");
+  frame.setAttribute("aria-hidden", "true");
+  for (let i = 0; i < 2; i++) {
+    const img = decorativeImage(
+      "assets/banana-corner.webp",
+      "banana-corner corner-" + i,
+    );
+    img.width = 320;
+    img.height = 427;
+    frame.append(img);
+  }
+  const water = mandala();
+  water.classList.add("watermark");
+  frame.append(water);
+  s.append(frame);
+}
+function ceremony(d, eager = false) {
+  const n = el("div", "ceremony-art");
+  n.setAttribute("aria-hidden", "true");
+  if (d.faithId === "hindu") {
+    const img = decorativeImage("assets/kalyanam.webp", "tableau", eager);
+    img.width = 720;
+    img.height = 240;
+    n.append(img);
+  } else {
+    const a = el("div", "neutral-mandap");
+    n.append(a);
+  }
+  return n;
+}
+function scene(node, d, eager = false) {
+  const scenery = el("div", "palace-scene");
+  scenery.setAttribute("aria-hidden", "true");
+  node.append(scenery);
+  node.append(ceremony(d, eager));
+  const lamps = el("div", "lamps");
+  lamps.setAttribute("aria-hidden", "true");
+  add(lamps, hangingLamp(), hangingLamp());
+  node.append(lamps);
+}
+function faithMark(d) {
+  return d.faithId === "hindu"
+    ? ganesha()
+    : d.faithId === "muslim"
+      ? icon("nikah")
+      : d.faithId === "christian"
+        ? icon("christian")
+        : lotus();
+}
+function section(id, title, kicker) {
+  const s = el("section", "section " + id);
+  s.id = id;
+  const w = el("div", "wrap");
+  if (kicker) w.append(el("p", "section-kicker", kicker));
+  if (title) w.append(el("h2", "", title));
+  s.append(w);
+  if (!["hero", "footer"].includes(id)) {
+    corners(s);
+    const rule = ornament();
+    rule.classList.add("section-rule");
+    s.append(rule);
+  }
+  return s;
+}
+function renderInvitation(root, d, ctx) {
+  ctx.lang = LOCALE[ctx.lang] ? ctx.lang : "en";
+  document.documentElement.lang = ctx.lang;
+  document.body.dataset.faith = d.faithId || "none";
+  document.title = [d.name1, d.name2].filter(Boolean).join(" & ");
+  ctx.copy = COPY.en;
+  ctx.audio = local(d.musicUrl) ? new Audio(local(d.musicUrl)) : null;
+  if (ctx.audio) {
+    ctx.audio.preload = "none";
+    ctx.audio.loop = true;
+    ctx.audio.volume = 0;
+  }
+  const ambient = el("div", "ambient");
+  ambient.setAttribute("aria-hidden", "true");
+  for (let i = 0; i < 6; i++) {
+    const p = el("i", "rose-petal");
+    p.style.setProperty("--i", i);
+    ambient.append(p);
+  }
+  root.append(ambient);
+  const content = el("div", "page-content");
+  content.hidden = true;
+  content.inert = true;
+  root.append(content);
+  [
+    buildEnvelope,
+    buildHero,
+    buildBlessing,
+    buildCouple,
+    buildCountdown,
+    buildEvents,
+    buildGallery,
+    buildVideo,
+    buildVenue,
+    buildLiveStream,
+    buildRsvp,
+    buildFooter,
+    buildFloating,
+  ].forEach((fn) => {
+    const n = fn(d, COPY.en, ctx);
+    if (n) (n.classList.contains("opening") ? root : content).append(n);
+  });
+  const io = new IntersectionObserver(
+    (es) =>
+      es.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.classList.add("seen");
+          io.unobserve(e.target);
+        }
+      }),
+    { threshold: 0.05 },
+  );
+  root
+    .querySelectorAll(".section .wrap,.person,.event-card,.photo")
+    .forEach((n) => {
+      n.classList.add("reveal");
+      io.observe(n);
+    });
+  initializeMotion(root);
+  initializeWheelScroll();
+  initializeSceneMotion(root);
+}
+function buildEnvelope(d, c, ctx) {
+  const n = el("div", "opening");
+  n.setAttribute("role", "dialog");
+  n.setAttribute("aria-modal", "true");
+  n.setAttribute("aria-label", c.openInvitation);
+  const panel = el("div", "invitation-panel");
+  scene(panel, d, true);
+  const w = el("div", "opening-copy");
+  add(
+    w,
+    faithMark(d),
+    el("p", "faith-line", c[d.faithId] || ""),
+    ornament(),
+    el("p", "label", c.cordiallyInvited),
+    el("p", "salutation", c.dear + " " + (ctx.guest || c.guest) + ","),
+    names(d),
+    ornament(),
+    el("p", "opening-date", dateText(d, ctx)),
+    el("p", "opening-venue", d.venue),
+  );
+  const b = button(c.openInvitation, () => {
+    if (n.classList.contains("opening-away")) return;
+    document.querySelector(".page-content").hidden = false;
+    n.classList.add("opening-away");
+    document.body.classList.add("opened");
+    if (ctx.audio)
+      ctx.audio
+        .play()
+        .then(() => {
+          let v = 0;
+          const timer = setInterval(() => {
+            v = Math.min(0.25, v + 0.025);
+            ctx.audio.volume = v;
+            if (v >= 0.25) clearInterval(timer);
+          }, 160);
+        })
+        .catch(() => {});
+    setTimeout(
+      () => {
+        n.remove();
+        document.body.classList.remove("locked");
+        document.querySelector(".page-content").inert = false;
+        document.querySelector(".floating").hidden = false;
+        document.getElementById("hero").focus({ preventScroll: true });
+      },
+      reduced.matches ? 0 : 1450,
+    );
+  });
+  add(w, b, el("p", "tagline", d.name2 ? c.tagline : c.singleTagline));
+  panel.append(w);
+  n.append(panel);
+  document.body.classList.add("locked");
+  setTimeout(() => b.focus({ preventScroll: true }), 0);
+  n.addEventListener("keydown", (e) => {
+    if (e.key === "Tab") {
+      e.preventDefault();
+      b.focus();
+    }
+  });
+  return n;
+}
+function buildHero(d, c, ctx) {
+  const s = section("hero");
+  s.tabIndex = -1;
+  scene(s, d);
+  const w = s.firstChild;
+  add(
+    w,
+    faithMark(d),
+    el("p", "faith-line", c[d.faithId] || ""),
+    el(
+      "p",
+      "label",
+      d.eventType === "wedding"
+        ? c.shubh
+        : EVENT_NAMES.en[d.eventType] || c.ceremony,
+    ),
+    names(d, "names", "h1"),
+    ornament(),
+    el("p", "hero-date", dateText(d, ctx)),
+    el("p", "hero-venue", d.venue),
+  );
+  const hint = el("a", "scroll-hint");
+  hint.href = "#blessing";
+  add(hint, el("span", "", c.scroll), icon("chevron"));
+  s.append(hint);
+  return s;
+}
+function buildBlessing(d, c) {
+  const s = section("blessing"),
+    w = s.firstChild;
+  add(w, ornament());
+  if (c[d.faithId]) add(w, faithMark(d), el("p", "faith-line", c[d.faithId]));
+  add(w, el("p", "blessing-copy", d.message || c.blessing));
+  return s;
+}
+function buildEvents(d, c, ctx) {
+  if (!d.events?.length) return null;
+  const s = section(
+    "events",
+    d.eventType === "wedding" ? c.events : c.otherEvents,
+    c.eventIntro,
+  );
+  const trail = el("div", "ritual-trail");
+  const height = d.events.length * 300;
+  let geometry = "M250 0C250 60 250 90 250 150";
+  let lastX = 250,
+    lastY = 150;
+  for (let i = 1; i < d.events.length; i++) {
+    const x = i % 2 ? 750 : 250,
+      y = i * 300 + 150;
+    geometry +=
+      "C" +
+      lastX +
+      " " +
+      (lastY + 150) +
+      " " +
+      x +
+      " " +
+      (y - 150) +
+      " " +
+      x +
+      " " +
+      y;
+    lastX = x;
+    lastY = y;
+  }
+  geometry += "L" + lastX + " " + height;
+  const line = svg(
+    '<path class="vine-base"/><path class="vine-live" pathLength="1"/><circle class="vine-tip" r="8" cx="250" cy="0" fill="currentColor"/>',
+    "0 0 1000 " + height,
+  );
+  line.querySelectorAll("path").forEach((p) => p.setAttribute("d", geometry));
+  line.classList.add("ritual-vine");
+  line.setAttribute("preserveAspectRatio", "none");
+  trail.append(line);
+  d.events.forEach((e, i) => {
+    const key = Object.hasOwn(EVENT_NAMES.en, e.key) ? e.key : "wedding";
+    const card = el("article", "event-card " + key);
+    card.style.setProperty("--i", i);
+    const visual = el("div", "ritual-visual");
+    const atlas = el("div", "ritual-object");
+    atlas.dataset.ritual = String(
+      key === "mehendi" ? 0 : key === "haldi" ? 1 : 2,
+    );
+    const flower = lotus();
+    flower.classList.add("event-marker");
+    add(visual, atlas, flower);
+    const detail = el("div", "event-detail");
+    add(detail, el("h3", "", e.label || EVENT_NAMES.en[e.key] || c.ceremony));
+    const when = el("div", "event-fact");
+    add(when, icon("calendar"), el("p", "event-date", dateText(e, ctx)));
+    const time = el("div", "event-fact");
+    add(time, icon("clock"), el("p", "event-time", timeText(e, ctx)));
+    const place = el("div", "event-fact");
+    add(place, icon("pin"), el("p", "event-venue", e.venue));
+    add(detail, when, time, place, el("p", "event-address", e.address));
+    const tiny = icon(key);
+    tiny.classList.add("ritual-symbol");
+    visual.append(tiny);
+    if (e.venue || e.address)
+      detail.append(
+        link(
+          c.maps,
+          "https://www.google.com/maps/search/?api=1&query=" +
+            encodeURIComponent([e.venue, e.address].filter(Boolean).join(", ")),
+          "button map-button",
+        ),
+      );
+    add(card, visual, detail);
+    trail.append(card);
+  });
+  s.firstChild.append(trail);
+  return s;
+}
+function buildGallery(d, c) {
+  const photos = (d.gallery || []).map(local).filter(Boolean).slice(0, 12);
+  if (!photos.length) return null;
+  const s = section("gallery", c.gallery, c.galleryIntro);
+  s.firstChild.append(el("p", "gallery-sub", c.gallerySub));
+  const collage = el("div", "gallery-collage");
+  for (let start = 0; start < photos.length; start += 5) {
+    const group = el("div", "gallery-group");
+    group.dataset.count = String(Math.min(5, photos.length - start));
+    for (let i = start; i < Math.min(start + 5, photos.length); i++) {
+      const b = button("", () => openViewer(i), "photo photo-" + (i - start));
+      b.setAttribute("aria-label", c.photo + " " + (i + 1));
+      const img = el("img");
+      img.src = photos[i];
+      img.alt = c.photo + " " + (i + 1);
+      img.loading = "lazy";
+      b.append(img);
+      group.append(b);
+    }
+    collage.append(group);
+  }
+  s.firstChild.append(collage);
+  function openViewer(index) {
+    const focus = document.activeElement;
+    const dialog = el("dialog", "lightbox");
+    dialog.setAttribute("aria-label", c.gallery);
+    const img = el("img");
+    const counter = el("p", "viewer-counter");
+    const show = () => {
+      img.src = photos[index];
+      img.alt = c.photo + " " + (index + 1);
+      counter.textContent = index + 1 + " / " + photos.length;
+    };
+    const close = button("", () => dialog.close(), "viewer-close");
+    close.append(icon("close"));
+    close.setAttribute("aria-label", c.close);
+    const prev = button(
+      "",
+      () => {
+        index = (index + photos.length - 1) % photos.length;
+        show();
+      },
+      "viewer-prev",
+    );
+    prev.setAttribute("aria-label", c.previous);
+    prev.append(icon("previous"));
+    const next = button(
+      "",
+      () => {
+        index = (index + 1) % photos.length;
+        show();
+      },
+      "viewer-next",
+    );
+    next.setAttribute("aria-label", c.next);
+    next.append(icon("next"));
+    add(dialog, img, close, prev, next, counter);
+    document.body.append(dialog);
+    document.body.classList.add("locked");
+    dialog.showModal();
+    show();
+    close.focus();
+    dialog.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowRight") next.click();
+      if (e.key === "ArrowLeft") prev.click();
+    });
+    let x;
+    dialog.addEventListener(
+      "touchstart",
+      (e) => (x = e.changedTouches[0].clientX),
+      { passive: true },
+    );
+    dialog.addEventListener(
+      "touchend",
+      (e) => {
+        const dx = e.changedTouches[0].clientX - x;
+        if (Math.abs(dx) > 45) (dx < 0 ? next : prev).click();
+      },
+      { passive: true },
+    );
+    dialog.addEventListener("close", () => {
+      dialog.remove();
+      document.body.classList.remove("locked");
+      focus.focus();
+    });
+  }
+  return s;
+}
+function buildFooter(d, c, ctx) {
+  const s = section("footer");
+  scene(s, d);
+  const w = s.firstChild;
+  add(
+    w,
+    faithMark(d),
+    el("p", "section-kicker", c.closing),
+    el("p", "footer-note", c.closingNote),
+    names(d),
+    el("p", "footer-date", dateText(d, ctx)),
+    ornament(),
+  );
+  const share = el("div", "share-row");
+  const feedback = el("p", "copy-feedback");
+  feedback.setAttribute("role", "status");
+  add(
+    share,
+    link(
+      c.share,
+      "https://wa.me/?text=" + encodeURIComponent(location.href),
+      "text-link",
+    ),
+    button(
+      c.copyLink,
+      async () => {
+        try {
+          await navigator.clipboard.writeText(location.href);
+          feedback.textContent = c.copied;
+        } catch {
+          feedback.textContent = c.copyFailed;
+        }
+      },
+      "text-link",
+    ),
+  );
+  add(w, share, feedback, link(c.made, "https://ruvva.com", "brand-link"));
+  return s;
+}
+function carvedVideoFrame() {
+  const n = svg(
+    '<rect x="8" y="8" width="984" height="634" rx="5" fill="#d39533"/><rect x="20" y="20" width="960" height="610" rx="2" fill="#f8d77e"/><rect x="33" y="33" width="934" height="584" fill="#b07921"/><rect x="50" y="50" width="900" height="550" fill="none" stroke="#fbe1a1" stroke-width="8"/><path d="M94 50v550m812-550v550M50 90h900M50 558h900" stroke="#8c5113" stroke-width="3"/>',
+    "0 0 1000 650",
+  );
+  for (const x of [65, 935])
+    for (let y = 112; y < 550; y += 66) {
+      const a = lotus();
+      a.setAttribute("x", String(x - 24));
+      a.setAttribute("y", String(y));
+      a.setAttribute("width", "48");
+      a.setAttribute("height", "52");
+      n.append(a);
+    }
+  for (let x = 120; x < 900; x += 67) {
+    const a = ornament();
+    a.setAttribute("x", String(x - 30));
+    a.setAttribute("y", "30");
+    a.setAttribute("width", "60");
+    a.setAttribute("height", "50");
+    n.append(a);
+    const b = lotus();
+    b.setAttribute("x", String(x - 20));
+    b.setAttribute("y", "570");
+    b.setAttribute("width", "40");
+    b.setAttribute("height", "40");
+    n.append(b);
+  }
+  n.classList.add("video-carving");
+  n.setAttribute("preserveAspectRatio", "none");
+  return n;
+}
+function initializeSceneMotion(root) {
+  const scenes = [
+      ...root.querySelectorAll(".hero,.footer,.ritual-trail,.gallery-collage"),
+    ],
+    visible = new Set();
+  let frame = 0;
+  const update = () => {
+    frame = 0;
+    if (document.hidden) return;
+    for (const n of visible) {
+      const r = n.getBoundingClientRect();
+      if (n.matches(".hero,.footer"))
+        n.style.setProperty(
+          "--scene-y",
+          (reduced.matches ? 0 : Math.max(-25, Math.min(45, -r.top * 0.055))) +
+            "px",
+        );
+      if (n.matches(".ritual-trail")) {
+        const p = reduced.matches
+          ? 1
+          : Math.max(0, Math.min(1, (innerHeight * 0.78 - r.top) / r.height));
+        n.style.setProperty("--progress", p);
+        const path = n.querySelector(".vine-live"),
+          len = path.getTotalLength(),
+          pt = path.getPointAtLength(p * len);
+        if (!n.dataset.flowered) {
+          n.dataset.flowered = "true";
+          const svgRoot = n.querySelector(".ritual-vine");
+          for (let i = 1; i < vineSprigCount(n); i++) {
+            const t = path.getPointAtLength((len * i) / vineSprigCount(n));
+            const sprig = svg(
+              '<path class="vine-leaf" d="M0 0C-35-35-70-30-70-10c25 3 50 0 70 10ZM0 0c35-35 70-30 70-10-25 3-50 0-70 10Z"/><path class="vine-petal" d="M0 0C-22-25-28-55-10-60 7-55 12-30 0 0ZM0 0C22-25 28-55 10-60-7-55-12-30 0 0ZM0 0C-32 4-46-13-35-24c17-6 30 4 35 24Zm0 0c32 4 46-13 35-24-17-6-30 4-35 24Z"/><circle cy="-12" r="8" fill="#b67927"/>',
+              "-85 -75 170 105",
+            );
+            sprig.classList.add("vine-botanical");
+            sprig.setAttribute("x", String(t.x - 85));
+            sprig.setAttribute("y", String(t.y - 48));
+            sprig.setAttribute("width", "170");
+            sprig.setAttribute("height", "105");
+            svgRoot.append(sprig);
+          }
+        }
+        n.querySelector(".vine-tip").setAttribute("cx", String(pt.x));
+        n.querySelector(".vine-tip").setAttribute("cy", String(pt.y));
+      }
+      if (n.matches(".gallery-collage")) {
+        const y = reduced.matches
+          ? 0
+          : Math.max(-8, Math.min(8, (innerHeight * 0.5 - r.top) * 0.015));
+        n.style.setProperty("--photo-y", y + "px");
+      }
+    }
+  };
+  const schedule = () => {
+    if (!frame && !document.hidden) frame = requestAnimationFrame(update);
+  };
+  const io = new IntersectionObserver((es) => {
+    es.forEach((e) =>
+      e.isIntersecting ? visible.add(e.target) : visible.delete(e.target),
+    );
+    schedule();
+  });
+  scenes.forEach((n) => io.observe(n));
+  addEventListener("scroll", schedule, { passive: true });
+  addEventListener("resize", schedule, { passive: true });
+  document.addEventListener("visibilitychange", schedule);
+  reduced.addEventListener("change", schedule);
+}
+
+function vineSprigCount(n) {
+  return Math.max(4, n.querySelectorAll(".event-card").length * 3);
+}

@@ -14,5 +14,6 @@ PASS storybook-garden: actual invitation opens and browser Back returns to galle
 PASS ocean-serene: actual invitation opens and browser Back returns to gallery
 PASS varnika: actual invitation opens and browser Back returns to gallery
 PASS sannidhi: actual invitation opens and browser Back returns to gallery
+PASS kalyana-vaibhavam: actual invitation opens and browser Back returns to gallery
 PASS reduced motion, no page errors
 PASS future theme auto-discovery and no-image fallback

@@ -1,0 +1,7 @@
+Common images: 449112/450000 bytes
+Desktop-only image: 98474/400000 bytes
+First-screen phone images: 122798/150000 bytes
+First-screen desktop images: 145742/150000 bytes
+JS gzip: 15848/60000 bytes
+CSS gzip: 10407/25000 bytes
+Three font families; fonts fetched through allowed Google Fonts CSS.

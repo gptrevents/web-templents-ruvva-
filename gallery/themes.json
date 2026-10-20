@@ -94,5 +94,21 @@
     "stage": "#eee3cf",
     "desktop": "themes/sannidhi/screenshots/desktop/preview.webp",
     "phone": "themes/sannidhi/screenshots/phone/preview.webp"
+  },
+  {
+    "id": "kalyana-vaibhavam",
+    "title": "Kalyana Vaibhavam",
+    "category": "Premium",
+    "description": "An illuminated wedding celebration with sculpted gold portrait niches, banana groves, a divine wedding tableau and a flowering path of rituals.",
+    "detail": "A richly adorned celebration · Premium",
+    "palette": [
+      "#870d2b",
+      "#a86c16",
+      "#2b5b22",
+      "#fff0c1"
+    ],
+    "stage": "#f5dfa3",
+    "desktop": "themes/kalyana-vaibhavam/screenshots/desktop/preview.webp",
+    "phone": "themes/kalyana-vaibhavam/screenshots/phone/preview.webp"
   }
 ]
