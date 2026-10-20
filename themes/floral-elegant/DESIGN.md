@@ -59,7 +59,7 @@ Passed: node tools/shoot.mjs floral-elegant. All required widths, alternate samp
 - QA scripts require Playwright and the theme server on 127.0.0.1:4174; qa/visuals.mjs is the standalone screenshot runner copy and takes floral-elegant as its argument from repository root.
 
 ### Production budgets
-- app.js: 13,702 bytes gzip / 60,000.
+- app.js: 13,767 bytes gzip / 60,000.
 - style.css: 7,168 bytes gzip / 25,000.
 - Common/phone WebP images: 447,536 bytes raw / 450 KB. Desktop-only background: 146,332 bytes raw / 400 KB. Raw sizes are conservative for already compressed WebP. Three Google Font families. No JS libraries.
 
@@ -191,4 +191,4 @@ The user explicitly requested the refinement across all seven existing templates
 
 Original vanilla JS now eases real-document wheel/trackpad scrolling over a 210ms response constant, preserves full fast-gesture distance and reverses direction immediately. Pointer/keyboard/focus, navigation, nested scrollers, opening and viewer locks remain native. Touch keeps browser inertia; scroll-driven motion also works on touch layouts. Theme-specific depths move whole portrait cards and ritual art; headings reveal with the scroll and gallery depth stays within tile gaps. Existing transforms, image crops, artwork, typography and layouts are retained. Only visible elements update after scroll/resize/intersection events, with no idle animation loop. Hidden tabs and reduced motion are respected.
 
-Validation: required shoot passed. tools/check-scroll-motion.mjs verifies eased starts, exact 640px and 1800px gestures, reversal, scroll-linked depth, gallery lock/Escape, native keyboard End outside the gallery, reduced motion, touch behavior and 390/820/1440 widths. All seven results are in tools/scroll-motion-report.txt. Chromium automation and local in-app inspection were used; physical iOS/Android devices were unavailable. Latest gzip: JS 13702 bytes, CSS 7168 bytes, within 60KB/25KB limits. Earlier image-budget exceptions remain unchanged.
+Validation: required shoot passed. tools/check-scroll-motion.mjs verifies eased starts, exact 640px and 1800px gestures, reversal, scroll-linked depth, gallery lock/Escape, native keyboard End outside the gallery, reduced motion, touch behavior and 390/820/1440 widths. All seven results are in tools/scroll-motion-report.txt. Chromium automation and local in-app inspection were used; physical iOS/Android devices were unavailable. Latest gzip: JS 13767 bytes, CSS 7168 bytes, within 60KB/25KB limits. Earlier image-budget exceptions remain unchanged.

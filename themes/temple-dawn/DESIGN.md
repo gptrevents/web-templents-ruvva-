@@ -49,7 +49,7 @@ Passed: node tools/shoot.mjs temple-dawn. All seven required viewports, alternat
 - RSVP has no backend: production persistence requires window.onInviteRsvp(payload). Speaker output was not subjectively listened to, and no message was actually shared to another person. Browser music state and share URL construction were checked.
 
 ### Production weight (screenshots excluded)
-- app.js: 14,271 bytes gzip; budget 60,000.
+- app.js: 14,338 bytes gzip; budget 60,000.
 - style.css: 9,412 bytes gzip; budget 25,000.
 - Phone/common images: 446,324 bytes raw (below 450 KB); desktop-only additional backgrounds: 301,066 bytes raw (below 400 KB). Already-compressed WebPs are measured raw, a conservative comparison. Two font families; no runtime library.
 
@@ -137,4 +137,4 @@ The user explicitly requested the refinement across all seven existing templates
 
 Original vanilla JS now eases real-document wheel/trackpad scrolling over a 210ms response constant, preserves full fast-gesture distance and reverses direction immediately. Pointer/keyboard/focus, navigation, nested scrollers, opening and viewer locks remain native. Touch keeps browser inertia; scroll-driven motion also works on touch layouts. Theme-specific depths move whole portrait cards and ritual art; headings reveal with the scroll and gallery depth stays within tile gaps. Existing transforms, image crops, artwork, typography and layouts are retained. Only visible elements update after scroll/resize/intersection events, with no idle animation loop. Hidden tabs and reduced motion are respected.
 
-Validation: required shoot passed. tools/check-scroll-motion.mjs verifies eased starts, exact 640px and 1800px gestures, reversal, scroll-linked depth, gallery lock/Escape, native keyboard End outside the gallery, reduced motion, touch behavior and 390/820/1440 widths. All seven results are in tools/scroll-motion-report.txt. Chromium automation and local in-app inspection were used; physical iOS/Android devices were unavailable. Latest gzip: JS 14271 bytes, CSS 9412 bytes, within 60KB/25KB limits. Earlier image-budget exceptions remain unchanged.
+Validation: required shoot passed. tools/check-scroll-motion.mjs verifies eased starts, exact 640px and 1800px gestures, reversal, scroll-linked depth, gallery lock/Escape, native keyboard End outside the gallery, reduced motion, touch behavior and 390/820/1440 widths. All seven results are in tools/scroll-motion-report.txt. Chromium automation and local in-app inspection were used; physical iOS/Android devices were unavailable. Latest gzip: JS 14338 bytes, CSS 9412 bytes, within 60KB/25KB limits. Earlier image-budget exceptions remain unchanged.

@@ -1601,7 +1601,9 @@ function initializeScrollChoreography(root) {
         if (change.isIntersecting) visible.add(entry);
         else {
           visible.delete(entry);
-          restore(entry);
+          // Keep the last pose outside the viewport; resetting it here can
+          // bounce the observer across its boundary and create an idle loop.
+          entry.node.style.willChange = entry.willChange;
         }
       }
       schedule();
