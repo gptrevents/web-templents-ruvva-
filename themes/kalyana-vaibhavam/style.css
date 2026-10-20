@@ -1,0 +1,2887 @@
+:root {
+  --paper: #fff0c1;
+  --light: #fff8df;
+  --ruby: #870d2b;
+  --deep: #630d25;
+  --gold: #a86c16;
+  --bright: #d3a445;
+  --ink: #573b19;
+  --muted: #71532c;
+  --green: #2b5b22;
+  --f-display: "Cormorant Infant", Georgia, serif;
+  --f-body: "Source Sans 3", Arial, sans-serif;
+  --f-script: "Great Vibes", cursive;
+  --f-caps: var(--f-display);
+}
+* {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 30px;
+}
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 17px/1.6 var(--f-body);
+  overflow-x: clip;
+}
+body.locked {
+  overflow: hidden;
+}
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+button {
+  cursor: pointer;
+}
+a {
+  color: inherit;
+}
+button:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+h1,
+h2,
+h3 {
+  font-family: var(--f-display);
+  font-weight: 500;
+  line-height: 1.18;
+  color: var(--ruby);
+}
+h2 {
+  font-size: clamp(34px, 4.8vw, 60px);
+  text-align: center;
+  text-wrap: balance;
+}
+h3 {
+  font-size: clamp(25px, 3vw, 35px);
+}
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+svg {
+  display: block;
+}
+.icon {
+  width: 28px;
+  height: 28px;
+  flex: none;
+}
+.label {
+  font: 600 12px/1.6 var(--f-caps);
+}
+html[lang="en"] .label {
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+html:not([lang="en"]) .label {
+  font-size: 14px;
+}
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 3px solid var(--ruby);
+  outline-offset: 5px;
+}
+.section {
+  position: relative;
+  overflow: clip;
+  padding: 80px 0 84px;
+  background: radial-gradient(ellipse at 50% 25%, #fff9dc80, transparent 70%);
+}
+.section:before {
+  content: "";
+  position: absolute;
+  inset: 12px 9px;
+  border-left: 1px solid #ad7b3045;
+  border-right: 1px solid #ad7b3045;
+  pointer-events: none;
+}
+.wrap {
+  position: relative;
+  z-index: 4;
+  width: calc(100% - 88px);
+  max-width: 1180px;
+  margin-left: 28px;
+}
+.section-kicker {
+  font: italic 30px/1.35 var(--f-display);
+  color: var(--ruby);
+  text-align: center;
+  margin-bottom: 13px;
+  text-wrap: balance;
+}
+.section-rule {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 180px;
+  height: 38px;
+  color: var(--gold);
+  z-index: 2;
+}
+.ornament {
+  width: 140px;
+  height: 30px;
+  margin: 18px auto;
+  color: var(--gold);
+}
+.lotus {
+  width: 65px;
+  height: 59px;
+  color: var(--gold);
+}
+.section-art {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+.banana-corner {
+  position: absolute;
+  left: -12px;
+  top: -8px;
+  width: 110px;
+  height: auto;
+  transform-origin: 0 0;
+  animation: leaf-sway 9s ease-in-out infinite alternate;
+  animation-play-state: paused;
+}
+.corner-1 {
+  left: auto;
+  right: -12px;
+  scale: -1 1;
+  animation-delay: -4s;
+}
+.watermark {
+  position: absolute;
+  width: 290px;
+  right: -125px;
+  top: 38%;
+  color: var(--gold);
+  opacity: 0.095;
+  transform: rotate(12deg);
+  pointer-events: none;
+}
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 48px;
+  padding: 11px 25px;
+  border: 1px solid #c89a3c;
+  border-radius: 40px;
+  background: linear-gradient(125deg, #9c1639, var(--deep));
+  color: var(--light);
+  box-shadow:
+    inset 0 0 0 3px #870d2b,
+    inset 0 0 0 4px #cda44f,
+    0 6px 12px #693b1e22;
+  text-decoration: none;
+  font: 500 16px/1.4 var(--f-display);
+  transition:
+    transform 0.25s,
+    filter 0.25s;
+}
+.button:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.1);
+}
+.button .icon {
+  width: 18px;
+  height: 18px;
+}
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  border: 0;
+  border-bottom: 1px solid currentColor;
+  background: none;
+  color: var(--ruby);
+  font-size: 14px;
+  text-decoration: none;
+  padding: 7px 0;
+}
+.text-link:hover {
+  color: var(--ink);
+}
+.actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.names {
+  font: italic 500 clamp(48px, 14.5vw, 68px) / 1.04 var(--f-display);
+  color: var(--ruby);
+  overflow-wrap: anywhere;
+  text-wrap: balance;
+  text-align: center;
+}
+.names > span {
+  display: block;
+}
+.names .amp {
+  font-family: var(--f-script);
+  font-size: 0.5em;
+  line-height: 1.4;
+  color: var(--gold);
+}
+.names[data-long="true"] {
+  font-size: clamp(25px, 7.4vw, 34px);
+  line-height: 1.2;
+}
+.faith-line {
+  text-align: center;
+  color: var(--ruby);
+  font: 500 14px/1.5 var(--f-display);
+}
+.ganesha {
+  width: 62px;
+  height: 58px;
+  margin: 0 auto 5px;
+  color: var(--gold);
+}
+/* The opening is a real foreground panel, with live, accessible typography. */
+.opening {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  perspective: 1500px;
+  background: var(--paper);
+  overflow: auto;
+}
+.invitation-panel {
+  position: relative;
+  width: 100%;
+  min-height: 100svh;
+  transform-origin: 100% 50%;
+  overflow: hidden;
+  isolation: isolate;
+  will-change: transform;
+}
+.palace-scene {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: var(--paper) url("assets/palace-phone.webp") center/cover
+    no-repeat;
+  transform: translate3d(0, var(--scene-y, 0px), 0) scale(1.02);
+  pointer-events: none;
+}
+.opening-copy > .ornament {
+  width: 125px;
+  height: 24px;
+  margin: 9px auto;
+}
+.opening-copy > .label {
+  font-size: 10px;
+  margin-top: 10px;
+}
+.salutation {
+  font: italic 16px/1.5 var(--f-display);
+  margin: 3px auto 10px;
+  overflow-wrap: anywhere;
+  max-height: 70px;
+  overflow: auto;
+}
+.opening .names {
+  font-size: clamp(48px, 14vw, 65px);
+}
+.opening .names[data-long="true"] {
+  font-size: clamp(25px, 7vw, 33px);
+}
+.opening-date {
+  font: 600 15px/1.6 var(--f-display);
+  color: var(--ruby);
+  margin-top: 7px;
+}
+.opening-venue {
+  font: 500 13px/1.5 var(--f-display);
+  max-width: 260px;
+  margin: 4px auto 0;
+}
+.opening-copy > .button {
+  margin-top: 20px;
+  min-width: 230px;
+}
+.tagline {
+  font: italic 14px/1.5 var(--f-display);
+  margin-top: 12px;
+  color: var(--ink);
+}
+.neutral-mandap {
+  position: absolute;
+  inset: 0;
+  background: none;
+  width: 240px;
+  max-width: 85%;
+  margin: auto;
+}
+.lamps {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+.hanging-lamp {
+  position: absolute;
+  top: 100px;
+  left: 18px;
+  width: 31px;
+  height: 135px;
+  color: #8e5716;
+  transform-origin: 50% 0;
+  animation: lamp-sway 6s ease-in-out infinite alternate;
+  animation-play-state: paused;
+  filter: drop-shadow(1px 2px 1px #6f3e151a);
+}
+.hanging-lamp + svg {
+  left: auto;
+  right: 18px;
+  top: 165px;
+  animation-delay: -3s;
+}
+.opening-away {
+  pointer-events: none;
+}
+.opening-away .invitation-panel {
+  animation: panel-pivot 1.45s cubic-bezier(0.5, 0.04, 0.22, 1) forwards;
+}
+.opening-away .opening-copy {
+  animation: copy-release 0.8s forwards;
+}
+/* One broad tableau; no names are embedded in the illustration. */
+.section.hero {
+  padding: 0;
+  min-height: 100svh;
+  height: max(844px, 100svh);
+}
+.hero:before {
+  display: none;
+}
+.hero .ganesha {
+  width: 66px;
+  height: 62px;
+}
+.hero .label {
+  margin: 9px 0 12px;
+  color: var(--ruby);
+}
+.hero .names {
+  font-size: clamp(52px, 15.5vw, 70px);
+}
+.hero .names[data-long="true"] {
+  font-size: clamp(25px, 7.2vw, 34px);
+}
+.hero .ornament {
+  margin: 14px auto;
+  width: 155px;
+}
+.hero-date {
+  font: 600 17px/1.6 var(--f-display);
+  color: var(--ruby);
+}
+.hero-venue {
+  font: 500 14px/1.6 var(--f-display);
+  margin: 6px auto 0;
+  max-width: 270px;
+}
+.hero .hanging-lamp {
+  top: 100px;
+}
+.hero .hanging-lamp + svg {
+  top: 210px;
+}
+.scroll-hint {
+  position: absolute;
+  z-index: 6;
+  bottom: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 5px 14px;
+  background: #fff3d3e8;
+  color: var(--ruby);
+  border: 1px solid #bd903e;
+  border-radius: 30px;
+  font-size: 11px;
+  text-decoration: none;
+}
+.scroll-hint .icon {
+  width: 16px;
+  height: 16px;
+  animation: hint-bounce 2.5s ease-in-out infinite;
+  animation-play-state: paused;
+}
+.opened .hero .names {
+  animation: name-ink 1.2s 0.25s both;
+}
+.blessing {
+  padding-top: 64px;
+  padding-bottom: 78px;
+}
+.blessing .wrap {
+  max-width: 660px;
+  text-align: center;
+}
+.blessing .ganesha {
+  width: 50px;
+  height: 48px;
+}
+.blessing-copy {
+  font: 500 clamp(21px, 2.3vw, 29px) / 1.55 var(--f-display);
+  text-align: center;
+  max-width: 640px;
+  margin: 20px auto 0;
+  text-wrap: balance;
+}
+.blessing .ornament {
+  margin-top: 0;
+}
+.blessing .faith-line {
+  font-size: 19px;
+}
+.blessing .banana-corner {
+  width: 105px;
+  opacity: 0.85;
+}
+/* Carved gold niches match the art direction of the supplied demo. */
+.couple {
+  padding-top: 75px;
+}
+.couple .section-kicker {
+  font: 400 15px/1.6 var(--f-display);
+  max-width: 380px;
+  margin: 0 auto 10px;
+  color: var(--ink);
+}
+.couple-row {
+  display: grid;
+  gap: 25px;
+  text-align: center;
+  margin-top: 28px;
+}
+.person {
+  min-width: 0;
+}
+.portrait {
+  position: relative;
+  width: min(100%, 300px);
+  aspect-ratio: 3/4;
+  margin: 0 auto 15px;
+}
+.portrait:before {
+  content: "";
+  position: absolute;
+  inset: 17% 13% 8%;
+  background: #efcf8e;
+  border-radius: 45% 45% 0 0;
+}
+.person-photo {
+  position: absolute;
+  left: 13%;
+  top: 18%;
+  width: 74%;
+  height: 74%;
+  object-fit: cover;
+  object-position: 50% 12%;
+  clip-path: polygon(
+    50% 0,
+    64% 5%,
+    76% 11%,
+    81% 16%,
+    88% 19%,
+    92% 26%,
+    100% 28%,
+    100% 100%,
+    0 100%,
+    0 28%,
+    8% 26%,
+    12% 19%,
+    19% 16%,
+    24% 11%,
+    36% 5%
+  );
+}
+.portrait-carving {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  object-fit: fill;
+  pointer-events: none;
+}
+.person h3 {
+  font: italic 500 40px/1.25 var(--f-display);
+  margin-bottom: 10px;
+  overflow-wrap: anywhere;
+}
+.person .label {
+  font-size: 11px;
+  color: var(--gold);
+}
+.parents {
+  font: 500 16px/1.6 var(--f-display);
+  max-width: 300px;
+  margin: 5px auto 0;
+}
+.join {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-direction: column;
+  font: 40px var(--f-script);
+  color: var(--gold);
+}
+.join .ornament {
+  width: 95px;
+  margin: 2px auto;
+}
+.monogram {
+  position: absolute;
+  inset: 18% 13% 8%;
+  display: grid;
+  place-items: center;
+  font: 70px var(--f-display);
+  color: var(--ruby);
+}
+.couple-row:not(:has(.join)) {
+  grid-template-columns: 1fr;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.person-bride {
+  transition-delay: 0.12s;
+}
+/* The missing countdown is a single engraved architectural plaque. */
+.countdown {
+  background: linear-gradient(
+    90deg,
+    #e8c27533,
+    transparent 20%,
+    transparent 80%,
+    #e8c27533
+  );
+}
+.countdown h2 {
+  font-size: clamp(29px, 3.5vw, 45px);
+  max-width: 720px;
+  margin: auto;
+}
+.count-unit {
+  padding: 15px 8px;
+  text-align: center;
+  min-width: 0;
+  border: 1px solid #b37d2855;
+  background: radial-gradient(ellipse, #fff1b3a8, #c98c2740);
+}
+.digit {
+  display: block;
+  font: 500 clamp(43px, 11vw, 65px) / 1.1 var(--f-display);
+  color: var(--ruby);
+}
+.count-unit .label {
+  display: block;
+  color: var(--ink);
+  margin-top: 5px;
+  font-size: 10px;
+}
+.count-status {
+  font: italic 32px/1.5 var(--f-display);
+  text-align: center;
+  margin: 25px 0;
+  color: var(--ruby);
+}
+.count-status:empty {
+  display: none;
+}
+.calendar {
+  margin: 26px auto 0;
+  text-align: center;
+}
+.calendar .label {
+  margin-bottom: 12px;
+}
+.calendar .button {
+  font-size: 14px;
+  min-height: 44px;
+  padding: 9px 17px;
+  background: #fff5d4;
+  color: var(--ruby);
+  box-shadow:
+    inset 0 0 0 2px #fff5d4,
+    inset 0 0 0 3px #d5ac5d,
+    0 3px 7px #9f682418;
+}
+/* Open illustrated rituals follow a flowering gold vine. */
+.events .section-kicker {
+  font: 500 clamp(31px, 4.2vw, 52px) / 1.2 var(--f-display);
+  margin-bottom: 9px;
+}
+.events h2 {
+  font-size: 21px;
+  color: var(--ink);
+  font-weight: 400;
+}
+.ritual-trail {
+  position: relative;
+  margin-top: 22px;
+  --progress: 0;
+}
+.ritual-vine {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  color: #a87927;
+  overflow: visible;
+  z-index: 0;
+}
+.vine-base {
+  stroke-width: 2;
+  stroke-opacity: 0.25;
+}
+.vine-live {
+  stroke-width: 2.5;
+  stroke-dasharray: 1;
+  stroke-dashoffset: calc(1 - var(--progress, 0));
+}
+.vine-tip {
+  filter: drop-shadow(0 0 5px #d59935);
+}
+.event-card {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+  gap: 10px;
+  align-items: center;
+  min-height: 300px;
+  padding: 15px 0;
+  --event: var(--ruby);
+}
+.event-card:nth-of-type(2n) .ritual-visual {
+  grid-column: 2;
+  grid-row: 1;
+}
+.event-card:nth-of-type(2n) .event-detail {
+  grid-column: 1;
+  grid-row: 1;
+}
+.ritual-visual {
+  position: relative;
+  min-width: 0;
+  height: 180px;
+  display: grid;
+  place-items: center;
+}
+.ritual-object {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1/1;
+  background-image: none;
+  background-repeat: no-repeat;
+  background-size: 300% 100%;
+  background-position: 0 50%;
+}
+.ritual-object[data-ritual="1"] {
+  background-position: 50% 50%;
+}
+.ritual-object[data-ritual="2"] {
+  background-position: 100% 50%;
+}
+.event-marker {
+  position: absolute;
+  top: -5px;
+  left: 10%;
+  width: 30px;
+  height: 28px;
+  color: var(--gold);
+}
+.event-card:nth-of-type(2n) .event-marker {
+  left: auto;
+  right: 10%;
+}
+.ritual-symbol {
+  position: absolute;
+  bottom: 2px;
+  right: 10px;
+  color: var(--event);
+  width: 24px;
+  height: 24px;
+}
+.event-detail {
+  min-width: 0;
+}
+.event-detail h3 {
+  font-size: 25px;
+  line-height: 1.13;
+  margin-bottom: 12px;
+  color: var(--event);
+  overflow-wrap: anywhere;
+}
+.event-fact {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  margin: 4px 0;
+}
+.event-fact .icon {
+  width: 13px;
+  height: 16px;
+  color: var(--ruby);
+  margin-top: 2px;
+}
+.event-fact p {
+  font: 500 13px/1.55 var(--f-display);
+  overflow-wrap: anywhere;
+}
+.event-address {
+  font: 400 12px/1.55 var(--f-body);
+  margin: 7px 0;
+  color: var(--muted);
+  overflow-wrap: anywhere;
+}
+.map-button {
+  background: linear-gradient(#fff8dd, #edcb86);
+  color: var(--ruby);
+  box-shadow:
+    inset 0 0 0 2px #fff2c2,
+    0 3px 4px #7c4c1f22;
+  padding: 7px 15px;
+  min-height: 44px;
+  gap: 5px;
+  font-size: 14px;
+  margin-top: 6px;
+}
+.haldi {
+  --event: #926311;
+}
+.mehendi {
+  --event: #3d6229;
+}
+.sangeet {
+  --event: #9d3450;
+}
+.reception {
+  --event: #8e3c20;
+}
+.engagement {
+  --event: #8a5916;
+}
+.puja {
+  --event: #8b4c14;
+}
+.housewarming {
+  --event: #3f6035;
+}
+.birthday {
+  --event: #982f54;
+}
+.nikah {
+  --event: #286241;
+}
+.seen .event-marker {
+  animation: flower-pop 0.7s cubic-bezier(0.2, 0.8, 0.25, 1.35) both;
+}
+.vine-botanical {
+  color: #b47c25;
+}
+.vine-leaf {
+  stroke: #667f32;
+  fill: #5d7d3622;
+  stroke-width: 1.3;
+}
+.vine-petal {
+  stroke: #c99333;
+  fill: #f6d2784d;
+  stroke-width: 1;
+}
+/* Tight gold-bordered photographic compositions, not a generic card gallery. */
+.gallery .section-kicker {
+  font-size: clamp(40px, 5.8vw, 74px);
+  margin-bottom: 2px;
+}
+html[lang="en"] .gallery .section-kicker,
+html[lang="en"] .rsvp .section-kicker,
+html[lang="en"] .footer .section-kicker {
+  font-family: var(--f-script);
+  font-style: normal;
+}
+.gallery h2 {
+  font-size: 21px;
+  font-weight: 400;
+  color: var(--ink);
+}
+.gallery-sub {
+  font: 400 18px/1.5 var(--f-display);
+  text-align: center;
+  max-width: 500px;
+  margin: 12px auto 24px;
+  text-wrap: balance;
+}
+.gallery-collage {
+  position: relative;
+  display: grid;
+  gap: 13px;
+  max-width: 1100px;
+  margin: auto;
+}
+.photo {
+  position: relative;
+  display: block;
+  padding: 5px;
+  border: 1px solid #a97825;
+  background: linear-gradient(120deg, #fbe7b0, #cd993b, #fff0bd);
+  overflow: hidden;
+  min-width: 0;
+  min-height: 0;
+  cursor: zoom-in;
+  transition: transform 0.3s;
+}
+.photo:after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  border: 1px solid #fff7d1;
+  pointer-events: none;
+}
+.photo:hover img {
+  filter: brightness(1.07);
+}
+.lightbox {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100svh;
+  max-width: none;
+  max-height: none;
+  border: 0;
+  margin: 0;
+  padding: 60px 40px 75px;
+  background: #27190df5;
+  color: #fff3ce;
+}
+.lightbox[open] {
+  display: grid;
+  place-items: center;
+}
+.lightbox::backdrop {
+  background: #27190d;
+}
+.lightbox > img {
+  width: 100%;
+  height: 100%;
+  max-height: calc(100svh - 140px);
+  object-fit: contain;
+}
+.viewer-close,
+.viewer-prev,
+.viewer-next {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border: 1px solid #d8b36c;
+  background: #3c2a18d9;
+  border-radius: 50%;
+  color: var(--light);
+}
+.viewer-close {
+  right: 14px;
+  top: 14px;
+}
+.viewer-prev {
+  left: 5px;
+  top: calc(50% - 23px);
+}
+.viewer-next {
+  right: 5px;
+  top: calc(50% - 23px);
+}
+.viewer-counter {
+  position: absolute;
+  bottom: 23px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font: 22px var(--f-display);
+}
+/* A dimensional engraved frame surrounds a genuine 16:9 poster/player. */
+.video h2 {
+  font-size: 34px;
+}
+.video-shell {
+  position: relative;
+  max-width: 1100px;
+  margin: 30px auto 0;
+  padding: 25px 31px 32px;
+}
+.video-carving {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  color: #87531a;
+  filter: drop-shadow(0 5px 4px #74401322);
+  pointer-events: none;
+}
+.video-carving > .lotus,
+.video-carving > .ornament {
+  margin: 0;
+  color: #855016;
+}
+.video-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: #3b2014;
+  border: 2px solid #86541c;
+  box-shadow: inset 0 0 0 2px #e9c17a;
+}
+.video-poster {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background:
+    linear-gradient(#34201622, #34201688),
+    url("assets/evening.webp") center/cover no-repeat;
+  border: 0;
+  color: var(--light);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.video-poster .icon {
+  width: 48px;
+  height: 48px;
+  background: #870d2b80;
+  border-radius: 50%;
+}
+.video-poster span {
+  font: italic 22px var(--f-display);
+}
+iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.venue-grid {
+  display: grid;
+  gap: 24px;
+  margin-top: 30px;
+}
+.venue-grid > iframe {
+  height: 310px;
+  border: 5px double #a77622;
+  background: #ead4a5;
+}
+.venue-details {
+  align-self: center;
+  padding: 5px 0;
+}
+.venue-details > .icon {
+  color: var(--gold);
+  width: 40px;
+  height: 40px;
+  margin-bottom: 15px;
+}
+.venue-details h3 {
+  margin-bottom: 13px;
+}
+.venue-details > p {
+  margin-bottom: 18px;
+  font: 500 19px/1.6 var(--f-display);
+}
+.venue-details > .text-link {
+  display: flex;
+  justify-content: flex-start;
+  overflow-wrap: anywhere;
+  font-size: 13px;
+}
+.venue-photo {
+  aspect-ratio: 3/2;
+  object-fit: cover;
+  width: 100%;
+  margin-bottom: 20px;
+}
+.live {
+  background: linear-gradient(90deg, #d9a43b35, #fff2c8, #d9a43b35);
+}
+.live > .wrap {
+  display: grid;
+  text-align: center;
+  gap: 19px;
+}
+.live > .wrap > .icon {
+  width: 50px;
+  height: 50px;
+  color: var(--ruby);
+  margin: auto;
+}
+.live h2 {
+  font-size: 34px;
+  margin-bottom: 12px;
+}
+.live p {
+  font: 500 18px/1.5 var(--f-display);
+  max-width: 540px;
+  margin: auto;
+}
+.live .live-note {
+  font-size: 14px;
+  margin-top: 8px;
+  color: var(--muted);
+}
+/* Every guest field stays usable inside the ornamental RSVP surround. */
+.rsvp .section-kicker {
+  font-size: clamp(35px, 5.5vw, 65px);
+  margin-bottom: 7px;
+}
+.rsvp h2 {
+  font-size: 22px;
+  color: var(--ink);
+}
+.rsvp-intro {
+  text-align: center;
+  font: 500 18px/1.55 var(--f-display);
+  max-width: 600px;
+  margin: 13px auto 25px;
+}
+.rsvp-form {
+  max-width: 750px;
+  margin: 25px auto 0;
+  border: 4px double #b88730;
+  padding: 24px 17px;
+  background: radial-gradient(ellipse, #fff9df73, transparent);
+  position: relative;
+}
+.rsvp-form:before {
+  content: "";
+  position: absolute;
+  inset: 5px;
+  border: 1px solid #d5ae60;
+  pointer-events: none;
+}
+.attendance {
+  display: flex;
+  gap: 7px;
+  flex-wrap: wrap;
+}
+.attendance legend {
+  float: left;
+  width: 100%;
+}
+.attendance label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  flex: 1;
+  min-height: 48px;
+  padding: 6px 9px;
+  border: 1px solid #b88835;
+  background: #fff6da80;
+  color: var(--ink);
+}
+.attendance label:has(:checked) {
+  background: #edc97c55;
+  border-color: var(--ruby);
+  color: var(--ruby);
+}
+fieldset {
+  border: 0;
+  min-width: 0;
+  padding: 0;
+  margin: 0 0 24px;
+}
+legend {
+  margin-bottom: 12px;
+}
+.field {
+  margin-bottom: 22px;
+  min-width: 0;
+}
+.field > label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--ruby);
+}
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  min-height: 48px;
+  border: 1px solid #b68d45;
+  background: #fff8e3b8;
+  color: var(--ink);
+  padding: 10px 12px;
+  border-radius: 2px;
+}
+.field textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+input[type="checkbox"],
+input[type="radio"] {
+  width: 18px;
+  height: 18px;
+  flex: none;
+  accent-color: var(--ruby);
+}
+.event-choices {
+  display: grid;
+  gap: 7px;
+}
+.event-choices label {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 46px;
+  padding: 9px 7px;
+  border-bottom: 1px solid #d2ac66;
+}
+.error {
+  font-size: 13px;
+  color: var(--ruby);
+  margin-top: 6px;
+}
+.error:empty {
+  display: none;
+}
+.hint {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 6px;
+}
+.rsvp-form > .button {
+  width: 100%;
+  margin-top: 12px;
+}
+.thanks {
+  text-align: center;
+  max-width: 650px;
+  margin: auto;
+  padding: 40px 0;
+}
+.thanks h3 {
+  font-size: 40px;
+  margin-bottom: 15px;
+}
+.thanks p {
+  font: 500 22px var(--f-display);
+}
+.confetti {
+  position: fixed;
+  inset: 0;
+  z-index: 99;
+  pointer-events: none;
+  overflow: hidden;
+}
+.confetti i {
+  position: absolute;
+  top: -20px;
+  left: calc(var(--i) * 3.7%);
+  width: 7px;
+  height: 12px;
+  background: var(--ruby);
+  animation: confetti-drop 2s ease-in calc(var(--i) * 0.012s) both;
+}
+.confetti i:nth-child(3n) {
+  background: var(--bright);
+}
+.confetti i:nth-child(3n + 1) {
+  background: var(--green);
+}
+.footer {
+  min-height: 990px;
+  padding: 90px 0 360px;
+}
+.footer .section-kicker {
+  font-size: clamp(37px, 5.3vw, 70px);
+  line-height: 1.35;
+  margin: 12px auto;
+}
+.footer .ganesha {
+  width: 53px;
+  height: 51px;
+}
+.footer-note {
+  font: 500 20px/1.55 var(--f-display);
+  max-width: 500px;
+  margin: 15px auto;
+  text-wrap: balance;
+}
+.footer .names {
+  font-size: 36px;
+  margin: 15px 0;
+}
+.footer .names > span {
+  display: inline;
+}
+.footer .names .amp {
+  padding: 0 0.2em;
+  font-size: 0.6em;
+}
+.footer .names[data-long="true"] {
+  font-size: 27px;
+}
+.footer-date {
+  font: 500 16px/1.6 var(--f-display);
+}
+.share-row {
+  display: flex;
+  justify-content: center;
+  gap: 22px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+.copy-feedback {
+  min-height: 23px;
+  font-size: 12px;
+}
+.brand-link {
+  display: inline-block;
+  min-height: 44px;
+  padding: 12px 0;
+  font-size: 11px;
+  text-decoration: none;
+  color: var(--ink);
+}
+.footer .palace-scene {
+  mask-image: linear-gradient(transparent, #000 20%);
+}
+.footer .hanging-lamp {
+  top: 150px;
+}
+.footer .hanging-lamp + svg {
+  top: 260px;
+}
+.floating {
+  position: fixed;
+  right: 8px;
+  top: 18px;
+  z-index: 25;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.control {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  min-width: 44px;
+  background: #fff4d5ed;
+  border: 1px solid #b28a41;
+  border-radius: 50%;
+  color: var(--ruby);
+  box-shadow: 0 2px 5px #89521a13;
+  transition: transform 0.2s;
+}
+.control:hover {
+  transform: translateY(-2px);
+}
+.floating .icon {
+  width: 21px;
+  height: 21px;
+}
+.music {
+  position: relative;
+}
+.music.playing:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid #b68a35;
+  border-radius: 50%;
+  animation: music-halo 3s ease-out infinite;
+  animation-play-state: paused;
+}
+.ambient {
+  position: fixed;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  overflow: hidden;
+}
+.rose-petal {
+  position: absolute;
+  top: -35px;
+  left: calc(6% + var(--i) * 17%);
+  width: 8px;
+  height: 13px;
+  border-radius: 80% 8% 70% 15%;
+  background: linear-gradient(120deg, #ef93a9aa, #c42e5988);
+  animation: petal-fall calc(14s + var(--i) * 2s) linear infinite;
+  animation-delay: calc(var(--i) * -4s);
+  animation-play-state: paused;
+}
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.reveal.seen {
+  opacity: 1;
+  transform: none;
+}
+.hero .wrap.reveal,
+.footer .wrap.reveal {
+  transform: none;
+}
+.motion-active .hanging-lamp,
+.motion-active .banana-corner,
+.motion-active .scroll-hint .icon,
+.motion-active .rose-petal,
+.floating.motion-active .playing:before {
+  animation-play-state: running;
+}
+[hidden] {
+  display: none !important;
+}
+@keyframes panel-pivot {
+  0% {
+    transform: rotateY(0);
+    opacity: 1;
+  }
+  65% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(12%) rotateY(-100deg);
+    opacity: 0;
+  }
+}
+@keyframes copy-release {
+  to {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+}
+@keyframes lamp-sway {
+  from {
+    rotate: -2deg;
+  }
+  to {
+    rotate: 2deg;
+  }
+}
+@keyframes leaf-sway {
+  from {
+    rotate: -0.5deg;
+  }
+  to {
+    rotate: 0.5deg;
+  }
+}
+@keyframes hint-bounce {
+  50% {
+    transform: translateY(5px);
+  }
+}
+@keyframes name-ink {
+  from {
+    opacity: 0;
+    filter: blur(2px);
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: none;
+  }
+}
+@keyframes flower-pop {
+  from {
+    scale: 0.4;
+    opacity: 0;
+  }
+  70% {
+    scale: 1.18;
+    opacity: 1;
+  }
+  to {
+    scale: 1;
+    opacity: 1;
+  }
+}
+@keyframes petal-fall {
+  to {
+    transform: translate3d(55px, 108vh, 0) rotate(300deg);
+  }
+}
+@keyframes music-halo {
+  to {
+    scale: 1.3;
+    opacity: 0;
+  }
+}
+@keyframes confetti-drop {
+  to {
+    transform: translateY(105vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+@media (min-width: 600px) {
+  .wrap {
+    width: calc(100% - 130px);
+    margin: auto;
+  }
+  .section {
+    padding: 95px 0 100px;
+  }
+  .section:before {
+    inset: 14px 18px;
+  }
+  .banana-corner {
+    width: 175px;
+  }
+  .section-kicker {
+    font-size: 40px;
+  }
+  .opening .ganesha {
+    width: 80px;
+    height: 76px;
+  }
+  .opening-copy > .label {
+    font-size: 12px;
+  }
+  .opening .names {
+    font-size: 85px;
+  }
+  .opening .names[data-long="true"] {
+    font-size: 40px;
+  }
+  .opening-copy > .ornament {
+    width: 160px;
+    height: 32px;
+    margin: 12px auto;
+  }
+  .opening-date {
+    font-size: 19px;
+  }
+  .opening-venue {
+    font-size: 17px;
+    max-width: 420px;
+  }
+  .opening-copy > .button {
+    font-size: 21px;
+    min-height: 58px;
+    min-width: 300px;
+    margin-top: 25px;
+  }
+  .tagline {
+    font-size: 16px;
+  }
+  .hero .ganesha {
+    width: 83px;
+    height: 79px;
+  }
+  .hero .names {
+    font-size: 92px;
+  }
+  .hero .names[data-long="true"] {
+    font-size: 43px;
+  }
+  .hero-date {
+    font-size: 21px;
+  }
+  .hero-venue {
+    font-size: 18px;
+    max-width: 480px;
+  }
+  .hanging-lamp {
+    left: 33px;
+    width: 43px;
+    height: 170px;
+    top: 140px;
+  }
+  .hanging-lamp + svg {
+    right: 33px;
+    top: 230px;
+  }
+  .couple-row {
+    grid-template-columns: minmax(0, 1fr) 45px minmax(0, 1fr);
+    gap: 16px;
+    align-items: center;
+    margin-top: 36px;
+  }
+  .portrait {
+    width: min(100%, 340px);
+  }
+  .person h3 {
+    font-size: 43px;
+  }
+  .join {
+    font-size: 45px;
+  }
+  .join .ornament {
+    width: 70px;
+  }
+  .couple .section-kicker {
+    font-size: 19px;
+    max-width: 480px;
+  }
+  .count-unit {
+    padding: 22px 10px;
+  }
+  .digit {
+    font-size: 60px;
+  }
+  .count-unit .label {
+    font-size: 11px;
+  }
+  .calendar .button {
+    min-width: 170px;
+    font-size: 16px;
+  }
+  .event-card {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    min-height: 340px;
+    padding: 20px 0;
+  }
+  .ritual-visual {
+    height: 265px;
+  }
+  .ritual-object {
+    width: 270px;
+    max-width: 100%;
+  }
+  .event-detail h3 {
+    font-size: 35px;
+  }
+  .event-fact p {
+    font-size: 17px;
+  }
+  .event-fact .icon {
+    width: 16px;
+    height: 19px;
+  }
+  .event-address {
+    font-size: 14px;
+  }
+  .map-button {
+    padding: 8px 22px;
+    font-size: 17px;
+  }
+  .event-marker {
+    width: 40px;
+    height: 37px;
+    top: 5px;
+  }
+  .ritual-symbol {
+    bottom: 5px;
+    right: 15px;
+  }
+  .gallery-sub {
+    font-size: 22px;
+  }
+  .video-shell {
+    padding: 42px 55px 48px;
+    margin-top: 35px;
+  }
+  .video-poster .icon {
+    width: 70px;
+    height: 70px;
+  }
+  .video-poster span {
+    font-size: 31px;
+  }
+  .venue-grid > iframe {
+    height: 390px;
+  }
+  .form-columns {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+  .event-choices {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .event-choices legend {
+    grid-column: 1/-1;
+  }
+  .rsvp-form {
+    padding: 32px 30px;
+  }
+  .footer {
+    min-height: 1180px;
+    padding-bottom: 400px;
+  }
+  .footer .names {
+    font-size: 46px;
+  }
+  .footer-note {
+    font-size: 24px;
+  }
+  .floating {
+    right: 16px;
+    top: 22px;
+  }
+  .floating .control {
+    width: 47px;
+    height: 47px;
+  }
+  .lightbox {
+    padding: 60px 90px 70px;
+  }
+  .viewer-prev {
+    left: 24px;
+  }
+  .viewer-next {
+    right: 24px;
+  }
+  .viewer-close {
+    right: 24px;
+    top: 24px;
+  }
+}
+@media (min-width: 1024px) {
+  .wrap {
+    width: calc(100% - 200px);
+    margin: auto;
+  }
+  .section {
+    padding: 100px 0 110px;
+  }
+  .section:before {
+    inset: 16px 30px;
+  }
+  .banana-corner {
+    width: 240px;
+  }
+  .watermark {
+    width: 500px;
+    right: -210px;
+  }
+  .palace-scene {
+    background-image: url("assets/palace-desktop.webp");
+  }
+  .opening .ganesha {
+    width: 88px;
+    height: 83px;
+  }
+  .opening .faith-line {
+    font-size: 16px;
+  }
+  .opening-copy > .label {
+    font-size: 13px;
+    margin-top: 9px;
+  }
+  .opening-copy > .ornament {
+    width: 170px;
+    height: 30px;
+    margin: 9px auto;
+  }
+  .opening .salutation {
+    margin-top: 1px;
+    margin-bottom: 6px;
+    font-size: 18px;
+  }
+  .opening .names {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    font-size: clamp(86px, 7.4vw, 114px);
+    line-height: 1.08;
+  }
+  .opening .names .amp {
+    font-size: 0.5em;
+  }
+  .opening .names[data-long="true"] {
+    font-size: clamp(36px, 3.9vw, 59px);
+    gap: 20px;
+  }
+  .opening .names[data-long="true"] > span:not(.amp) {
+    max-width: 44%;
+  }
+  .opening-date {
+    font-size: 21px;
+  }
+  .opening-venue {
+    font-size: 18px;
+    max-width: 600px;
+  }
+  .opening-copy > .button {
+    min-height: 58px;
+    font-size: 23px;
+    min-width: 310px;
+    margin-top: 20px;
+  }
+  .tagline {
+    font-size: 17px;
+  }
+  .hanging-lamp {
+    width: 55px;
+    height: 210px;
+    left: 75px;
+    top: 135px;
+  }
+  .hanging-lamp + svg {
+    left: auto;
+    right: 75px;
+    top: 200px;
+  }
+  .section.hero {
+    height: max(900px, 100svh);
+    padding: 0;
+  }
+  .hero .ganesha {
+    width: 88px;
+    height: 83px;
+  }
+  .hero .names {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 27px;
+    font-size: clamp(95px, 9vw, 140px);
+  }
+  .hero .names[data-long="true"] {
+    font-size: clamp(38px, 4vw, 61px);
+    gap: 15px;
+  }
+  .hero .names[data-long="true"] > span:not(.amp) {
+    max-width: 43%;
+  }
+  .hero .label {
+    font-size: 15px;
+    margin: 12px 0 13px;
+  }
+  .hero .ornament {
+    width: 195px;
+    margin: 17px auto;
+  }
+  .hero-date {
+    font-size: 24px;
+  }
+  .hero-venue {
+    font-size: 20px;
+  }
+  .hero .hanging-lamp {
+    top: 145px;
+  }
+  .hero .hanging-lamp + svg {
+    top: 245px;
+  }
+  .hero .scroll-hint {
+    bottom: 10px;
+  }
+  .blessing .wrap {
+    margin: auto;
+  }
+  .blessing .banana-corner {
+    width: 190px;
+  }
+  .couple-row {
+    grid-template-columns: minmax(0, 1fr) 90px minmax(0, 1fr);
+    max-width: 1000px;
+    gap: 40px;
+    margin: 35px auto 0;
+  }
+  .portrait {
+    width: 340px;
+    max-width: 100%;
+  }
+  .person h3 {
+    font-size: 51px;
+  }
+  .parents {
+    font-size: 19px;
+    max-width: 350px;
+  }
+  .join {
+    font-size: 65px;
+  }
+  .join .ornament {
+    width: 100px;
+  }
+  .couple .section-kicker {
+    font-size: 21px;
+    max-width: 650px;
+  }
+  .count-unit {
+    padding: 25px 13px;
+  }
+  .digit {
+    font-size: 72px;
+  }
+  .count-unit .label {
+    font-size: 12px;
+  }
+  .calendar {
+    margin-top: 30px;
+  }
+  .event-card {
+    min-height: 365px;
+    gap: 90px;
+    padding: 20px 50px;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+  .ritual-visual {
+    height: 310px;
+  }
+  .ritual-object {
+    width: 330px;
+  }
+  .event-detail h3 {
+    font-size: 42px;
+    margin-bottom: 20px;
+  }
+  .event-fact {
+    gap: 10px;
+    margin: 7px 0;
+  }
+  .event-fact p {
+    font-size: 19px;
+  }
+  .event-address {
+    font-size: 15px;
+  }
+  .event-marker {
+    width: 48px;
+    height: 45px;
+    top: 5px;
+    left: 8%;
+  }
+  .event-card:nth-of-type(2n) .event-marker {
+    right: 8%;
+  }
+  .ritual-symbol {
+    width: 31px;
+    height: 31px;
+    right: 30px;
+    bottom: 10px;
+  }
+  .ritual-vine {
+    stroke-width: 1.3;
+  }
+  .photo {
+    padding: 7px;
+  }
+  .gallery-sub {
+    font-size: 24px;
+    margin-bottom: 30px;
+  }
+  .gallery-collage {
+    gap: 18px;
+  }
+  .video-shell {
+    padding: 57px 80px 67px;
+  }
+  .video h2 {
+    font-size: 50px;
+  }
+  .venue-grid {
+    grid-template-columns: 3fr 2fr;
+    gap: 45px;
+    margin-top: 40px;
+  }
+  .venue-grid > iframe {
+    height: 450px;
+  }
+  .venue-details {
+    padding: 15px;
+  }
+  .venue-details h3 {
+    font-size: 35px;
+  }
+  .venue-details > p {
+    font-size: 22px;
+  }
+  .venue-details .text-link {
+    font-size: 15px;
+  }
+  .live > .wrap {
+    display: grid;
+    grid-template-columns: 65px 1fr auto;
+    align-items: center;
+    gap: 30px;
+    text-align: left;
+  }
+  .live h2 {
+    font-size: 39px;
+    text-align: left;
+  }
+  .live > .wrap > .icon {
+    margin: 0;
+  }
+  .live p {
+    margin-left: 0;
+    font-size: 21px;
+  }
+  .live .button {
+    min-width: 150px;
+  }
+  .rsvp-form {
+    padding: 38px 40px;
+  }
+  .rsvp-intro {
+    font-size: 22px;
+  }
+  .footer {
+    min-height: 1050px;
+    padding: 80px 0 400px;
+  }
+  .footer-note {
+    font-size: 25px;
+  }
+  .footer .names {
+    font-size: 50px;
+  }
+  .footer .names[data-long="true"] {
+    font-size: 36px;
+  }
+  .floating {
+    top: 27px;
+    right: 24px;
+  }
+  .floating .control {
+    width: 48px;
+    height: 48px;
+  }
+}
+@media (min-width: 1800px) {
+  .opening .names {
+    font-size: 130px;
+  }
+  .footer {
+    min-height: 1180px;
+  }
+}
+@media (max-height: 600px) and (min-width: 600px) {
+  .invitation-panel {
+    min-height: 100svh;
+    height: 100svh;
+  }
+  .opening .ganesha {
+    width: 40px;
+    height: 38px;
+  }
+  .opening .faith-line {
+    font-size: 11px;
+  }
+  .opening-copy > .ornament {
+    height: 14px;
+    width: 95px;
+    margin: 4px auto;
+  }
+  .opening-copy > .label {
+    font-size: 9px;
+    margin-top: 4px;
+  }
+  .opening .salutation {
+    font-size: 12px;
+    margin: 0 0 5px;
+  }
+  .opening .names {
+    display: block;
+    font-size: 43px;
+    line-height: 1.1;
+  }
+  .opening .names > span {
+    display: inline;
+  }
+  .opening .names .amp {
+    font-size: 0.55em;
+    margin: 0 0.2em;
+  }
+  .opening .names[data-long="true"] {
+    font-size: 24px;
+    line-height: 1.2;
+  }
+  .opening-date {
+    font-size: 12px;
+    margin-top: 0;
+  }
+  .opening-venue {
+    font-size: 12px;
+    max-width: 340px;
+    margin-top: 1px;
+  }
+  .opening-copy > .button {
+    min-height: 44px;
+    min-width: 210px;
+    font-size: 17px;
+    margin-top: 10px;
+    padding: 8px 19px;
+  }
+  .tagline {
+    font-size: 11px;
+    margin-top: 5px;
+  }
+  .hanging-lamp {
+    width: 30px;
+    height: 120px;
+    left: 22px;
+    top: 45px;
+  }
+  .hanging-lamp + svg {
+    right: 22px;
+    top: 65px;
+  }
+  .section.hero {
+    height: 100svh;
+    min-height: 390px;
+  }
+  .hero .ganesha {
+    width: 43px;
+    height: 40px;
+  }
+  .hero .faith-line {
+    font-size: 12px;
+  }
+  .hero .label {
+    font-size: 10px;
+    margin: 6px 0;
+  }
+  .hero .names {
+    display: block;
+    font-size: 49px;
+  }
+  .hero .names > span {
+    display: inline;
+  }
+  .hero .names .amp {
+    margin: 0 0.2em;
+  }
+  .hero .names[data-long="true"] {
+    font-size: 26px;
+  }
+  .hero .ornament {
+    height: 24px;
+    width: 130px;
+    margin: 10px auto;
+  }
+  .hero-date {
+    font-size: 15px;
+  }
+  .hero-venue {
+    font-size: 13px;
+    margin-top: 2px;
+  }
+  .hero .scroll-hint {
+    bottom: 14px;
+    left: 54%;
+  }
+  .hero .hanging-lamp {
+    top: 50px;
+  }
+  .hero .hanging-lamp + svg {
+    top: 75px;
+  }
+  .palace-scene:after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      90deg,
+      transparent 12%,
+      #fff2c6c9 28%,
+      #fff2c6d9 75%,
+      transparent
+    );
+  }
+}
+html:not([lang="en"]) .names > span:not(.amp) {
+  line-height: 1.5;
+}
+html:not([lang="en"]) .names .amp {
+  font-family: var(--f-display);
+  line-height: 1.2;
+}
+html:not([lang="en"]) .person h3 {
+  line-height: 1.6;
+}
+html:not([lang="en"]) .event-fact p {
+  font-size: 15px;
+}
+html:not([lang="en"]) .event-address {
+  font-size: 14px;
+}
+@media (max-width: 599px) {
+  html:not([lang="en"]) .opening .names {
+    font-size: 43px;
+  }
+  html:not([lang="en"]) .hero .names {
+    font-size: 47px;
+  }
+  html:not([lang="en"]) .opening .names[data-long="true"],
+  html:not([lang="en"]) .hero .names[data-long="true"] {
+    font-size: 25px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *:before,
+  *:after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+  .ambient {
+    display: none;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+  .palace-scene {
+    transform: none;
+  }
+  .opening-away {
+    display: none;
+  }
+  .vine-live {
+    stroke-dashoffset: 0;
+  }
+  .event-marker {
+    scale: 1;
+  }
+}
+/* Foreground figures remain whole; mirrored corners retain their edge position. */
+.corner-1 {
+  transform-origin: 50% 0;
+}
+.invitation-panel {
+  height: 100svh;
+  min-height: 100svh;
+}
+@media (max-width: 599px) {
+  .opening .ganesha {
+    width: 54px;
+    height: 51px;
+  }
+  .opening-copy > .ornament {
+    height: 20px;
+    width: 115px;
+    margin: 6px auto;
+  }
+  .opening .names {
+    font-size: 52px;
+  }
+  .opening .names[data-long="true"] {
+    font-size: 28px;
+  }
+  .opening-copy > .button {
+    margin-top: 14px;
+  }
+  .tagline {
+    font-size: 13px;
+    margin-top: 8px;
+  }
+}
+@media (min-width: 1024px) and (min-height: 601px) {
+  .opening .ganesha {
+    height: clamp(45px, 6.5svh, 60px);
+    width: 65px;
+    padding: 4px;
+    background: radial-gradient(#fff8df, #fff0c1);
+    border-radius: 50%;
+  }
+  .opening .faith-line {
+    font-size: 14px;
+    line-height: 1.3;
+  }
+  .opening-copy > .ornament {
+    height: 18px;
+    width: 150px;
+    margin: 4px auto;
+  }
+  .opening-copy > .label {
+    font-size: 11px;
+    margin-top: 4px;
+  }
+  .opening .salutation {
+    font-size: 15px;
+    line-height: 1.2;
+    margin: 0 0 3px;
+  }
+  .opening .names {
+    font-size: clamp(72px, 10svh, 104px);
+  }
+  .opening-date {
+    font-size: 18px;
+    line-height: 1.5;
+    margin-top: 2px;
+  }
+  .opening-venue {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-top: 2px;
+  }
+  .opening-copy > .button {
+    min-height: 50px;
+    font-size: 20px;
+    margin-top: 12px;
+  }
+  .tagline {
+    font-size: 14px;
+    line-height: 1.4;
+    margin-top: 8px;
+  }
+  .hero .ganesha {
+    width: 68px;
+    height: 64px;
+    background: radial-gradient(#fff8df, #fff0c1);
+    border-radius: 50%;
+  }
+  .hero .label {
+    font-size: 13px;
+    margin: 8px 0 10px;
+  }
+  .hero .names {
+    font-size: clamp(86px, 11svh, 112px);
+  }
+  .hero .ornament {
+    height: 22px;
+    margin: 12px auto;
+  }
+  .hero-date {
+    font-size: 22px;
+  }
+  .hero-venue {
+    font-size: 18px;
+  }
+}
+.names > span:only-child {
+  max-width: 100% !important;
+}
+
+/* Preserve faces in landscape gallery slots and isolate the two landscape columns. */
+.photo img[src$="groom.webp"],
+.photo img[src$="bride.webp"] {
+  object-position: center top;
+  transform-origin: center top;
+}
+@media (max-height: 600px) and (min-width: 600px) {
+  .hero .scroll-hint {
+    left: 64.5%;
+  }
+}
+
+/* A single continuous scroll: the botanical canopy belongs only to the opening. */
+.chapter-flow {
+  position: relative;
+  isolation: isolate;
+}
+.continuous-border {
+  position: absolute;
+  inset: 0;
+  z-index: 6;
+  pointer-events: none;
+}
+.continuous-border:before,
+.continuous-border:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 18px;
+  background: url("assets/edge-vine.svg") top center / 100% auto repeat-y;
+  opacity: 0.82;
+}
+.continuous-border:after {
+  left: auto;
+  right: 0;
+  transform: scaleX(-1);
+}
+.section:before {
+  display: none;
+}
+.chapter-flow .section {
+  background: none;
+}
+.hero .palace-scene,
+.footer .palace-scene {
+  background: radial-gradient(ellipse at 50% 45%, #fff9e4, #fff0c1 70%);
+  mask-image: none;
+  transform: translateY(var(--scene-y, 0px));
+}
+.architectural-stage {
+  width: 100%;
+  height: 100%;
+  color: #b38a43;
+  opacity: 0.65;
+}
+.closing-seal {
+  opacity: 0.2;
+}
+.hero .scroll-hint {
+  bottom: 7px;
+}
+.ritual-object.ritual-svg {
+  background: none;
+  aspect-ratio: 4 / 3;
+  overflow: visible;
+  height: auto;
+  color: var(--gold);
+}
+.ceremony-art > .ritual-svg {
+  position: absolute;
+  bottom: 0;
+  left: 25%;
+  width: 50%;
+  height: 100%;
+}
+.count-unit {
+  border: none;
+  background: none;
+  position: relative;
+  z-index: 1;
+}
+.count-unit + .count-unit {
+  border-left: 1px solid #ac7d3345;
+}
+.video-shell {
+  padding: 6% 8% 7%;
+}
+.video-carving {
+  filter: none;
+}
+.vine-botanical {
+  opacity: 0.76;
+}
+@media (min-width: 600px) {
+  .continuous-border:before,
+  .continuous-border:after {
+    width: 34px;
+  }
+  .video-shell {
+    padding: 58px 75px 64px;
+  }
+}
+@media (min-width: 1024px) {
+  .continuous-border:before,
+  .continuous-border:after {
+    width: 46px;
+  }
+  .video-shell {
+    padding: 62px 82px 70px;
+  }
+}
+@media (max-height: 600px) and (min-width: 600px) {
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero .palace-scene,
+  .footer .palace-scene {
+    transform: none;
+  }
+}
+/* Painted ritual objects remain detailed; SVG handles the engraving around them. */
+.ritual-object:not(.ritual-svg) {
+  background-image: url("assets/rituals.webp");
+}
+.architectural-stage {
+  opacity: 0.42;
+}
+/* The same uninterrupted woven margin frames the whole invitation, not each chapter. */
+.page-content {
+  position: relative;
+  isolation: isolate;
+}
+.hero .palace-scene,
+.footer .palace-scene {
+  background: radial-gradient(ellipse at 50% 45%, #fff9e4, #fff0c1 70%);
+}
+
+/* High-resolution artwork is always composed at its complete natural ratio. */
+.invitation-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: auto;
+  min-height: 100svh;
+}
+.opening-copy {
+  position: relative;
+  z-index: 5;
+  order: 1;
+  width: 78%;
+  max-width: 950px;
+  margin: 0 auto;
+  padding: 52px 0 20px;
+  text-align: center;
+}
+:is(.opening, .hero, .footer) .ceremony-art {
+  position: relative;
+  inset: auto;
+  order: 2;
+  width: calc(100% - 36px);
+  max-width: 1080px;
+  height: auto;
+  margin: 30px auto 24px;
+  overflow: visible;
+  flex: none;
+  pointer-events: none;
+  z-index: 2;
+}
+:is(.opening, .hero, .footer) .tableau {
+  display: block;
+  position: static;
+  inset: auto;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  transform: none;
+  filter: none;
+}
+:is(.opening, .hero, .footer) .ceremony-art > .ritual-svg {
+  position: relative;
+  inset: auto;
+  width: 60%;
+  height: auto;
+  margin: auto;
+}
+.section.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100svh;
+  height: auto;
+  padding: 0;
+}
+.hero .wrap {
+  position: relative;
+  z-index: 4;
+  width: calc(100% - 76px);
+  max-width: 1050px;
+  margin: 0 auto;
+  padding: 96px 0 25px;
+  text-align: center;
+}
+.hero .ceremony-art {
+  margin-top: 38px;
+  margin-bottom: 8px;
+}
+.hero .scroll-hint {
+  position: relative;
+  order: 3;
+  left: auto;
+  bottom: auto;
+  transform: none;
+  width: fit-content;
+  min-height: 44px;
+  margin: 0 auto 12px;
+}
+.scene-canopy {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  z-index: 3;
+  pointer-events: none;
+}
+.scene-seal {
+  position: absolute;
+  left: 50%;
+  top: 90px;
+  transform: translateX(-50%);
+  width: min(100%, 860px);
+  height: auto;
+  color: #b1843f;
+  opacity: 0.045;
+}
+.scene-seal.closing-seal {
+  top: 110px;
+  opacity: 0.035;
+}
+.section.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100svh;
+  height: auto;
+  padding: 0;
+}
+.footer .wrap {
+  position: relative;
+  z-index: 4;
+  width: calc(100% - 76px);
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 100px 0 15px;
+  text-align: center;
+}
+.footer .ceremony-art {
+  margin-top: 45px;
+  margin-bottom: 16px;
+}
+/* Architectural engraving fills the scroll, not a tiny watermark in a corner. */
+.temple-mural {
+  position: absolute;
+  z-index: 1;
+  pointer-events: none;
+  inset: -40px 0;
+  background: url("assets/temple-town-etching.webp") center top / 100% auto
+    repeat-y;
+  opacity: 0.3;
+  mix-blend-mode: multiply;
+  mask-image: linear-gradient(
+    transparent,
+    #000 65px,
+    #000 calc(100% - 65px),
+    transparent
+  );
+  transform: translate3d(0, var(--mural-y, 0px), 0);
+}
+.chapter-flow .section:nth-of-type(2n) .temple-mural {
+  background-position: center 30%;
+}
+/* Barely visible architecture across the middle chapters. */
+.chapter-flow .temple-mural {
+  opacity: 0.14;
+  mask-image: linear-gradient(transparent, #000 96px, #000 calc(100% - 96px), transparent);
+}
+.chapter-flow :is(.blessing, .gallery) .temple-mural {
+  opacity: 0.13;
+}
+.chapter-flow :is(.events, .video, .venue) .temple-mural {
+  opacity: 0.12;
+}
+.chapter-flow :is(.live, .rsvp) .temple-mural {
+  opacity: 0.1;
+}
+/* Quiet paper immediately behind copy preserves contrast while the town stays visible. */
+.blessing .wrap,
+.couple .person > :is(h3, .label, .parents),
+.footer .wrap {
+  background: radial-gradient(
+    ellipse,
+    #fff3d4e8,
+    #fff3d4a0 55%,
+    transparent 75%
+  );
+}
+.section.countdown {
+  isolation: isolate;
+  min-height: 100svh;
+  padding: 0;
+  display: grid;
+  align-items: start;
+  background: #fff0c9;
+}
+.countdown > .count-art {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.count-painting {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center bottom;
+}
+.countdown .wrap {
+  position: relative;
+  z-index: 4;
+  width: calc(100% - 76px);
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: clamp(56px, 8svh, 100px) 0 max(350px, 42svh);
+  text-align: center;
+}
+.countdown h2 {
+  font-size: clamp(30px, 4.5vw, 58px);
+  max-width: 800px;
+  text-wrap: balance;
+}
+.count-sanctum {
+  position: relative;
+  width: 100%;
+  max-width: none;
+  margin: 24px auto 0;
+}
+.carved-count {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px 20px;
+  margin: 0 auto;
+  padding: 0;
+  background: none;
+  border: 0;
+  box-shadow: none;
+  max-width: 660px;
+}
+.count-unit,
+.count-unit + .count-unit {
+  padding: 6px 0;
+  align-content: center;
+  min-width: 0;
+  border: 0;
+  background: none;
+}
+.count-sanctum .digit {
+  font-size: clamp(46px, 13vw, 76px);
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+}
+.count-sanctum .label {
+  font-size: 12px;
+  line-height: 1.5;
+}
+html:not([lang="en"]) .count-sanctum .label {
+  font-size: 14px;
+}
+.count-sanctum .count-status {
+  margin: 35px auto;
+  font: italic 500 30px/1.5 var(--f-display);
+  text-align: center;
+}
+.count-status:empty {
+  display: none;
+}
+.countdown .calendar {
+  margin-top: 24px;
+}
+@media (min-width: 600px) {
+  .countdown .wrap {
+    width: calc(100% - 160px);
+    padding-top: 10svh;
+  }
+  .carved-count {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 15px;
+  }
+  .count-sanctum .digit {
+    font-size: clamp(54px, 7vw, 90px);
+  }
+  .temple-mural {
+    background-size: max(100%, 1100px) auto;
+  }
+}
+@media (min-width: 600px) and (min-aspect-ratio: 1/1) {
+  .countdown .wrap {
+    padding-top: 8svh;
+    padding-bottom: max(260px, 40svh);
+  }
+  .countdown .calendar {
+    margin-top: 22px;
+  }
+}
+@media (max-height: 600px) and (min-width: 600px) {
+  .section.countdown {
+    min-height: 640px;
+  }
+  .countdown .wrap {
+    padding-top: 48px;
+  }
+}
+/* Complete photographs with print-like mats; no zoomed crops or image drift. */
+.gallery-group {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-auto-rows: auto;
+  gap: 12px;
+  align-items: start;
+}
+.gallery-group .photo {
+  width: 100%;
+  min-height: 0;
+  grid-row: auto;
+  aspect-ratio: auto;
+  padding: 6px;
+  background: #fff8e1;
+}
+.gallery-group .photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+  transform: none;
+}
+.gallery-group[data-count="1"] {
+  grid-template-columns: 1fr;
+  max-width: 780px;
+  margin: auto;
+}
+.gallery-group[data-count="3"] .photo-0,
+.gallery-group[data-count="5"] .photo-0 {
+  grid-column: 1/-1;
+}
+.gallery-group[data-count="5"] .photo-3,
+.gallery-group[data-count="5"] .photo-4 {
+  max-width: 220px;
+  justify-self: center;
+}
+@media (min-width: 600px) {
+  .opening-copy {
+    width: 74%;
+    padding-top: 65px;
+  }
+  .hero .wrap,
+  .footer .wrap {
+    width: calc(100% - 140px);
+    padding-top: 150px;
+  }
+}
+@media (min-width: 1024px) {
+  .opening-copy {
+    padding-top: 65px;
+    padding-bottom: 15px;
+  }
+  .hero .wrap,
+  .footer .wrap {
+    padding-top: 125px;
+  }
+  .hero .names {
+    font-size: clamp(82px, 7.7vw, 112px);
+  }
+  .hero .ceremony-art {
+    margin-top: 35px;
+  }
+  .footer .ceremony-art {
+    margin-top: 35px;
+  }
+  .gallery-group {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 18px;
+  }
+  .gallery-group .photo {
+    grid-column: span 2;
+  }
+  .gallery-group[data-count="1"] {
+    grid-template-columns: 1fr;
+  }
+  .gallery-group[data-count="1"] .photo {
+    grid-column: auto;
+  }
+  .gallery-group[data-count="2"] {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .gallery-group[data-count="2"] .photo {
+    grid-column: auto;
+  }
+  .gallery-group[data-count="3"] .photo-0,
+  .gallery-group[data-count="5"] .photo-0 {
+    grid-column: span 2;
+  }
+  .gallery-group[data-count="5"] .photo-3 {
+    grid-column: 2 / span 2;
+  }
+  .gallery-group[data-count="5"] .photo-4 {
+    grid-column: 4 / span 2;
+  }
+}
+@media (max-height: 600px) and (min-width: 600px) {
+  .invitation-panel,
+  .section.hero {
+    display: grid;
+    grid-template-columns: 38% 62%;
+    grid-template-rows: 1fr auto;
+    min-height: 100svh;
+  }
+  .opening-copy,
+  .hero .wrap {
+    grid-column: 2;
+    grid-row: 1;
+    order: 1;
+    width: calc(100% - 48px);
+    margin: auto;
+    padding: 20px 0 8px;
+  }
+  .opening .ceremony-art,
+  .hero .ceremony-art {
+    grid-column: 1;
+    grid-row: 1;
+    order: 0;
+    width: calc(100% - 20px);
+    max-width: none;
+    height: auto;
+    align-self: end;
+    margin: 0 auto 40px;
+  }
+  .hero .scroll-hint {
+    grid-column: 2;
+    grid-row: 2;
+    min-height: 35px;
+    margin-bottom: 5px;
+  }
+  .hero .names {
+    font-size: 43px;
+  }
+  .hero .scene-canopy {
+    display: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .temple-mural {
+    transform: none;
+  }
+}
+.ceremony-picture {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+@media (min-width: 1024px) {
+  html:not([lang="en"]) .count-sanctum .label {
+    font-size: 14px;
+  }
+}
+@media (min-width: 1024px) {
+  .hero .wrap {
+    padding-top: 95px;
+    padding-bottom: 5px;
+  }
+  .hero .names {
+    font-size: clamp(76px, 7vw, 100px);
+  }
+  .hero .ceremony-art {
+    margin-top: 20px;
+  }
+}

@@ -46,5 +46,13 @@
     "detail": "In the presence of joy · Premium",
     "palette": ["#b94329", "#27314b", "#435d40", "#fff9ed"],
     "stage": "#eee3cf"
+  },
+  "kalyana-vaibhavam": {
+    "title": "Kalyana Vaibhavam",
+    "category": "Premium",
+    "description": "An illuminated wedding celebration with sculpted gold portrait niches, banana groves, a divine wedding tableau and a flowering path of rituals.",
+    "detail": "A richly adorned celebration · Premium",
+    "palette": ["#870d2b", "#a86c16", "#2b5b22", "#fff0c1"],
+    "stage": "#f5dfa3"
   }
 }

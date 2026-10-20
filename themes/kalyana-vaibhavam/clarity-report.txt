@@ -1,0 +1,31 @@
+390@2: .opening .tableau complete 960x320 from kalyanam-960.webp, rendered 354x118.
+390@2: #hero .tableau complete 960x320 from paanigrahanam-960.webp, rendered 354x118.
+390@2: #footer .tableau complete 960x320 from sacred-fire-960.webp, rendered 354x118.
+PASS full-bleed countdown 390: 390 x 844; no inset picture.
+hero 390: 844px, viewport 844px.
+390@3: .opening .tableau complete 1440x480 from kalyanam-1440.webp, rendered 354x118.
+390@3: #hero .tableau complete 1440x480 from paanigrahanam-1440.webp, rendered 354x118.
+390@3: #footer .tableau complete 1440x480 from sacred-fire-1440.webp, rendered 354x118.
+PASS full-bleed countdown 390: 390 x 844; no inset picture.
+hero 390: 844px, viewport 844px.
+820@2: .opening .tableau complete 2172x724 from kalyanam.webp, rendered 784x261.
+820@2: #hero .tableau complete 2172x724 from paanigrahanam.webp, rendered 784x261.
+820@2: #footer .tableau complete 2172x724 from sacred-fire.webp, rendered 784x261.
+PASS full-bleed countdown 820: 820 x 1180; no inset picture.
+hero 820: 1180px, viewport 1180px.
+1440@2: .opening .tableau complete 2172x724 from kalyanam.webp, rendered 1080x360.
+1440@2: #hero .tableau complete 2172x724 from paanigrahanam.webp, rendered 1080x360.
+1440@2: #footer .tableau complete 2172x724 from sacred-fire.webp, rendered 1080x360.
+PASS full-bleed countdown 1440: 1440 x 900; no inset picture.
+hero 1440: 900px, viewport 900px.
+970@2: .opening .tableau complete 2172x724 from kalyanam.webp, rendered 934x311.
+970@2: #hero .tableau complete 2172x724 from paanigrahanam.webp, rendered 934x311.
+970@2: #footer .tableau complete 2172x724 from sacred-fire.webp, rendered 934x311.
+PASS full-bleed countdown 970: 970 x 850; no inset picture.
+hero 970: 1116px, viewport 850px.
+844@2: .opening .tableau complete 2172x724 from kalyanam.webp, rendered 301x100.
+844@2: #hero .tableau complete 2172x724 from paanigrahanam.webp, rendered 301x100.
+844@2: #footer .tableau complete 2172x724 from sacred-fire.webp, rendered 808x269.
+PASS full-bleed countdown 844: 844 x 640; no inset picture.
+hero 844: 390px, viewport 390px.
+Visible architectural watermarks respond to scroll; reduced motion disables displacement.

@@ -178,3 +178,11 @@ Order on the page is fixed. Visual form is yours; the content and behaviour are 
 ## Step 6 — Delivery
 
 Branch theme/ocean-serene. Runtime is entirely inside this folder; no existing theme is changed or imported. The standing user request to place future themes on the home page is honored by registering Ocean Serene as the fourth card with small theme-local screenshot previews. Collection filtering/navigation checks pass with all four themes. Screenshots, exact generated-asset prompts, original audio source and test reports accompany the theme. Preview is local static hosting, not a public deployment.
+
+## Scroll experience refinement — 20 October 2026
+
+The user explicitly requested the refinement across all seven existing templates, overriding the usual one-theme scope for this update. The reference was inspected for behavior only: its root gains lenis/lenis-scrolling/lenis-smooth classes during scrolling, with independently moving scenery, portraits and headings. No reference code or assets were copied; no Lenis dependency was added.
+
+Original vanilla JS now eases real-document wheel/trackpad scrolling over a 210ms response constant, preserves full fast-gesture distance and reverses direction immediately. Pointer/keyboard/focus, navigation, nested scrollers, opening and viewer locks remain native. Touch keeps browser inertia; scroll-driven motion also works on touch layouts. Theme-specific depths move whole portrait cards and ritual art; headings reveal with the scroll and gallery depth stays within tile gaps. Existing transforms, image crops, artwork, typography and layouts are retained. Only visible elements update after scroll/resize/intersection events, with no idle animation loop. Hidden tabs and reduced motion are respected.
+
+Validation: required shoot passed. tools/check-scroll-motion.mjs verifies eased starts, exact 640px and 1800px gestures, reversal, scroll-linked depth, gallery lock/Escape, native keyboard End outside the gallery, reduced motion, touch behavior and 390/820/1440 widths. All seven results are in tools/scroll-motion-report.txt. Chromium automation and local in-app inspection were used; physical iOS/Android devices were unavailable. Latest gzip: JS 15250 bytes, CSS 8183 bytes, within 60KB/25KB limits. Earlier image-budget exceptions remain unchanged.
