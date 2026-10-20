@@ -401,17 +401,21 @@ function buildCountdown(d, c, ctx) {
   const sanctum = el("div", "count-sanctum");
   const picture = el("picture", "count-art");
   const source = el("source");
-  source.media = "(min-width:1024px)";
-  source.srcset = "assets/countdown-desktop.webp";
+  source.media = "(min-width:600px) and (max-aspect-ratio:1/1)";
+  source.srcset = "assets/countdown-phone.webp";
+  const wide = el("source");
+  wide.media = "(min-width:600px) and (min-aspect-ratio:1/1)";
+  wide.srcset = "assets/countdown-desktop.webp";
   const painting = decorativeImage(
     "assets/countdown-phone.webp",
     "count-painting",
   );
-  painting.width = 1122;
-  painting.height = 1402;
-  picture.append(source, painting);
+  painting.width = 941;
+  painting.height = 1672;
+  picture.append(wide, source, painting);
+  s.append(picture);
   const row = el("div", "carved-count");
-  sanctum.append(picture, row);
+  sanctum.append(row);
   const digits = ["days", "hours", "minutes", "seconds"].map((k) => {
     const unit = el("div", "count-unit");
     const n = el("span", "digit", "00");
@@ -1037,17 +1041,12 @@ function section(id, title, kicker) {
   if (kicker) w.append(el("p", "section-kicker", kicker));
   if (title) w.append(el("h2", "", title));
   s.append(w);
+  if (id !== "countdown") {
+    const mural = el("div", "temple-mural");
+    mural.setAttribute("aria-hidden", "true");
+    s.append(mural);
+  }
   if (!["hero", "footer"].includes(id)) {
-    if (id !== "countdown") {
-      const mural = el("div", "temple-mural");
-      mural.setAttribute("aria-hidden", "true");
-      mural.classList.add(
-        ["couple", "gallery", "venue", "rsvp"].includes(id)
-          ? "mural-gateway"
-          : "mural-courtyard",
-      );
-      s.append(mural);
-    }
     const rule = ornament();
     rule.classList.add("section-rule");
     s.append(rule);

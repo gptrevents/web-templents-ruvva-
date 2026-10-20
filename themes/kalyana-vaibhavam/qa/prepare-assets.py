@@ -15,8 +15,9 @@ files={
  'evening':('exec-7a688224-30d9-4243-adab-86df71c4ff94.png',(1536,1024),90),
  'portrait-frame':('exec-ada08afd-6aa1-47e0-a700-bb92db8ff5aa.png',(1000,1400),90),
  'scene-canopy':('exec-a3f61af6-da54-408c-9dc7-8abc28fd1d2a.png',(2172,724),88),
- 'countdown-phone':('exec-b4a003ec-2496-4192-a693-a9bbaec4a93c.png',(1122,1402),88),
- 'countdown-desktop':('exec-b8b77f02-6b56-461d-a028-c666cc40bf3f.png',(1672,941),88),
+ 'temple-town-etching':('exec-d6939ffd-5094-4917-902d-12ef7037c1b1.png',(1086,1448),90),
+ 'countdown-phone':('exec-f3d179f8-2bab-4ee4-be49-ac61df35dbd6.png',(941,1672),90),
+ 'countdown-desktop':('exec-d8a387ae-bf19-4a3d-ba71-73b36ee9b3ab.png',(1672,941),90),
 }
 for name,(src,size,q) in files.items():
  im=Image.open(root/src);im.thumbnail(size,Image.Resampling.LANCZOS)

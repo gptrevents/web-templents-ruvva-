@@ -10,6 +10,7 @@ try {
     [390, 844, 3],
     [820, 1180, 2],
     [1440, 900, 2],
+    [970, 850, 2],
     [844, 390, 2],
   ]) {
     const p = await b.newPage({
@@ -69,7 +70,18 @@ try {
     await p.locator(".count-painting").evaluate((n) => n.decode());
     assert.match(
       await p.locator(".count-painting").evaluate((n) => n.currentSrc),
-      width >= 1024 ? /countdown-desktop/ : /countdown-phone/,
+      width >= 600 && width >= height ? /countdown-desktop/ : /countdown-phone/,
+    );
+    const art = await p.locator(".count-art").boundingBox();
+    const count = await p.locator("#countdown").boundingBox();
+    assert.equal(Math.round(art.width), width, "countdown art spans viewport");
+    assert(
+      Math.abs(art.height - count.height) < 1,
+      "background fills section height",
+    );
+    assert(count.height >= height, "countdown at least a full screen");
+    notes.push(
+      `PASS full-bleed countdown ${width}: ${Math.round(art.width)} x ${Math.round(art.height)}; no inset picture.`,
     );
     assert((await p.locator(".temple-mural").count()) > 5);
     assert.equal(
@@ -79,11 +91,9 @@ try {
     if (dpr === 2 && [390, 1440, 820].includes(width)) {
       for (const id of ["hero", "countdown", "couple", "gallery", "footer"]) {
         await p.locator("#" + id).scrollIntoViewIfNeeded();
-        await p
-          .locator("#" + id)
-          .screenshot({
-            path: `${root}/screenshots/${width === 390 ? "phone" : "desktop"}/clarity-${id}-${width}.png`,
-          });
+        await p.locator("#" + id).screenshot({
+          path: `${root}/screenshots/${width === 390 ? "phone" : "desktop"}/clarity-${id}-${width}.png`,
+        });
       }
     }
     const hb = await p.locator("#hero").boundingBox();

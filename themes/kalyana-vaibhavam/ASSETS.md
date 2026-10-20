@@ -1,4 +1,34 @@
-# Kalyana Vaibhavam — assets and exact generation prompts
+# Current full-bleed revision — 20 October 2026
+
+Generated with the built-in imagegen tool (no API key or CLI). Original prompts below. The supplied competitor screenshot informed only the desired density and distribution of architectural linework; none of its artwork, actor photographs or code is reused.
+
+Project exports: `assets/countdown-phone.webp` (941×1672, q90), `assets/countdown-desktop.webp` (1672×940, q90), `assets/temple-town-etching.webp` (1086×1448, q90). Native source resolution retained; no upscaling or alpha quantization. Countdown art is a decorative full-section background, with intentional responsive scenic cropping via cover. The three devotional paintings and gallery photographs retain their complete source ratios and are not cropped.
+
+Original sources under `/Users/raghuram/.codex/generated_images/01a14f05-92a1-7b71-ab6d-a7195658b464/`:
+
+- Portrait: `exec-f3d179f8-2bab-4ee4-be49-ac61df35dbd6.png`
+- Landscape: `exec-d8a387ae-bf19-4a3d-ba71-73b36ee9b3ab.png`
+- Temple engraving: `exec-d6939ffd-5094-4917-902d-12ef7037c1b1.png`
+
+The old inset countdown pavilion and two faint SVG temple watermarks described in the historical revisions below are superseded. The original etched illustration now fills every scrolling chapter except the scenic countdown, including hero and closing. It is decorative, pointer-transparent, 30% opacity, with limited scroll displacement; no repeated intermediate torans.
+
+## Exact prompt — clockPhone
+
+Use case: illustration-story. Asset type: original full bleed portrait wedding website background, aspect 9:16. Paint a breathtaking South Indian temple lotus tank courtyard at golden dawn, fine heirloom Indian miniature painting with realistic carved sandstone, antique gold, cream parchment sky, burgundy flowers and deep green banana foliage. COMPOSITION: entire upper 65 percent is luminous pale warm ivory sky with only faint distant architectural outlines, large quiet central area for live countdown text. Beautiful detailed temple gopurams at far left and far right edges, receding colonnades at bottom sides, lotus pond and stone steps across bottom 25 percent, tiny floating brass lamps. Architecture opens out to edges of canvas, no inset frame, no central arch, no rectangular card, no border, no text, no numbers, no people or deities. Premium refined hand painted panorama with clear intricate detail. Gentle cream sky blends seamlessly into warm pale yellow page. This is a continuous scenic background, NOT a poster or invitation mockup.
+
+## Exact prompt — clockWide
+
+Use case: illustration-story. Asset type: original wide full bleed wedding website backdrop, 16:9 landscape. A luminous South Indian temple lotus tank courtyard at golden dawn, heirloom Indian miniature painting, intricately carved sandstone gopurams and pillared galleries at far LEFT and RIGHT edges, tall coconut palms, lotus pond and stone steps across bottom quarter, subtle brass lamps and burgundy lotus flowers. Large open central 65 percent is warm pale ivory sky with barely visible distant hills. Upper half almost entirely quiet pale cream sky suitable for live heading and countdown. Architecture at extreme edges, expansive depth, no central arch or picture frame, no rectangular card, no inset border, no typography, no people, no deities, no numerals. Entire landscape fills canvas edge to edge. Cream antique gold and natural botanical green, elegant realistic hand painted fine detail, not glossy 3D.
+
+## Exact prompt — mural
+
+Use case: illustration-story. Asset type: original architectural etching background for a premium continuous scrolling Indian wedding invitation. Portrait 3:4, very high detail. Entire canvas filled with exquisite fine sepia copperplate linework of an imagined South Indian temple town: intricate Dravidian gopurams with many detailed sculptural tiers, long carved stone pillared colonnades, temple tank steps, smaller shrines, coconut palms, banana leaves, flowering vines, distant temple silhouettes. Beautiful hand drawn architectural engraving, very fine precise warm ochre brown lines on flat warm pale cream paper #fff1c5, no saturated colors, no solid dark areas, NO large empty center, details evenly distributed across canvas with a gentle quieter central path. Structures at different scales flowing organically across whole image. Thin clear lines approximately medium contrast ochre #c49a50 rather than near invisible yellow. NO borders, no arch frame, no people or deities, no text, no lettering, no photographic portraits, no UI. Museum quality original temple engraving, delicate but clearly visible. Top and bottom fade slightly to identical cream paper to permit vertical repeating background.
+
+
+---
+
+
+# Historical revisions and earlier sources
 
 ## Current delivery — clarity and temple artwork revision
 

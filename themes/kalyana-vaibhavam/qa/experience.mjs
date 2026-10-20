@@ -78,7 +78,10 @@ try {
     );
     assert.equal(await p.locator('.tableau[src$="kalyanam.webp"]').count(), 0);
     assert.equal(await p.locator(".chapter-flow .palace-scene").count(), 0);
-    assert.equal(await p.locator(".count-sanctum .count-painting").count(), 1);
+    assert.equal(
+      await p.locator("#countdown > .count-art .count-painting").count(),
+      1,
+    );
     assert.equal(await p.locator(".scene-canopy").count(), 2);
     const initial = await p
       .locator("#hero")
@@ -170,7 +173,7 @@ try {
     );
     assert.deepEqual(errors, []);
     notes.push(
-      `PASS ${width}: matching opening background; three distinct ceremony sources; canopies only on welcome/hero/closing; one continuous SVG edge; painted responsive countdown pavilion; perspective opening and scroll/focus unlock; independent scene motion; visible-only countdown; flowering five-event vine; unique SVG IDs; viewer touch swipe; fixed controls clear of RSVP; hidden/reduced motion; no page errors.`,
+      `PASS ${width}: matching opening background; three distinct ceremony sources; canopies only on welcome/hero/closing; one continuous SVG edge; full-bleed responsive temple-tank countdown; perspective opening and scroll/focus unlock; independent scene motion; visible-only countdown; flowering five-event vine; unique SVG IDs; viewer touch swipe; fixed controls clear of RSVP; hidden/reduced motion; no page errors.`,
     );
     await p.close();
   }

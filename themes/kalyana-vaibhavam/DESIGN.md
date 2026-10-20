@@ -1,7 +1,7 @@
 # Kalyana Vaibhavam — A celebration, richly adorned
 
 ## Step 1 — Art direction
-An illuminated wedding scroll comes to life: three distinct Sita–Rama ceremony scenes, sculpted gold niches, botanical welcome/hero/closing canopies, faint moving temple engravings and uninterrupted floral SVG margins, faithfully following the user's three supplied compositions.
+An illuminated wedding scroll comes to life: three distinct Sita–Rama ceremony scenes, sculpted gold niches, botanical welcome/hero/closing canopies, detailed moving temple-town engravings and uninterrupted floral SVG margins, faithfully following the user's three supplied compositions.
 
 This is a new template. Existing designs remain intact. Shared samples and sample assets were copied first. The mockups guide the artwork density, color, scale and section composition; no celebrity photographs are shipped. Names, dates, addresses, controls and forms stay live HTML. New fictional photographs and decorative illustrations were generated with built-in imagegen; ASSETS.md saves every exact prompt and derivative source.
 
@@ -11,15 +11,15 @@ This is a new template. Existing designs remain intact. Shared samples and sampl
 | 2 Type | Cormorant Infant italic/roman for live names/headings, Source Sans 3 for controls/body; Great Vibes only for fixed English decorative flourishes and ampersand. Indic names never use a Latin-only script. |
 | 3 Opening | A gilded invitation panel pivots away in perspective, revealing the living wedding tableau; no doors, velvet, manuscript winding or lamp-light expansion. |
 | 4 Shapes | Sculpted multifoil gold niches, carved temple frames and ornate rectangular picture borders, matching the mockups. |
-| 5 Ornament | Banana/jasmine canopies at welcome, hero and closing only; continuous SVG lotus margins; faint temple etchings and three distinct complete devotional paintings. |
+| 5 Ornament | Banana/jasmine canopies at welcome, hero and closing only; continuous SVG lotus margins; full-field temple etchings and three distinct complete devotional paintings. |
 | 6 Hero | Centered live inscription above an original panoramic hand-taking ceremony, with etched lotus seal, continuous margins and a quiet illuminated field. |
 | 7 Couple | Two carved multifoil portrait niches, joined by a central gold lotus. |
-| 8 Countdown | An original painted mandapam with a live clock inside its ivory opening; portrait 2×2 and a separately painted wide pavilion with four numbers in one row. |
+| 8 Countdown | An edge-to-edge temple-tank sunrise fills a full-screen section; live clock and calendars sit in its quiet sky. Separate portrait/wide scenes respond to viewport aspect. |
 | 9 Events | Alternating illustrated ritual vignettes on a sinuous flowering gold vine, with open text opposite; no repeated cards or central straight spine. |
 | 10 Gallery | A framed five-tile photographic composition with a tall center and broad outer panels, adapting to all counts; full-screen viewer. |
 | 11 Motion | Gilded panel turn with opening-only lamp sway, growing flowering vine, gentle scene depth and restrained photo drift; static SVG edges never restart between chapters. |
 | 12 Texture | Warm illuminated parchment, carved metal highlights and painted devotional tableau. |
-| 13 Desktop | Broad symmetrical ceremonial stage; paired niches, wide carved countdown, alternating large ritual illustrations and framed photographic composition. |
+| 13 Desktop | Broad symmetrical ceremonial stage; paired niches, full-width scenic countdown, alternating large ritual illustrations and framed photographic composition. |
 
 ## Step 2 — Design review
 The explicit new visual request intentionally revisits traditional gold framing and ruby accents. It takes precedence over the older brief's ban on the maroon/gold palette and the mandatory shape-axis exclusion. This exception is confined to the requested art direction; technical, data, accessibility, language and performance rules remain in force. No approval is needed for the user's own requested direction.
@@ -50,7 +50,7 @@ Completed independent CSS and rewritten scene/section builders. Existing engine 
 
 Ran the required `node tools/shoot.mjs kalyana-vaibhavam` successfully; see `shoot-report.txt`. Additional Playwright scripts in `qa/` verify full RSVP callback/failure/demo behavior, tap-only video, viewer keyboard/touch/focus, calendars, four faith variants, same-day/past countdown, gallery counts 1/2/3/6/12, one/eight events, alternate data and widths through 2560px. Reports: `verification.txt`, `edge-cases-report.txt`, `names-report.txt`, `experience-report.txt`, `weight-report.txt`. `review-visuals.mjs` and `capture.mjs` saved alternate opening/hero/couple/footer and every section at phone/desktop sizes. Review-only fixture selectors were corrected to this template's actual hero date/faith containers before rerunning successfully.
 
-Manual visual review completed for the 390px and 1440px section screenshots, 820px tablet, 844×390 landscape, Telugu opening/couple/footer, long names, birthday, empty data and reduced motion. Telugu virama and name bounds remain visible. Desktop uses a broad ceremonial stage, side-by-side niches, a four-column engraved countdown, alternating illustrated rituals, a three-column collage, a wide video surround, split map/details and paired form fields. Tablet has its own paired niches/four-digit arrangement and scaled reading widths. Landscape uses two independent art/copy regions so artwork does not cover the live names/button. Portrait gallery crops align at the top to preserve faces.
+Manual visual review completed for the 390px and 1440px section screenshots, 820px tablet, 844×390 landscape, Telugu opening/couple/footer, long names, birthday, empty data and reduced motion. Telugu virama and name bounds remain visible. Desktop uses a broad ceremonial stage, side-by-side niches, a four-column scenic countdown, alternating illustrated rituals, a three-column collage, a wide video surround, split map/details and paired form fields. Tablet has its own paired niches/four-digit arrangement and scaled reading widths. Landscape uses two independent art/copy regions so artwork does not cover the live names/button. Gallery photographs retain their complete natural aspect ratios.
 
 Keyboard traversal and focus ring checks passed. The opening traps focus until it is removed; the viewer restores focus and handles Escape/arrows/swipe. Network checks at 390 and 1440 verified only the matching background and tableau before opening, and no incorrect background after opening. Scene movement, hidden/reduced petal pauses, visible-only countdown and exact 640px wheel distance were exercised. Fixed controls were checked clear of RSVP fields. There were no runtime page errors in these checks. This is Chromium verification; real-device Safari and Android hardware were not available.
 
@@ -58,12 +58,12 @@ Keyboard traversal and focus ring checks passed. The opening traps focus until i
 
 | Resource | Actual bytes | Limit bytes |
 | --- | ---: | ---: |
-| All stored image variants, including supplied fixtures | 7,822,753 | 450,000 |
+| All stored image variants, including supplied fixtures | 8,391,127 | 450,000 |
 | Desktop-only landscape image | 414,132 | 400,000 |
 | First-screen phone images | 471,230 (standard-density phone picture source) | 150,000 |
 | First-screen desktop images | 913,912 (native desktop painting) | 150,000 |
-| app.js gzip | 18,516 | 60,000 |
-| style.css gzip | 11,258 | 25,000 |
+| app.js gzip | 18,510 | 60,000 |
+| style.css gzip | 11,510 | 25,000 |
 
 Three font families; no runtime library. Original synthesized audio is 192,620 bytes and starts only after opening. QA screenshots/previews are not runtime invitation images. The latest explicit user request for sharp complete artwork takes precedence over the original basic-theme image budget. The old 450,000-byte image and 150,000-byte first-screen limits are exceeded and are NOT claimed as passing. These values cover all stored variants, not a single guest request. Native/960/1440 picture sources and lazy loading reduce each guest's actual transfer. JS and CSS remain within their original limits. All SVG marks and dividers remain resolution-independent.
 
@@ -89,15 +89,15 @@ Original SVG work replaces the flat CSS countdown bevel and basic video surround
 That earlier iteration verified separate paintings, a single continuous margin and vector borders, but retained aggressively compressed artwork. Its opening-only canopy, alpha-quantized low-resolution exports and sub-450KB image budget were superseded by the latest request below. Current tests and source settings are recorded in clarity-report.txt, experience-report.txt and ASSETS.md.
 
 
-## Current revision — complete sharp images, temple murals and a painted countdown
+## Current revision — full-screen countdown and visible temple artwork
 
 The user's screenshots identified both true resampling blur and cropped-out attendants. The old 640–720px art was enlarged to 200–225% width. That implementation is removed. The complete original 2172×724 paintings are now exported at quality 90 without alpha quantization. Explicit picture sources provide 960px/1440px mobile exports according to pixel density and native paintings for tablet/desktop. Every ceremony image retains the exact full source aspect ratio with `object-fit: contain`, static positioning, 100% width, no crop and no scale. The main image is capped at 1080 CSS pixels on desktop so a 2× display has enough source detail. Gallery photographs are quality 90 and retain full natural ratios; individual portrait sources retain their native crop resolution. Old conflicting artwork layout rules were removed, not merely left to fight new overrides.
 
-New botanical canopy art is present on the hero and closing, following the latest explicit request. It remains absent from intermediate section headers. Two original SVG architectural illustrations (gopuram and temple courtyard/tank) sit at faint opacity in alternating intermediate sections. Their displacement follows the real scroll, is capped at 32px, updates only for visible sections, stops while hidden, and becomes static for reduced motion.
+New botanical canopy art is present on the hero and closing, following the latest explicit request. It remains absent from intermediate section headers. A newly generated original copperplate-style temple-town engraving fills the complete background of every scrolling chapter except the scenic countdown, including hero and closing. Detailed gopurams, pillars, shrines, palms and tank steps replace the previous near-invisible SVG watermarks. At 30% opacity its details remain visible; localized cream copy veils maintain legibility. No intermediate canopy is repeated. Their displacement follows the real scroll, is capped at 32px, updates only for visible sections, stops while hidden, and becomes static for reduced motion.
 
-Countdown now uses original hand-painted mandapam artwork with an empty central opening for live HTML digits. There are separate portrait and landscape compositions selected by `picture`, not one image stretched or cropped. Calendar buttons and same-day/past states continue to work. This supersedes the earlier engraved-box countdown. The earlier revision note below describing opening-only canopies and alpha compression is historical; it is superseded by this request.
+Countdown now uses a newly painted temple-tank sunrise as a decorative full-bleed section background. Its picture is a direct child of the section with absolute inset zero, rather than an inset 540/820px panel inside the content wrap. The section is at least 100svh. Portrait and landscape compositions follow viewport aspect; scenic background edges may crop with cover, while every devotional painting remains complete and uncropped. Live heading, digits and both calendars occupy the quiet sky; the 2×2 phone clock becomes a four-column tablet/desktop row. Landscape phones get 640px minimum section height to keep all content readable. Same-day and past states remain live. This supersedes both earlier countdown frames.
 
-`qa/clarity.mjs` verifies complete ratios, image bounds, absence of image transforms, and source pixel density at 390px/2×, 390px/3×, tablet/2×, desktop/2× and landscape. It also verifies both canopy locations, absence of intermediate canopies, responsive countdown sources, architectural parallax and reduced motion. `clarity-report.txt` records the selected pixel widths and rendered dimensions. At normal fixture sizes the hero fits 390×844, 820×1180, 1440×900 and 844×390.
+`qa/clarity.mjs` verifies complete ratios, image bounds, absence of image transforms, and source pixel density at 390px/2×, 390px/3×, tablet/2×, 970px/2× (the reported inset-card case), desktop/2× and landscape. It asserts the countdown artwork equals the full viewport width and full section height at every tested size. It also verifies both canopy locations, absence of intermediate canopies, responsive countdown sources, architectural parallax and reduced motion. `clarity-report.txt` records the selected pixel widths and rendered dimensions. At normal fixture sizes the hero fits 390×844, 820×1180, 1440×900 and 844×390.
 
 Quality requires an explicit image-weight exception. The old basic-theme image budget caused the reported quality loss, so native artwork is retained instead of claiming compliance through another aggressive downscale. Current weight-report.txt gives exact bytes; no legacy image-budget pass is asserted. No new runtime library, remote asset or network service was introduced. The original asset prompts and all new prompts are preserved in ASSETS.md.
 
