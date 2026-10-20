@@ -2578,17 +2578,17 @@ html:not([lang="en"]) .event-address {
 }
 /* Barely visible architecture across the middle chapters. */
 .chapter-flow .temple-mural {
-  opacity: 0.08;
+  opacity: 0.14;
   mask-image: linear-gradient(transparent, #000 96px, #000 calc(100% - 96px), transparent);
 }
 .chapter-flow :is(.blessing, .gallery) .temple-mural {
-  opacity: 0.075;
+  opacity: 0.13;
 }
 .chapter-flow :is(.events, .video, .venue) .temple-mural {
-  opacity: 0.065;
+  opacity: 0.12;
 }
 .chapter-flow :is(.live, .rsvp) .temple-mural {
-  opacity: 0.05;
+  opacity: 0.1;
 }
 /* Quiet paper immediately behind copy preserves contrast while the town stays visible. */
 .blessing .wrap,
