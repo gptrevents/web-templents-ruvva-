@@ -1,0 +1,5 @@
+All runtime JS gzip: 21692 B / 60000
+All runtime CSS gzip: 12789 B / 25000
+Common image assets gzip: 7626655 B / 450000
+Separate desktop backgrounds gzip: 751607 B / 400000
+Image target exceeded; see DESIGN.md. Kalyana retains its pre-existing raster artwork unchanged.

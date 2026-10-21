@@ -225,3 +225,21 @@ Required tools/shoot.mjs passes, with refreshed opening/full-section phone and d
 Manual review used phone/desktop live, countdown, portrait and closing captures, plus tablet layouts. The original section-6 checklist remains intact. Physical devices were unavailable: touch evidence is Chromium device emulation, not measured real-device frame rates. Combined runtime and image weights are reported in continuity-budget.txt; original artwork quality and any earlier image-budget exceptions are retained. The first-screen raster requests and responsive background selection remain unchanged.
 
 The preview gallery server gains an optional RUVVA_PREVIEW_HOST setting for same-Wi-Fi phone previews; its default remains localhost and its existing route allowlist is retained. No public deployment, main merge, UPI or core migration is part of this batch.
+
+
+## Natural artwork and mobile alignment — 21 October 2026
+
+User-authorized cross-theme correction, retaining each theme's existing palette and layout.
+
+- [x] Symmetric mobile/tablet `.wrap` margins; floating controls no longer reserve an asymmetric content rail. Verified every section wrapper at 360, 390, 412 and 820 pixels.
+- [x] Six independently phased ambient paths, different horizontal positions, fall speeds and lateral drift; inner tumble runs independently from vertical descent. No animation-frame random work.
+- [x] Reduced-motion removes ambient movement; existing visibility controller pauses the new paths. Native touch scrolling remains intact.
+- [x] Required `node tools/shoot.mjs THEME` passed: phone/desktop screenshots, seven responsive sizes, empty/birthday/Telugu, injection check, reduced-motion capture.
+- [x] `tools/check-natural-details.mjs`: all seven themes at five sizes; centered sections, no horizontal overflow, distinct particle phases, limited bird pairs, no JS errors, reduced-motion behavior.
+- [x] Reviewed phone couple/live/RSVP captures; Kalyana/Varnika content now aligns with viewport center.
+
+Two restrained global bird pairs have staggered travel times, depths, companion offsets and brief wingbeats followed by gliding. Ocean’s repeated chapter flocks are replaced by these passing pairs; Storybook butterflies now wander rather than descend like petals.
+
+Original painted transparent bitmap side ornaments replace the schematic continuous margin. The live vignette now uses existing original raster artwork instead of the line illustration. New assets and exact built-in image-generation prompts are recorded in `PAINTED_ART.md`. Small functional icons and motion silhouettes remain SVG for clarity. Optimized alpha WebP edges retain a transparent center and do not crop content. Temple/Floral load a separate higher-resolution border only on desktop.
+
+Validation scope: browser touch emulation and local screenshots, not a physical Android-device certification. Full manual assistive-technology testing was not repeated for this decoration-only correction. Size measurements are in `natural-details-budget.txt`; Kalyana’s pre-existing artwork budget overrun remains, with its protected raster artwork untouched.

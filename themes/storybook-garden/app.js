@@ -345,6 +345,7 @@ function renderInvitation(root, data, ctx) {
     a.style.setProperty("--i", i);
     ambient.append(a);
   }
+  RuvvaNatural.prepare(ambient, true);
   root.append(ambient);
   const pageContent = el("div", "page-content");
   pageContent.hidden = true;

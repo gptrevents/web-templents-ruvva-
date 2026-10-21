@@ -240,3 +240,21 @@ The user reported that desktop effects were visible but phone effects were not. 
 The new phone-specific settings still pause offscreen and on hidden-document events and stop under reduced motion. Reduced-motion styling also explicitly resets an unseen story page's transform. No new dependencies, raster assets, timers or animation loops were added.
 
 Validation: garden-motion.mjs now uses coarse-pointer, touch-enabled phone/tablet contexts. At 390px it measures 10.1 CSS pixels of leaf-tip movement between the cycle extrema and sends native Chromium touch events for a real scroll gesture; document scrolling and portrait-depth changes both pass. It also verifies pause/resume and static reduced-motion content at 390/820/1440. Continuity, interactions, experience and required shoot pass, covering 320–2560 resizing, data variants, gallery, RSVP and calendar behavior. Updated screenshots and reports are saved. This is browser device emulation, not a physical-device performance claim. Current combined gzip totals are recorded in refinement-budget.txt and experience-report.txt.
+
+
+## Natural artwork and mobile alignment — 21 October 2026
+
+User-authorized cross-theme correction, retaining each theme's existing palette and layout.
+
+- [x] Symmetric mobile/tablet `.wrap` margins; floating controls no longer reserve an asymmetric content rail. Verified every section wrapper at 360, 390, 412 and 820 pixels.
+- [x] Six independently phased ambient paths, different horizontal positions, fall speeds and lateral drift; inner tumble runs independently from vertical descent. No animation-frame random work.
+- [x] Reduced-motion removes ambient movement; existing visibility controller pauses the new paths. Native touch scrolling remains intact.
+- [x] Required `node tools/shoot.mjs THEME` passed: phone/desktop screenshots, seven responsive sizes, empty/birthday/Telugu, injection check, reduced-motion capture.
+- [x] `tools/check-natural-details.mjs`: all seven themes at five sizes; centered sections, no horizontal overflow, distinct particle phases, limited bird pairs, no JS errors, reduced-motion behavior.
+- [x] Reviewed phone couple/live/RSVP captures; Kalyana/Varnika content now aligns with viewport center.
+
+Two restrained global bird pairs have staggered travel times, depths, companion offsets and brief wingbeats followed by gliding. Ocean’s repeated chapter flocks are replaced by these passing pairs; Storybook butterflies now wander rather than descend like petals.
+
+Existing main artwork and composition preserved; this task changes alignment and ambient behavior only.
+
+Validation scope: browser touch emulation and local screenshots, not a physical Android-device certification. Full manual assistive-technology testing was not repeated for this decoration-only correction. Size measurements are in `natural-details-budget.txt`; Kalyana’s pre-existing artwork budget overrun remains, with its protected raster artwork untouched.
