@@ -1,0 +1,6 @@
+PASS 390: three distinct tableaux, whole-image ratios, responsive sources, real drawing progression, completed strokes, slow mandala orbit, reduced-motion.
+PASS 820: three distinct tableaux, whole-image ratios, responsive sources, real drawing progression, completed strokes, slow mandala orbit, reduced-motion.
+PASS 1440: three distinct tableaux, whole-image ratios, responsive sources, real drawing progression, completed strokes, slow mandala orbit, reduced-motion.
+PASS none: Hindu deity images absent.
+PASS muslim: Hindu deity images absent.
+PASS christian: Hindu deity images absent.

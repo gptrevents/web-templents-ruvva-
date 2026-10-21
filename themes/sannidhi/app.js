@@ -98,6 +98,7 @@ const COPY = {
     anyDay: "The celebration",
     thankYou: "Thank you",
     closingNote: "Your presence makes our story complete.",
+    divineNote: "With the blessings of Lord Venkateswara",
     lightNote: "Light the beginning of our forever",
     copyLink: "Copy Link",
     copied: "Link copied",
@@ -887,21 +888,91 @@ function initializeWheelScroll() {
   addEventListener("popstate", stop);
 }
 
-// Original geometric rice-flour lattice; static authored SVG, never interpolated data.
+// Original rice-flour artwork, with real grain and traditional interlacing.
 function kolam() {
-  const n = svg(
-    '<path d="M40 8C9 8 9 54 40 54s31-46 0-46ZM40 8C71 8 71 54 40 54S9 8 40 8Z"/><path d="M17 31C17 0 63 0 63 31s-46 31-46 0ZM17 31c0 31 46 31 46 0S17 0 17 31Z"/><path d="m40 3 28 28-28 28L12 31Z"/><circle cx="40" cy="31" r="3" fill="currentColor"/><circle cx="7" cy="31" r="1.5"/><circle cx="73" cy="31" r="1.5"/>',
-    "0 0 80 62",
-  );
-  n.classList.add("kolam");
+  const n = el("span", "kolam");
+  n.setAttribute("aria-hidden", "true");
+  const ns = "http://www.w3.org/2000/svg";
+  const drawing = document.createElementNS(ns, "svg");
+  drawing.setAttribute("viewBox", "0 0 240 240");
+  drawing.setAttribute("fill", "none");
+  drawing.classList.add("kolam-orbit");
+  let index = 0;
+  const ink = (d, angle = 0) => {
+    const path = document.createElementNS(ns, "path");
+    path.setAttribute("d", d);
+    path.setAttribute("pathLength", "1");
+    path.setAttribute("transform", "rotate(" + angle + " 120 120)");
+    path.classList.add("kolam-line");
+    path.style.setProperty("--line", index++);
+    drawing.append(path);
+  };
+  // Interlaced rice-flour loops around pulli dots; eight lotus petals at the heart.
+  for (let q = 0; q < 4; q++) {
+    ink(
+      "M120 18C94 18 92 49 111 59C133 71 148 52 139 38C129 23 109 31 109 48C109 72 154 77 166 96C182 119 204 112 204 94C204 78 181 74 171 88C158 108 185 135 203 126C224 115 222 92 206 83C188 73 173 90 174 105",
+      q * 90,
+    );
+    ink(
+      "M120 64C100 45 73 59 79 80C84 99 111 96 110 80C108 63 87 66 88 83C89 109 60 122 45 110C29 97 43 75 58 84C76 96 58 115 45 104",
+      q * 90,
+    );
+  }
+  for (let a = 0; a < 360; a += 45)
+    ink("M120 120C102 112 102 91 120 82C138 91 138 112 120 120Z", a);
+  for (let y = 45; y <= 195; y += 30)
+    for (let x = 45; x <= 195; x += 30) {
+      if (Math.abs(x - 120) + Math.abs(y - 120) > 110) continue;
+      const dot = document.createElementNS(ns, "circle");
+      dot.setAttribute("cx", x);
+      dot.setAttribute("cy", y);
+      dot.setAttribute("r", "2.1");
+      dot.setAttribute("fill", "currentColor");
+      dot.classList.add("kolam-dot");
+      drawing.append(dot);
+    }
+  n.append(drawing);
   return n;
 }
-function ornament() {
-  const n = svg(
-    '<path d="M0 16h50m60 0h50M54 16l26-14 26 14-26 14ZM62 16l18-10 18 10-18 10Z"/><circle cx="80" cy="16" r="2" fill="currentColor"/><path d="m40 10 6 6-6 6m80-12-6 6 6 6"/>',
-    "0 0 160 32",
+function initializeKolamDrawing(root) {
+  const io = new IntersectionObserver(
+    (entries) =>
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("kolam-drawn");
+          io.unobserve(entry.target);
+        }
+      }),
+    { threshold: 0.15 },
   );
-  n.classList.add("divider");
+  root.querySelectorAll(".kolam").forEach((n) => io.observe(n));
+}
+function devotionalPicture(kind, cls) {
+  const picture = el("picture", "devotional-picture " + cls);
+  const assetKind = kind === "darshan" ? kind : kind + "-cutout";
+  {
+    const source = el("source");
+    source.setAttribute("media", "(min-width: 1024px)");
+    source.setAttribute(
+      "srcset",
+      "assets/srivari-" + assetKind + "-desktop.webp",
+    );
+    picture.append(source);
+  }
+  const image = art(
+    "assets/srivari-" + assetKind + ".webp",
+    "devotional-image",
+  );
+  image.loading = kind === "darshan" ? "eager" : "lazy";
+  image.width = kind === "darshan" ? 360 : 800;
+  image.height = kind === "darshan" ? 480 : kind === "ceremony" ? 446 : 450;
+  picture.append(image);
+  return picture;
+}
+function ornament() {
+  const n = el("div", "divider");
+  n.setAttribute("aria-hidden", "true");
+  n.append(el("span", "ornament-rule"), kolam(), el("span", "ornament-rule"));
   return n;
 }
 function art(src, cls) {
@@ -923,7 +994,12 @@ function art(src, cls) {
 function canopy() {
   const n = el("div", "canopy");
   n.setAttribute("aria-hidden", "true");
-  n.append(art("assets/toran.webp", "toran"));
+  const garland = el("picture");
+  const wide = el("source");
+  wide.setAttribute("media", "(min-width: 1024px)");
+  wide.setAttribute("srcset", "assets/toran-desktop.webp");
+  garland.append(wide, art("assets/toran.webp", "toran"));
+  n.append(garland);
   for (let i = 0; i < 2; i++) {
     const b = svg(
       '<path d="M20 0v39M15 39h10v8H15Zm-7 50h25c-6-6-3-20-9-25-5-5-12-2-14 4-2 7 1 14-5 21Zm-6 1h36v5H2ZM15 99q5 10 10 0"/><path d="M12 69h16M9 83h22M10 92h20"/>',
@@ -964,12 +1040,6 @@ function section(id, title, eyebrow) {
   if (eyebrow) w.append(el("p", "label section-kicker", eyebrow));
   if (title) w.append(el("h2", "", title));
   s.append(w);
-  if (["couple", "countdown", "gallery", "rsvp"].includes(id)) {
-    const detail = el("div", "continuity-detail");
-    detail.setAttribute("aria-hidden", "true");
-    detail.append(InviteArt.create());
-    s.append(detail);
-  }
   if (!["hero", "footer"].includes(id)) {
     const line = ornament();
     line.classList.add("section-divider");
@@ -1040,16 +1110,16 @@ function renderInvitation(root, data, ctx) {
     });
   RuvvaUI.initControls(root);
   initializeMotion(root);
+  initializeKolamDrawing(root);
   initializeWheelScroll();
   initializeScrollChoreography(root);
   initializeTempleScroll(root);
 }
 function diya() {
-  const n = svg(
-    '<defs><linearGradient id="diya-metal" x2="1" y2="1"><stop stop-color="#f2d393"/><stop offset=".5" stop-color="#bb782e"/><stop offset="1" stop-color="#f4cf83"/></linearGradient></defs><g class="diya-bowl" stroke="#edcc91"><path d="M12 76q78 24 156 0c-12 62-144 62-156 0Z" fill="url(#diya-metal)"/><path d="M18 79q72 22 144 0M29 101q61 22 122 0M71 124v12h38v-12M54 138h72v6H54"/><path d="M52 95q7 14 15 3t15 4 15-2 15 0 15-4"/></g><g class="diya-flame"><path d="M90 73C55 48 91 13 91 13s35 35-1 60Z" fill="#ffd991" stroke="#eaa946"/><path d="M90 69C75 53 90 39 90 39s16 16 0 30Z" fill="#fff9dd" stroke="none"/></g><path d="M90 72v8" stroke="#3e2d26" stroke-width="3"/>',
-    "0 0 180 150",
-  );
-  n.classList.add("diya");
+  const n = art("assets/ceremonial-diya-v1.webp", "diya");
+  n.loading = "eager";
+  n.width = 420;
+  n.height = 417;
   return n;
 }
 function buildEnvelope(d, c, ctx) {
@@ -1060,8 +1130,9 @@ function buildEnvelope(d, c, ctx) {
   add(cover, canopy());
   const lattice = kolam();
   lattice.classList.add("opening-kolam");
-  cover.append(lattice);
   const content = el("div", "opening-content");
+  const sacred = d.faithId === "hindu";
+  if (sacred) cover.classList.add("devotional-opening");
   add(
     content,
     el("p", "label", c.cordiallyInvited),
@@ -1069,9 +1140,15 @@ function buildEnvelope(d, c, ctx) {
     names(d),
     ornament(),
   );
+  if (sacred) {
+    const shrine = devotionalPicture("darshan", "welcome-darshan");
+    content.insertBefore(shrine, content.querySelector(".names"));
+  }
   const lamp = el("div", "lamp-stage");
-  add(lamp, el("span", "lamp-aura"), diya());
-  add(content, lamp, el("p", "light-note", c.lightNote));
+  lattice.loading = "eager";
+  add(lamp, lattice, el("span", "lamp-aura"), diya());
+  if (!sacred) add(content, lamp, el("p", "light-note", c.lightNote));
+  else content.append(el("p", "divine-note", c.divineNote));
   const light = el("div", "opening-light");
   light.setAttribute("aria-hidden", "true");
   const b = button(c.openInvitation, async () => {
@@ -1140,6 +1217,13 @@ function buildHero(d, c, ctx) {
     el("p", "hero-venue", d.venue),
   );
   w.append(facts);
+  if (d.faithId === "hindu") {
+    s.classList.add("devotional-hero");
+    w.append(devotionalPicture("ceremony", "kalyanam-tableau"));
+    const mandala = kolam();
+    mandala.classList.add("hero-mandala");
+    s.append(mandala);
+  }
   s.append(canopy());
   const hint = el("a", "scroll-hint");
   hint.href = "#blessing";
@@ -1472,6 +1556,10 @@ function buildFooter(d, c, ctx) {
     w.append(photo);
   }
   w.append(text);
+  if (d.faithId === "hindu") {
+    s.classList.add("devotional-footer");
+    w.append(devotionalPicture("benediction", "benediction-tableau"));
+  }
   return s;
 }
 // All scroll-linked artwork follows the real document. No persistent render loop.
