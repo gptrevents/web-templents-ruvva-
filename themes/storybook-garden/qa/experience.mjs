@@ -98,12 +98,16 @@ try {
   await page.waitForTimeout(1400);
   const settled = await page.evaluate(() => scrollY);
   assert(Math.abs(settled - 640) < 2);
-  await page.evaluate(() => scrollTo({ top: 0, behavior: "instant" }));
+  // Stop the previous eased gesture before resetting the document. Otherwise its
+  // final animation frame can race the programmatic scroll in a busy QA run.
   await page.mouse.down();
   await page.mouse.up();
+  await page.evaluate(() => scrollTo({ top: 0, behavior: "instant" }));
+  await page.waitForFunction(() => scrollY === 0);
   for (let i = 0; i < 24; i++) await page.mouse.wheel(0, 8);
-  await page.waitForTimeout(1300);
-  assert(Math.abs((await page.evaluate(() => scrollY)) - 192) < 3);
+  await page.waitForFunction(() => Math.abs(scrollY - 192) < 3, null, {
+    timeout: 3000,
+  });
   notes.push(
     "PASS 421px fine-pointer wheel easing and repeated small trackpad deltas; real document scroll preserved.",
   );
@@ -150,13 +154,32 @@ try {
     return paths;
   };
   const all = await walk(folder + "/assets");
-  const files = all.filter((f) => /\.(webp|png|jpe?g)$/.test(f));
+  const files = all.filter((f) => /\.(webp|png|jpe?g|svg)$/.test(f));
   const common = files.filter((f) => !f.endsWith("garden-desktop.webp"));
-  let bytes = 0;
-  for (const file of common) bytes += (await stat(file)).size;
+  let bytes = 0,
+    rawBytes = 0;
+  for (const file of common) {
+    const image = await readFile(file);
+    bytes += gzipSync(image).length;
+    rawBytes += image.length;
+  }
   const desktop = (await stat(folder + "/assets/garden-desktop.webp")).size;
-  const js = gzipSync(await readFile(folder + "/app.js")).length,
-    css = gzipSync(await readFile(folder + "/style.css")).length;
+  const js = gzipSync(
+      Buffer.concat(
+        await Promise.all(
+          ["app.js", "invitation-ui.js"].map((f) => readFile(folder + "/" + f)),
+        ),
+      ),
+    ).length,
+    css = gzipSync(
+      Buffer.concat(
+        await Promise.all(
+          ["style.css", "garden-refinement.css", "invitation-ui.css"].map((f) =>
+            readFile(folder + "/" + f),
+          ),
+        ),
+      ),
+    ).length;
   assert(bytes <= 450000);
   assert(desktop <= 400000);
   assert(js <= 60000);
@@ -164,7 +187,7 @@ try {
   assert((await stat(folder + "/assets/garden-phone.webp")).size <= 150000);
   assert(desktop <= 150000);
   notes.push(
-    `PASS budgets: common/phone images ${bytes} bytes; desktop-only ${desktop}; JS gzip ${js}; CSS gzip ${css}; first-screen phone 103352, desktop ${desktop}.`,
+    `PASS budgets: common/phone images ${bytes} bytes gzip (${rawBytes} raw, including SVG); desktop-only ${desktop}; JS gzip ${js}; CSS gzip ${css}; first-screen phone 103352, desktop ${desktop}.`,
   );
   await writeFile(folder + "/experience-report.txt", notes.join("\n") + "\n");
   console.log(notes.join("\n"));

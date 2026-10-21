@@ -1,0 +1,3 @@
+PASS 390: continuous paper, actionable pavilion, complete closing image, no overflow/errors; live/RSVP/footer screenshots saved.
+PASS 820: continuous paper, actionable pavilion, complete closing image, no overflow/errors; live/RSVP/footer screenshots saved.
+PASS 1440: continuous paper, actionable pavilion, complete closing image, no overflow/errors; live/RSVP/footer screenshots saved.

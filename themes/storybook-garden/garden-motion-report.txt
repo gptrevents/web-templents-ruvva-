@@ -1,0 +1,5 @@
+PASS coarse-pointer phone: leaf tip excursion 10.1 CSS px across the breeze cycle.
+PASS phone native touch swipe: document scroll and portrait depth respond without wheel emulation.
+PASS 390: independent flag/leaf motion; intermittent wing; offscreen pause; simulated hidden-state handler pause; once-only closing reveal; reduced-motion stops loops and leaves photos visible.
+PASS 820: independent flag/leaf motion; intermittent wing; offscreen pause; simulated hidden-state handler pause; once-only closing reveal; reduced-motion stops loops and leaves photos visible.
+PASS 1440: independent flag/leaf motion; intermittent wing; offscreen pause; simulated hidden-state handler pause; once-only closing reveal; reduced-motion stops loops and leaves photos visible.
