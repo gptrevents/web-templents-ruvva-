@@ -224,3 +224,11 @@ The existing contrast values remain applicable: fern headings on cream 7.07:1, b
 
 ### Delivery
 Only themes/storybook-garden/ is changed from the latest fixes branch. New screenshots, vector sources, asset notes and QA reports accompany the refinement. The existing seven-theme collection and shared core source are unchanged. Merge into main and UPI remain outside this task.
+
+## Final garden motion — 21 October 2026
+
+The user approved the three proposed restrained effects for Storybook Garden before a later batch of other themes. Existing scenery remains still: four small edge sprigs and existing portrait/corner leaves sway by about 1–1.5 degrees. The pavilion pennants move slightly in the breeze, and the perched bird stretches its wing twice during a short part of each 14-second cycle, resting for the remainder. Story photographs use the existing once-only reveal with softer timing; the closing picture has its own small upward fade, with no image zoom, cropping or rotation during its entrance. Avoiding rotation also prevents a transient 1px overflow during viewport resizing.
+
+The original pavilion SVG is now inlined as a static, project-authored SVG string so CSS can animate individual parts and the existing section visibility controller can pause them. No new runtime fetch, library, timer, RAF loop, text animation or external request was introduced. All new continuous effects default to paused, run only in a visible motion-active section, pause when the document is hidden, and become static under prefers-reduced-motion. The static SVG source remains in assets/ for provenance; its helper in app.js is the runtime representation.
+
+Validation: qa/garden-motion.mjs verifies actual flag/leaf pose changes, offscreen pause, the document-hidden event handler through a simulated hidden state, once-only closing reveal, reduced-motion static visibility and no overflow at 390/820/1440. qa/interactions.mjs also checks live resizing from 320 through 2560, calendar, RSVP, gallery and sample-data behavior. qa/continuity.mjs, qa/experience.mjs and the required shoot were rerun, with updated reports and screenshots. All motion uses transforms on small decorative elements; the SVG scene, photo source dimensions and core scrolling remain unchanged. Physical device and real OS background-tab testing were unavailable.

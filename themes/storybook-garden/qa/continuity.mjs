@@ -31,27 +31,25 @@ try {
       "_blank",
     );
     assert.equal(
-      await page.locator(".live-pavilion img").getAttribute("alt"),
-      "",
+      await page
+        .locator(".live-pavilion .pavilion-drawing")
+        .getAttribute("aria-hidden"),
+      "true",
     );
     for (const id of ["live", "rsvp", "footer"]) {
       await page.locator("#" + id).scrollIntoViewIfNeeded();
       await page.waitForTimeout(850);
-      await page
-        .locator("#" + id)
-        .screenshot({
-          path: `themes/storybook-garden/screenshots/${width === 390 ? "phone" : "desktop"}/refined-${id}-${width}.png`,
-        });
+      await page.locator("#" + id).screenshot({
+        path: `themes/storybook-garden/screenshots/${width === 390 ? "phone" : "desktop"}/refined-${id}-${width}.png`,
+      });
     }
-    const picture = await page
-      .locator(".closing-photo")
-      .evaluate((n) => ({
-        natural: n.naturalWidth / n.naturalHeight,
-        rendered: n.clientWidth / n.clientHeight,
-        fit: getComputedStyle(n).objectFit,
-        left: n.getBoundingClientRect().left,
-        right: n.getBoundingClientRect().right,
-      }));
+    const picture = await page.locator(".closing-photo").evaluate((n) => ({
+      natural: n.naturalWidth / n.naturalHeight,
+      rendered: n.clientWidth / n.clientHeight,
+      fit: getComputedStyle(n).objectFit,
+      left: n.getBoundingClientRect().left,
+      right: n.getBoundingClientRect().right,
+    }));
     assert(
       Math.abs(picture.natural - picture.rendered) < 0.025,
       "complete closing photo at natural ratio",

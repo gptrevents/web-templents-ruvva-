@@ -1,0 +1,3 @@
+PASS 390: independent flag/leaf motion; intermittent wing; offscreen pause; simulated hidden-state handler pause; once-only closing reveal; reduced-motion stops loops and leaves photos visible.
+PASS 820: independent flag/leaf motion; intermittent wing; offscreen pause; simulated hidden-state handler pause; once-only closing reveal; reduced-motion stops loops and leaves photos visible.
+PASS 1440: independent flag/leaf motion; intermittent wing; offscreen pause; simulated hidden-state handler pause; once-only closing reveal; reduced-motion stops loops and leaves photos visible.
