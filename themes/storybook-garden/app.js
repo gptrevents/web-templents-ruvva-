@@ -1486,11 +1486,7 @@ function initializeScrollChoreography(root) {
         y = (1 - progress) * (compact ? 24 : 36);
         node.style.opacity = String(0.35 + 0.65 * progress);
       } else {
-        const limit = photo
-          ? compact
-            ? 4
-            : 6
-          : strength * (compact ? 0.65 : 1);
+        const limit = photo ? 6 : strength * (compact ? 0.85 : 1);
         const depth = Math.max(
           -1,
           Math.min(

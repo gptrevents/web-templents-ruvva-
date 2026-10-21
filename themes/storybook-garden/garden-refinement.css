@@ -398,13 +398,61 @@
     rotate: -4deg;
   }
 }
+/* Touch-first amplitude: noticeable at arm's length without moving text. */
+@keyframes garden-leaf-breeze-mobile {
+  0%,
+  100% {
+    rotate: -5deg;
+  }
+  45% {
+    rotate: 7deg;
+  }
+  75% {
+    rotate: -1deg;
+  }
+}
+@keyframes garden-flag-breeze-mobile {
+  0%,
+  100% {
+    transform: skewX(-6deg);
+  }
+  50% {
+    transform: skewX(7deg);
+  }
+}
 @media (max-width: 599px) {
   .garden-breeze {
-    opacity: 0.32;
-    width: 43px;
+    opacity: 0.64;
+    width: 66px;
+  }
+  .breeze-leaves {
+    animation-name: garden-leaf-breeze-mobile;
+    animation-duration: 4.6s;
+  }
+  .pavilion-flags {
+    fill: #edcf94;
+    stroke: #86623f;
+    animation-name: garden-flag-breeze-mobile;
+    animation-duration: 3.6s;
+  }
+  .pavilion-bird {
+    transform-box: fill-box;
+    transform-origin: 50% 85%;
+    scale: 1.45;
+  }
+  .pavilion-wing {
+    animation-duration: 6s;
+    animation-delay: -0.12s;
+  }
+  .story-page.reveal {
+    transition-duration: 0.65s, 0.9s;
+  }
+  .story-page.reveal:not(.seen) {
+    transform: translateY(34px);
   }
   .closing-picture.reveal {
-    transform: translateY(14px);
+    transform: translateY(28px);
+    transition-duration: 0.75s, 0.9s;
   }
   .closing-picture.reveal.seen {
     transform: none;
@@ -415,6 +463,7 @@
     animation: none;
   }
   .story-page.reveal,
+  .story-page.reveal:not(.seen),
   .closing-picture.reveal,
   .closing-picture.reveal.seen {
     opacity: 1;
