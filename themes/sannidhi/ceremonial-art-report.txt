@@ -1,0 +1,5 @@
+PASS 360x740: opening CTA fits, darshan image decoded, no overflow/JS errors, ceremony unlocks.
+PASS 390x844: opening CTA fits, darshan image decoded, no overflow/JS errors, ceremony unlocks.
+PASS 844x390: opening CTA fits, darshan image decoded, no overflow/JS errors, ceremony unlocks.
+PASS 820x1180: opening CTA fits, darshan image decoded, no overflow/JS errors, ceremony unlocks.
+PASS 1440x900: opening CTA fits, darshan image decoded, no overflow/JS errors, ceremony unlocks.

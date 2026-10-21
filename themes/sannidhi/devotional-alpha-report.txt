@@ -1,0 +1,6 @@
+srivari-benediction-cutout-desktop.webp: 1280x720; alpha range (0, 255); fully transparent pixels 29.4%
+srivari-benediction-cutout.webp: 800x450; alpha range (0, 255); fully transparent pixels 29.2%
+srivari-ceremony-cutout-desktop.webp: 1280x713; alpha range (0, 255); fully transparent pixels 24.8%
+srivari-ceremony-cutout.webp: 800x446; alpha range (0, 255); fully transparent pixels 24.5%
+srivari-darshan-desktop.webp: 720x960; alpha range (0, 255); fully transparent pixels 26.8%
+srivari-darshan.webp: 360x480; alpha range (0, 255); fully transparent pixels 26.2%

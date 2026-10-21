@@ -255,3 +255,45 @@ Original painted transparent bitmap side ornaments replace the schematic continu
 Validation scope: browser touch emulation and local screenshots, not a physical Android-device certification. Full manual assistive-technology testing was not repeated for this decoration-only correction. Size measurements are in `natural-details-budget.txt`; Kalyana’s pre-existing artwork budget overrun remains, with its protected raster artwork untouched.
 
 Sannidhi also replaces its repeated chapter bird silhouettes with two global, scene-scoped passing pairs.
+
+## Ceremonial artwork refinement — 21 October 2026
+
+The user identified the overlapping polygon “kolam”, flat drawn diya and repeated striped bands as unfinished. This refinement keeps Sannidhi's indigo welcome, vermilion/ivory interior, temple panorama and existing content/layouts.
+
+- [x] Replaced the welcome's flat SVG lamp with original transparent brass-and-jasmine raster artwork. Names, salutation, action and tagline remain live HTML.
+- [x] Replaced the polygon lattice with an original rice-flour-inspired interlaced muggu illustration, used as a quiet floor beneath the lamp and as occasional interior corner ornaments. The generated design is not represented as a documented historical/ritual pattern.
+- [x] Replaced arrow/diamond dividers with fine rules and a small muggu medallion. The image remains decorative and is excluded from the accessibility tree.
+- [x] Removed repeated fence-like section stripes and portrait-frame stripes. Existing profile photos/crops are preserved.
+- [x] Removed the hidden schematic continuity detail from the render tree and stopped loading its script. The old vector sources remain available as historical assets.
+- [x] Phone garland is optimized to 640px, while `<picture>` selects the original 900px image only on desktop. Both use real alpha; visual content is unchanged. This pays for the new artwork within the existing image budget.
+- [x] Portrait, tablet and desktop welcome compositions reviewed. Short landscape uses a two-column lamp/inscription stage with a separate button and tagline row. The call-to-action is usable at every tested width.
+- [x] All parity functionality retained. Opening tap/music, native touch, eased wheel behavior, reduced motion, calendar download, gallery/Escape, deferred video and RSVP validation/success were checked; per-feature outputs are in `ceremonial-actions-report.txt` and `ceremonial-scroll-report.txt`.
+- [x] Required `node tools/shoot.mjs sannidhi` passed; final screenshots and output are committed. Additional five-size artwork checks are in `ceremonial-art-report.txt` and screenshots/ceremonial-art/.
+
+Assets and exact prompts: `CEREMONIAL_ART.md`. Built-in image_gen generated two original transparent PNGs; delivery WebPs were trimmed, resized and compressed. Rice-flour artwork uses a compact palette/alpha representation; no third-party images or embedded text are used. Assets: `assets/ceremonial-diya-v1.webp`, `assets/ceremonial-kolam-v1.webp`, and the original garland retained as `assets/toran-desktop.webp`.
+
+Budgets (all local assets, including retained old SVG sources): see `natural-details-budget.txt`. Phone first-screen decorative artwork totals under 150 KB (garland + diya + muggu). Desktop garland requests and phone exclusion were verified in the browser. No new framework, service or animation library.
+
+Manual scope: reviewed original/new artwork and 390/1440 screenshots, checked phone landscape, focus-visible opening button and complete Telugu glyph samples. Browser touch emulation was used; physical-device and full screen-reader certification are not claimed. Other themes were not modified.
+
+
+## Final devotional direction and true-alpha correction
+
+The user's later references supersede the earlier isolated-lamp welcome: Sannidhi now has three distinct original traditional calendar-style Venkateswara scenes. The previous opaque full-scene backgrounds were specifically rejected, removed from delivery, and replaced through built-in image_gen background extraction.
+
+- [x] Hindu welcome: full Venkateswara/Lakshmi darshan cutout; live guest salutation, names and open button beside/below it.
+- [x] Hindu hero: separate Srinivasa–Padmavathi wedding group, sacred altar, witnesses, canopy and lamps on real transparent alpha.
+- [x] Hindu closing: separate Venkateswara/Sridevi/Bhudevi blessing group on real transparent alpha.
+- [x] All three paintings keep their natural image ratio with object-fit:contain; no background-cover crop, distortion or motion on deity figures.
+- [x] Non-Hindu/none data renders no deity pictures. Other faiths retain the generic lamp welcome and existing neutral temple architecture.
+- [x] Detailed inline rice-flour loops, pulli dots and lotus petals replace the old polygon motif. Each normalized SVG path is drawn independently with staggered stroke-dashoffset. The once-only observer starts the drawing; offscreen/tab visibility pauses it. Separate, very slow mandala rotation moves only decorative geometry.
+- [x] Reduced motion shows finished strokes immediately and stops continuous decorative rotation.
+- [x] Phone/tablet/desktop and short-landscape opening CTA checks passed. Tests verified actual stroke progression/completion, rotation, faith guards, responsive picture sources and complete image ratios.
+- [x] Required shoot.mjs passed at final asset state, including sample variants and injection/reduced-motion checks. Full screenshots plus additional artwork captures are committed.
+- [x] Real alpha checked for every phone/desktop devotional WebP; dark/ivory compositing proof and numeric results are in screenshots/ceremonial-art/alpha-proof.webp and devotional-alpha-report.txt.
+
+Sources, original prompts, extraction prompts and final paths: DEVOTIONAL_ART.md. Earlier generated candidates remain outside the project in the generation archive and are not delivered.
+
+Performance limitation: requested dense calendar-style artwork exceeds the earlier basic-theme total-image targets; devotional-budget.txt reports the exact overrun, rather than claiming compliance. The phone welcome raster payload is 108,960 bytes (under 150 KB); larger inside/closing scenes are lazy-loaded and desktop sources are excluded on phones. JS/CSS remain below their limits. Existing assets required by other-faith/sample variants are retained. No physical-device or screen-reader certification is claimed.
+
+Final load-stability fix: removed the explicit `aspect-ratio:auto` override from devotional images, preserving their HTML width/height aspect hints before lazy image decoding. This prevents the closing tableau from expanding the page after keyboard End has already reached its previous bottom. The existing scrolling regression passes without changing its timing or assertions.

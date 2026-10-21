@@ -1,0 +1,390 @@
+/* Original full devotional tableaux. Keep each painting complete at every width. */
+.devotional-picture {
+  display: block;
+  position: relative;
+}
+.devotional-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+.devotional-opening .opening-content {
+  padding: 99px 0 25px;
+  gap: 0;
+}
+.welcome-darshan {
+  width: min(47vw, 185px);
+  margin: 11px auto 4px;
+}
+.devotional-opening .names {
+  font-size: clamp(31px, 9.1vw, 41px);
+  margin-top: 6px;
+}
+.devotional-opening .names .amp {
+  font-size: 0.48em;
+  margin: 1px 0;
+}
+.devotional-opening .names[data-long="true"] {
+  font-size: clamp(21px, 5.7vw, 29px);
+}
+.devotional-opening .salutation {
+  font-size: 16px;
+  margin-top: 5px;
+}
+.devotional-opening .opening-content > .divider {
+  margin: 7px auto;
+  height: 28px;
+}
+.devotional-opening .opening-content > .divider .kolam {
+  width: 28px;
+  height: 28px;
+}
+.divine-note {
+  font-size: 10px;
+  color: #ead9b7;
+  margin: 0 0 11px;
+  line-height: 1.5;
+}
+.devotional-opening .tagline {
+  margin-top: 10px;
+}
+.devotional-opening .button {
+  min-height: 46px;
+}
+.devotional-hero {
+  height: auto;
+  min-height: 100svh;
+  padding: 0;
+  background: var(--rice);
+}
+.devotional-hero .temple-art,
+.devotional-footer .temple-art {
+  display: none;
+}
+.devotional-hero > .wrap {
+  width: 100%;
+  max-width: none;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  padding: 145px 0 0;
+}
+.devotional-hero .names {
+  max-width: calc(100% - 64px);
+}
+.devotional-hero .hero-overline {
+  max-width: calc(100% - 70px);
+}
+.kalyanam-tableau {
+  width: 100%;
+  margin-top: auto;
+  padding-top: 30px;
+}
+.kalyanam-tableau .devotional-image {
+  width: 100%;
+}
+.devotional-hero .scroll-hint {
+  bottom: 15px;
+  left: 50%;
+  background: #fff9edf0;
+}
+.devotional-footer {
+  background: var(--rice);
+  padding-bottom: 0;
+}
+.devotional-footer > .wrap {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding-inline: 0;
+}
+.devotional-footer .closing-copy {
+  max-width: 640px;
+  padding-inline: 30px;
+  margin-inline: auto;
+}
+.devotional-footer .closing-photo {
+  max-width: 360px;
+  width: 72%;
+  margin: 0 auto 35px;
+}
+.benediction-tableau {
+  grid-column: 1/-1;
+  width: 100%;
+  margin-top: 32px;
+}
+/* Every path is a separate rice-flour stroke. Drawing plays once; slow orbit is separate. */
+.kolam {
+  display: block;
+  aspect-ratio: 1;
+}
+.kolam-orbit {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+.kolam-line {
+  stroke: currentColor;
+  stroke-width: 2.3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+.kolam-dot {
+  opacity: 0;
+}
+.kolam-drawn .kolam-line {
+  animation: rice-line 2.7s ease calc(var(--line) * 0.15s) both;
+  animation-play-state: paused;
+}
+.kolam-drawn .kolam-dot {
+  animation: rice-dot 1s ease 0.1s both;
+  animation-play-state: paused;
+}
+.motion-active .kolam-drawn :is(.kolam-line, .kolam-dot) {
+  animation-play-state: running;
+}
+.margin-kolam.kolam-drawn .kolam-orbit {
+  animation: mandala-orbit 140s linear 5s infinite;
+  animation-play-state: paused;
+  transform-origin: 50% 50%;
+}
+.motion-active .margin-kolam.kolam-drawn .kolam-orbit {
+  animation-play-state: running;
+}
+.opening .kolam {
+  color: #fff4d6;
+}
+.divider .kolam,
+.margin-kolam {
+  filter: none;
+}
+@keyframes rice-line {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes rice-dot {
+  to {
+    opacity: 0.8;
+  }
+}
+@keyframes mandala-orbit {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@media (min-width: 600px) {
+  .devotional-opening .opening-content {
+    padding-top: 115px;
+  }
+  .welcome-darshan {
+    width: 215px;
+  }
+  .devotional-opening .names {
+    display: flex;
+    font-size: clamp(44px, 6vw, 68px);
+    gap: 15px;
+  }
+  .devotional-opening .names .amp {
+    margin: 0;
+  }
+  .divine-note {
+    font-size: 12px;
+  }
+}
+@media (min-width: 1024px) {
+  .devotional-opening .opening-content {
+    width: min(1180px, calc(100% - 130px));
+    max-width: 1180px;
+    display: grid;
+    grid-template-columns: minmax(280px, 0.9fr) minmax(0, 1.3fr);
+    column-gap: 60px;
+    padding: 165px 0 45px;
+    align-items: center;
+  }
+  .welcome-darshan {
+    grid-column: 1;
+    grid-row: 1/8;
+    width: min(100%, 340px);
+    margin: 0 auto;
+  }
+  .devotional-opening .opening-content > :not(.welcome-darshan) {
+    grid-column: 2;
+  }
+  .devotional-opening .label {
+    grid-row: 1;
+    align-self: end;
+  }
+  .devotional-opening .salutation {
+    grid-row: 2;
+  }
+  .devotional-opening .names {
+    grid-row: 3;
+    font-size: clamp(46px, 5vw, 76px);
+    display: block;
+    margin: 13px auto 0;
+  }
+  .devotional-opening .names .amp {
+    display: block;
+    font-size: 0.42em;
+    margin: 5px;
+  }
+  .devotional-opening .names[data-long="true"] {
+    font-size: clamp(27px, 3.2vw, 43px);
+  }
+  .devotional-opening .opening-content > .divider {
+    grid-row: 4;
+    margin: 10px auto;
+  }
+  .divine-note {
+    grid-row: 5;
+  }
+  .devotional-opening .button {
+    grid-row: 6;
+    justify-self: center;
+  }
+  .devotional-opening .tagline {
+    grid-row: 7;
+  }
+  .devotional-hero .names {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    font-size: clamp(70px, 7vw, 105px);
+  }
+  .devotional-hero .names .amp {
+    font-size: 0.5em;
+    margin: 0;
+  }
+  .devotional-footer .wrap {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center;
+    gap: 0;
+  }
+  .devotional-footer .closing-copy {
+    width: 100%;
+  }
+}
+@media (max-height: 740px) and (max-width: 599px) {
+  .devotional-opening .opening-content {
+    padding-top: 90px;
+    padding-bottom: 20px;
+  }
+  .welcome-darshan {
+    width: 145px;
+    margin-top: 7px;
+  }
+  .devotional-opening .names {
+    font-size: 32px;
+  }
+  .devotional-opening .names[data-long="true"] {
+    font-size: 21px;
+  }
+}
+@media (min-width: 600px) and (max-height: 600px) {
+  .devotional-opening .opening-content {
+    display: grid;
+    grid-template-columns: minmax(160px, 0.7fr) minmax(0, 1.3fr);
+    width: calc(100% - 130px);
+    padding: 100px 0 15px;
+    column-gap: 30px;
+  }
+  .welcome-darshan {
+    grid-column: 1;
+    grid-row: 1/8;
+    width: 145px;
+    margin: auto;
+  }
+  .devotional-opening .opening-content > :not(.welcome-darshan) {
+    grid-column: 2;
+  }
+  .devotional-opening .label {
+    grid-row: 1;
+  }
+  .devotional-opening .salutation {
+    grid-row: 2;
+  }
+  .devotional-opening .names {
+    grid-row: 3;
+    font-size: 34px;
+    display: block;
+    margin-top: 5px;
+  }
+  .devotional-opening .names > span {
+    display: inline;
+  }
+  .devotional-opening .names .amp {
+    display: inline;
+    margin: 0 4px;
+  }
+  .devotional-opening .names[data-long="true"] {
+    font-size: 20px;
+  }
+  .devotional-opening .opening-content > .divider {
+    grid-row: 4;
+    height: 26px;
+    margin: 4px auto;
+  }
+  .devotional-opening .divine-note {
+    grid-row: 5;
+    font-size: 10px;
+    margin-bottom: 6px;
+  }
+  .devotional-opening .button {
+    grid-row: 6;
+    justify-self: center;
+  }
+  .devotional-opening .tagline {
+    grid-row: 7;
+    font-size: 11px;
+    margin-top: 5px;
+  }
+  .devotional-hero .wrap {
+    width: 100%;
+    padding-top: 110px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .kolam-drawn :is(.kolam-line, .kolam-dot),
+  .margin-kolam.kolam-drawn .kolam-orbit {
+    animation: none !important;
+  }
+  .kolam-line {
+    stroke-dashoffset: 0 !important;
+  }
+  .kolam-dot {
+    opacity: 0.8;
+  }
+}
+
+.hero-mandala {
+  position: absolute;
+  left: 50%;
+  top: 42%;
+  width: 280px;
+  height: 280px;
+  transform: translate(-50%, -50%);
+  color: var(--vermilion);
+  opacity: 0.065;
+  pointer-events: none;
+  z-index: 0;
+}
+.hero-mandala.kolam-drawn .kolam-orbit {
+  animation: mandala-orbit 96s linear 5s infinite;
+  animation-play-state: paused;
+}
+.motion-active .hero-mandala.kolam-drawn .kolam-orbit {
+  animation-play-state: running;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-mandala.kolam-drawn .kolam-orbit {
+    animation: none !important;
+  }
+}
