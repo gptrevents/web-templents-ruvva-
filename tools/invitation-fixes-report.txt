@@ -1,0 +1,9 @@
+2026-10-21T02:12:32.357Z
+temple-dawn: PASS — tier, local UI sync, 390/820/1440 layout, collision sweep, keyboard, 5 data cases; combined gzip JS 15721 B / CSS 9893 B
+floral-elegant: PASS — tier, local UI sync, 390/820/1440 layout, collision sweep, keyboard, 5 data cases; combined gzip JS 15170 B / CSS 7483 B
+storybook-garden: PASS — tier, local UI sync, 390/820/1440 layout, collision sweep, keyboard, 5 data cases; combined gzip JS 17056 B / CSS 8585 B
+ocean-serene: PASS — tier, local UI sync, 390/820/1440 layout, collision sweep, keyboard, 5 data cases; combined gzip JS 16668 B / CSS 8585 B
+varnika: PASS — tier, local UI sync, 390/820/1440 layout, collision sweep, keyboard, 5 data cases; combined gzip JS 18228 B / CSS 11103 B
+sannidhi: PASS — tier, local UI sync, 390/820/1440 layout, collision sweep, keyboard, 5 data cases; combined gzip JS 17362 B / CSS 9966 B
+kalyana-vaibhavam: PASS — tier, local UI sync, 390/820/1440 layout, collision sweep, keyboard, 5 data cases; combined gzip JS 20912 B / CSS 11925 B
+C8: venue text and photo slot already correct; left unchanged.

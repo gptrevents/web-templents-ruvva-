@@ -1,0 +1,6 @@
+2026-10-21
+PASS: 14 default opening/hero word-range checks (390 and 1440), no split Latin words or footer overflow.
+PASS: reviewed opening images captured every 200ms for Temple Dawn, Ocean Serene and Sannidhi; no flat-color gap in final sequence.
+PASS: reviewed Storybook desktop sign and Varnika mobile footer before/after.
+Temple venue scrim worst-case contrast over black 8.72:1; scroll hint 9.29:1 (dark #433b2b on alpha cream).
+Physical iOS/Android unavailable. Existing image budget exceptions retained.

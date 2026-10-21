@@ -2680,3 +2680,22 @@ html:not([lang="en"]) .event-when {
     right: 10px;
   }
 }
+
+/* Keep the closing inscription in the quiet paper between the painted trees. */
+.footer .names > span {
+  display: inline-block;
+  max-width: 100%;
+  vertical-align: middle;
+}
+@media (max-width: 599px) {
+  .footer .closing-copy {
+    width: 76%;
+    margin-inline: auto;
+  }
+  .footer .names {
+    font-size: clamp(26px, 7.5vw, 34px);
+  }
+  .footer h2 {
+    font-size: clamp(30px, 8.3vw, 40px);
+  }
+}

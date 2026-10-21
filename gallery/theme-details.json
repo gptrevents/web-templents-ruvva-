@@ -4,55 +4,97 @@
     "category": "Traditional",
     "description": "Carved temple doors, warm sandstone and the quiet beauty of a new beginning.",
     "detail": "Sacred & timeless",
-    "palette": ["#343d30", "#85734c", "#c5ab7a", "#f8f4e9"],
-    "stage": "#e9e3d7"
+    "palette": [
+      "#343d30",
+      "#85734c",
+      "#c5ab7a",
+      "#f8f4e9"
+    ],
+    "stage": "#e9e3d7",
+    "tier": "basic"
   },
   "floral-elegant": {
     "title": "Floral Elegant",
     "category": "Floral",
     "description": "Blush blossoms, soft paper and little keepsakes of a love in full bloom.",
     "detail": "Soft & romantic",
-    "palette": ["#85304b", "#b33359", "#63816a", "#fce9ec"],
-    "stage": "#f3e4e6"
+    "palette": [
+      "#85304b",
+      "#b33359",
+      "#63816a",
+      "#fce9ec"
+    ],
+    "stage": "#f3e4e6",
+    "tier": "basic"
   },
   "storybook-garden": {
     "title": "Storybook Garden",
     "category": "Illustrated",
     "description": "A lakeside love story, illustrated with playful characters, hanging wooden signs and little garden adventures.",
     "detail": "Playful & full of wonder",
-    "palette": ["#365d45", "#af315d", "#f4be83", "#cceaf1"],
-    "stage": "#e2ecd8"
+    "palette": [
+      "#365d45",
+      "#af315d",
+      "#f4be83",
+      "#cceaf1"
+    ],
+    "stage": "#e2ecd8",
+    "tier": "basic"
   },
   "ocean-serene": {
     "title": "Ocean Serene",
     "category": "Coastal",
     "description": "An endless blue horizon, drifting clouds and a sea breeze through every chapter of your celebration.",
     "detail": "Calm & contemporary",
-    "palette": ["#073c4d", "#087e98", "#a8d7e3", "#f7fcfc"],
-    "stage": "#dfedf1"
+    "palette": [
+      "#073c4d",
+      "#087e98",
+      "#a8d7e3",
+      "#f7fcfc"
+    ],
+    "stage": "#dfedf1",
+    "tier": "basic"
   },
   "varnika": {
     "title": "Varnika",
     "category": "Premium",
     "description": "An heirloom wedding folio brought to life with miniature garden paintings, copper details and a beautifully bound album.",
     "detail": "The painted wedding · Premium",
-    "palette": ["#234d3f", "#193550", "#a63f2b", "#f5ead4"],
-    "stage": "#e4d6bc"
+    "palette": [
+      "#234d3f",
+      "#193550",
+      "#a63f2b",
+      "#f5ead4"
+    ],
+    "stage": "#e4d6bc",
+    "tier": "premium"
   },
   "sannidhi": {
     "title": "Sannidhi",
     "category": "Premium",
     "description": "A lamp-lit welcome opens into an original temple courtyard, with swaying jasmine, a folded ceremony calendar and a fan of cherished memories.",
     "detail": "In the presence of joy · Premium",
-    "palette": ["#b94329", "#27314b", "#435d40", "#fff9ed"],
-    "stage": "#eee3cf"
+    "palette": [
+      "#b94329",
+      "#27314b",
+      "#435d40",
+      "#fff9ed"
+    ],
+    "stage": "#eee3cf",
+    "tier": "premium"
   },
   "kalyana-vaibhavam": {
     "title": "Kalyana Vaibhavam",
     "category": "Premium",
     "description": "An illuminated wedding celebration with sculpted gold portrait niches, banana groves, a divine wedding tableau and a flowering path of rituals.",
     "detail": "A richly adorned celebration · Premium",
-    "palette": ["#870d2b", "#a86c16", "#2b5b22", "#fff0c1"],
-    "stage": "#f5dfa3"
+    "palette": [
+      "#870d2b",
+      "#a86c16",
+      "#2b5b22",
+      "#fff0c1"
+    ],
+    "stage": "#f5dfa3",
+    "tier": "premium"
   }
 }

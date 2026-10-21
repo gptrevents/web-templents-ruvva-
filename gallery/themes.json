@@ -3,6 +3,7 @@
     "id": "temple-dawn",
     "title": "Temple Dawn",
     "category": "Traditional",
+    "tier": "basic",
     "description": "Carved temple doors, warm sandstone and the quiet beauty of a new beginning.",
     "detail": "Sacred & timeless",
     "palette": [
@@ -19,6 +20,7 @@
     "id": "floral-elegant",
     "title": "Floral Elegant",
     "category": "Floral",
+    "tier": "basic",
     "description": "Blush blossoms, soft paper and little keepsakes of a love in full bloom.",
     "detail": "Soft & romantic",
     "palette": [
@@ -35,6 +37,7 @@
     "id": "storybook-garden",
     "title": "Storybook Garden",
     "category": "Illustrated",
+    "tier": "basic",
     "description": "A lakeside love story, illustrated with playful characters, hanging wooden signs and little garden adventures.",
     "detail": "Playful & full of wonder",
     "palette": [
@@ -51,6 +54,7 @@
     "id": "ocean-serene",
     "title": "Ocean Serene",
     "category": "Coastal",
+    "tier": "basic",
     "description": "An endless blue horizon, drifting clouds and a sea breeze through every chapter of your celebration.",
     "detail": "Calm & contemporary",
     "palette": [
@@ -67,6 +71,7 @@
     "id": "varnika",
     "title": "Varnika",
     "category": "Premium",
+    "tier": "premium",
     "description": "An heirloom wedding folio brought to life with miniature garden paintings, copper details and a beautifully bound album.",
     "detail": "The painted wedding · Premium",
     "palette": [
@@ -83,6 +88,7 @@
     "id": "sannidhi",
     "title": "Sannidhi",
     "category": "Premium",
+    "tier": "premium",
     "description": "A lamp-lit welcome opens into an original temple courtyard, with swaying jasmine, a folded ceremony calendar and a fan of cherished memories.",
     "detail": "In the presence of joy · Premium",
     "palette": [
@@ -99,6 +105,7 @@
     "id": "kalyana-vaibhavam",
     "title": "Kalyana Vaibhavam",
     "category": "Premium",
+    "tier": "premium",
     "description": "An illuminated wedding celebration with sculpted gold portrait niches, banana groves, a divine wedding tableau and a flowering path of rituals.",
     "detail": "A richly adorned celebration · Premium",
     "palette": [

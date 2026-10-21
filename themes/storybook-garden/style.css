@@ -2033,3 +2033,15 @@ html:not([lang="en"]) .names {
 html:not([lang="en"]) .names .amp {
   margin-block: 0.14em;
 }
+
+/* Treat each name as an atomic inline group before resorting to emergency word wraps. */
+@media (min-width: 1024px) {
+  .opening .names > span,
+  .hero .names > span {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .hero .names {
+    font-size: clamp(42px, 4.1vw, 64px);
+  }
+}

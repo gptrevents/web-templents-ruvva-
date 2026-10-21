@@ -1,0 +1,10 @@
+PASS temple-dawn: ceremony waits for delayed hero decode and paint
+PASS ocean-serene: ceremony waits for delayed hero decode and paint
+PASS sannidhi: ceremony waits for delayed hero decode and paint
+PASS temple-dawn: keyboard music toggle and visible focus
+PASS floral-elegant: keyboard music toggle and visible focus
+PASS storybook-garden: keyboard music toggle and visible focus
+PASS ocean-serene: keyboard music toggle and visible focus
+PASS varnika: keyboard music toggle and visible focus
+PASS sannidhi: keyboard music toggle and visible focus
+PASS kalyana-vaibhavam: keyboard music toggle and visible focus
