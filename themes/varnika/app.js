@@ -357,6 +357,12 @@ function section(id, title, eyebrow) {
   if (eyebrow) add(w, el("p", "label section-kicker", eyebrow));
   if (title) add(w, el("h2", "", title));
   s.append(w);
+  if (["couple", "countdown", "gallery", "rsvp"].includes(id)) {
+    const detail = el("div", "continuity-detail");
+    detail.setAttribute("aria-hidden", "true");
+    detail.append(InviteArt.create());
+    s.append(detail);
+  }
   if (!["hero", "footer"].includes(id)) {
     const line = ornament();
     line.classList.add("section-divider");
@@ -1160,7 +1166,13 @@ function buildLiveStream(d, c) {
     el("p", "", c.liveSub),
     el("p", "live-note", d.liveStream.note || c.liveNote),
   );
-  add(s.firstChild, icon("play"), text, link(c.watch, url));
+  text.classList.add("live-copy");
+  const illustration = link("", url, "live-illustration");
+  illustration.setAttribute("aria-label", c.watch);
+  const play = el("span", "live-play");
+  play.append(icon("play"));
+  illustration.append(InviteArt.create(), play);
+  add(s.firstChild, illustration, text, link(c.watch, url));
   return s;
 }
 function buildRsvp(d, c) {
@@ -1579,9 +1591,9 @@ function initializeScrollChoreography(root) {
       } else {
         const limit = photo
           ? compact
-            ? 4
+            ? 6
             : 6
-          : strength * (compact ? 0.65 : 1);
+          : strength * (compact ? 0.85 : 1);
         const depth = Math.max(
           -1,
           Math.min(

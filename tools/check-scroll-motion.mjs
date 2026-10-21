@@ -2,7 +2,7 @@ import { chromium } from "playwright";
 import assert from "node:assert/strict";
 import { readFile, writeFile } from "node:fs/promises";
 import { gzipSync } from "node:zlib";
-const themes = [
+const allThemes = [
   "temple-dawn",
   "floral-elegant",
   "storybook-garden",
@@ -11,6 +11,14 @@ const themes = [
   "sannidhi",
   "kalyana-vaibhavam",
 ];
+const requested = process.argv.slice(2);
+assert(
+  requested.every((id) => allThemes.includes(id)),
+  "unknown theme argument",
+);
+const themes = requested.length
+  ? allThemes.filter((id) => requested.includes(id))
+  : allThemes;
 const report = [];
 const browser = await chromium.launch();
 try {
@@ -176,7 +184,7 @@ try {
     console.log(report.at(-1));
   }
   await writeFile(
-    "tools/scroll-motion-report.txt",
+    process.env.RUVVA_SCROLL_REPORT || "tools/scroll-motion-report.txt",
     report.join("\n") +
       "\nChromium automation; no physical iOS/Android device verification.\n",
   );

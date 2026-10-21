@@ -4,6 +4,7 @@ import { readFile, stat } from "node:fs/promises";
 import path from "node:path";
 import { buildCatalog, root } from "./build-catalog.mjs";
 const port = Number(process.env.PORT || 4175);
+const host = process.env.RUVVA_PREVIEW_HOST || "127.0.0.1";
 const mime = {
   ".html": "text/html; charset=utf-8",
   ".css": "text/css",
@@ -63,6 +64,6 @@ const server = http.createServer(async (req, res) => {
     res.end("Not found");
   }
 });
-server.listen(port, "127.0.0.1", () =>
-  console.log(`Ruvva collection: http://127.0.0.1:${port}/`),
+server.listen(port, host, () =>
+  console.log(`Ruvva collection: http://${host}:${port}/`),
 );

@@ -14,6 +14,8 @@ fetch("./" + (SAMPLE[p.get("data")] || "sample-data.json"))
   });
 const COPY = {
   en: {
+    closing: "With love and gratitude",
+    thankYou: "Thank you",
     cordiallyInvited: "You are cordially invited",
     dear: "Dear",
     guest: "Guest",
@@ -256,6 +258,12 @@ function section(id, title, eyebrow) {
   if (eyebrow) add(w, el("p", "label", eyebrow));
   if (title) add(w, el("h2", "", title));
   s.append(w);
+  if (["couple", "countdown", "gallery", "rsvp"].includes(id)) {
+    const detail = el("div", "continuity-detail");
+    detail.setAttribute("aria-hidden", "true");
+    detail.append(InviteArt.create());
+    s.append(detail);
+  }
   if (id !== "hero" && id !== "footer") {
     const divider = ornament();
     divider.classList.add("section-divider");
@@ -827,7 +835,13 @@ function buildLiveStream(d, c) {
     el("p", "", c.liveSub),
     el("p", "live-note", d.liveStream.note || c.liveNote),
   );
-  add(s.firstChild, icon("play"), text, link(c.watch, url));
+  text.classList.add("live-copy");
+  const illustration = link("", url, "live-illustration");
+  illustration.setAttribute("aria-label", c.watch);
+  const play = el("span", "live-play");
+  play.append(icon("play"));
+  illustration.append(InviteArt.create(), play);
+  add(s.firstChild, illustration, text, link(c.watch, url));
   return s;
 }
 function buildRsvp(d, c) {
@@ -992,16 +1006,30 @@ function buildRsvp(d, c) {
   return s;
 }
 function buildFooter(d, c, ctx) {
-  const s = section("footer");
+  const s = section("footer"),
+    w = s.firstChild;
+  const closing = local(d.photoSlots?.closing);
+  if (closing) {
+    const img = el("img", "closing-photo");
+    img.src = closing;
+    img.alt = c.closing;
+    img.loading = "lazy";
+    w.append(img);
+  }
+  const copy = el("div", "closing-copy");
   add(
-    s.firstChild,
+    copy,
+    el("p", "footer-note", c.closing),
+    el("h2", "", c.thankYou),
     names(d),
     el("p", "", dateText(d, ctx)),
     ornament(),
     link(c.made, "https://ruvva.com", "brand-link"),
   );
+  w.append(copy);
   return s;
 }
+
 function buildFloating(d, c, ctx) {
   const box = el("div", "floating");
   box.hidden = true;
@@ -1228,9 +1256,9 @@ function initializeScrollChoreography(root) {
       } else {
         const limit = photo
           ? compact
-            ? 4
+            ? 6
             : 6
-          : strength * (compact ? 0.65 : 1);
+          : strength * (compact ? 0.85 : 1);
         const depth = Math.max(
           -1,
           Math.min(
