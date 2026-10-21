@@ -1,0 +1,306 @@
+/* One illustrated page: the paper continues while the story changes. */
+.page-content {
+  position: relative;
+  background: var(--paper);
+  isolation: isolate;
+}
+.page-content::before {
+  content: "";
+  position: absolute;
+  inset: 100svh 0 0;
+  z-index: -1;
+  background: url("assets/garden-margins.svg") center top / 100% 1100px repeat-y;
+  opacity: 0.38;
+  pointer-events: none;
+}
+.page-content > .section:not(.hero) {
+  background: transparent;
+}
+.section-divider {
+  background: var(--paper);
+  padding-inline: 8px;
+}
+/* A wash stays close to the paper, rather than becoming a new color chapter. */
+.countdown::before,
+.live::before,
+.rsvp::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(ellipse at 50% 50%, #e5edda65, transparent 72%);
+}
+.countdown::before {
+  background: radial-gradient(ellipse at 50% 45%, #f4d6a45c, transparent 72%);
+}
+.blessing {
+  padding-top: 88px;
+}
+.blessing::before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: 0;
+  right: 0;
+  height: 70px;
+  background: linear-gradient(transparent, var(--paper) 75%);
+  pointer-events: none;
+}
+.story-page {
+  background: #fffdf4;
+  border-color: #bdc7aa;
+  box-shadow: 0 5px 0 #54735a0b;
+}
+.event-card {
+  box-shadow: 0 3px 0 #6c805c10;
+}
+.ticket-stub {
+  background: #ecebd8;
+}
+.ticket-stub::after {
+  background: var(--paper);
+}
+/* The garden pavilion is a small scene, with the live action beside it. */
+.live {
+  color: var(--ink);
+  padding-block: 48px 70px;
+}
+.live .wrap {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
+  max-width: 1100px;
+  justify-items: center;
+}
+.live-pavilion {
+  position: relative;
+  width: min(100%, 360px);
+  margin: 0 auto -9px;
+}
+.live-pavilion > img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 600 / 480;
+  object-fit: contain;
+}
+.live-pavilion > .icon {
+  position: absolute;
+  left: calc(50% - 24px);
+  top: 42%;
+  width: 48px;
+  height: 48px;
+  padding: 8px;
+  color: var(--rose);
+  background: var(--paper);
+  border: 1px solid #c7ad86;
+  border-radius: 50%;
+}
+.live-copy {
+  max-width: 580px;
+}
+.live h2 {
+  color: var(--fern);
+  font-size: clamp(1.85rem, 3vw, 2.7rem);
+  line-height: 1.24;
+  margin-bottom: 20px;
+  text-wrap: balance;
+}
+.live p {
+  font-size: 15px;
+  line-height: 1.85;
+}
+.live p.live-note {
+  color: var(--muted);
+  font-size: 12px;
+  margin: 15px auto 25px;
+  max-width: 400px;
+}
+.live .button {
+  background: var(--rose);
+  border-color: var(--rose);
+  color: #fff;
+  box-shadow: 0 3px 0 #7f2645;
+  gap: 14px;
+  min-width: 170px;
+}
+.live .button:hover {
+  background: #932b51;
+}
+.live .button .icon {
+  width: 22px;
+  height: 22px;
+}
+/* A reply letter, kept light so the field labels remain the focus. */
+.rsvp-form {
+  background: #fffdf5;
+  border-color: #bec8ad;
+  border-radius: 5px 18px 5px 5px;
+  box-shadow: 6px 7px 0 #6c805c0a;
+}
+.rsvp-form::before {
+  width: 66px;
+  left: calc(50% - 33px);
+  height: 18px;
+  background: #b4c58e99;
+  border-inline: 1px dashed #8b9c6a;
+}
+/* The last spread belongs to the same book; keep the entire closing photo. */
+.page-content > .footer {
+  padding: 75px 25px 32px;
+  background: linear-gradient(transparent, #edf0dd75);
+}
+.footer .wrap {
+  max-width: 1160px;
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+  gap: 38px;
+  align-items: center;
+}
+.closing-copy {
+  order: -1;
+  padding: 0;
+  width: 100%;
+  min-width: 0;
+}
+.closing-copy h2 {
+  color: var(--fern);
+}
+.closing-copy > .label {
+  color: var(--muted);
+}
+.closing-copy > .names {
+  padding-inline: 0.15em;
+}
+.footer .names > span {
+  display: inline-block;
+  max-width: 100%;
+}
+.closing-picture {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  padding: 10px 10px 24px;
+  background: #fffdf5;
+  border: 1px solid #b1bf9d;
+  border-radius: 7px 26px 6px 6px;
+  box-shadow: 5px 7px 0 #6c805c12;
+  margin: 0;
+}
+.closing-picture::before,
+.closing-picture::after {
+  content: "";
+  position: absolute;
+  top: -9px;
+  width: 55px;
+  height: 21px;
+  background: #b4c58ea6;
+  border-inline: 1px dashed #8b9c6a;
+  transform: rotate(-13deg);
+}
+.closing-picture::before {
+  left: 7%;
+}
+.closing-picture::after {
+  right: 7%;
+  transform: rotate(13deg);
+}
+.closing-picture .closing-photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  max-height: none;
+  aspect-ratio: auto;
+  object-fit: contain;
+  border-radius: 2px 16px 2px 2px;
+}
+.closing-sprig {
+  position: absolute;
+  right: -14px;
+  bottom: -23px;
+  width: 74px;
+  height: 94px;
+  transform: rotate(12deg);
+}
+.footer .brand-link {
+  margin-top: 8px;
+}
+@media (min-width: 600px) {
+  .page-content::before {
+    opacity: 0.45;
+    background-size: 100% 1400px;
+  }
+  .live {
+    padding-block: 55px 85px;
+  }
+  .live-pavilion {
+    width: 390px;
+    margin-bottom: 0;
+  }
+  .live p.live-note {
+    margin-bottom: 30px;
+  }
+  .page-content > .footer {
+    padding-inline: 50px;
+  }
+}
+@media (min-width: 1024px) {
+  .page-content::before {
+    background-size: 100% 1500px;
+    opacity: 0.5;
+  }
+  .live .wrap {
+    grid-template-columns: minmax(250px, 0.85fr) minmax(0, 1.15fr);
+    column-gap: 65px;
+    row-gap: 0;
+    text-align: left;
+    justify-items: start;
+    align-items: center;
+  }
+  .live-pavilion {
+    grid-row: 1 / 3;
+    width: 100%;
+    max-width: 430px;
+    margin: 0;
+  }
+  .live-copy {
+    align-self: end;
+    padding-top: 30px;
+  }
+  .live p.live-note {
+    margin-left: 0;
+  }
+  .live .button {
+    align-self: start;
+    margin-bottom: 32px;
+  }
+  .page-content > .footer {
+    padding: 100px 65px 50px;
+  }
+  .footer .wrap {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+    gap: 75px;
+    align-items: center;
+  }
+  .closing-copy {
+    padding: 0;
+  }
+  .closing-copy h2 {
+    font-size: clamp(3.3rem, 5vw, 4.5rem);
+  }
+  .closing-picture {
+    transform: rotate(2deg);
+  }
+  .footer:not(:has(.closing-picture)) .closing-copy {
+    max-width: 600px;
+    margin: auto;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .closing-picture {
+    transform: none;
+  }
+}

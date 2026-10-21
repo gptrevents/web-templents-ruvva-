@@ -1041,7 +1041,19 @@ function buildLiveStream(d, c) {
     el("p", "", c.liveSub),
     el("p", "live-note", d.liveStream.note || c.liveNote),
   );
-  add(s.firstChild, icon("play"), text, link(c.watch, url));
+  const pavilion = link("", url, "live-pavilion");
+  pavilion.setAttribute("aria-label", c.watch);
+  const drawing = el("img");
+  drawing.src = "assets/garden-pavilion.svg";
+  drawing.alt = "";
+  drawing.loading = "lazy";
+  drawing.setAttribute("aria-hidden", "true");
+  const badge = icon("play");
+  pavilion.append(drawing, badge);
+  text.classList.add("live-copy");
+  const watch = link(c.watch, url);
+  watch.append(icon("next"));
+  add(s.firstChild, pavilion, text, watch);
   return s;
 }
 function buildRsvp(d, c) {
@@ -1214,7 +1226,12 @@ function buildFooter(d, c, ctx) {
     img.src = closing;
     img.alt = c.closing;
     img.loading = "lazy";
-    w.append(img);
+    const picture = el("figure", "closing-picture");
+    picture.append(img);
+    const corner = sprig();
+    corner.classList.add("closing-sprig");
+    picture.append(corner);
+    w.append(picture);
   }
   const text = el("div", "closing-copy");
   add(

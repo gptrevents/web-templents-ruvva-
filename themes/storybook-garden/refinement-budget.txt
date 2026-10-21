@@ -1,0 +1,4 @@
+Combined JS gzip: 17204 bytes (limit 60000)
+Combined CSS gzip: 9911 bytes (limit 25000)
+Common/phone image and desktop-only totals: see experience-report.txt; SVG included.
+No new raster files or font families.

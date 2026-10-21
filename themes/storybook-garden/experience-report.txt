@@ -2,4 +2,4 @@ PASS 390px: only matching background before opening, no eager gallery requests, 
 PASS 1440px: only matching background before opening, no eager gallery requests, wooden scene unlocks; filmstrip arrows/keyboard and lightbox focus; winding event trail draws.
 PASS 421px fine-pointer wheel easing and repeated small trackpad deltas; real document scroll preserved.
 PASS mobile lightbox swipe.
-PASS budgets: common/phone images 448806 bytes; desktop-only 141040; JS gzip 14679; CSS gzip 8156; first-screen phone 103352, desktop 141040.
+PASS budgets: common/phone images 447317 bytes gzip (459819 raw, including SVG); desktop-only 141040; JS gzip 17204; CSS gzip 9911; first-screen phone 103352, desktop 141040.

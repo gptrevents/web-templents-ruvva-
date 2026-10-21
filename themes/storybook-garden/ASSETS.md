@@ -52,3 +52,9 @@ All text including names is HTML, never part of a generated image. The venue art
 | venue.webp | 550 × 367 | 48,598 |
 
 Common/phone images include retained shared placeholders. Their combined total is 448,806 bytes, below 450 KB; the landscape background is a separate 141,040-byte desktop-only allowance. Opening requests only its matching background: 103,352 bytes on phone, 141,040 bytes on desktop, both below 150 KB. Gallery catalog thumbnails live in screenshots/ and are not requested by the invitation.
+
+## Garden continuity vectors — 21 October 2026
+
+- `assets/garden-margins.svg`: original hand-authored botanical line drawing with veined leaves, small apricot flowers and songbirds. A single reusable vine symbol is mirrored at the page edges; the stem joins across its vertical repeat. No external artwork, fonts, embedded text or raster data. Supplied as original project artwork.
+- `assets/garden-pavilion.svg`: original hand-authored lakeside pergola, wooden bench, planted pots, pennants and perched bird in the existing fern/cream/apricot palette. Decorative, scalable at every density; a separate live HTML link/play icon makes the scene actionable. No third-party asset.
+- Closing continues using the existing original `sunset.webp` via `photoSlots.closing`. The entire image is shown with its natural ratio; no new raster assets or downloads were added.
