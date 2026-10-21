@@ -315,6 +315,7 @@ function renderInvitation(root, data, ctx) {
     n.classList.add("reveal");
     observer.observe(n);
   });
+  RuvvaUI.initControls(root);
   initializeMotion(root);
   initializeWheelScroll();
   initializeScrollChoreography(root);
@@ -337,10 +338,9 @@ function buildEnvelope(d, c, ctx) {
     names(d),
     ornament(),
   );
-  const b = button(c.openInvitation, () => {
-    if (cover.classList.contains("opening-away")) return;
-    cover.classList.add("opening-away");
-    document.body.classList.add("opened");
+  const b = button(c.openInvitation, async () => {
+    if (cover.classList.contains("opening-away") || cover.dataset.preparing)
+      return;
     if (ctx.audio) {
       ctx.audio
         .play()
@@ -354,6 +354,9 @@ function buildEnvelope(d, c, ctx) {
         })
         .catch(() => {});
     }
+    await RuvvaUI.prepareHero(cover);
+    cover.classList.add("opening-away");
+    document.body.classList.add("opened");
     setTimeout(
       () => {
         cover.remove();
@@ -362,7 +365,7 @@ function buildEnvelope(d, c, ctx) {
         document.querySelector(".floating").hidden = false;
         document.getElementById("hero").focus();
       },
-      reduced.matches ? 0 : 1400,
+      reduced.matches ? 0 : 1450,
     );
   });
   add(content, b, el("p", "tagline", d.name2 ? c.tagline : c.singleTagline));

@@ -2125,3 +2125,8 @@ html:not([lang="en"]) .scroll-hint {
 .footer:not(:has(.closing-photo)) .amp {
   color: #b9e4eb;
 }
+
+/* The wave is translucent so the already-painted shore remains visible beneath it. */
+.opening-away .opening-tide {
+  background: linear-gradient(#087e98a0, #087e9859);
+}

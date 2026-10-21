@@ -2465,3 +2465,26 @@ body:not(.opened) .section {
     transform: translate3d(0, 0, 0);
   }
 }
+
+/* Reveal the painted courtyard through the doors, including the illustrated override. */
+.opening.opening-away {
+  background: transparent;
+}
+.hero .hero-venue {
+  display: table;
+  color: #433b2b;
+  background: #fff7e9eb;
+  padding: 5px 12px;
+  border-radius: 3px;
+}
+.hero .scroll-hint {
+  left: 50%;
+  width: max-content;
+  max-width: calc(100% - 48px);
+  translate: -50% 0;
+  color: #433b2b;
+  background: #fff7e9f2;
+  padding: 7px 12px;
+  border-radius: 3px;
+  text-shadow: none;
+}

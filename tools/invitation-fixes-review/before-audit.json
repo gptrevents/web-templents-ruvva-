@@ -1,0 +1,276 @@
+{
+  "results": [
+    {
+      "id": "temple-dawn",
+      "width": 390,
+      "openingWords": [],
+      "heroWords": [],
+      "floating": {
+        "top": 14,
+        "bottom": 58,
+        "height": 44,
+        "opacity": "1",
+        "position": "fixed"
+      },
+      "footer": {
+        "x": 83.453125,
+        "right": 366,
+        "text": "Arjun&Priya",
+        "overflow": false
+      }
+    },
+    {
+      "id": "temple-dawn",
+      "width": 1440,
+      "openingWords": [],
+      "heroWords": [],
+      "floating": {
+        "top": 25,
+        "bottom": 69,
+        "height": 44,
+        "opacity": "1",
+        "position": "fixed"
+      },
+      "footer": {
+        "x": 520.78125,
+        "right": 1320,
+        "text": "Arjun&Priya",
+        "overflow": false
+      }
+    },
+    {
+      "id": "floral-elegant",
+      "width": 390,
+      "openingWords": [],
+      "heroWords": [],
+      "floating": {
+        "top": 12,
+        "bottom": 56,
+        "height": 44,
+        "opacity": "1",
+        "position": "fixed"
+      },
+      "footer": {
+        "x": 90.99092864990234,
+        "right": 364.53086853027344,
+        "text": "Rahul&Priya",
+        "overflow": false
+      }
+    },
+    {
+      "id": "floral-elegant",
+      "width": 1440,
+      "openingWords": [],
+      "heroWords": [],
+      "floating": {
+        "top": 22,
+        "bottom": 66,
+        "height": 44,
+        "opacity": "1",
+        "position": "fixed"
+      },
+      "footer": {
+        "x": 530.8983154296875,
+        "right": 1298.3992919921875,
+        "text": "Rahul&Priya",
+        "overflow": false
+      }
+    },
+    {
+      "id": "storybook-garden",
+      "width": 390,
+      "openingWords": [],
+      "heroWords": [],
+      "floating": {
+        "top": 15,
+        "bottom": 113,
+        "height": 98,
+        "opacity": "1",
+        "position": "fixed"
+      },
+      "footer": {
+        "x": 88.140625,
+        "right": 365,
+        "text": "Aarav&Meera",
+        "overflow": false
+      }
+    },
+    {
+      "id": "storybook-garden",
+      "width": 1440,
+      "openingWords": [
+        "Meera"
+      ],
+      "heroWords": [
+        "Meera"
+      ],
+      "floating": {
+        "top": 24,
+        "bottom": 132,
+        "height": 108,
+        "opacity": "1",
+        "position": "fixed"
+      },
+      "footer": {
+        "x": 913.828125,
+        "right": 1325,
+        "text": "Aarav&Meera",
+        "overflow": false
+      }
+    },
+    {
+      "id": "ocean-serene",
+      "width": 390,
+      "openingWords": [],
+      "heroWords": [],
+      "floating": {
+        "top": 15,
+        "bottom": 113,
+        "height": 98,
+        "opacity": "1",
+        "position": "fixed"
+      },
+      "footer": {
+        "x": 117.625,
+        "right": 365,
+        "text": "Neel&Tara",
+        "overflow": false
+      }
+    },
+    {
+      "id": "ocean-serene",
+      "width": 1440,
+      "openingWords": [],
+      "heroWords": [],
+      "floating": {
+        "top": 23,
+        "bottom": 131,
+        "height": 108,
+        "opacity": "1",
+        "position": "fixed"
+      },
+      "footer": {
+        "x": 295.921875,
+        "right": 571.03125,
+        "text": "Neel&Tara",
+        "overflow": false
+      }
+    },
+    {
+      "id": "varnika",
+      "width": 390,
+      "openingWords": [],
+      "heroWords": [],
+      "floating": {
+        "top": 18,
+        "bottom": 114,
+        "height": 96,
+        "opacity": "1",
+        "position": "fixed"
+      },
+      "footer": {
+        "x": 50.140625,
+        "right": 325,
+        "text": "Aarav&Meera",
+        "overflow": false
+      }
+    },
+    {
+      "id": "varnika",
+      "width": 1440,
+      "openingWords": [],
+      "heroWords": [],
+      "floating": {
+        "top": 25,
+        "bottom": 133,
+        "height": 108,
+        "opacity": "1",
+        "position": "fixed"
+      },
+      "footer": {
+        "x": 205.484375,
+        "right": 694,
+        "text": "Aarav&Meera",
+        "overflow": false
+      }
+    },
+    {
+      "id": "sannidhi",
+      "width": 390,
+      "openingWords": [],
+      "heroWords": [],
+      "floating": {
+        "top": 15,
+        "bottom": 115,
+        "height": 100,
+        "opacity": "1",
+        "position": "fixed"
+      },
+      "footer": {
+        "x": 69.265625,
+        "right": 336,
+        "text": "Aditya&Nithya",
+        "overflow": false
+      }
+    },
+    {
+      "id": "sannidhi",
+      "width": 1440,
+      "openingWords": [],
+      "heroWords": [],
+      "floating": {
+        "top": 26,
+        "bottom": 134,
+        "height": 108,
+        "opacity": "1",
+        "position": "fixed"
+      },
+      "footer": {
+        "x": 267.8125,
+        "right": 700,
+        "text": "Aditya&Nithya",
+        "overflow": false
+      }
+    },
+    {
+      "id": "kalyana-vaibhavam",
+      "width": 390,
+      "openingWords": [],
+      "heroWords": [],
+      "floating": {
+        "top": 18,
+        "bottom": 118,
+        "height": 100,
+        "opacity": "1",
+        "position": "fixed"
+      },
+      "footer": {
+        "x": 81.171875,
+        "right": 352,
+        "text": "Anirudh&Vaidehi",
+        "overflow": false
+      }
+    },
+    {
+      "id": "kalyana-vaibhavam",
+      "width": 1440,
+      "openingWords": [],
+      "heroWords": [],
+      "floating": {
+        "top": 27,
+        "bottom": 135,
+        "height": 108,
+        "opacity": "1",
+        "position": "fixed"
+      },
+      "footer": {
+        "x": 561.90625,
+        "right": 1145,
+        "text": "Anirudh&Vaidehi",
+        "overflow": false
+      }
+    }
+  ],
+  "varnikaVenue": "Amara Garden Pavilion",
+  "varnikaVenuePhoto": "assets/walk.webp"
+}

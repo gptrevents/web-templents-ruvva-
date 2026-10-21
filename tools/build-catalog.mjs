@@ -43,6 +43,7 @@ export async function buildCatalog() {
           .map((word) => word[0].toUpperCase() + word.slice(1))
           .join(" "),
       category: info.category || "Other",
+      tier: info.tier === "premium" ? "premium" : "basic",
       description: info.description || "",
       detail: info.detail || "",
       palette: info.palette || [],

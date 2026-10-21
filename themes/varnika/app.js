@@ -422,6 +422,7 @@ function renderInvitation(root, data, ctx) {
     n.classList.add("reveal");
     observer.observe(n);
   });
+  RuvvaUI.initControls(root);
   initializeMotion(root);
   initializeWheelScroll();
   initializeScrollChoreography(root);
@@ -442,11 +443,10 @@ function buildEnvelope(d, c, ctx) {
     names(d),
     el("p", "opening-date", dateText(d, ctx)),
   );
-  const b = button(c.openInvitation, () => {
-    if (cover.classList.contains("opening-away")) return;
+  const b = button(c.openInvitation, async () => {
+    if (cover.classList.contains("opening-away") || cover.dataset.preparing)
+      return;
     document.querySelector(".page-content").hidden = false;
-    cover.classList.add("opening-away");
-    document.body.classList.add("opened");
     if (ctx.audio)
       ctx.audio
         .play()
@@ -459,6 +459,9 @@ function buildEnvelope(d, c, ctx) {
           }, 160);
         })
         .catch(() => {});
+    await RuvvaUI.prepareHero(cover);
+    cover.classList.add("opening-away");
+    document.body.classList.add("opened");
     setTimeout(
       () => {
         cover.remove();

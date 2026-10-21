@@ -1021,6 +1021,7 @@ function renderInvitation(root, data, ctx) {
       n.classList.add("reveal");
       io.observe(n);
     });
+  RuvvaUI.initControls(root);
   initializeMotion(root);
   initializeWheelScroll();
   initializeScrollChoreography(root);
@@ -1056,11 +1057,10 @@ function buildEnvelope(d, c, ctx) {
   add(content, lamp, el("p", "light-note", c.lightNote));
   const light = el("div", "opening-light");
   light.setAttribute("aria-hidden", "true");
-  const b = button(c.openInvitation, () => {
-    if (cover.classList.contains("opening-away")) return;
+  const b = button(c.openInvitation, async () => {
+    if (cover.classList.contains("opening-away") || cover.dataset.preparing)
+      return;
     document.querySelector(".page-content").hidden = false;
-    cover.classList.add("opening-away");
-    document.body.classList.add("opened");
     if (ctx.audio)
       ctx.audio
         .play()
@@ -1073,6 +1073,9 @@ function buildEnvelope(d, c, ctx) {
           }, 160);
         })
         .catch(() => {});
+    await RuvvaUI.prepareHero(cover);
+    cover.classList.add("opening-away");
+    document.body.classList.add("opened");
     setTimeout(
       () => {
         cover.remove();
@@ -1081,7 +1084,7 @@ function buildEnvelope(d, c, ctx) {
         document.querySelector(".floating").hidden = false;
         document.getElementById("hero").focus({ preventScroll: true });
       },
-      reduced.matches ? 0 : 1900,
+      reduced.matches ? 0 : 1650,
     );
   });
   add(content, b, el("p", "tagline", d.name2 ? c.tagline : c.singleTagline));
