@@ -290,6 +290,7 @@ function renderInvitation(root, data, ctx) {
     a.style.setProperty("--i", i);
     ambient.append(a);
   }
+  RuvvaNatural.prepare(ambient, false);
   root.append(ambient);
   [
     buildEnvelope,
@@ -840,7 +841,11 @@ function buildLiveStream(d, c) {
   illustration.setAttribute("aria-label", c.watch);
   const play = el("span", "live-play");
   play.append(icon("play"));
-  illustration.append(InviteArt.create(), play);
+  const painted = el("img", "painted-scene");
+  painted.setAttribute("src", "assets/courtyard-desktop.webp");
+  painted.setAttribute("alt", "");
+  painted.setAttribute("loading", "lazy");
+  illustration.append(painted, play);
   add(s.firstChild, illustration, text, link(c.watch, url));
   return s;
 }

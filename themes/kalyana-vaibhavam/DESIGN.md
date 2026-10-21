@@ -252,3 +252,19 @@ Metadata: ruvva-theme and ruvva-tier are present in the HTML and gallery catalog
 Validation: required tools/shoot.mjs checks and refreshed phone/desktop screenshots; tools/check-invitation-fixes.mjs covers 390/820/1440 controls, collision sweeps, keyboard access, local source synchronization, tiers, unmodified shared fixtures, long names and injection. The required shoot additionally checks 360, landscape 844x390, 1280 and 1920. tools/check-opening-ready.mjs deliberately delays the three affected hero images and verifies that the cover waits. tools/audit-invitation-fixes.mjs captures 200ms opening frames and name-word ranges at 390/1440; before/after review images live in tools/invitation-fixes-review/. Scroll and gallery regressions are checked by the existing tools.
 
 Manual visual review used generated Chromium phone/desktop screenshots and the before/after contacts, including the Storybook sign, Varnika footer, opening wipes and Temple contrast. Physical iOS/Android devices were unavailable. An attempt to refresh an old in-app browser error tab was blocked by browser URL policy; it was not bypassed. Automated local Chromium screenshots were used for visual review. Existing section-6 functionality and original assets remain intact; the earlier image-weight exceptions remain unchanged. Combined app + helper gzip weights are reported in tools/invitation-fixes-report.txt (rather than omitting the helper).
+
+
+## Natural artwork and mobile alignment — 21 October 2026
+
+User-authorized cross-theme correction, retaining each theme's existing palette and layout.
+
+- [x] Symmetric mobile/tablet `.wrap` margins; floating controls no longer reserve an asymmetric content rail. Verified every section wrapper at 360, 390, 412 and 820 pixels.
+- [x] Six independently phased ambient paths, different horizontal positions, fall speeds and lateral drift; inner tumble runs independently from vertical descent. No animation-frame random work.
+- [x] Reduced-motion removes ambient movement; existing visibility controller pauses the new paths. Native touch scrolling remains intact.
+- [x] Required `node tools/shoot.mjs THEME` passed: phone/desktop screenshots, seven responsive sizes, empty/birthday/Telugu, injection check, reduced-motion capture.
+- [x] `tools/check-natural-details.mjs`: all seven themes at five sizes; centered sections, no horizontal overflow, distinct particle phases, limited bird pairs, no JS errors, reduced-motion behavior.
+- [x] Reviewed phone couple/live/RSVP captures; Kalyana/Varnika content now aligns with viewport center.
+
+Existing main artwork and composition preserved; this task changes alignment and ambient behavior only.
+
+Validation scope: browser touch emulation and local screenshots, not a physical Android-device certification. Full manual assistive-technology testing was not repeated for this decoration-only correction. Size measurements are in `natural-details-budget.txt`; Kalyana’s pre-existing artwork budget overrun remains, with its protected raster artwork untouched.
