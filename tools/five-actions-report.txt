@@ -1,0 +1,5 @@
+PASS temple-dawn: music, ICS, gallery/Escape, deferred video, RSVP validation and local callback success
+PASS floral-elegant: music, ICS, gallery/Escape, deferred video, RSVP validation and local callback success
+PASS ocean-serene: music, ICS, gallery/Escape, deferred video, RSVP validation and local callback success
+PASS varnika: music, ICS, gallery/Escape, deferred video, RSVP validation and local callback success
+PASS sannidhi: music, ICS, gallery/Escape, deferred video, RSVP validation and local callback success
