@@ -1,0 +1,103 @@
+{
+  "invLang": "en",
+  "eventType": "housewarming",
+  "faithId": "hindu",
+  "name1": "The Mehta Family",
+  "name2": "",
+  "date": "2027-03-14",
+  "time": "10:00",
+  "venue": "Our New Home",
+  "address": "House No. 18, Green Residency, MVP Colony, Visakhapatnam, Andhra Pradesh 530017",
+  "ph1": "+91 98765 43210",
+  "ph2": "+91 91234 56780",
+  "message": "With the blessings of our families, we invite you to join us as we celebrate a new chapter in our new home.",
+  "mainEventKey": "housewarming",
+  "events": [
+    {
+      "key": "puja",
+      "label": "House Blessing (Puja)",
+      "date": "2027-03-14",
+      "time": "10:00",
+      "venue": "Our New Home",
+      "address": "House No. 18, Green Residency, MVP Colony, Visakhapatnam, Andhra Pradesh 530017",
+      "description": "Seeking blessings for our new home.",
+      "photo": "assets/puja.webp"
+    },
+    {
+      "key": "reception",
+      "label": "Welcome & Refreshments",
+      "date": "2027-03-14",
+      "time": "11:00",
+      "venue": "Our New Home",
+      "address": "House No. 18, Green Residency, MVP Colony, Visakhapatnam, Andhra Pradesh 530017",
+      "description": "Join us for a warm welcome and light refreshments.",
+      "photo": "assets/refreshments.webp"
+    },
+    {
+      "key": "lunch",
+      "label": "Lunch",
+      "date": "2027-03-14",
+      "time": "13:00",
+      "venue": "Our New Home",
+      "address": "House No. 18, Green Residency, MVP Colony, Visakhapatnam, Andhra Pradesh 530017",
+      "description": "Enjoy a delicious meal with family and friends.",
+      "photo": "assets/dining.webp"
+    },
+    {
+      "key": "housewarming",
+      "label": "Togetherness",
+      "date": "2027-03-14",
+      "time": "16:00",
+      "venue": "Our New Home",
+      "address": "House No. 18, Green Residency, MVP Colony, Visakhapatnam, Andhra Pradesh 530017",
+      "description": "Your presence and blessings mean the world to us.",
+      "photo": "assets/living.webp"
+    }
+  ],
+  "families": [],
+  "photoSlots": {
+    "hero": "assets/house-wide.webp",
+    "groom": "assets/sample/groom.webp",
+    "bride": "assets/sample/bride.webp",
+    "venue": "assets/house-wide.webp",
+    "closing": "assets/terrace.webp",
+    "story": [
+      "assets/living.webp",
+      "assets/dining.webp",
+      "assets/house-wide.webp"
+    ]
+  },
+  "gallery": [],
+  "videoUrl": "",
+  "liveStream": {
+    "url": "",
+    "note": ""
+  },
+  "musicUrl": "assets/sample/music.mp3",
+  "rsvp": {
+    "enabled": true,
+    "maxGuests": 8,
+    "askEvents": false,
+    "askDiet": false
+  },
+  "gifts": {
+    "enabled": false,
+    "upiId": "demo-family@example",
+    "recipientName": "The Mehta Family",
+    "note": "",
+    "demo": true,
+    "allowCustom": true
+  },
+  "homeStory": "With the blessings of our family, friends and well-wishers, we have stepped into our new home. We are delighted to invite you to be part of this special occasion and share our happiness.",
+  "landmarks": [
+    {
+      "label": "MVP Colony"
+    },
+    {
+      "label": "Visakhapatnam Railway Station"
+    },
+    {
+      "label": "Visakhapatnam Airport"
+    }
+  ]
+}
