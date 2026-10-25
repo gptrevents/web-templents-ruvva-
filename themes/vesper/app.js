@@ -1,3 +1,4 @@
+import { mountMarginArt } from "./margin-art.js";
 import {
   el,
   add,
@@ -217,8 +218,8 @@ function picture(src, cls, alt, eager = false) {
   const image = el("img");
   // Reserve the natural image box before lazy loading, so the page never jumps.
   if (/^assets\/(main|groom|bride)\.webp$/.test(clean)) {
-    image.width = clean === 'assets/main.webp' ? 840 : 720;
-    image.height = clean === 'assets/main.webp' ? 560 : 900;
+    image.width = clean === "assets/main.webp" ? 840 : 720;
+    image.height = clean === "assets/main.webp" ? 560 : 900;
   }
   image.src = clean;
   image.alt = alt;
@@ -293,6 +294,7 @@ function renderInvitation(root, d, ctx) {
   initializeWheelScroll();
   initControls(root);
   initializeEditorialMotion(root);
+  mountMarginArt(root);
 }
 function buildBlessing(d, c, ctx) {
   const s = section("blessing"),
