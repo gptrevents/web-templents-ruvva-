@@ -369,6 +369,8 @@ select:focus-visible {
 }
 .opening-away {
   pointer-events: none;
+  /* The prepared hero must show through as the foreground card pivots. */
+  background: transparent;
 }
 .opening-away .invitation-panel {
   animation: panel-pivot 1.45s cubic-bezier(0.5, 0.04, 0.22, 1) forwards;
