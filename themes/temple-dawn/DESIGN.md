@@ -1,0 +1,212 @@
+# Temple Dawn — current edition
+
+## Step 1 — Art direction
+A dawn ceremony in a South Indian temple: carved wooden doors open into a warm stone courtyard, with ivory silk, jasmine and antique brass details.
+
+User review guided the refinement from a flat architectural diagram to photographic depth, then from basic decorative marks to individually drawn SVG ornaments. The original Temple Dawn concept and door-opening ceremony are retained in the same theme folder.
+
+| # | DNA axis | Current choice |
+|---|---|---|
+| 1 | Palette | Sunrise warm limestone, ivory, olive shadows and restrained saffron |
+| 2 | Type | High-contrast Cormorant Garamond + DM Sans |
+| 3 | Opening | Carved temple door leaves swing open |
+| 4 | Shapes | Stepped temple arches and pillar frames |
+| 5 | Ornament | Lotus, jasmine, leaves, bells and brass lamps |
+| 6 | Hero | Names composed within a photographic architectural courtyard |
+| 7 | Couple | Two arched portrait niches |
+| 8 | Countdown | Four brass pedestal lamps with digits |
+| 9 | Events | Paired ceremony bays along a central spine on desktop |
+| 10 | Gallery | Featured photograph and thumbnail contact sheet |
+| 11 | Motion | Slow and sacred |
+| 12 | Texture | Photographic sandstone, wood grain and silk |
+| 13 | Desktop | Full-width architectural stage and broad courtyard sections |
+
+Palette: paper #f8f4e9; sand #e7ddc7; olive ink #363b2d; muted text #696b59; saffron #875234; brass #85734c; dark bands #343d30. Every font family is a variable. All interface copy stays English in COPY.en.
+
+## Step 2 — Design review
+Compared against Royal Maroon and Rose Mandap from reference/existing-themes.md. No other implemented theme folders existed when this theme was started. Royal Maroon shares axes 2 and 11 only; Rose Mandap shares no axes. Both comparisons remain under the 3-axis limit, and palette/opening/shapes/events/gallery differ from both. The user-requested work updates the existing theme rather than adding another.
+
+## Step 3 — Asset maker
+Built-in imagegen produced original architectural backgrounds, a fictional adult couple and a ritual still life. Exact prompts, derivatives and attribution are in ASSETS.md. Portrait/landscape backgrounds are distinct files. All production media is local; source PNGs remain outside the repository. Generated people are sample imagery, not an actual wedding.
+
+Original static SVG code supplies layered lotus petals, veined botanical sprigs with jasmine blossoms, brass pedestal lamps with an inner flame, carved bells, ten occasion icons, floating petals and music/share controls. Each is drawn with currentColor strokes and translucent fills; decorative SVG is aria-hidden and nonfocusable. No external SVG library or icon font. Fonts have SIL Open Font Licences. Repository-provided sample drone and alternate-sample placeholders are retained.
+
+## Step 4 — Builder
+Plain HTML, CSS and vanilla JavaScript. All thirteen builders follow the sample JSON contract; text and attributes receive data safely. Opening locks scroll and focus, reveals the page and starts music. Countdown uses India timezone and runs only while visible. Calendar export escapes and folds ICS lines. Native dialog handles the gallery focus trap, with keyboard and swipe controls. YouTube loads only after a tap. RSVP exposes window.onInviteRsvp(payload), with a local demo fallback and retained inputs on failure.
+
+SVG refinements add layered details without extra image downloads. Flames move gently and petals drift; reduced motion disables both. Section content sits above the petal layer. Opening media is deferred correctly: hidden page sections do not load their lazy photographs until opening. Phones request portrait backgrounds; desktop requests landscape backgrounds. Non-Hindu fixtures use the neutral textile/ritual background and the correct faith-specific blessing.
+
+## Step 5 — Build review
+Passed: node tools/shoot.mjs temple-dawn. All seven required viewports, alternate samples, guest-name injection and reduced-motion capture passed; exact output is in shoot-report.txt. Interaction, edge-case and asset-network checks passed. Final section screenshots are committed at 390px and 1440px, with tablet, landscape, Telugu and gallery-count views.
+
+### Verification evidence and practical limits
+- Additional Playwright assertions passed for opening removal/scroll unlock, correct family matching, deferred YouTube, gallery counter/arrows/Escape/focus, calendar download, inline RSVP validation and callback failure/success, 320–2560px overflow, long names, eight events, optional-section removal and reduced motion. Results: verification.txt.
+- Edge-case assertions passed for gallery counts 1/2/3/6/12, all four faith variants, same-day/past countdown states, invalid media URLs, music state and keyboard traversal with focus outlines.
+- Network assertions passed: phone requests portrait backgrounds only; desktop requests landscape backgrounds only. Initial image payload is 95,812 bytes at 390px and 140,856 bytes at 1440px, both below 150 KB. Lazy photographs and hero backgrounds are deferred until opening.
+- Visual review examined opening/hero/couple/countdown/events/gallery/video/venue/live/RSVP/footer at phone and desktop sizes, plus tablet, landscape and Telugu stress views. Original SVG decorations stay clear of portrait faces and form controls; the veined sprigs remain within the viewport. Text uses no clipped gradients and no Indic tracking.
+- Local screenshot runner initially stalled at networkidle while browser media requests remained active. It now waits for page load instead; image/font layout still receives the existing capture delay. The same runner is committed as qa/visuals.mjs; from repository root use node themes/temple-dawn/qa/visuals.mjs temple-dawn. Other QA scripts expect the theme server at 127.0.0.1:4173 and the repository's Playwright installation.
+- Backgrounds are opaque WebP photographs. SVG artwork is inline, static source markup; no imported illustration or external icon library.
+- RSVP has no backend: production persistence requires window.onInviteRsvp(payload). Speaker output was not subjectively listened to, and no message was actually shared to another person. Browser music state and share URL construction were checked.
+
+### Production weight (screenshots excluded)
+- app.js: 14,338 bytes gzip; budget 60,000.
+- style.css: 9,412 bytes gzip; budget 25,000.
+- Phone/common images: 446,324 bytes raw (below 450 KB); desktop-only additional backgrounds: 301,066 bytes raw (below 400 KB). Already-compressed WebPs are measured raw, a conservative comparison. Two font families; no runtime library.
+
+### Section 6 parity checklist
+Every required item below is implemented and reviewed; evidence and any practical limits are stated above.
+
+### 0. Global
+- [x] Falling petals (or the theme's own falling motif: leaves, sparks, marigold, stars) — subtle, behind text, paused for reduced motion
+- [x] Section dividers between sections (theme's own ornament)
+- [x] Reveal-on-scroll for section content, once only (not every time the guest scrolls back)
+- [x] Smooth scrolling feel
+- [x] Page title = "Name1 & Name2"
+
+### 1. Opening screen (full screen, shown first)
+- [x] Theme ornament / motif (animated)
+- [x] Small line "You are cordially invited"
+- [x] Personal salutation: "Dear {guest}," from `ctx.guest`; "Dear Guest," when empty
+- [x] Couple names (name1, ampersand, name2)
+- [x] Button "Open Invitation"
+- [x] Short tagline under the button (e.g. "Two families, one celebration")
+- [x] Page scroll is **locked** until the button is pressed
+- [x] Pressing it plays the theme's **opening ceremony** (section 7) and removes the screen from the DOM afterwards
+- [x] Pressing it starts background music (a browser only allows audio after a tap)
+
+### 2. Hero
+- [x] Small top line: "॥ Shubh Vivah ॥" for a Hindu wedding, otherwise the occasion name
+- [x] Names, large, with an animated treatment (shimmer, ink, glow — theme's choice)
+- [x] Decorative divider
+- [x] Main event date with weekday
+- [x] City / venue hint
+- [x] Frame or corner ornaments
+- [x] Slow background motif animation
+- [x] "Scroll" hint with a gentle bounce at the bottom
+
+### 3. Blessing
+- [x] Faith icon: hindu → lamp or Ganesha line-art; muslim → crescent; christian → cross; none → no icon
+- [x] Faith line: hindu "Shree Ganeshaya Namaha", muslim "Bismillah ir-Rahman ir-Rahim", christian "In the name of the Lord", none → hidden
+- [x] Blessing paragraph = `message`, or the default copy when empty
+- [x] Ornament above and below
+
+### 4. Couple
+- [x] Groom card: photo frame, name, "Son of", parents
+- [x] Bride card: photo frame, name, "Daughter of", parents
+- [x] Ampersand / joining motif between the cards
+- [x] When a photo is missing: a monogram (first letter) inside the same frame — never an empty box
+- [x] Staggered entrance animation
+
+### 5. Countdown
+- [x] Title "Counting Down to Our Special Day"
+- [x] Days, Hours, Minutes, Seconds — live, ticking every second
+- [x] A digit animates only when it changes
+- [x] Ticks only while visible on screen (saves battery)
+- [x] On the day: shows "Today is the day"; after the event: hides the numbers and shows "Thank you for celebrating with us"
+- [x] "Save the Date" label
+- [x] Button "Google Calendar" (opens calendar.google.com/calendar/render with title, dates, location)
+- [x] Button "Apple / Outlook" (generates and downloads an `.ics` file on the phone, RFC 5545 escaping)
+
+### 6. Events timeline
+- [x] Title "Wedding Events" (occasion-aware)
+- [x] One card per event: icon, name, weekday + date, time ("onwards" style allowed), venue + address, "View on Maps" button
+- [x] Each known event has its own colour: haldi yellow, mehendi green, sangeet pink, wedding = theme main colour, reception = theme accent
+- [x] Icons for at least: haldi, mehendi, sangeet, engagement, wedding, reception, puja, housewarming, birthday, nikah (inline SVG you draw)
+- [x] Connecting line that **draws itself** as the guest scrolls, with a soft glow at its tip
+- [x] Each event marker **pops** when it reaches the screen
+- [x] Works with 1 event and with 8
+
+#
+## Step 6 — Delivery
+Branch: theme/temple-dawn. Existing PR: https://github.com/gptrevents/web-templents-ruvva-/pull/1. Commit only this theme directory. Root brief, reference and shared assets remain untouched.
+
+Local preview: run `python3 -m http.server 4173 --bind 127.0.0.1 --directory themes/temple-dawn` from the repository root. A static HTTP server is required because sample JSON is fetched.
+
+## Scrolling and motion refinement
+Wheel and trackpad steps on all fine-pointer screens are eased by a requestAnimationFrame loop with a time-based 110ms damping constant. It scrolls the actual document. Touch/coarse-pointer screens, form/nested-scroll content, modifier gestures and reduced-motion contexts retain browser scrolling. Keyboard, focus, pointer, resize and modal interactions cancel residual easing. No new scrolling library.
+
+Continuous text-shadow animation was replaced with a once-only opacity/transform name entrance. An IntersectionObserver pauses decorative loops outside the viewport and in hidden tabs. The event spine updates once per frame while nearby and uses scaleY rather than changing its height. Bells settle gently, jasmine sprigs sway slightly, event SVG strokes draw once and the scroll cue uses a drawn chevron. Lightbox close/arrows are matching original SVG.
+
+`qa/motion.mjs` passed intermediate-position, monotonic-distance and settling assertions for a 640px wheel gesture; keyboard cancellation; offscreen flame pause/resume; modal wheel lock; reduced-motion bypass; and coarse-pointer native-scroll checks. Results are in motion-report.txt. These are local Chromium functional checks, not a claim of a fixed frame rate on every device.
+
+Trackpad consistency fix: the small-delta bypass and minimum-width gate were removed after user feedback. Small 8px inputs now pass through the same easing as larger mouse-wheel impulses, including narrow preview panels. The entry script has an explicit scroll-2 cache revision. Motion checks cover a 24-step trackpad gesture and the actual 421px fine-pointer preview width.
+
+## Scroll experience refinement — 20 October 2026
+
+The user explicitly requested the refinement across all seven existing templates, overriding the usual one-theme scope for this update. The reference was inspected for behavior only: its root gains lenis/lenis-scrolling/lenis-smooth classes during scrolling, with independently moving scenery, portraits and headings. No reference code or assets were copied; no Lenis dependency was added.
+
+Original vanilla JS now eases real-document wheel/trackpad scrolling over a 210ms response constant, preserves full fast-gesture distance and reverses direction immediately. Pointer/keyboard/focus, navigation, nested scrollers, opening and viewer locks remain native. Touch keeps browser inertia; scroll-driven motion also works on touch layouts. Theme-specific depths move whole portrait cards and ritual art; headings reveal with the scroll and gallery depth stays within tile gaps. Existing transforms, image crops, artwork, typography and layouts are retained. Only visible elements update after scroll/resize/intersection events, with no idle animation loop. Hidden tabs and reduced motion are respected.
+
+Validation: required shoot passed. tools/check-scroll-motion.mjs verifies eased starts, exact 640px and 1800px gestures, reversal, scroll-linked depth, gallery lock/Escape, native keyboard End outside the gallery, reduced motion, touch behavior and 390/820/1440 widths. All seven results are in tools/scroll-motion-report.txt. Chromium automation and local in-app inspection were used; physical iOS/Android devices were unavailable. Latest gzip: JS 14338 bytes, CSS 9412 bytes, within 60KB/25KB limits. Earlier image-budget exceptions remain unchanged.
+
+
+## Phase 1 — invitation bug fixes and tier metadata, 21 October 2026
+
+The user approved fixes across all seven existing templates and basic/premium metadata. This collection-wide task intentionally extends the usual one-theme scope. Full shared-core migration, UPI Blessings and merging into main are deferred.
+
+C1: floating music/share controls sit bottom-right (16px phone/tablet, 24px desktop, plus safe areas), with 48px hit targets and visible keyboard focus. When a heading, field or primary action intersects them, the dock fades to 30% and pointer events pass through to the content. Keyboard focus restores the controls. Footer padding leaves clearance at the end. Reveal, resize and font/layout changes recalculate collisions. This is the requested fade policy; it does not promise zero geometric intersection during scrolling.
+
+All openings prepare and decode local hero imagery beneath the still-visible cover before starting their own ceremony. Content remains inert until the ceremony completes. Audio playback still starts directly from the user gesture. Small canonical UI sources live in shared/invitation-ui.js and .css; tools/sync-invitation-ui.mjs copies them into each theme, retaining standalone folder hosting. This is not the deferred full core refactor.
+
+C2: the opening background becomes transparent during the doors animation, so the decoded courtyard is visible. C7: venue and scroll hint use dark ink on cream scrims; worst-case contrast over black is 8.72:1 and 9.29:1 respectively.
+
+Metadata: ruvva-theme and ruvva-tier are present in the HTML and gallery catalog. Temple Dawn, Floral Elegant, Storybook Garden and Ocean Serene are basic; Varnika, Sannidhi and Kalyana Vaibhavam are premium.
+
+Validation: required tools/shoot.mjs checks and refreshed phone/desktop screenshots; tools/check-invitation-fixes.mjs covers 390/820/1440 controls, collision sweeps, keyboard access, local source synchronization, tiers, unmodified shared fixtures, long names and injection. The required shoot additionally checks 360, landscape 844x390, 1280 and 1920. tools/check-opening-ready.mjs deliberately delays the three affected hero images and verifies that the cover waits. tools/audit-invitation-fixes.mjs captures 200ms opening frames and name-word ranges at 390/1440; before/after review images live in tools/invitation-fixes-review/. Scroll and gallery regressions are checked by the existing tools.
+
+Manual visual review used generated Chromium phone/desktop screenshots and the before/after contacts, including the Storybook sign, Varnika footer, opening wipes and Temple contrast. Physical iOS/Android devices were unavailable. An attempt to refresh an old in-app browser error tab was blocked by browser URL policy; it was not bypassed. Automated local Chromium screenshots were used for visual review. Existing section-6 functionality and original assets remain intact; the earlier image-weight exceptions remain unchanged. Combined app + helper gzip weights are reported in tools/invitation-fixes-report.txt (rather than omitting the helper).
+
+
+## Five-theme continuity and mobile artwork refinement — 21 October 2026
+
+### Art direction and review
+The user explicitly requested these five existing themes together after approving Storybook Garden. That overrides the normal one-theme task scope for this batch. Storybook Garden and Kalyana Vaibhavam are protected and unchanged. This theme retains its own opening ceremony, typography, colors, portrait/event/gallery layouts and design DNA; this is a refinement, not a new seed or a recolored Storybook layout.
+
+Warm sandstone and brass. Etched pillar/lotus margins and a brass standing lamp within a quiet stone arch; a small flame breathes independently. The closing pairs the complete couple photograph with a gratitude inscription on silk-colored paper, side by side on desktop.
+
+Interior sections now share one quiet paper surface. Theme-specific SVG margins remain faint at the edges; no repeated overhead garland was introduced. Countdown shapes and ritual colors remain distinctive, while their surrounding blocks and live/RSVP surfaces belong to the same palette. All live text remains HTML and optional photographs remain data-driven. Closing photographs preserve their natural aspect ratio with object-fit:contain, and a missing photo leaves one centered desktop inscription rather than an empty half-column.
+
+### Assets and implementation
+assets/continuity-margin.svg and assets/continuity-scene.svg are original project-authored vector drawings, with no embedded text, external content, bitmap or third-party license. continuity-art.js contains the original static SVG scene for part-level animation, using innerHTML only for this trusted static drawing. User data is still assigned through textContent/setAttribute and the existing validated local/HTTPS helpers. The optional closing image reuses this theme's own existing fictional sample artwork. No new generated people, fonts, libraries, audio, runtime API or backend was introduced.
+
+continuity.css loads after the established stylesheet. Mobile effects remain visible at phone scale: the original decorative part moves inside a static scene, and the existing scroll-linked portrait/gallery depth is slightly stronger on narrow screens. Continuous motion defaults to paused, follows the existing motion-active/visibility controller, and stops under reduced motion. New margin drawings, form fields and reading areas do not animate. No new animation timer or RAF loop was added.
+
+### Build review and delivery
+Required tools/shoot.mjs passes, with refreshed opening/full-section phone and desktop screenshots and checks at 360, 390, 844x390, 820, 1280, 1440 and 1920. tools/check-five-continuity.mjs covers 390/820/1440 touch-enabled layouts, actual moving-art coordinates, native Chromium touch swipes, offscreen pause, reduced motion, validated live links, complete closing photographs and empty/birthday/Telugu/long-name variants at 390/1440. Additional actions cover music, ICS download, gallery/Escape, deferred video and RSVP validation/local callback. The existing scroll-motion checker verifies eased gestures, exact distance, reversals, gallery locks and keyboard behavior for these five themes. Reports are saved alongside the source and under tools/.
+
+Manual review used phone/desktop live, countdown, portrait and closing captures, plus tablet layouts. The original section-6 checklist remains intact. Physical devices were unavailable: touch evidence is Chromium device emulation, not measured real-device frame rates. Combined runtime and image weights are reported in continuity-budget.txt; original artwork quality and any earlier image-budget exceptions are retained. The first-screen raster requests and responsive background selection remain unchanged.
+
+The preview gallery server gains an optional RUVVA_PREVIEW_HOST setting for same-Wi-Fi phone previews; its default remains localhost and its existing route allowlist is retained. No public deployment, main merge, UPI or core migration is part of this batch.
+
+
+## Natural artwork and mobile alignment — 21 October 2026
+
+User-authorized cross-theme correction, retaining each theme's existing palette and layout.
+
+- [x] Symmetric mobile/tablet `.wrap` margins; floating controls no longer reserve an asymmetric content rail. Verified every section wrapper at 360, 390, 412 and 820 pixels.
+- [x] Six independently phased ambient paths, different horizontal positions, fall speeds and lateral drift; inner tumble runs independently from vertical descent. No animation-frame random work.
+- [x] Reduced-motion removes ambient movement; existing visibility controller pauses the new paths. Native touch scrolling remains intact.
+- [x] Required `node tools/shoot.mjs THEME` passed: phone/desktop screenshots, seven responsive sizes, empty/birthday/Telugu, injection check, reduced-motion capture.
+- [x] `tools/check-natural-details.mjs`: all seven themes at five sizes; centered sections, no horizontal overflow, distinct particle phases, limited bird pairs, no JS errors, reduced-motion behavior.
+- [x] Reviewed phone couple/live/RSVP captures; Kalyana/Varnika content now aligns with viewport center.
+
+Original painted transparent bitmap side ornaments replace the schematic continuous margin. The live vignette now uses existing original raster artwork instead of the line illustration. New assets and exact built-in image-generation prompts are recorded in `PAINTED_ART.md`. Small functional icons and motion silhouettes remain SVG for clarity. Optimized alpha WebP edges retain a transparent center and do not crop content. Temple/Floral load a separate higher-resolution border only on desktop.
+
+Validation scope: browser touch emulation and local screenshots, not a physical Android-device certification. Full manual assistive-technology testing was not repeated for this decoration-only correction. Size measurements are in `natural-details-budget.txt`; Kalyana’s pre-existing artwork budget overrun remains, with its protected raster artwork untouched.
+
+## Shared runtime and Blessings — 25 October 2026
+
+- [x] Existing visual builders, artwork, openings and scroll choreography preserved; shared behavior moved to `../../shared/core.js`.
+- [x] Added section 11b after RSVP: amount chips/custom amount, guest/message fields, mobile UPI intent, desktop local QR, copy ID and reference.
+- [x] Invalid/disabled gifts hide cleanly; RSVP No offers one optional link.
+- [x] Guest claims use callback/demo only, inline retry, single successful submission and session persistence; payment confirmation is explicitly left to the couple.
+- [x] Fake sample IDs use demo mode so preview cannot initiate a payment. No real UPI ID or backend was added.
+- [x] English copy in COPY.en; guest data remains text; reduced-motion-safe thanks and theme-local Blessings styling.
+
+The shared behavior exception is explicitly requested by UPDATE_WEB_TEMPLATES.md and the
+user's request to finish the remaining common features across the collection. This task
+keeps all seven designs, including approved Kalyana artwork. No new image assets are added.
+See `shared/README.md`, `shared/vendor/LICENSES.md`, `tools/blessings-report.txt` and the
+current screenshot/check reports for verification. Pre-existing Sannidhi/Kalyana image
+budget overruns remain documented in their artwork notes; this task does not claim those
+image targets pass. Runtime JS/CSS budgets include shared modules and the QR encoder.

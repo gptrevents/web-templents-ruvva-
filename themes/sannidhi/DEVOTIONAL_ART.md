@@ -1,0 +1,41 @@
+# New devotional calendar artwork
+
+Created with the built-in image_gen tool using the user’s three devotional images as style/subject references. These are new generated illustrations, not the supplied files or their embedded markings. Earlier isolated-style generated candidates were not selected for the theme.
+
+## darshan
+
+Saved: `assets/srivari-darshan.webp` and `assets/srivari-darshan-desktop.webp`
+
+Prompt:
+
+The three attached images are STYLE AND SUBJECT REFERENCES ONLY, not edit targets. Make a NEW original devotional illustration matching their rich traditional Indian calendar painting craft: intricate real-looking temple jewelry, saturated silk red/green/yellow, dense jasmine/rose garlands, warm gold carving, dignified classical faces, delicate painted shading. Not simplified 3D or cute figures. No lettering, signatures, watermarks, UI or copied markings. Correct upright orientation regardless of the rotated reference uploads. Complete figures, respectful iconography, careful hands. Asset 1, portrait composition for a wedding welcome: Lord Venkateswara as a magnificent Tirumala dark-stone standing idol with ornate tall jeweled crown, clean white Vaishnava namam, dense long flower garlands, sacred conch/chakra, temple jewelry and blessing hand. A small Goddess Lakshmi on a pink lotus at the pedestal base as in traditional devotional poster imagery. New carved gold prabhavali arch, twin small hanging brass lamps, lotus and silver offerings at the base. Radiant soft gold halo. Full arch and base visible, aesthetically different original ornament and arrangement from Image 1. Genuine transparency OUTSIDE the arch, hanging lamps and base; no white rectangular poster background. Portrait 3:4.
+
+## ceremony
+
+Final saved assets after transparency extraction: `assets/srivari-ceremony-cutout.webp` and `assets/srivari-ceremony-cutout-desktop.webp`
+
+Prompt:
+
+The three attached images are STYLE AND SUBJECT REFERENCES ONLY, not edit targets. Make a NEW original devotional illustration matching their rich traditional Indian calendar painting craft: intricate real-looking temple jewelry, saturated silk red/green/yellow, dense jasmine/rose garlands, warm gold carving, dignified classical faces, delicate painted shading. Not simplified 3D or cute figures. No lettering, signatures, watermarks, UI or copied markings. Correct upright orientation regardless of the rotated reference uploads. Complete figures, respectful iconography, careful hands. Asset 2, a magnificent LANDSCAPE Srinivasa–Padmavathi Kalyanam tableau, different original arrangement from the references: dark-stone-blue Lord Venkateswara and Goddess Padmavathi in red and green silk at center, sacred hands joined over a low wedding altar, Brahma as officiating priest close to the sacred fire. Lord Shiva and Parvati, Ganesha, divine sages and musicians witnessing, arranged in coherent smaller groups on both sides. Golden carved temple pillars, mango and jasmine wedding torans, rice-floor kolam, glowing brass lamps and ceremonial offerings. Rich deep spatial architecture, warm ivory stone, complete scene framed by pillars. All primary figures full-length, no cut heads or feet. No Rama bow or Hanuman, this is a Srinivasa divine wedding. Horizontal 16:9 complete painting, gently illuminated cream-gold outer edge for blending into an ivory website. No transparency required, no blank space for text, no text in image.
+
+## benediction
+
+Final saved assets after transparency extraction: `assets/srivari-benediction-cutout.webp` and `assets/srivari-benediction-cutout-desktop.webp`
+
+Prompt:
+
+The three attached images are STYLE AND SUBJECT REFERENCES ONLY, not edit targets. Make a NEW original devotional illustration matching their rich traditional Indian calendar painting craft: intricate real-looking temple jewelry, saturated silk red/green/yellow, dense jasmine/rose garlands, warm gold carving, dignified classical faces, delicate painted shading. Not simplified 3D or cute figures. No lettering, signatures, watermarks, UI or copied markings. Correct upright orientation regardless of the rotated reference uploads. Complete figures, respectful iconography, careful hands. Asset 3, a distinct LANDSCAPE final blessing painting in a lamp-lit golden Tirumala temple hall: Lord Venkateswara standing frontally with Sridevi and Bhudevi on either side, tall crowns and long multicolor flower garlands, a group of reverent sages and celestial attendants seated in the lower side wings. A foreground ceremonial lotus offering with two tall bronze lamps, intricate full golden pillars, distant sanctuary and rich temple canopy. Peaceful post-ceremony devotional darshan, NOT another depiction of exchanging wedding vows. Central trio dignified and fully visible, dark-stone deity, jeweled crown and Vaishnava namam. Ornate gold and vermilion with natural dark green silk accents. Full painted environment from floor to canopy, no transparent holes or crop, all figures complete. Landscape 16:9; warm parchment/ivory outer light to blend into a wedding page. No embedded text.
+
+All useful copy remains live HTML. The central deity/scene images do not rotate or deform. Only decorative mandalas and rice-flour paths move.
+
+## Transparent final replacements
+
+The initial opaque ceremony/benediction variants were rejected by the user and are not shipped. Final assets are `assets/srivari-ceremony-cutout.webp`, `assets/srivari-benediction-cutout.webp` and their `-desktop.webp` counterparts. All scene artwork now has genuine alpha transparency. Background extraction used the built-in image_gen tool, preserving the figures and ceremonial grouping while removing the rectangular scene.
+
+### ceremony extraction prompt
+
+Use case: background-extraction. Edit this devotional painting into a genuine transparent wedding-page decorative vignette. Preserve the central deity figures, faces, jewelry, clothing, garlands, witnesses, offerings, lamps and main composition. Remove the entire distant background, back walls, distant towers, reflected floor and continuous rectangular floor slab. Keep only a contained carved gold wedding canopy/arch and its two nearest support pillars, the complete foreground figures, sacred altar, separate lamps, lotus/flower offerings, and a small irregular organic ground of scattered petals immediately under them. All sky/wall areas outside and THROUGH the open arch, between separated figures and around silhouette edges must be genuinely TRANSPARENT alpha. Bottom edge must be an irregular silhouette of flowers and lamps, not a straight full-width line. No solid cream/white/black/checkerboard background, no opaque rectangular frame, no fog wash pretending to be transparency. Keep all heads, feet, crowns and sacred objects complete with margin around the cutout. Same rich detailed traditional Indian calendar painting style and colors. Respectful, natural, no new text, no watermarks. Return one wide isolated tableau with real transparency.
+
+### benediction extraction prompt
+
+Use case: background-extraction. Edit this devotional painting into a genuine transparent wedding-page decorative vignette. Preserve the central deity figures, faces, jewelry, clothing, garlands, witnesses, offerings, lamps and main composition. Remove the entire distant background, back walls, distant towers, reflected floor and continuous rectangular floor slab. Keep only a contained carved gold wedding canopy/arch and its two nearest support pillars, the complete foreground figures, sacred altar, separate lamps, lotus/flower offerings, and a small irregular organic ground of scattered petals immediately under them. All sky/wall areas outside and THROUGH the open arch, between separated figures and around silhouette edges must be genuinely TRANSPARENT alpha. Bottom edge must be an irregular silhouette of flowers and lamps, not a straight full-width line. No solid cream/white/black/checkerboard background, no opaque rectangular frame, no fog wash pretending to be transparency. Keep all heads, feet, crowns and sacred objects complete with margin around the cutout. Same rich detailed traditional Indian calendar painting style and colors. Respectful, natural, no new text, no watermarks. Return one wide isolated tableau with real transparency.

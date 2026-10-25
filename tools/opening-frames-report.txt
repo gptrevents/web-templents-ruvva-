@@ -1,0 +1,15 @@
+PASS floral-elegant-1440: 13 frames at 200ms targets; central viewport retains content/artwork (no flat frame).
+PASS floral-elegant-390: 13 frames at 200ms targets; central viewport retains content/artwork (no flat frame).
+PASS kalyana-vaibhavam-1440: 13 frames at 200ms targets; central viewport retains content/artwork (no flat frame).
+PASS kalyana-vaibhavam-390: 13 frames at 200ms targets; central viewport retains content/artwork (no flat frame).
+PASS ocean-serene-1440: 13 frames at 200ms targets; central viewport retains content/artwork (no flat frame).
+PASS ocean-serene-390: 13 frames at 200ms targets; central viewport retains content/artwork (no flat frame).
+PASS sannidhi-1440: 13 frames at 200ms targets; central viewport retains content/artwork (no flat frame).
+PASS sannidhi-390: 13 frames at 200ms targets; central viewport retains content/artwork (no flat frame).
+PASS storybook-garden-1440: 13 frames at 200ms targets; central viewport retains content/artwork (no flat frame).
+PASS storybook-garden-390: 13 frames at 200ms targets; central viewport retains content/artwork (no flat frame).
+PASS temple-dawn-1440: 13 frames at 200ms targets; central viewport retains content/artwork (no flat frame).
+PASS temple-dawn-390: 13 frames at 200ms targets; central viewport retains content/artwork (no flat frame).
+PASS varnika-1440: 13 frames at 200ms targets; central viewport retains content/artwork (no flat frame).
+PASS varnika-390: 13 frames at 200ms targets; central viewport retains content/artwork (no flat frame).
+Actual capture times: {"temple-dawn-390": [48, 370, 449, 601, 802, 1001, 1202, 1401, 1600, 1800, 2000, 2200, 2400], "temple-dawn-1440": [35, 632, 876, 1079, 1282, 1478, 1689, 1902, 2114, 2313, 2514, 2714, 2913], "floral-elegant-390": [75, 399, 483, 601, 802, 1000, 1200, 1401, 1600, 1800, 2000, 2200, 2400], "floral-elegant-1440": [73, 479, 642, 810, 990, 1152, 1306, 1471, 1617, 1801, 2001, 2201, 2401], "storybook-garden-390": [78, 343, 409, 601, 801, 1001, 1201, 1401, 1601, 1802, 2001, 2201, 2401], "storybook-garden-1440": [64, 432, 610, 799, 984, 1164, 1347, 1529, 1711, 1896, 2072, 2254, 2440], "ocean-serene-390": [46, 327, 408, 600, 801, 1001, 1201, 1400, 1601, 1800, 2000, 2201, 2401], "ocean-serene-1440": [37, 470, 726, 996, 1263, 1502, 1743, 1975, 2206, 2439, 2675, 2910, 3144], "varnika-390": [66, 355, 438, 602, 801, 1000, 1202, 1402, 1602, 1802, 2001, 2202, 2401], "varnika-1440": [70, 433, 577, 722, 853, 1001, 1201, 1401, 1601, 1802, 2002, 2201, 2402], "sannidhi-390": [74, 442, 540, 624, 801, 1001, 1201, 1401, 1600, 1801, 2000, 2201, 2400], "sannidhi-1440": [70, 511, 750, 916, 1043, 1179, 1290, 1401, 1601, 1801, 2001, 2201, 2401], "kalyana-vaibhavam-390": [70, 417, 516, 615, 802, 1001, 1201, 1401, 1601, 1801, 2001, 2201, 2401], "kalyana-vaibhavam-1440": [88, 523, 734, 931, 1131, 1328, 1527, 1729, 1891, 2058, 2229, 2392, 2558]}

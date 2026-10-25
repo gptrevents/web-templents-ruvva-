@@ -1,0 +1,16 @@
+{
+  "name": "ruvva-web-themes",
+  "private": true,
+  "type": "module",
+  "description": "Web-invitation themes for Ruvva. Each theme is plain HTML/CSS/JS in themes/<id>/.",
+  "scripts": {
+    "shoot": "node tools/shoot.mjs",
+    "preview": "node tools/preview-gallery.mjs",
+    "check:blessings": "node tools/check-blessings.mjs",
+    "check:invitations": "node tools/check-invitation-fixes.mjs"
+  },
+  "devDependencies": {
+    "jsqr": "1.4.0",
+    "playwright": "1.49.1"
+  }
+}

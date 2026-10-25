@@ -1,0 +1,9 @@
+2026-10-25T07:32:24.785Z
+temple-dawn: PASS — tier, shared runtime, 390/820/1440 layout, collision sweep, keyboard, 5 data cases; combined gzip JS 36127 B / CSS 15357 B
+floral-elegant: PASS — tier, shared runtime, 390/820/1440 layout, collision sweep, keyboard, 5 data cases; combined gzip JS 35614 B / CSS 13043 B
+storybook-garden: PASS — tier, shared runtime, 390/820/1440 layout, collision sweep, keyboard, 5 data cases; combined gzip JS 38290 B / CSS 14449 B
+ocean-serene: PASS — tier, shared runtime, 390/820/1440 layout, collision sweep, keyboard, 5 data cases; combined gzip JS 36873 B / CSS 14178 B
+varnika: PASS — tier, shared runtime, 390/820/1440 layout, collision sweep, keyboard, 5 data cases; combined gzip JS 38786 B / CSS 16799 B
+sannidhi: PASS — tier, shared runtime, 390/820/1440 layout, collision sweep, keyboard, 5 data cases; combined gzip JS 37589 B / CSS 19718 B
+kalyana-vaibhavam: PASS — tier, shared runtime, 390/820/1440 layout, collision sweep, keyboard, 5 data cases; combined gzip JS 40037 B / CSS 14968 B
+C8: venue text and photo slot already correct; left unchanged.

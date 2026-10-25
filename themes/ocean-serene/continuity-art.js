@@ -1,0 +1,16 @@
+/* Original static vector artwork. No data is inserted into SVG markup. */
+window.InviteArt = (() => {
+  const scene =
+    '<g xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#8cbac2" stroke-width="1.4"><path d="M55 269c104-30 243 35 391-3M70 299c108-30 215 33 359-1M115 329c75-15 148 15 270-3M110 222c117-15 212 14 288-4" /><path d="M91 166q20-18 40 0m-20 0q20-18 40 0M329 98q18-15 36 0m-18 0q18-15 36 0" /></g><g xmlns="http://www.w3.org/2000/svg" class="scene-moving scene-boat" stroke="#527e88" stroke-width="1.6"><path d="m175 253 38 40h102l25-40Z" fill="#dbc3a1" /><path d="M253 250V78m-8 28-57 133h57Zm17 7 64 126h-64Z" fill="#f6eee0" /><path d="M253 80c-4 46-13 95-65 159m74-126c30 54 49 91 64 126" stroke="#c4c4b1" /><path d="m175 253 165 0m-152 14h143m-129 14h120M256 80l30 5-30 9" fill="#a9cbd0" /></g><g xmlns="http://www.w3.org/2000/svg" fill="#e4d1b4" stroke="#b99c76" stroke-width="1.4"><path d="M93 348c-40-14-47-48-30-60 15-10 33-5 37 11 18-6 38 3 37 21-1 16-20 25-44 28Z" /><path d="m93 348-29-49m29 49-9-55m9 55 12-42m-12 42 31-28" /></g><g xmlns="http://www.w3.org/2000/svg" class="scene-moving scene-surf" fill="none" stroke="#75aab6" stroke-width="2"><path d="M61 310c26-12 47 8 76 0s51-8 77 0 45 9 75-1 53-5 80 3 47 2 72-5M152 346c55-11 99 11 174 0" /></g>';
+  function create() {
+    const n = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    n.setAttribute("viewBox", "0 0 500 400");
+    n.setAttribute("fill", "none");
+    n.setAttribute("aria-hidden", "true");
+    n.setAttribute("focusable", "false");
+    n.classList.add("continuity-scene");
+    n.innerHTML = scene;
+    return n;
+  }
+  return Object.freeze({ create });
+})();

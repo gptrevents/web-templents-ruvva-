@@ -1,0 +1,6 @@
+Runtime JS gzip 19730 / 60000 B
+Runtime CSS gzip 15213 / 25000 B
+All common/phone images 774536 / 450000 B
+Separate desktop art 1004728 / 400000 B
+Default phone welcome raster payload 108960 / 150000 B
+The three detailed calendar-art scenes exceed the legacy total-image budgets. They are lazy-loaded after opening except the welcome; no claim of total-image-budget compliance is made. Existing images for other-faith/empty/birthday variants remain available.

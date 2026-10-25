@@ -1,0 +1,56 @@
+# Sannidhi assets and exact prompts
+
+All creative assets below were generated with the built-in imagegen tool. No reference-site imagery or recording is included. The couple is fictional; photographs are illustrative sample content. Paths below are theme-relative delivery files. Resizing/cropping and WebP optimization produced the derivatives; generated originals are preserved in the local generated-images directory.
+
+## phone
+
+Use case: illustration-story. Asset type: original portrait background for a premium South Indian wedding invitation, 9:16 vertical composition. Paint a magnificent ORIGINAL South Indian Dravidian temple complex with an intricately sculpted vermilion and pale stone gopuram, tiny turquoise sculptural accents, temple pond steps and banana trees at the sides, in refined hand painted gouache and watercolor on warm rice paper. The tower and courtyard fill ONLY the bottom 38 percent; the upper 62 percent is almost empty luminous pale rice-white sky, softly graded apricot near the distant horizon, designed for dark live typography. Architecture is elegant, believable, detailed, not childish or clip art. Eye level with deep perspective through a courtyard, flowers at the bottom corners, no frame, no toran (a separate animated layer will provide it). Palette rice white, earthy vermilion, subtle deep green and turquoise. No people, no deities, no words or lettering, no watermark. Crisp delicate painterly quality, commissioned invitation illustration, restrained fine paper texture.
+
+## desktop
+
+Use case: illustration-story. Asset type: ORIGINAL landscape backdrop for a premium South Indian temple wedding website, 16:9 composition. A magnificent Dravidian temple courtyard painted in sophisticated gouache and transparent watercolor on luminous rice paper. A tall intricately sculpted vermilion and pale stone gopuram rises from the bottom center-right, elegantly detailed turquoise and cream carvings, low temple walls extending to both sides, banana palms at far edges, distant sage hills, tiny pond steps and flowering shrubs at the very bottom. Composition deliberately leaves upper 58 percent and center-left quiet luminous rice-white sky for live dark typography. Temple tower top may reach 48percent from top, never higher. Wide cinematic depth; not a repeat pattern, not vector clip art. Earthy vermilion, rice-white, banana green and tiny turmeric accents. Warm dawn illumination. No people, deities, text, letters, logo or watermark, no arch frame or toran; separate layer will supply the canopy. Commissioned detailed architectural wedding illustration.
+
+## toran
+
+Use case: illustration-story. Asset type: separate foreground canopy decoration for an original premium South Indian wedding invitation, genuinely transparent background. Wide horizontal arrangement 3:1. A beautifully hand-painted toran strung across the entire top edge with two graceful shallow hanging swags of tiny ivory jasmine buds, hand-tied ochre-orange marigold clusters and several detailed deep green mango leaves hanging down. Rich natural botanical detail, brush texture and subtle highlights, sophisticated gouache watercolor, not a plastic render or vector icon. Heavier flower clusters at both upper corners, airy elegant downward strings at side edges, center hanging no lower than one third of canvas so live typography beneath has breathing space. The jasmine strings have realistic individual buds and the mango leaves have veins. Palette rice white, saffron, dark banana green, earthy vermilion ribbon details. Entire decoration isolated on REAL transparent alpha, no opaque background or checkerboard, no shadow rectangle, no text, logo, temple or people. Whole decoration visible with no clipping at ends. High quality commissioned invitation ornament.
+
+## elephants
+
+Use case: illustration-story. Asset type: original ceremonial frieze on genuinely transparent alpha for a premium South Indian temple wedding invitation, wide 3:1. Two majestic small Indian elephants facing inward toward a delicate central lotus-topped brass ceremonial vessel, balanced symmetrical composition. Elegant hand-painted gouache, realistic gentle elephant anatomy and richly detailed rice-white, vermilion and indigo woven ceremonial saddlecloths with very fine turmeric embroidery, tiny jasmine garlands and subtle bells. Each elephant has its trunk gently lifted and one visible tusk, graceful rather than cartoon. Refined commissioned illustration on rice paper aesthetic but with no paper rectangle; transparent between and around all subjects. All four feet per animal naturally composed, entire animals visible, no crops. No people, no deities, no text, no watermark. Extremely tasteful fine miniature detail but restrained calm palette. A few tiny jasmine blossoms at the base; leave ample air between elephants and vessel. REAL transparent background, not white or checkerboard.
+
+## couple
+
+Use case: photorealistic-natural. Asset type: original fictional adult Indian wedding couple editorial photograph for a temple wedding invitation sample. Two invented non-celebrity adults, both about age 29, standing side by side with comfortable natural separation in a South Indian carved stone courtyard. Groom on LEFT with short curly black hair, neatly trimmed beard, ivory silk kurta and subtle vermilion angavastram. Bride on RIGHT with expressive brown eyes, dark hair in a jasmine bun, burnt vermilion Kanjivaram silk saree with muted antique gold border, tasteful traditional jewelry. Entire bodies to mid-shin visible, even scale, faces well separated for individual portrait crops. Warm light through a tree, softly focused carved stone background, natural skin texture and gentle candid smiles toward camera, human proportions and relaxed hands. Landscape 3:2, high-end wedding editorial photography with restrained film colors. Both people completely fictional, no likeness to any actor or real person. No text, logos, watermarks, heavy skin retouching or artificial glow.
+
+## walk
+
+Use case: photorealistic-natural. Asset type: second editorial wedding photograph using the same two fictional adults in the reference image for consistent demo photos. Reference image is fictional identity reference, not an edit target. Keep groom's curly black hair and neat beard, ivory silk outfit and vermilion shawl; bride's face, jasmine bun and burnt vermilion Kanjivaram saree. Show them walking together through a lush South Indian temple courtyard, softly laughing toward each other, holding hands naturally. Three-quarter view, landscape 3:2, full bodies within image, authentic stone paving and banana leaves, filtered afternoon light and soft film color. Different moment and setting from the reference but same fictional people, no celebrity likeness. Carefully natural faces, hands and human proportions, no duplicate limbs. No text, logos, watermark, artificial glow.
+
+## evening
+
+Use case: photorealistic-natural. Asset type: third original editorial photograph for a South Indian temple wedding sample, same fictional adult couple as the identity reference. Keep their exact fictional facial features, groom with curly hair and short beard in ivory silk with vermilion shawl, bride in burnt vermilion Kanjivaram saree and jasmine bun. Quiet intimate candid portrait, seated side by side on the edge of a temple pond in the blue hour, gentle smiles turned toward each other, warm rows of brass oil lamps in soft focus behind them and intricate carved stone steps, restrained indigo/amber night colors, beautiful natural skin and human proportions, unforced tenderness. Landscape 3:2, half body and hands visible, tasteful editorial wedding photography. No fireworks or staged spectacle, no celebrity resemblance, text, logo, watermark or fantasy glow.
+
+## hands
+
+Use case: photorealistic-natural. Asset type: original still-life photograph for a premium South Indian wedding invitation. Close-up of two hands gently joined, groom wearing ivory silk cuff, bride wearing burnt vermilion silk cuff with subtle gold border, a few tasteful gold bangles and simple natural mehendi. Their joined hands rest near a shallow antique brass plate holding fresh jasmine buds, two slender flower garlands, turmeric and a tiny lit oil diya on cool textured stone. Crop at forearms so no faces appear. Realistic correct fingers, natural gentle gesture. Warm sidelight, quiet dark green temple garden bokeh behind, sophisticated editorial macro photography, landscape 3:2. Natural materials, no artificial glow, no text, logo, watermark, synthetic skin or extra fingers.
+
+## Delivery assets and provenance
+
+| Delivery path | Built-in original source filename | Derivative |
+|---|---|---|
+| assets/temple-phone.webp | exec-b5b41bcd-9c7c-4295-89fe-8126dc33d25e.png | 700×1244 portrait scene, quality 65 |
+| assets/temple-desktop.webp | exec-4d066046-ac58-43b4-8474-2758df8f946c.png | 1439×810 landscape scene, quality 69; desktop only |
+| assets/toran.webp | exec-c3776efd-3cfd-42e4-842c-005627dd9db5.png | 900×300, quality 60, real alpha |
+| assets/elephants.webp | exec-9a82222d-10ee-47f8-a60a-1ca6efb3d05f.png | 720×240, quality 62, real alpha |
+| assets/courtyard.webp | exec-a5b13a01-9e65-4cca-b5a2-085610a7bc8d.png | 650×433, quality 64 |
+| assets/groom.webp; assets/bride.webp | same courtyard photograph | Individual portrait crops, max 300×550, quality 64 |
+| assets/walk.webp | exec-f88a9862-e5a4-429b-9386-c0b2ce6645f8.png | 650×433, quality 64 |
+| assets/evening.webp | exec-4f818b9a-1b86-426f-a695-29195019a380.png | 650×433, quality 64 |
+| assets/hands.webp | exec-d78a5f8a-6bee-475d-a6c1-8559f34e2b1c.png | 650×433, quality 64 |
+| assets/ceremony.mp3 | qa/make-music.py | Original synthesized modal plucked-string loop, 24 seconds, no recording samples |
+| assets/sample/* | shared/sample-assets/* supplied by repository | Alternate fixture placeholders and original supplied drone |
+| Inline SVG in app.js | authored in this project | Kolam, lamps, bells, birds, ceremony icons, dividers and controls |
+
+Generated illustrations/fictional photographs were made for this project with the built-in tool, using no reference-site asset input. The second/third photographs use our first generated couple as their fictional identity reference. No third-party artwork licence is asserted or required for a copied source because no such source was copied. The sample music/placeholders are supplied by the repository; the main composition is new. `qa/prepare-assets.py` preserves alpha and records derivative settings. Export quality is reduced from the brief's example quality 80 to meet its hard byte budgets while retaining useful detail.
+
+Fraunces and Hanken Grotesk are served through the allowed Google Fonts CSS. Both use SIL Open Font License 1.1, checked against the official [Fraunces licence](https://github.com/google/fonts/blob/main/ofl/fraunces/OFL.txt) and [Hanken Grotesk licence](https://github.com/google/fonts/blob/main/ofl/hankengrotesk/OFL.txt). No font files are redistributed in this folder. Google Maps and the tap-loaded sample YouTube player are external embeds allowed by the engine brief; the YouTube demo ID comes from the supplied shared JSON, not the studied wedding.

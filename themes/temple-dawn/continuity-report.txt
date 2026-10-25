@@ -1,0 +1,6 @@
+Phone live-art excursion 8.2 CSS px
+390 layout, complete closing photo, live action, motion pause and reduced-motion passed
+820 layout, complete closing photo, live action, motion pause and reduced-motion passed
+1440 layout, complete closing photo, live action, motion pause and reduced-motion passed
+Empty/birthday/Telugu/long-name variants fit at 390/1440; missing closing photos leave no empty desktop column.
+Combined gzip JS 16869 B; CSS 11287 B.

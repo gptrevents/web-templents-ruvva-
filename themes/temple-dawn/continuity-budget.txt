@@ -1,0 +1,6 @@
+Combined JS gzip: 16869 bytes (60000 limit)
+Combined CSS gzip: 11287 bytes (25000 limit)
+Common/phone images including SVG: 443424 bytes gzip (450000 target)
+Separate desktop backgrounds: 301197 bytes gzip (400000 target)
+Existing raster artwork is preserved; no new raster assets. SVG source illustrations are included even though live art is inline.
+Image budgets remain within target.

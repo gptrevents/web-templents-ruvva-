@@ -1,0 +1,5 @@
+PASS 390: initial toran-only request; matching scene image only; light spread and unlock; independent panorama movement; visible-only countdown; four day folds/five rituals; drawing thread; fan controls, Home/End, touch swipe; full viewer swipe; hidden/offscreen/reduced motion.
+PASS 1440: initial toran-only request; matching scene image only; light spread and unlock; independent panorama movement; visible-only countdown; four day folds/five rituals; drawing thread; fan controls, Home/End, touch swipe; full viewer swipe; hidden/offscreen/reduced motion.
+PASS fine-pointer wheel easing preserves intended 640px distance on the real document.
+PASS Copy Link feedback and exact invitation URL. No WhatsApp message sent.
+PASS budgets: common images 432540; desktop-only 144742; first screen 76268; JS gzip 15056; CSS gzip 9500.

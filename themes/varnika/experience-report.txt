@@ -1,0 +1,4 @@
+PASS 390: only matching opening painting requested; manuscript winding/unlock, unique bird gradients, visible-only countdown, offscreen/hidden/reduced motion, all ceremony disclosures, keyboard Home/End, drawing ledger, album page turns/focus, viewer swipe.
+PASS 1440: only matching opening painting requested; manuscript winding/unlock, unique bird gradients, visible-only countdown, offscreen/hidden/reduced motion, all ceremony disclosures, keyboard Home/End, drawing ledger, album page turns/focus, viewer swipe.
+PASS 421px fine-pointer wheel easing preserves distance on the real document.
+PASS budgets: common images 439972; desktop-only 120758; first-screen phone 115860; JS gzip 15841; CSS gzip 10693.
