@@ -25,3 +25,6 @@ Built-in imagegen, fictional adults. No third-party likenesses.
 ```text
 Use case: photorealistic-natural. Create a NEW single-person editorial portrait of the same fictional adult Indian woman in the reference photograph, preserving her face, dark low bun, simple ivory sari and tiny pearl earrings. She stands beside a pale limestone column, waist upward with her hands naturally together, gentle natural smile, gaze slightly off-camera. Minimal limestone courtyard, soft olive-tree shadow on wall, understated high-end independent fashion magazine, natural realistic skin and fabric, quiet stone/ivory near-monochrome. Portrait 4:5 composition with ample headroom. No other people, no text, no flowers, no elaborate jewelry, no logos or watermark.
 ```
+
+## Original animated margin engravings
+Source: `margin-art.js`; presentation: `margin-art.css`. Authored for this project as SVG paths, with no external image or stock illustration. Épure uses hand-shaped ginkgo outlines and individual veins; Vesper uses parallel optical folds and lens contours. These are code-native vector assets, so no image-generation call, new photo derivative or raster download is required.
