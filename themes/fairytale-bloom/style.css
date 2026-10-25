@@ -2687,8 +2687,8 @@ body {
   opacity: 0.8;
 }
 .rsvp:before {
-  background-position: left -30px bottom -35px;
-  transform: scaleX(-1);
+  background-position: right -35px bottom -40px;
+  transform: none;
 }
 @media (min-width: 600px) {
   .signpost-words span {
@@ -2869,7 +2869,6 @@ html:not([lang="en"]) .event-time {
     inset: auto 0 0;
     height: 145px;
     background:
-      url("assets/bouquet.webp") left -20px bottom -15px/130px auto no-repeat,
       url("assets/bouquet.webp") right -20px bottom -15px/130px auto no-repeat;
     opacity: 0.8;
     z-index: 0;
@@ -2921,31 +2920,26 @@ html:not([lang="en"]) .opening-salutation {
 html:not([lang="en"]) .event-title h3 {
   font-size: 16px;
 }
-.hero:before {
+/* The painting is a bottom-right corner: rotate for top-left, mirror for bottom-left. */
+.hero { --flower-corner: 135px; }
+.hero:before,
+.hero-floral-corner {
   content: "";
   position: absolute;
-  inset: 0;
+  width: var(--flower-corner);
+  height: var(--flower-corner);
   z-index: 0;
   pointer-events: none;
-  background:
-    url("assets/bouquet.webp") left -35px top -35px/120px auto no-repeat,
-    url("assets/bouquet.webp") right -40px bottom -25px/135px auto no-repeat;
-  opacity: 0.75;
+  background: url("assets/bouquet.webp") center/contain no-repeat;
+  opacity: .75;
 }
-@media (min-width: 600px) {
-  .hero:before {
-    background-size:
-      200px auto,
-      220px auto;
-  }
+.hero:before {
+  inset: -30px auto auto -30px;
+  transform: rotate(180deg);
 }
-@media (min-width: 1024px) {
-  .hero:before {
-    background-size:
-      250px auto,
-      270px auto;
-  }
-}
+.hero-floral-corner { right: -35px; bottom: -25px; }
+@media (min-width: 600px) { .hero { --flower-corner: 220px; } }
+@media (min-width: 1024px) { .hero { --flower-corner: 270px; } }
 @media (max-height: 500px) and (min-width: 600px) and (max-width: 1023px) {
   .opening {
     display: grid;
@@ -3170,3 +3164,21 @@ html[lang="en"] .rsvp-name-title {
   .birthday-word { font-size: 46px; }
   .opening-copy .cover-tagline { margin-top: 8px; }
 }
+
+@media (max-width: 1023px) {
+  .footer:before {
+    content: "";
+    position: absolute;
+    left: -20px;
+    bottom: -15px;
+    width: 130px;
+    height: 130px;
+    background: url("assets/bouquet.webp") center/contain no-repeat;
+    transform: scaleX(-1);
+    opacity: .8;
+    pointer-events: none;
+    z-index: 0;
+  }
+}
+.floral-left .edge-bouquet img,
+.floral-right .edge-bouquet img { transform: scaleX(-1); }
