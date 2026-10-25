@@ -54,6 +54,14 @@ try {
       await p.evaluate(() => document.documentElement.scrollWidth),
       width,
     );
+    for (const id of ["events", "venue", "rsvp"]) {
+      assert(await p.locator("#" + id + " .section-head").evaluate(n => {
+        const title = n.querySelector("h2").getBoundingClientRect();
+        const intro = n.querySelector(".label").getBoundingClientRect();
+        return title.bottom <= intro.top + 1;
+      }), id + " heading must precede introduction");
+    }
+    assert.equal(await p.locator(".wish-avatar img").evaluateAll(ns => ns.filter(n => !n.complete || !n.naturalWidth).length), 0, "sample wish avatars load");
     if (label === "desktop") {
       const positions = await p
         .locator(".form-columns")
@@ -66,7 +74,7 @@ try {
         .evaluateAll((ns) =>
           ns.map((n) => Math.round(n.getBoundingClientRect().x)),
         );
-      assert(new Set(eventLefts).size === 4);
+      assert(new Set(eventLefts).size === 2);
       const cols = await p
         .locator(".venue-grid")
         .evaluate((n) =>
