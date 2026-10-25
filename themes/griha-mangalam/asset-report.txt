@@ -1,0 +1,4 @@
+PASS common image bytes 430444/450000; desktop-only 290146/400000; canopy real RGBA 0–255.
+PASS 390 opening: 81410 local image bytes; correct portrait/landscape source. welcome.webp
+PASS 1440 opening: 290146 local image bytes; correct portrait/landscape source. house-desktop.webp
+PASS final runtime gzip: JS 34562/60000; CSS 10297/25000.

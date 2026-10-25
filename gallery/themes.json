@@ -170,6 +170,23 @@
     "phone": "themes/fairytale-bloom/screenshots/phone/preview.webp"
   },
   {
+    "id": "griha-mangalam",
+    "title": "Griha Mangalam",
+    "category": "Housewarming",
+    "tier": "premium",
+    "description": "An illuminated homecoming with jasmine canopies, family heirloom portraits and a flowering path through sacred rituals.",
+    "detail": "A home filled with blessings · Housewarming",
+    "palette": [
+      "#8c1833",
+      "#b68126",
+      "#4c7132",
+      "#fff1bf"
+    ],
+    "stage": "#f5e5af",
+    "desktop": "themes/griha-mangalam/screenshots/desktop/preview.webp",
+    "phone": "themes/griha-mangalam/screenshots/phone/preview.webp"
+  },
+  {
     "id": "little-wonder",
     "title": "Little Wonder",
     "category": "Birthday",

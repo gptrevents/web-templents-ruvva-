@@ -1,0 +1,112 @@
+{
+  "invLang": "en",
+  "eventType": "housewarming",
+  "faithId": "hindu",
+  "name1": "The Rao Family",
+  "name2": "",
+  "date": "2027-02-14",
+  "time": "10:00",
+  "venue": "Our New Home",
+  "address": "House No. 123, Green Residency, MVP Colony, Visakhapatnam, Andhra Pradesh 530017",
+  "ph1": "+91 98765 43210",
+  "ph2": "+91 91234 56780",
+  "message": "With divine grace and the blessings of our elders, we invite you to the Griha Pravesh of our new home.",
+  "mainEventKey": "housewarming",
+  "events": [
+    {
+      "key": "vastu",
+      "label": "Vastu Puja",
+      "date": "2027-02-14",
+      "time": "08:00",
+      "venue": "Our New Home",
+      "address": "House No. 123, Green Residency, MVP Colony, Visakhapatnam, Andhra Pradesh 530017",
+      "description": "Seeking divine blessings for peace and prosperity."
+    },
+    {
+      "key": "housewarming",
+      "label": "Griha Pravesh",
+      "date": "2027-02-14",
+      "time": "10:00",
+      "venue": "Our New Home",
+      "address": "House No. 123, Green Residency, MVP Colony, Visakhapatnam, Andhra Pradesh 530017",
+      "description": "Entering our new home with positivity and happiness."
+    },
+    {
+      "key": "puja",
+      "label": "Satyanarayana Puja",
+      "date": "2027-02-14",
+      "time": "11:30",
+      "venue": "Our New Home",
+      "address": "House No. 123, Green Residency, MVP Colony, Visakhapatnam, Andhra Pradesh 530017",
+      "description": "Prayers for well-being, health and harmony."
+    },
+    {
+      "key": "lunch",
+      "label": "Lunch",
+      "date": "2027-02-14",
+      "time": "13:00",
+      "venue": "Our New Home",
+      "address": "House No. 123, Green Residency, MVP Colony, Visakhapatnam, Andhra Pradesh 530017",
+      "description": "Join us for a delicious traditional meal."
+    }
+  ],
+  "families": [],
+  "photoSlots": {
+    "hero": "assets/house-wide.webp",
+    "groom": "",
+    "bride": "",
+    "venue": "",
+    "closing": "assets/altar.webp",
+    "story": []
+  },
+  "gallery": [],
+  "videoUrl": "",
+  "liveStream": {
+    "url": "",
+    "note": ""
+  },
+  "musicUrl": "assets/sample/music.mp3",
+  "rsvp": {
+    "enabled": true,
+    "maxGuests": 8,
+    "askEvents": false,
+    "askDiet": false
+  },
+  "gifts": {
+    "enabled": false,
+    "demo": true,
+    "upiId": "housewarmingpreview@okhdfc",
+    "payeeName": "Housewarming Preview",
+    "note": "",
+    "qrUrl": "",
+    "allowCustom": true
+  },
+  "household": [
+    {
+      "name": "Raghavendra Rao",
+      "relation": "Father",
+      "photo": "assets/father.webp"
+    },
+    {
+      "name": "Lakshmi Rao",
+      "relation": "Mother",
+      "photo": "assets/mother.webp"
+    },
+    {
+      "name": "Aditya Rao",
+      "relation": "Son / Family",
+      "photo": "assets/son.webp"
+    }
+  ],
+  "landmarks": [
+    {
+      "label": "MVP Colony"
+    },
+    {
+      "label": "Visakhapatnam Railway Station"
+    },
+    {
+      "label": "Visakhapatnam Airport"
+    }
+  ]
+}
