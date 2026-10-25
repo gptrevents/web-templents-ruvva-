@@ -1,0 +1,98 @@
+{
+  "invLang": "en",
+  "eventType": "birthday",
+  "faithId": "none",
+  "name1": "Vihaan",
+  "name2": "",
+  "date": "2027-04-12",
+  "time": "16:00",
+  "venue": "Green Leaf Party Garden",
+  "address": "MVP Colony, Visakhapatnam, Andhra Pradesh 530017",
+  "ph1": "+91 98765 43210",
+  "ph2": "",
+  "message": "Five years of love, laughter and little adventures. Join us for a garden party full of games, cake and happy memories.",
+  "mainEventKey": "birthday",
+  "events": [
+    {
+      "key": "welcome",
+      "label": "Welcome to the garden",
+      "date": "2027-04-12",
+      "time": "16:00",
+      "venue": "Green Leaf Party Garden",
+      "address": "MVP Colony, Visakhapatnam, Andhra Pradesh 530017"
+    },
+    {
+      "key": "birthday",
+      "label": "5th Birthday",
+      "date": "2027-04-12",
+      "time": "17:00",
+      "venue": "Green Leaf Party Garden",
+      "address": "MVP Colony, Visakhapatnam, Andhra Pradesh 530017"
+    },
+    {
+      "key": "games",
+      "label": "Games & little adventures",
+      "date": "2027-04-12",
+      "time": "17:30",
+      "venue": "Green Leaf Party Garden",
+      "address": "MVP Colony, Visakhapatnam, Andhra Pradesh 530017"
+    },
+    {
+      "key": "dinner",
+      "label": "Picnic dinner",
+      "date": "2027-04-12",
+      "time": "19:00",
+      "venue": "Green Leaf Party Garden",
+      "address": "MVP Colony, Visakhapatnam, Andhra Pradesh 530017"
+    }
+  ],
+  "families": [],
+  "photoSlots": {
+    "hero": "assets/day.webp",
+    "groom": "assets/portrait.webp",
+    "bride": "",
+    "venue": "",
+    "closing": "assets/night.webp",
+    "story": [
+      "assets/memory-1.webp",
+      "assets/memory-2.webp",
+      "assets/memory-3.webp",
+      "assets/memory-4.webp"
+    ]
+  },
+  "gallery": [
+    "assets/memory-1.webp",
+    "assets/memory-2.webp",
+    "assets/memory-3.webp",
+    "assets/memory-4.webp",
+    "assets/portrait.webp",
+    "assets/day.webp"
+  ],
+  "videoUrl": "https://www.youtube.com/watch?v=aqz-KE-bpKQ",
+  "liveStream": {
+    "url": "https://www.youtube.com/watch?v=aqz-KE-bpKQ",
+    "note": "A sample video link for the invitation preview."
+  },
+  "musicUrl": "assets/sample/music.mp3",
+  "rsvp": {
+    "enabled": true,
+    "maxGuests": 8,
+    "askEvents": true,
+    "askDiet": true
+  },
+  "gifts": {
+    "enabled": false,
+    "upiId": "birthdaypreview@okhdfc",
+    "payeeName": "Birthday Preview",
+    "amounts": [
+      101,
+      501,
+      1001,
+      1116,
+      2116
+    ],
+    "allowCustom": true,
+    "note": "Your blessings mean the world to us.",
+    "demo": true
+  }
+}

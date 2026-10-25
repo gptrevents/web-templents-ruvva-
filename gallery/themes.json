@@ -151,5 +151,22 @@
     "stage": "#242c30",
     "desktop": "gallery/assets/vesper-desktop.webp",
     "phone": "gallery/assets/vesper-phone.webp"
+  },
+  {
+    "id": "little-wonder",
+    "title": "Little Wonder",
+    "category": "Birthday",
+    "tier": "premium",
+    "description": "A garden birthday adventure with cloud-shaped memories, floating balloons and a magical moonlit ending.",
+    "detail": "Little adventures · Birthday",
+    "palette": [
+      "#1269a1",
+      "#e66a28",
+      "#244f35",
+      "#fff4ce"
+    ],
+    "stage": "#f6e8b8",
+    "desktop": "themes/little-wonder/screenshots/desktop/preview.webp",
+    "phone": "themes/little-wonder/screenshots/phone/preview.webp"
   }
 ]

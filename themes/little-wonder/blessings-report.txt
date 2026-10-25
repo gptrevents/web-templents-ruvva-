@@ -1,0 +1,4 @@
+PASS little-wonder: 7 widths; mobile intent/desktop QR decode and regeneration; encoded URI; amount validation; callback retry and single success; reload persistence; RSVP link; hidden invalid/disabled.
+Shared core gzip: 8333 bytes (<25 KB).
+little-wonder full runtime gzip: JS 33579 / 60000 B; CSS 9771 / 25000 B.
+PASS injection, emoji-free note, required name, generated reference and session restoration. Samples use demo:true; preview cannot launch payment.
