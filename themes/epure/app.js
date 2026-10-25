@@ -215,6 +215,11 @@ function picture(src, cls, alt, eager = false) {
     p.append(source);
   }
   const image = el("img");
+  // Reserve the natural image box before lazy loading, so the page never jumps.
+  if (/^assets\/(main|groom|bride)\.webp$/.test(clean)) {
+    image.width = 720;
+    image.height = 900;
+  }
   image.src = clean;
   image.alt = alt;
   image.loading = eager ? "eager" : "lazy";
