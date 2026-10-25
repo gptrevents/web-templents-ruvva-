@@ -1,2 +1,5 @@
 PASS epure-1440: 13 frames at 200ms targets; central viewport retains content/artwork (no flat frame).
 PASS epure-390: 13 frames at 200ms targets; central viewport retains content/artwork (no flat frame).
+PASS vesper-1440: 13 frames at 200ms targets; central viewport retains content/artwork (no flat frame).
+PASS vesper-390: 13 frames at 200ms targets; central viewport retains content/artwork (no flat frame).
+Actual capture times: {"epure-390": [68, 361, 440, 602, 801, 1001, 1202, 1401, 1601, 1801, 2001, 2201, 2402], "epure-1440": [35, 365, 469, 602, 802, 1000, 1202, 1402, 1602, 1801, 2002, 2202, 2400], "vesper-390": [73, 379, 465, 600, 801, 1002, 1201, 1401, 1602, 1801, 2001, 2202, 2401], "vesper-1440": [68, 376, 474, 601, 802, 1000, 1201, 1401, 1601, 1802, 2001, 2201, 2400]}

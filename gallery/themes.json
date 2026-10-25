@@ -134,5 +134,22 @@
     "stage": "#e8e8e1",
     "desktop": "gallery/assets/epure-desktop.webp",
     "phone": "gallery/assets/epure-phone.webp"
+  },
+  {
+    "id": "vesper",
+    "title": "Vesper",
+    "category": "Premium",
+    "tier": "premium",
+    "description": "An intimate evening invitation in carbon, silver and warm architectural light, with curved photographic compositions.",
+    "detail": "After dark, beautifully · Premium",
+    "palette": [
+      "#161b1d",
+      "#a9b6b8",
+      "#b89a83",
+      "#e2e8e7"
+    ],
+    "stage": "#242c30",
+    "desktop": "gallery/assets/vesper-desktop.webp",
+    "phone": "gallery/assets/vesper-phone.webp"
   }
 ]

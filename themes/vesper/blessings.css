@@ -1,0 +1,63 @@
+.blessings {
+  --bless-ink: #1c2b30;
+}
+.blessings .bless-content {
+  margin-top: 45px;
+}
+.blessings .bless-fields,
+.blessings .bless-payment {
+  color: var(--ink);
+}
+.blessings .bless-chip span {
+  border: 1px solid #708185;
+  border-radius: 90px;
+}
+.blessings .bless-chip input:checked + span {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--paper);
+}
+.blessings .bless-field input,
+.blessings .bless-field textarea {
+  border-color: #687a80;
+  border-radius: 4px;
+  background: #1a2225;
+}
+.blessings .bless-pay {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--paper);
+}
+.blessings .bless-sent {
+  color: var(--ink);
+  background: transparent;
+  border-color: #9aadb2;
+}
+.blessings .bless-copy {
+  color: var(--ink);
+  background: transparent;
+  border-color: #6e8187;
+}
+.blessings .error {
+  color: #efb2ad;
+}
+.blessings .bless-demo,
+.blessings .bless-direct {
+  color: var(--muted);
+  font-size: 13px;
+}
+.blessings .bless-ref {
+  font-size: 14px;
+  color: var(--muted);
+}
+.blessings .bless-ref strong {
+  color: var(--ink);
+}
+.blessings .bless-thanks h3 {
+  font: italic 52px var(--f-script);
+  color: var(--copper);
+  margin: 28px 0;
+}
+.blessings :is(input, textarea, button, a):focus-visible {
+  outline-color: var(--ink);
+}

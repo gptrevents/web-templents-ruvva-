@@ -1,0 +1,46 @@
+{
+  "invLang": "en",
+  "eventType": "wedding",
+  "faithId": "none",
+  "name1": "Arjun",
+  "name2": "Priya",
+  "date": "",
+  "time": "",
+  "venue": "",
+  "address": "",
+  "ph1": "",
+  "ph2": "",
+  "message": "",
+  "mainEventKey": "",
+  "events": [],
+  "families": [],
+  "photoSlots": {
+    "hero": "",
+    "groom": "",
+    "bride": "",
+    "venue": "",
+    "closing": "",
+    "story": []
+  },
+  "gallery": [],
+  "videoUrl": "",
+  "liveStream": {
+    "url": "",
+    "note": ""
+  },
+  "musicUrl": "",
+  "rsvp": {
+    "enabled": false,
+    "maxGuests": 10,
+    "askEvents": false,
+    "askDiet": false
+  },
+  "gifts": {
+    "enabled": false,
+    "upiId": "",
+    "payeeName": "",
+    "amounts": [],
+    "allowCustom": false,
+    "note": ""
+  }
+}

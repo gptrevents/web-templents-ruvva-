@@ -110,5 +110,19 @@
     ],
     "stage": "#e8e8e1",
     "tier": "premium"
+  },
+  "vesper": {
+    "title": "Vesper",
+    "category": "Premium",
+    "description": "An intimate evening invitation in carbon, silver and warm architectural light, with curved photographic compositions.",
+    "detail": "After dark, beautifully · Premium",
+    "palette": [
+      "#161b1d",
+      "#a9b6b8",
+      "#b89a83",
+      "#e2e8e7"
+    ],
+    "stage": "#242c30",
+    "tier": "premium"
   }
 }
