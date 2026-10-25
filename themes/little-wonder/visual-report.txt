@@ -1,0 +1,4 @@
+PASS phone: section capture and 390x844 layout.
+PASS tablet: section capture and 820x1180 layout.
+PASS landscape: section capture and 844x390 layout.
+PASS desktop: section capture and 1440x900 layout.

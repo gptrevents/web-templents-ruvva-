@@ -1,0 +1,11 @@
+PASS 390: safe salutation, opening keyboard/lock, single child and four memories, responsive image requests, ICS, gallery arrows/Escape, deferred video, RSVP inline errors/retry/payload, reduced motion.
+PASS 1440: safe salutation, opening keyboard/lock, single child and four memories, responsive image requests, ICS, gallery arrows/Escape, deferred video, RSVP inline errors/retry/payload, reduced motion.
+PASS overflow: 320,360,390,600,820,844 landscape,1024,1280,1440,1920,2560.
+PASS gallery counts 1/2/3/6/12.
+PASS all four faith variants.
+PASS two long names and eight events.
+PASS today/past countdown states.
+PASS invalid links and empty optional sections.
+PASS conditional Blessings present; demo has no payable UPI/QR.
+PASS actual phone balloon motion, scroll-drawn event line and event reveals.
+PASS full module graph gzip budget: JS 33579/60000 B; CSS 9735/25000 B.

@@ -23,7 +23,13 @@ export async function buildCatalog() {
       !(await exists(`themes/${id}/index.html`))
     )
       continue;
-    const info = details[id] || {};
+    // New themes keep their catalog description beside their own source.
+    const localInfo = (await exists(`themes/${id}/theme.json`))
+      ? JSON.parse(
+          await readFile(path.join(root, `themes/${id}/theme.json`), "utf8"),
+        )
+      : {};
+    const info = { ...(details[id] || {}), ...localInfo };
     const preview = async (size) => {
       const candidates = [
         `gallery/assets/${id}-${size}.webp`,
