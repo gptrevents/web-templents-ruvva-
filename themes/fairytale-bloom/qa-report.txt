@@ -1,0 +1,11 @@
+PASS 390: safe guest, keyboard/lock/opening, centered constellation/four polaroids, memory swipe/arrows/Escape, illustrated event disclosures, calendar UTC export, compact optional sections, RSVP errors/retry/success and reduced motion.
+PASS 1440: safe guest, keyboard/lock/opening, centered constellation/four polaroids, memory swipe/arrows/Escape, illustrated event disclosures, calendar UTC export, compact optional sections, RSVP errors/retry/success and reduced motion.
+PASS wishbook: marked sample cards, required fields, safe rendering, honest local-only feedback, reload persistence, callback loading/retry and payload.
+PASS 320–2560 widths, tablet and phone landscape.
+PASS optional gallery counts 1/2/3/6/12.
+PASS faith variants, no incorrect deity artwork.
+PASS wedding/family-side fixture, conditional video/live and event/diet fields.
+PASS two long names and eight events.
+PASS today/past countdown states.
+PASS invalid links, missing optional sections and missing date.
+PASS actual phone butterfly motion, drawn event path and hidden-tab pause.

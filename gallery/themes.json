@@ -153,6 +153,23 @@
     "phone": "gallery/assets/vesper-phone.webp"
   },
   {
+    "id": "fairytale-bloom",
+    "title": "Fairytale Bloom",
+    "category": "Birthday",
+    "tier": "premium",
+    "description": "A rose-filled fairytale birthday with keepsake polaroids, illustrated party moments and a magical crescent-moon farewell.",
+    "detail": "A little world of magic · Birthday",
+    "palette": [
+      "#b82f58",
+      "#d78895",
+      "#d6a75a",
+      "#fff1eb"
+    ],
+    "stage": "#f4ded9",
+    "desktop": "themes/fairytale-bloom/screenshots/desktop/preview.webp",
+    "phone": "themes/fairytale-bloom/screenshots/phone/preview.webp"
+  },
+  {
     "id": "little-wonder",
     "title": "Little Wonder",
     "category": "Birthday",

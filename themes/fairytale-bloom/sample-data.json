@@ -1,0 +1,148 @@
+{
+  "invLang": "en",
+  "eventType": "birthday",
+  "faithId": "none",
+  "name1": "Aadhya",
+  "name2": "",
+  "date": "2027-04-25",
+  "time": "16:00",
+  "venue": "Sunshine Party Hall",
+  "address": "Near MVP Colony, Visakhapatnam, Andhra Pradesh 530017",
+  "ph1": "+91 98765 43210",
+  "ph2": "",
+  "message": "From a little smile to a big world of dreams, Aadhya has filled our lives with love, laughter and endless joy. Now she’s turning five, and we want to celebrate this special day with you!",
+  "mainEventKey": "birthday",
+  "events": [
+    {
+      "key": "welcome",
+      "label": "Welcome",
+      "date": "2027-04-25",
+      "time": "16:00",
+      "venue": "Sunshine Party Hall",
+      "address": "Near MVP Colony, Visakhapatnam, Andhra Pradesh 530017",
+      "description": "Let’s gather and have some fun!"
+    },
+    {
+      "key": "birthday",
+      "label": "Cake Cutting",
+      "date": "2027-04-25",
+      "time": "17:00",
+      "venue": "Sunshine Party Hall",
+      "address": "Near MVP Colony, Visakhapatnam, Andhra Pradesh 530017",
+      "description": "Make a wish with Aadhya!"
+    },
+    {
+      "key": "games",
+      "label": "Games & Activities",
+      "date": "2027-04-25",
+      "time": "17:30",
+      "venue": "Sunshine Party Hall",
+      "address": "Near MVP Colony, Visakhapatnam, Andhra Pradesh 530017",
+      "description": "Fun games, music and exciting surprises!"
+    },
+    {
+      "key": "dinner",
+      "label": "Dinner",
+      "date": "2027-04-25",
+      "time": "19:00",
+      "venue": "Sunshine Party Hall",
+      "address": "Near MVP Colony, Visakhapatnam, Andhra Pradesh 530017",
+      "description": "Delicious food for everyone."
+    }
+  ],
+  "families": [],
+  "photoSlots": {
+    "hero": "assets/cover.webp",
+    "groom": "assets/portrait.webp",
+    "bride": "",
+    "venue": "assets/venue.webp",
+    "closing": "assets/moon.webp",
+    "story": [
+      "assets/memory-1.webp",
+      "assets/memory-2.webp",
+      "assets/memory-3.webp",
+      "assets/memory-4.webp"
+    ]
+  },
+  "gallery": [],
+  "videoUrl": "",
+  "liveStream": {
+    "url": "",
+    "note": ""
+  },
+  "musicUrl": "assets/sample/music.mp3",
+  "rsvp": {
+    "enabled": true,
+    "maxGuests": 6,
+    "askEvents": false,
+    "askDiet": false
+  },
+  "gifts": {
+    "enabled": false,
+    "upiId": "birthdaypreview@okhdfc",
+    "payeeName": "Birthday Preview",
+    "amounts": [
+      101,
+      501,
+      1001,
+      1116,
+      2116
+    ],
+    "allowCustom": true,
+    "note": "Your blessings mean the world to us.",
+    "demo": true
+  },
+  "milestones": [
+    {
+      "label": "My First Smile",
+      "year": "2022"
+    },
+    {
+      "label": "First Steps",
+      "year": "2023"
+    },
+    {
+      "label": "Little Explorer",
+      "year": "2024"
+    },
+    {
+      "label": "Always Happy",
+      "year": "2025"
+    }
+  ],
+  "landmarks": [
+    {
+      "label": "MVP Colony",
+      "detail": "Local neighbourhood"
+    },
+    {
+      "label": "Railway Station",
+      "detail": "Rail connections"
+    },
+    {
+      "label": "Airport",
+      "detail": "Flight connections"
+    }
+  ],
+  "wishbook": {
+    "enabled": true
+  },
+  "wishes": [
+    {
+      "name": "A little birthday wish",
+      "message": "Happy Birthday, Aadhya! Keep shining always.",
+      "demo": true
+    },
+    {
+      "name": "With love",
+      "message": "May your dreams come true, little star.",
+      "demo": true
+    },
+    {
+      "name": "From the heart",
+      "message": "Have a wonderful year filled with happy adventures!",
+      "demo": true
+    }
+  ],
+  "birthdayAge": 5
+}

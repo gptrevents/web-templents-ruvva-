@@ -1,0 +1,1 @@
+PASS eleven-entry home catalog, Birthday filter, premium metadata, ten existing entries unchanged, preview link, keyboard Tab through RSVP with focus ring and gallery touch-swipe handling.
