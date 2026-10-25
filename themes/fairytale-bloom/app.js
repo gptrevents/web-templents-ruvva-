@@ -853,6 +853,9 @@ function buildHero(d, c, ctx) {
   const s = section("hero"),
     w = s.firstChild;
   s.tabIndex = -1;
+  const corner = el("div", "hero-floral-corner");
+  corner.setAttribute("aria-hidden", "true");
+  s.append(corner);
   const head = el("header", "star-heading");
   add(
     head,
