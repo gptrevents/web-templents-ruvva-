@@ -1,4 +1,4 @@
-import { el, add, button, svg } from "../../shared/core.js";
+import { el, add, button, svg, local } from "../../shared/core.js";
 export function buildWishbook(d, c) {
   if (!d.wishbook?.enabled && !d.wishes?.length) return null;
   const section = el("section", "wishbook");
@@ -35,7 +35,7 @@ export function buildWishbook(d, c) {
   const list = el("div", "wish-list");
   const render = () => {
     list.replaceChildren();
-    [...posts, ...samples].forEach((w) => {
+    [...posts, ...samples].forEach((w, i) => {
       const card = el("article", "wish-card");
       const avatar = el("span", "wish-avatar");
       avatar.append(
@@ -44,6 +44,14 @@ export function buildWishbook(d, c) {
           "0 0 40 36",
         ),
       );
+      if (w.demo) {
+        card.classList.add("is-sample");
+        const photo = el("img");
+        photo.setAttribute("src", local("assets/memory-" + (i % 4 + 1) + ".webp"));
+        photo.setAttribute("alt", "");
+        photo.setAttribute("loading", "lazy");
+        avatar.replaceChildren(photo);
+      }
       const text = el("div");
       add(text, el("p", "wish-message", w.message));
       if (w.name) text.append(el("p", "wish-author", w.name));

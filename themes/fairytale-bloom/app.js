@@ -87,6 +87,7 @@ const COPY = {
     together: "together",
     dateLabel: "Save the date",
     locationLabel: "Our celebration awaits",
+    eventDetails: "View event details",
     chapterLabel: "The occasion",
     gallerySub: "Moments worth keeping",
     viewPortrait: "Portrait",
@@ -463,18 +464,22 @@ function eventContent(e, c, ctx, i) {
   add(
     title,
     el("h3", "", e.label || EVENT_NAMES.en[e.key] || c.ceremony),
-    el("p", "event-date", dateText(e, ctx)),
   );
   add(card, marker, title, el("p", "event-time", timeText(e, ctx)));
   if (e.description) card.append(el("p", "event-description", e.description));
-  if (e.venue || e.address) {
+  if (e.date || e.venue || e.address) {
     const place = el("details", "event-place");
     add(
       place,
-      el("summary", "", c.locationLabel),
+      add(
+        el("summary", "event-details-trigger button"),
+        icon("pin"),
+        el("span", "sr-only", c.eventDetails),
+      ),
+      el("p", "event-date", dateText(e, ctx)),
       el("p", "event-venue", e.venue),
       el("p", "event-address", e.address),
-      link(c.maps, mapSearch(e.venue, e.address), "text-link"),
+      e.venue || e.address ? link(c.maps, mapSearch(e.venue, e.address), "text-link") : null,
     );
     card.append(place);
   }
@@ -589,11 +594,18 @@ function buildRsvp(d, c, ctx) {
   const f = createRsvpForm(d, c, { ornament });
   addRsvpBlessingLink(f, d, c);
   w.append(f);
+  if (!d.name2 && !d.rsvp.askEvents && !d.rsvp.askDiet) {
+    f.classList.add("reference-compact");
+    const hint = f.querySelector("#phone-hint");
+    if (hint) f.querySelector(".form-columns").append(hint);
+  }
+  const aside = el("aside", "rsvp-aside");
   const wishes = buildWishbook(d, c);
-  if (wishes) w.append(wishes);
+  if (wishes) aside.append(wishes);
   const note = el("div", "wish-note", c.wishCard);
   note.append(ornament());
-  w.append(note);
+  aside.append(note);
+  w.append(aside);
   return s;
 }
 
@@ -654,7 +666,7 @@ function initializeFairytaleMotion(root) {
       );
       s.querySelectorAll(".thread-tip").forEach((tip) =>
         tip.setAttribute(
-          tip.closest(".timeline-desktop") ? "cx" : "cy",
+          "cy",
           String(p * 1000),
         ),
       );
@@ -953,12 +965,16 @@ function buildEvents(d, c, ctx) {
   line.setAttribute("preserveAspectRatio", "none");
   list.append(line);
   const wide = svg(
-    '<path class="thread-base" d="M0 5H1000"/><path class="thread-fill" pathLength="1" d="M0 5H1000"/><circle class="thread-tip" cx="0" cy="5" r="2.5" fill="currentColor"/>',
-    "0 0 1000 10",
+    '<path class="thread-base" d="M5 0V1000"/><path class="thread-fill" pathLength="1" d="M5 0V1000"/><circle class="thread-tip" cx="5" cy="0" r="2.5" fill="currentColor"/>',
+    "0 0 10 1000",
   );
   wide.classList.add("timeline-desktop");
   wide.setAttribute("preserveAspectRatio", "none");
   list.append(wide);
+  const second = wide.cloneNode(true);
+  second.classList.add("timeline-secondary");
+  list.append(second);
+  list.dataset.count = String(d.events.length);
   d.events.forEach((e, i) => {
     const card = eventContent(e, c, ctx, i);
     const artwork = {
