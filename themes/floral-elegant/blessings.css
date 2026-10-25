@@ -1,0 +1,21 @@
+/* Pressed-flower letter — shares behavior, retains this theme's materials. */
+.blessings-floral-elegant {
+  --bless-ink: #87314b;
+}
+.blessings-floral-elegant .bless-content {
+  padding: clamp(1.2rem, 4vw, 3.5rem);
+  border: 1px solid #d7aeb7;
+  border-radius: 3rem 0.4rem 3rem 0.4rem;
+  background: #fff9f6 url("assets/floral-corner.webp") right bottom / 135px auto
+    no-repeat;
+}
+.blessings-floral-elegant .bless-chip span {
+  border-radius: 0.8rem;
+}
+.blessings-floral-elegant .bless-field input,
+.blessings-floral-elegant .bless-field textarea {
+  border-color: #87314b66;
+}
+.blessings-floral-elegant .bless-thanks h3 {
+  color: #87314b;
+}

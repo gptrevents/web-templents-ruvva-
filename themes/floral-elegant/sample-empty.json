@@ -14,11 +14,33 @@
   "mainEventKey": "",
   "events": [],
   "families": [],
-  "photoSlots": { "hero": "", "groom": "", "bride": "", "venue": "", "closing": "", "story": [] },
+  "photoSlots": {
+    "hero": "",
+    "groom": "",
+    "bride": "",
+    "venue": "",
+    "closing": "",
+    "story": []
+  },
   "gallery": [],
   "videoUrl": "",
-  "liveStream": { "url": "", "note": "" },
+  "liveStream": {
+    "url": "",
+    "note": ""
+  },
   "musicUrl": "",
-  "rsvp": { "enabled": false, "maxGuests": 10, "askEvents": false, "askDiet": false },
-  "gifts": { "enabled": false, "upiId": "", "note": "", "qrUrl": "" }
+  "rsvp": {
+    "enabled": false,
+    "maxGuests": 10,
+    "askEvents": false,
+    "askDiet": false
+  },
+  "gifts": {
+    "enabled": false,
+    "upiId": "",
+    "payeeName": "",
+    "amounts": [],
+    "allowCustom": false,
+    "note": ""
+  }
 }

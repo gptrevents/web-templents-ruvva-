@@ -1,0 +1,41 @@
+/* Kolam offering — shares behavior, retains this theme's materials. */
+.blessings-sannidhi {
+  --bless-ink: #29344b;
+}
+.blessings-sannidhi .bless-content {
+  padding: clamp(1.2rem, 4vw, 3.5rem);
+  border: 1px solid #b38b57;
+  border-radius: 2px;
+  background: #fff9e9;
+  box-shadow:
+    inset 0 0 0 7px #fff9e9,
+    inset 0 0 0 8px #d7ba88;
+}
+.blessings-sannidhi .bless-chip span {
+  border-radius: 2px;
+}
+.blessings-sannidhi .bless-field input,
+.blessings-sannidhi .bless-field textarea {
+  border-color: #29344b66;
+}
+.blessings-sannidhi .bless-thanks h3 {
+  color: #29344b;
+}
+.blessings-sannidhi .bless-content::before,
+.blessings-sannidhi .bless-content::after {
+  content: "";
+  position: absolute;
+  width: 54px;
+  height: 54px;
+  background: url("assets/ceremonial-kolam-v1.webp") center/contain no-repeat;
+  opacity: 0.25;
+  pointer-events: none;
+}
+.blessings-sannidhi .bless-content::before {
+  top: 12px;
+  left: 12px;
+}
+.blessings-sannidhi .bless-content::after {
+  bottom: 12px;
+  right: 12px;
+}

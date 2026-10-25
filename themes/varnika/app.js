@@ -1,4 +1,10 @@
 import {
+  BLESSINGS_COPY,
+  validGifts,
+  createBlessingsContent,
+  addRsvpBlessingLink,
+} from "../../shared/blessings.js";
+import {
   mapSearch,
   mapEmbed,
   mapDirections,
@@ -34,6 +40,7 @@ import {
 } from "../../shared/core.js";
 const COPY = {
   en: {
+    ...BLESSINGS_COPY,
     loadFailure:
       "The invitation could not be loaded. Please refresh to try again.",
     cordiallyInvited: "You are cordially invited",
@@ -328,6 +335,7 @@ function renderInvitation(root, data, ctx) {
     buildVenue,
     buildLiveStream,
     buildRsvp,
+    buildBlessings,
     buildFooter,
     buildFloating,
   ].forEach((fn) => {
@@ -881,7 +889,9 @@ function buildLiveStream(d, c) {
 function buildRsvp(d, c) {
   if (!d.rsvp?.enabled) return null;
   const s = section("rsvp", c.rsvp, c.rsvpSub);
-  s.firstChild.append(createRsvpForm(d, c, { ornament }));
+  const form = createRsvpForm(d, c, { ornament });
+  addRsvpBlessingLink(form, d, c);
+  s.firstChild.append(form);
   return s;
 }
 function buildFooter(d, c, ctx) {
@@ -1023,3 +1033,22 @@ function initializeScrollChoreography(root) {
 
 loadSample(renderInvitation, COPY.en);
 
+function buildBlessings(d, c, ctx) {
+  if (!validGifts(d)) return null;
+  const s = section("blessings", c.blessTitle, d.gifts.note || c.blessSub);
+  s.classList.add("blessings-varnika");
+  const content = createBlessingsContent(d, c, ctx, {
+    ornament,
+    celebrate(node) {
+      node.animate(
+        [
+          { opacity: 0.3, clipPath: "inset(0 0 30% 0)" },
+          { opacity: 1, clipPath: "inset(0 0 0 0)" },
+        ],
+        { duration: 650, easing: "ease-out" },
+      );
+    },
+  });
+  s.firstChild.append(content);
+  return s;
+}

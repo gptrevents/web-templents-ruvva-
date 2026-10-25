@@ -31,9 +31,14 @@
     "closing": "",
     "story": []
   },
-  "gallery": ["assets/sample/g3.webp"],
+  "gallery": [
+    "assets/sample/g3.webp"
+  ],
   "videoUrl": "",
-  "liveStream": { "url": "", "note": "" },
+  "liveStream": {
+    "url": "",
+    "note": ""
+  },
   "musicUrl": "assets/sample/music.mp3",
   "rsvp": {
     "enabled": true,
@@ -41,5 +46,19 @@
     "askEvents": false,
     "askDiet": true
   },
-  "gifts": { "enabled": false, "upiId": "", "note": "", "qrUrl": "" }
+  "gifts": {
+    "enabled": true,
+    "upiId": "birthdaypreview@okhdfc",
+    "payeeName": "Birthday Preview",
+    "amounts": [
+      101,
+      501,
+      1001,
+      1116,
+      2116
+    ],
+    "allowCustom": true,
+    "note": "Your blessings mean the world to us.",
+    "demo": true
+  }
 }

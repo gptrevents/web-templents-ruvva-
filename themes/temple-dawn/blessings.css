@@ -1,0 +1,23 @@
+/* Brass offering — shares behavior, retains this theme's materials. */
+.blessings-temple-dawn {
+  --bless-ink: #654329;
+}
+.blessings-temple-dawn .bless-content {
+  padding: clamp(1.2rem, 4vw, 3.5rem);
+  border: 1px solid #a17c49;
+  border-radius: 48% 48% 12px 12px / 44px 44px 12px 12px;
+  background: linear-gradient(135deg, #f8ecd4, #fffaf0 48%, #ead3a5);
+  box-shadow:
+    inset 0 0 0 6px #f3e4c7,
+    inset 0 0 0 7px #b39869;
+}
+.blessings-temple-dawn .bless-chip span {
+  border-radius: 2px;
+}
+.blessings-temple-dawn .bless-field input,
+.blessings-temple-dawn .bless-field textarea {
+  border-color: #65432966;
+}
+.blessings-temple-dawn .bless-thanks h3 {
+  color: #654329;
+}

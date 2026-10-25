@@ -1,0 +1,22 @@
+/* Illuminated blessing — shares behavior, retains this theme's materials. */
+.blessings-kalyana-vaibhavam {
+  --bless-ink: #870d2b;
+}
+.blessings-kalyana-vaibhavam .bless-content {
+  padding: clamp(1.2rem, 4vw, 3.5rem);
+  border: 1px solid #b58132;
+  background: #fff2cc;
+  box-shadow:
+    inset 0 0 0 5px #fff2cc,
+    inset 0 0 0 6px #d7ab62;
+}
+.blessings-kalyana-vaibhavam .bless-chip span {
+  border-radius: 2px;
+}
+.blessings-kalyana-vaibhavam .bless-field input,
+.blessings-kalyana-vaibhavam .bless-field textarea {
+  border-color: #870d2b66;
+}
+.blessings-kalyana-vaibhavam .bless-thanks h3 {
+  color: #870d2b;
+}

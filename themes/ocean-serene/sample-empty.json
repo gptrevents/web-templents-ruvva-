@@ -24,7 +24,10 @@
   },
   "gallery": [],
   "videoUrl": "",
-  "liveStream": { "url": "", "note": "" },
+  "liveStream": {
+    "url": "",
+    "note": ""
+  },
   "musicUrl": "",
   "rsvp": {
     "enabled": false,
@@ -32,5 +35,12 @@
     "askEvents": false,
     "askDiet": false
   },
-  "gifts": { "enabled": false, "upiId": "", "note": "", "qrUrl": "" }
+  "gifts": {
+    "enabled": false,
+    "upiId": "",
+    "payeeName": "",
+    "amounts": [],
+    "allowCustom": false,
+    "note": ""
+  }
 }

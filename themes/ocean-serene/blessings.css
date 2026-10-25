@@ -1,0 +1,21 @@
+/* Sea-glass message — shares behavior, retains this theme's materials. */
+.blessings-ocean-serene {
+  --bless-ink: #08495a;
+}
+.blessings-ocean-serene .bless-content {
+  padding: clamp(1.2rem, 4vw, 3.5rem);
+  border: 1px solid #7bb1b8;
+  border-radius: 40px 40px 6px 6px;
+  background: linear-gradient(160deg, #f8ffff, #e8f4f4);
+  border-bottom: 5px double #71a2ac;
+}
+.blessings-ocean-serene .bless-chip span {
+  border-radius: 0.8rem;
+}
+.blessings-ocean-serene .bless-field input,
+.blessings-ocean-serene .bless-field textarea {
+  border-color: #08495a66;
+}
+.blessings-ocean-serene .bless-thanks h3 {
+  color: #08495a;
+}

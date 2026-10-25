@@ -1,0 +1,21 @@
+/* Garden letterbox — shares behavior, retains this theme's materials. */
+.blessings-storybook-garden {
+  --bless-ink: #345b48;
+}
+.blessings-storybook-garden .bless-content {
+  padding: clamp(1.2rem, 4vw, 3.5rem);
+  border: 2px solid #91a280;
+  border-radius: 1.5rem;
+  background: #fff9e9;
+  box-shadow: 6px 8px 0 #d9e3cd;
+}
+.blessings-storybook-garden .bless-chip span {
+  border-radius: 0.8rem;
+}
+.blessings-storybook-garden .bless-field input,
+.blessings-storybook-garden .bless-field textarea {
+  border-color: #345b4866;
+}
+.blessings-storybook-garden .bless-thanks h3 {
+  color: #345b48;
+}

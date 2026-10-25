@@ -94,9 +94,18 @@
     "askDiet": true
   },
   "gifts": {
-    "enabled": false,
-    "upiId": "",
-    "note": "",
-    "qrUrl": ""
+    "enabled": true,
+    "upiId": "arjunpriya@okhdfc",
+    "payeeName": "Arjun Kumar",
+    "amounts": [
+      101,
+      501,
+      1001,
+      1116,
+      2116
+    ],
+    "allowCustom": true,
+    "note": "Your blessings mean the world to us.",
+    "demo": true
   }
 }
