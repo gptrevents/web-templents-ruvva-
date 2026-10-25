@@ -14,7 +14,7 @@ try {
       fetch("/gallery/themes.json").then((r) => r.json()),
     ),
     old = JSON.parse(
-      execFileSync("git", ["show", "HEAD:gallery/themes.json"], {
+      execFileSync("git", ["show", "909811c:gallery/themes.json"], {
         encoding: "utf8",
       }),
     );

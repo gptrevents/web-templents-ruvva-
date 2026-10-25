@@ -194,4 +194,3 @@ Order on the page is fixed. Visual form is yours; the content and behaviour are 
 - [x] WhatsApp share button: opens `https://wa.me/?text=<encoded page URL>`; uses `navigator.share` when available
 - [x] Controls stack bottom-right, 16px phone / 24px desktop plus safe-area insets; both ≥44px. Fade to 30% over headings, primary actions and form fields; restore on keyboard focus. Footer has clearance.
 - [x] No hamburger menu, no app logo at the top, no price tag
-
