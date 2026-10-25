@@ -96,5 +96,19 @@
     ],
     "stage": "#f5dfa3",
     "tier": "premium"
+  },
+  "epure": {
+    "title": "Épure",
+    "category": "Premium",
+    "description": "Quiet editorial luxury: chalk-white space, confident typography and intimate original photography.",
+    "detail": "Quietly considered · Premium",
+    "palette": [
+      "#242725",
+      "#666b65",
+      "#d4d6ce",
+      "#f8f7f3"
+    ],
+    "stage": "#e8e8e1",
+    "tier": "premium"
   }
 }

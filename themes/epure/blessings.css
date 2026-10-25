@@ -1,0 +1,35 @@
+.blessings {
+  --bless-ink: #242725;
+}
+.blessings .bless-content {
+  margin-top: 35px;
+}
+.blessings .bless-chip span {
+  border-color: #a9aea4;
+  font-size: 14px;
+}
+.blessings .bless-field input,
+.blessings .bless-field textarea {
+  border: 0;
+  border-bottom: 1px solid #91978e;
+  padding-left: 0;
+  padding-right: 0;
+}
+.blessings .bless-copy {
+  border-color: #a9aea4;
+}
+.blessings .bless-demo {
+  color: var(--muted);
+  font-size: 12px;
+}
+.blessings .bless-direct {
+  color: var(--muted);
+  font-size: 13px;
+}
+.blessings .bless-thanks {
+  padding: 45px 0;
+}
+.blessings .bless-thanks h3 {
+  font-size: 48px;
+  margin: 28px 0 20px;
+}

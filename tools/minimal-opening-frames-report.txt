@@ -1,0 +1,2 @@
+PASS epure-1440: 13 frames at 200ms targets; central viewport retains content/artwork (no flat frame).
+PASS epure-390: 13 frames at 200ms targets; central viewport retains content/artwork (no flat frame).
