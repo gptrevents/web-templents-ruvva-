@@ -1,0 +1,4 @@
+PASS phone: 390x844, opening/whole-chapter captures and responsive composition.
+PASS tablet: 820x1180, opening/whole-chapter captures and responsive composition.
+PASS landscape: 844x390, opening/whole-chapter captures and responsive composition.
+PASS desktop: 1440x900, opening/whole-chapter captures and responsive composition.
