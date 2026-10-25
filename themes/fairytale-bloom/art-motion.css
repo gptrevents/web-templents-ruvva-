@@ -1,0 +1,303 @@
+/* Chapter-side artwork: an unbroken visual margin, not another top canopy. */
+.occasion-decor {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  contain: paint;
+}
+.section > .wrap {
+  position: relative;
+  z-index: 2;
+}
+.occasion-rail {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 34px;
+  overflow: hidden;
+  opacity: 0.94;
+  mask-image: linear-gradient(90deg, #000 72%, transparent);
+}
+.rail-right {
+  left: auto;
+  right: 0;
+  transform: scaleX(-1);
+}
+.rail-float,
+.rail-echo {
+  position: absolute;
+  left: -31px;
+  width: 132px;
+  transform: translate3d(0, var(--art-depth, 0px), 0);
+  will-change: auto;
+}
+.rail-float {
+  top: calc(8% + var(--chapter-phase) * 5%);
+}
+.rail-echo {
+  bottom: -65px;
+  opacity: 0.82;
+  transform: translate3d(0, calc(var(--art-depth, 0px) * -0.65), 0)
+    rotate(180deg);
+}
+.rail-right .rail-float {
+  top: calc(32% + var(--chapter-phase) * 3%);
+}
+.rail-right .rail-echo {
+  bottom: 16%;
+}
+.rail-art {
+  width: 100%;
+  height: auto;
+  max-width: none;
+  display: block;
+  transform-origin: 50% 8%;
+  animation: occasion-breeze 7s ease-in-out infinite alternate paused;
+}
+.rail-right .rail-art {
+  animation-duration: 9.3s;
+  animation-delay: -3.7s;
+}
+.section.motion-active .rail-art {
+  animation-play-state: running;
+}
+.art-watermark {
+  position: absolute;
+  right: -75px;
+  bottom: 7%;
+  width: 220px;
+  height: 290px;
+  opacity: 0.065;
+  overflow: hidden;
+  transform: translate3d(0, calc(var(--art-depth, 0px) * -0.6), 0)
+    rotate(-13deg);
+  mask-image: linear-gradient(90deg, transparent, #000 55%);
+}
+.art-watermark img {
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  object-fit: contain;
+}
+.art-visitor {
+  position: absolute;
+  right: 5px;
+  top: 44%;
+  width: 29px;
+  height: 29px;
+  stroke-width: 1;
+  fill: none;
+  color: #ce7795;
+  animation: occasion-flight 8.2s ease-in-out infinite alternate paused;
+  filter: drop-shadow(0 2px 1px #593a211c);
+}
+.art-wing {
+  transform-origin: 20px 21px;
+  animation: occasion-wing 0.7s ease-in-out infinite alternate paused;
+}
+.art-wing-b {
+  animation-delay: -0.2s;
+}
+.section.motion-active .art-visitor,
+.section.motion-active .art-wing {
+  animation-play-state: running;
+}
+.art-lamplight {
+  position: absolute;
+  left: calc(8px + var(--light-index) * 6px);
+  top: calc(26% + var(--light-index) * 19%);
+  width: 5px;
+  height: 8px;
+  border-radius: 70% 70% 40% 40%;
+  background: #edbd67;
+  box-shadow: 0 0 14px 5px #efb96330;
+  opacity: 0.45;
+  animation: occasion-lamp 3.8s ease-in-out infinite alternate paused;
+  animation-delay: calc(var(--light-index) * -1.3s);
+}
+.art-lamplight:nth-of-type(even) {
+  left: auto;
+  right: 8px;
+}
+.section.motion-active .art-lamplight {
+  animation-play-state: running;
+}
+.art-motion-paused .occasion-decor * {
+  animation-play-state: paused !important;
+}
+@keyframes occasion-breeze {
+  from {
+    rotate: calc(var(--art-sway, 2deg) * -1);
+    translate: 0 -3px;
+  }
+  to {
+    rotate: var(--art-sway, 2deg);
+    translate: 0 5px;
+  }
+}
+@keyframes occasion-flight {
+  0% {
+    transform: translate(0, -18px) rotate(-16deg);
+  }
+  30% {
+    transform: translate(-7px, 4px) rotate(7deg);
+  }
+  70% {
+    transform: translate(2px, 27px) rotate(-8deg);
+  }
+  100% {
+    transform: translate(-5px, 48px) rotate(13deg);
+  }
+}
+@keyframes occasion-wing {
+  from {
+    transform: scaleX(0.4) rotate(-5deg);
+  }
+  to {
+    transform: scaleX(1) rotate(3deg);
+  }
+}
+@keyframes occasion-lamp {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(0.85);
+  }
+  40% {
+    opacity: 0.8;
+    transform: scale(1.15);
+  }
+  70% {
+    opacity: 0.6;
+    transform: scale(0.95);
+  }
+}
+@media (min-width: 600px) {
+  .occasion-rail {
+    width: 42px;
+  }
+  .rail-float,
+  .rail-echo {
+    width: calc(132px * 1.4);
+    left: calc(-31px * 1.4);
+  }
+  .art-visitor {
+    width: 36px;
+    height: 36px;
+    right: 10px;
+  }
+  .art-watermark {
+    width: 300px;
+    height: 380px;
+    right: -100px;
+  }
+}
+@media (min-width: 1024px) {
+  .occasion-rail {
+    width: 72px;
+    mask-image: linear-gradient(90deg, #000 82%, transparent);
+  }
+  .rail-float,
+  .rail-echo {
+    width: calc(132px * 1.9);
+    left: calc(-31px * 1.5);
+  }
+  .art-watermark {
+    width: 380px;
+    height: 460px;
+    right: -70px;
+    opacity: 0.07;
+  }
+  .art-visitor {
+    right: 30px;
+    width: 43px;
+    height: 43px;
+  }
+  .art-lamplight {
+    left: 25px;
+  }
+  .art-lamplight:nth-of-type(even) {
+    left: auto;
+    right: 25px;
+  }
+}
+@media (max-width: 359px) {
+  .occasion-rail {
+    width: 27px;
+  }
+  .art-visitor {
+    width: 24px;
+    right: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .occasion-decor * {
+    animation: none !important;
+  }
+  .rail-float,
+  .rail-echo,
+  .art-watermark {
+    transform: none;
+  }
+  .art-lamplight {
+    opacity: 0.5;
+  }
+}
+
+/* Bouquet roots stay at the outside edge; the original right corner is mirrored only on the left. */
+.floral-edges {
+  display: none;
+}
+.decor-rose .rail-art {
+  scale: -1 1;
+}
+.decor-rose .rail-float {
+  top: 8%;
+}
+.decor-rose .rail-right .rail-float {
+  top: 48%;
+}
+.decor-rose .rail-echo {
+  bottom: 4%;
+  transform: translateY(calc(var(--art-depth, 0px) * -0.65));
+}
+.decor-rose .art-watermark {
+  opacity: 0.075;
+  bottom: 7%;
+  height: 220px;
+  width: 230px;
+  right: -85px;
+}
+.decor-rose .rail-art {
+  animation-duration: 6s;
+}
+
+/* Garlands and candle lanterns always hang upright. */
+.rail-echo {
+  transform: translate3d(0, calc(var(--art-depth, 0px) * -0.65), 0);
+}
+
+.decor-rose {
+  --art-sway: 3deg;
+}
+.art-revealed .rail-float {
+  animation: occasion-arrive 1.25s ease both;
+}
+.art-revealed .rail-right .rail-float {
+  animation-delay: 0.14s;
+}
+@keyframes occasion-arrive {
+  from {
+    opacity: 0.25;
+    translate: 0 12px;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+.section:not(.motion-active) .occasion-decor * { animation-play-state: paused !important; }

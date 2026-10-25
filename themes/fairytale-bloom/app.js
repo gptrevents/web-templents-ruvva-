@@ -1,3 +1,4 @@
+import { mountArtMotion } from "./art-motion.js";
 import { buildWishbook } from "./wishbook.js";
 import {
   el,
@@ -336,7 +337,7 @@ function renderInvitation(root, d, ctx) {
     root,
     ".section-head,.person,.event-card,.photo,.memory-polaroid,.blessing-copy,.rsvp-form,.bless-content",
   );
-  mountFloralMargins(root);
+  mountArtMotion(root);
   initializeMotion(root, {
     selector: ".section,.opening,.ambient,.floating,.floral-edges",
   });

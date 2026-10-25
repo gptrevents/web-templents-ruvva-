@@ -40,6 +40,11 @@
       "name": "meal-clean",
       "prompt": "Extract ONLY the bottom-right south Indian vegetarian banana-leaf meal from this reference image into ONE complete separate transparent-background cutout. Recreate the full abundant traditional banana leaf thali with rice, gold/brass bowls of curry, sambar, sweets, papad, vegetables, banana and brass water glass, delicious realistic hand-painted invitation illustration matching the reference. Keep entire leaf and every bowl and glass visible with generous transparent padding. Remove all neighboring deity, altar, doorway, steps or stray fragments. No text, no backdrop, no grid. One isolated whole meal asset.",
       "source": "/Users/raghuram/.codex/generated_images/01a14f05-92a1-7b71-ab6d-a7195658b464/exec-579eb7d0-7777-4ae1-99f5-011fce4a1512.png"
+    },
+    {
+      "name": "ceremonial-rail",
+      "prompt": "Use case: illustration-story. One isolated narrow VERTICAL hanging Indian ceremonial border strip, transparent background. Rich realistic premium hand-painted craftsmanship, fresh white jasmine garland intertwined with tiny orange marigold knots, tender mango leaves at intervals, two delicate little brass hanging diya lamps with warm flames, and a small pink lotus cluster at the bottom. Entire strip fully visible with no cut objects. Very tall composition 384x1536, slightly asymmetrical natural flowers, thin enough to serve as an invitation PAGE SIDE BORDER. No frame, no scene, no temple, no words, no human figures, no flat colored background. Actual clean alpha transparency all around. The garland runs from top to bottom, lamps hang naturally.",
+      "source": "/Users/raghuram/.codex/generated_images/01a14f05-92a1-7b71-ab6d-a7195658b464/exec-e816b9e7-592e-4aae-9a90-228e8066854a.png"
     }
   ]
 }

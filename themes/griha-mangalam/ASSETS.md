@@ -1,6 +1,6 @@
 # Artwork and provenance
 
-Eight source artworks and isolated-object refinements were created for this theme using the built-in `image_gen` tool. The user’s board guided composition; no pixels from it are shipped. Exact prompts and saved original PNG paths are in [generation-prompts.json](generation-prompts.json). People are fictional generated portraits, not real clients or celebrities. Source PNGs remain in their original generated-images folder; all runtime derivatives are inside this theme.
+Original source artworks and isolated-object refinements were created for this theme using the built-in `image_gen` tool. The user’s board guided composition; no pixels from it are shipped. Exact prompts and saved original PNG paths are in [generation-prompts.json](generation-prompts.json). People are fictional generated portraits, not real clients or celebrities. Source PNGs remain in their original generated-images folder; all runtime derivatives are inside this theme.
 
 | Runtime asset | Source / preparation |
 |---|---|
@@ -22,3 +22,5 @@ Atlas derivatives are separate object extractions; neighboring-cell fragments we
 Google Fonts: Cormorant Infant, Lora and Great Vibes, distributed under the SIL Open Font License. Google Fonts CSS is the only font service. All families are CSS variables. Great Vibes is confined to fixed English headings; data names and Indic text use the book serif fallback.
 
 The live sample is a fictional family and address for demonstration. No third-party photographs, songs, branding, embedded text, or external image dependencies are included. Shared QR encoding is the repository’s local MIT component.
+
+New October 26 refinement: `assets/ceremonial-rail.webp` is an original built-in image_gen transparent side-border illustration. Transparent bounds were trimmed, resized to (78, 509) and saved as WebP quality 53; original alpha retained. Exact prompt and original PNG path are in generation-prompts.json.

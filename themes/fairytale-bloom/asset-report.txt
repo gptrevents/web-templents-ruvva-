@@ -1,4 +1,4 @@
 PASS common image bytes 446164/450000; desktop-only 377790/400000; bouquet real RGBA 0–255.
-PASS 390 opening: 101460 local image bytes; correct portrait/landscape source. cover.webp, bouquet.webp
-PASS 1440 opening: 210036 local image bytes; correct portrait/landscape source. cover-desktop.webp, bouquet.webp
-PASS final runtime gzip: JS 37810/60000; CSS 14294/25000.
+PASS 390 opening: 89170 local image bytes; correct portrait/landscape source. cover.webp
+PASS 1440 opening: 197746 local image bytes; correct portrait/landscape source. cover-desktop.webp
+PASS final runtime gzip: JS 39240/60000; CSS 15995/25000.
