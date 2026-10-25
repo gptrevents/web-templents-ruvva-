@@ -1,0 +1,1 @@
+PASS twelve-theme catalog, eleven existing entries unchanged, premium Housewarming filter/card/thumbnail/preview and keyboard Tab through RSVP with visible focus.

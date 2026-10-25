@@ -1,0 +1,8 @@
+PASS 390: safe guest, opening focus/lock/keyboard, three household portraits, four ritual illustrations/disclosures, calendars/UTC ICS, RSVP validation, warm choices, callback retry/payload/success, reduced motion.
+PASS 1440: safe guest, opening focus/lock/keyboard, three household portraits, four ritual illustrations/disclosures, calendars/UTC ICS, RSVP validation, warm choices, callback retry/payload/success, reduced motion.
+PASS all chapters at 320–2560px, tablet and phone landscape.
+PASS canonical wedding fixture: long names, side-matched parents, event/diet options, gallery touch/arrows/Escape, deferred YouTube and live stream.
+PASS optional gallery counts 1,2,3,6,12.
+PASS other faiths: no Hindu deity artwork.
+PASS today/past countdown.
+PASS eight rituals and actual phone scroll drawing/petal animation.

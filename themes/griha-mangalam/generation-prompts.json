@@ -1,0 +1,45 @@
+{
+  "tool": "Built-in image_gen",
+  "assets": [
+    {
+      "name": "welcome",
+      "prompt": "Use case: illustration-story. Create a premium Indian Griha Pravesh invitation BACKGROUND ART ONLY, portrait 1024x1536. No text or letters, no frames containing text, no watermark. Warm luminous pale butter-yellow handmade paper upper 42 percent kept completely empty for live invitation heading. Lower 58 percent: an elegant new single storey south Indian cream villa front entrance with deep carved teak double doors, glowing warm brass lamps, mango leaves and jasmine/marigold swags, banana plants, pink lotus flower arrangements, rangoli on white marble steps. Frontal symmetrical inviting architectural illustration, exquisite realistic hand painted detail, soft sunset sky blending seamlessly into pale yellow upper field. Rich green leaves and jasmine hanging from the top two corners only, restrained edges, central sky entirely clear. Entire house and steps visible. Not a UI mockup.",
+      "source": "/Users/raghuram/.codex/generated_images/01a14f05-92a1-7b71-ab6d-a7195658b464/exec-408f7f19-4b32-4e16-83af-ed935c0f71e0.png"
+    },
+    {
+      "name": "house-wide",
+      "prompt": "Use case: illustration-story. Premium original Indian housewarming architectural illustration, landscape 1536x1024, no text no watermark. A beautiful newly built single-storey cream stone courtyard villa with teak doors, covered verandah, dressed for Griha Pravesh with jasmine and marigold garlands, banana plants, brass standing lamps, intricate flower rangoli, pink lotus urns, tiny oil lamps along white marble steps. Entire house front visible from garden in a natural wide perspective, warm sunset blue-peach sky, very detailed realistic painted invitation art, soft glowing light. Generous cream garden margins, no people. This is a wide photograph-like artwork for a premium invitation, not a website screenshot.",
+      "source": "/Users/raghuram/.codex/generated_images/01a14f05-92a1-7b71-ab6d-a7195658b464/exec-7616dbe5-601e-4db5-8944-1a8173a1a9f8.png"
+    },
+    {
+      "name": "toran",
+      "prompt": "Use case: illustration-story. Transparent background cutout, a single continuous traditional South Indian wedding/housewarming doorway canopy across the top edge, 1536 wide by about 500 high composition. Fresh natural green banana leaves framing BOTH TOP CORNERS, draping small white jasmine strands and orange marigold flower knots, two small detailed brass hanging lamps on fine chains. Central bottom area completely empty and transparent. All leaves/flowers hang DOWNWARD from the top, clean realistic edges, exquisite luminous hand-painted craft illustration. No scene, no background color, no text, no watermark. Canopy top horizontal roots reach the canvas top so it blends into page top. Preserve real alpha transparency.",
+      "source": "/Users/raghuram/.codex/generated_images/01a14f05-92a1-7b71-ab6d-a7195658b464/exec-b736a744-d28a-4456-858f-8b18f9d17c48.png"
+    },
+    {
+      "name": "rituals",
+      "prompt": "Use case: illustration-story. One transparent-background illustration sprite sheet with FOUR SEPARATE isolated housewarming ritual objects, arranged exact 2x2 equal square cells with generous transparent padding. Top-left: ornate brass kalash filled with fresh mango leaves and coconut, tiny marigolds and pink petals below. Top-right: a full ornate carved teak home doorway decorated with jasmine garlands and banana leaves, three white marble entrance steps and small lamps. Bottom-left: devotional traditional seated Lord Satyanarayana/Vishnu with Lakshmi on a small decorated gold puja altar, faithful Indian calendar-art treatment, detailed crowns and blue Vishnu skin, full figures and pedestal contained. Bottom-right: abundant vegetarian south Indian banana-leaf meal with rice, small bowls of sambar curries sweets and brass water tumbler. Each object is a polished realistic hand-painted high detail invitation illustration. NO letters, no watermark, no background or ground rectangle. All four objects separated with no overlap, consistent light, actual transparency.",
+      "source": "/Users/raghuram/.codex/generated_images/01a14f05-92a1-7b71-ab6d-a7195658b464/exec-f6f739e4-5203-4d55-98af-1cdcf6c45ff6.png"
+    },
+    {
+      "name": "family",
+      "prompt": "Use case: photorealistic-natural. Single contact sheet with THREE separate equal-width vertical portrait photographs in a 3-column row. Same fictional Telugu Indian family, nobody real or famous. Left: gentle 62-year-old father with short grey hair and moustache wearing cream silk kurta, center: warm smiling 55-year-old mother wearing rich green silk sari with gold border and a small bindi, right: cheerful 29-year-old adult son with short black hair and neat beard in ivory kurta. Each head and upper torso front-facing, natural realistic eyes and hands, warm garden bokeh background in each separate photograph, professional portrait light. No text, no frames, no collaged overlapping elements. Exactly 3 rectangular panels equally spaced so each can be cropped separately.",
+      "source": "/Users/raghuram/.codex/generated_images/01a14f05-92a1-7b71-ab6d-a7195658b464/exec-2158f625-930f-451b-aeeb-57152c7e0cd9.png"
+    },
+    {
+      "name": "altar",
+      "prompt": "Use case: illustration-story. Wide landscape premium Griha Pravesh invitation closing artwork, exquisite realistic hand-painted Indian ceremonial courtyard. Central large detailed embossed brass kalash with fresh green mango leaves and coconut on flower rangoli, surrounded by tiny pink and orange petals, white jasmine, two tall glowing traditional brass standing lamps toward both sides. Distant warm cream villa courtyard decorated with mango and marigold swags, soft depth of field, sunlight and welcoming sense of divine blessing. Entire brass vessels fully visible, balanced symmetrical lower two thirds composition. Upper third fades softly into pale butter-yellow paper, edges soft and natural for blending into invitation. No text, no watermark, no people. 1536x1024.",
+      "source": "/Users/raghuram/.codex/generated_images/01a14f05-92a1-7b71-ab6d-a7195658b464/exec-9f92e30b-90bf-4060-bf33-3ae38412da58.png"
+    },
+    {
+      "name": "satyanarayana-clean",
+      "prompt": "Extract ONLY the bottom-left Satyanarayana/Vishnu and Lakshmi devotional altar from this reference image into ONE separate transparent-background cutout. Recreate it cleanly as a complete isolated devotional illustration: Vishnu and Lakshmi fully visible seated on a small ornate gold pedestal with a gold arch, small lamps and flowers, rich realistic Indian calendar-art style matching the reference. Include the entire arch, both sides of pedestal, crowns and all limbs, generous transparent padding all around. Remove ALL traces of other atlas objects; no kalash, doorway, meal, glasses or random fragments beside the scene. No text or background. This is one individual object asset, not a grid.",
+      "source": "/Users/raghuram/.codex/generated_images/01a14f05-92a1-7b71-ab6d-a7195658b464/exec-9ca71730-df51-49aa-8c15-074023ad718c.png"
+    },
+    {
+      "name": "meal-clean",
+      "prompt": "Extract ONLY the bottom-right south Indian vegetarian banana-leaf meal from this reference image into ONE complete separate transparent-background cutout. Recreate the full abundant traditional banana leaf thali with rice, gold/brass bowls of curry, sambar, sweets, papad, vegetables, banana and brass water glass, delicious realistic hand-painted invitation illustration matching the reference. Keep entire leaf and every bowl and glass visible with generous transparent padding. Remove all neighboring deity, altar, doorway, steps or stray fragments. No text, no backdrop, no grid. One isolated whole meal asset.",
+      "source": "/Users/raghuram/.codex/generated_images/01a14f05-92a1-7b71-ab6d-a7195658b464/exec-579eb7d0-7777-4ae1-99f5-011fce4a1512.png"
+    }
+  ]
+}

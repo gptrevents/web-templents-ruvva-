@@ -1,0 +1,5 @@
+PASS phone: 390x844, visible opening action, centered three-person row, chapter captures and responsive compositions.
+PASS tablet: 820x1180, visible opening action, centered three-person row, chapter captures and responsive compositions.
+PASS landscape: 844x390, visible opening action, centered three-person row, chapter captures and responsive compositions.
+PASS desktop: 1440x900, visible opening action, centered three-person row, chapter captures and responsive compositions.
+PASS Telugu family/long names remain within the phone layout.
