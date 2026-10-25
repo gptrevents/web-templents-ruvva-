@@ -32,7 +32,8 @@ const server = http.createServer(async (req, res) => {
     if (
       route !== "/index.html" &&
       !route.startsWith("/gallery/") &&
-      !route.startsWith("/themes/")
+      !route.startsWith("/themes/") &&
+      !route.startsWith("/shared/")
     )
       throw Error("Not found");
     if (
