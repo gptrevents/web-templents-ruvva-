@@ -1,0 +1,4 @@
+PASS 390: gallery compositions 1,2,3,6,12 captured without overflow.
+PASS 390: long-name family fixture; desktop paired portraits and joining motif.
+PASS 1440: gallery compositions 1,2,3,6,12 captured without overflow.
+PASS 1440: long-name family fixture; desktop paired portraits and joining motif.

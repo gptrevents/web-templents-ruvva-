@@ -153,6 +153,23 @@
     "phone": "gallery/assets/vesper-phone.webp"
   },
   {
+    "id": "evergreen-home",
+    "title": "Evergreen Home",
+    "category": "Housewarming",
+    "tier": "premium",
+    "description": "A modern villa welcome, interiors keepsakes and a lantern-lit terrace celebration.",
+    "detail": "A new chapter begins · Housewarming",
+    "palette": [
+      "#0b413b",
+      "#faf5e9",
+      "#ae641b",
+      "#10283c"
+    ],
+    "stage": "#e6e9da",
+    "desktop": "themes/evergreen-home/screenshots/desktop/preview.webp",
+    "phone": "themes/evergreen-home/screenshots/phone/preview.webp"
+  },
+  {
     "id": "fairytale-bloom",
     "title": "Fairytale Bloom",
     "category": "Birthday",
