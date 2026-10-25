@@ -1778,4 +1778,12 @@ html:not([lang="en"]) .hero-names[data-long="true"] {
   }
 }
 
-.opening:focus{outline:none}
+.opening:focus {
+  outline: none;
+}
+/* Keep the short English joining caption on one line between the portraits. */
+@media (min-width: 1024px) {
+  .portrait-salon .couple-join {
+    white-space: nowrap;
+  }
+}

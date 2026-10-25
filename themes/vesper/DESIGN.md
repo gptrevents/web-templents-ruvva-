@@ -11,7 +11,7 @@ Second of the two explicitly requested minimalist premium themes. It uses a diff
 | 2 Type | Sora geometric display + DM Sans body; Instrument Serif for fixed English italic annotations only. Names stay Indic-safe. |
 | 3 Opening | A quiet photographic-aperture inscription; the black foreground iris contracts out of the way to reveal the prepared hero. |
 | 4 Shapes | Sweeping convex/capsule contours and edge-to-edge photographic ovals, sparse dotted meridians. No paper sheets, folios, arches or scenery borders. |
-| 5 Ornament | One slender orbital contour, small aperture cross and three tiny low-opacity light specks. No birds, petals or botanicals. |
+| 5 Ornament | Slender orbital contours, small aperture cross, faint light specks and original satin-fold lines along the outer margins. No birds, petals or botanicals. |
 | 6 Hero | A wide photographic capsule intersects a centered low-weight sans masthead; separate marginal annotations give the composition its width. |
 | 7 Couple | Two tall oval portrait apertures separated by an italic joining caption, with names in outside side labels on desktop. |
 | 8 Countdown | A precision clock face: four quarter positions on a circular contour on phone, four long horizontal sectors on desktop. |
@@ -196,3 +196,10 @@ A separate Our Story timeline and Wishes box are not part of either minimalist c
 Theme, original assets, fixture data, design/asset documentation and screenshots are committed on the theme's own branch. It is added as Premium to the existing collection and delivered through a GitHub pull request. Existing themed designs are unchanged.
 
 Delivery refinement: both new minimal themes reserve the original photo dimensions before lazy loading. A delayed-decode/page-height check passed for both; this preserves their existing layout while preventing scroll jumps. Collection smoke check passed with nine templates and five Premium entries.
+
+## Margin artwork refinement — requested after the initial review
+The user asked for visibly animated artwork at the sides while keeping both designs minimal. Added a single continuous, theme-local SVG layer: botanical ink engravings for Épure, optical satin contours for Vesper. It does not repeat at each section. All shapes are original code-native vector artwork in margin-art.js; margin-art.css controls appearance. No new raster image, font, library, API or data field is introduced.
+
+The strokes draw in, then slowly breathe with travelling highlights. Scroll adds a bounded vertical drift, smaller on phones. The center is masked clear, photos remain opaque above the artwork, and forms/maps automatically lower the margin opacity. The artwork also appears at the welcome screen. It never receives taps or focus and is hidden from accessibility APIs. Gallery and hidden-tab states pause the decorative loops; reduced motion shows completed static artwork with no drift. Existing section geometry was compared against pre-edit captures at 390/1440 and remains unchanged.
+
+`tools/check-minimal-margin-art.mjs` checks actual motion, scroll movement, visible edge pixels, a clear center, form hit targets, reduced-motion and hidden/gallery pause, nine viewport widths and the full runtime budget. Its optional RUVVA_MARGIN_BASELINE environment variable accepts a pre-edit geometry capture; without that file it verifies that removing the decorative layer does not affect section layout. `node tools/shoot.mjs vesper` is run again for the required screenshots and fixtures. See tools/minimal-margin-art-report.txt and screenshots/margin-art for the result.

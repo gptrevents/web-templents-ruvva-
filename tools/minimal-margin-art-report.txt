@@ -1,3 +1,6 @@
 PASS epure 390: visible ink/contour artwork (2251 edge pixels), moving SVG and scroll depth; center unchanged; reduced motion/static; hidden-tab/gallery pause; RSVP hit target and unchanged section dimensions.
 PASS epure 1440: visible ink/contour artwork (8813 edge pixels), moving SVG and scroll depth; center unchanged; reduced motion/static; hidden-tab/gallery pause; RSVP hit target and unchanged section dimensions.
 PASS epure: 320–2560 widths; full runtime JS 34792/60000 B; CSS 9288/25000 B; no raster assets, data or content changes.
+PASS vesper 390: visible ink/contour artwork (7655 edge pixels), moving SVG and scroll depth; center unchanged; reduced motion/static; hidden-tab/gallery pause; RSVP hit target and unchanged section dimensions.
+PASS vesper 1440: visible ink/contour artwork (17331 edge pixels), moving SVG and scroll depth; center unchanged; reduced motion/static; hidden-tab/gallery pause; RSVP hit target and unchanged section dimensions.
+PASS vesper: 320–2560 widths; full runtime JS 34570/60000 B; CSS 10420/25000 B; no raster assets, data or content changes.
