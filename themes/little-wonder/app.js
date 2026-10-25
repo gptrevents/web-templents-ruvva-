@@ -1,3 +1,4 @@
+import { mountArtMotion } from "./art-motion.js";
 import {
   el,
   add,
@@ -295,7 +296,7 @@ function renderInvitation(root, d, ctx) {
     root,
     ".section-head,.person,.event-card,.photo,.blessing-copy,.rsvp-form,.bless-content",
   );
-  mountGardenMargins(root);
+  mountArtMotion(root);
   initializeMotion(root, {
     selector: ".section,.opening,.ambient,.floating,.garden-edges",
   });

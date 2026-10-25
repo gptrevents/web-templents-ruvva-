@@ -183,3 +183,7 @@ Order on the page is fixed. Visual form is yours; the content and behaviour are 
 | Vesper | None | No carbon, capsule/aperture composition or orbital salon |
 | Little Wonder | 12 (illustrated medium) | No child garden, toy blocks/clouds or activity ladder |
 | Fairytale Bloom | 2 (book/script hierarchy), 12 (painted) | No rose princess arch, tilted polaroids, straight party cards or moon closing |
+
+
+## Art and motion refinement — October 26, 2026
+User explicitly requested the two housewarming and two birthday themes together, overriding the usual single-theme task scope. Existing layouts/content/shared behaviors remain intact. Middle chapters now have actual transparent side artwork, asymmetric placement, soft artwork watermarks, visible phone-safe breeze and scroll depth; birthday butterflies articulate their wings, housewarming lights breathe. The artwork pauses offscreen/in hidden documents and becomes static under reduced motion. Opening/closing paintings retain their established composition. New scene-owned margins replace the tiny faded fixed birthday edges and isolated modern top corners. Each theme keeps its own artwork and motion timing. Validation follows in ART_MOTION_REVIEW.md.

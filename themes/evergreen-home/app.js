@@ -1,3 +1,4 @@
+import { mountArtMotion } from "./art-motion.js";
 import {
   BLESSINGS_COPY,
   validGifts,
@@ -913,6 +914,7 @@ function renderInvitation(root, d, ctx) {
     root,
     ".section-head,.person,.event-card,.home-portrait,.photo,.rsvp-form,.venue-grid",
   );
+  mountArtMotion(root);
   coreMotion(root, { selector: ".section,.opening,.ambient,.floating" });
   initializeWheelScroll();
   initControls(root);

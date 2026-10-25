@@ -1,4 +1,4 @@
 PASS common image bytes 415628/450000; desktop-only 324910/400000; sprig real RGBA 0–255.
-PASS 390 opening: 130976 local image bytes; correct portrait/landscape source. day.webp, garden-sprig.webp
-PASS 1440 opening: 214014 local image bytes; correct portrait/landscape source. day-desktop.webp, garden-sprig.webp
-PASS final runtime gzip: JS 33579/60000; CSS 9784/25000.
+PASS 390 opening: 85036 local image bytes; correct portrait/landscape source. day.webp
+PASS 1440 opening: 168074 local image bytes; correct portrait/landscape source. day-desktop.webp
+PASS final runtime gzip: JS 35064/60000; CSS 11507/25000.

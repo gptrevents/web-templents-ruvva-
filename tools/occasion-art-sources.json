@@ -1,0 +1,18 @@
+[
+  {
+    "theme": "griha-mangalam",
+    "name": "ceremonial-rail",
+    "prompt": "Use case: illustration-story. One isolated narrow VERTICAL hanging Indian ceremonial border strip, transparent background. Rich realistic premium hand-painted craftsmanship, fresh white jasmine garland intertwined with tiny orange marigold knots, tender mango leaves at intervals, two delicate little brass hanging diya lamps with warm flames, and a small pink lotus cluster at the bottom. Entire strip fully visible with no cut objects. Very tall composition 384x1536, slightly asymmetrical natural flowers, thin enough to serve as an invitation PAGE SIDE BORDER. No frame, no scene, no temple, no words, no human figures, no flat colored background. Actual clean alpha transparency all around. The garland runs from top to bottom, lamps hang naturally.",
+    "source": "/Users/raghuram/.codex/generated_images/01a14f05-92a1-7b71-ab6d-a7195658b464/exec-e816b9e7-592e-4aae-9a90-228e8066854a.png",
+    "tool": "Built-in image_gen",
+    "runtime": "themes/griha-mangalam/assets/ceremonial-rail.webp"
+  },
+  {
+    "theme": "evergreen-home",
+    "name": "lantern-rail",
+    "prompt": "Use case: photorealistic-natural. One isolated narrow vertical decorative botanical border for a modern premium housewarming invitation, transparent background. A natural slender ficus branch with glossy detailed evergreen leaves and a few tiny white jasmine blossoms, gracefully running down the LEFT edge, with one beautiful small dark bronze glass lantern hanging around the middle on a fine chain, visibly warm candle flame inside. Sophisticated realistic invitation photography cutout, no pot, no wall, no scene, no sky, no letters, no flat background. Portrait 384x1536 composition with clear transparent central/right space, entire lantern, chain and all branch tips visible. Natural irregular leaf arrangement, no repeated identical pattern. Actual alpha transparency.",
+    "source": "/Users/raghuram/.codex/generated_images/01a14f05-92a1-7b71-ab6d-a7195658b464/exec-5d0ac578-b9af-4aa5-8a08-9ecf64d77ebe.png",
+    "tool": "Built-in image_gen",
+    "runtime": "themes/evergreen-home/assets/lantern-rail.webp"
+  }
+]

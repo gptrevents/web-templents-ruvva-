@@ -1,0 +1,2 @@
+PASS 390: two visible image rails in countdown/events/venue/RSVP; mobile/desktop breeze running, scroll-linked depth changes, offscreen paused and reduced-motion static; RSVP remains clickable with valid callback payload; no horizontal overflow or page errors.
+PASS 1440: two visible image rails in countdown/events/venue/RSVP; mobile/desktop breeze running, scroll-linked depth changes, offscreen paused and reduced-motion static; RSVP remains clickable with valid callback payload; no horizontal overflow or page errors.
