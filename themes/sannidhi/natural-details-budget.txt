@@ -1,7 +1,5 @@
-Historical edge-art measurements, superseded by devotional-budget.txt for the final devotional theme.
-
-All runtime JS gzip: 19660 B / 60000
-All runtime CSS gzip: 15146 B / 25000
-Common image assets gzip: 993509 B / 450000
-Separate desktop backgrounds gzip: 1294807 B / 400000
+All runtime JS gzip: 37589 B / 60000
+All runtime CSS gzip: 19739 B / 25000
+Common image assets gzip: 774536 B / 450000
+Separate desktop backgrounds gzip: 1004728 B / 400000
 Image target exceeded; see DESIGN.md. Kalyana retains its pre-existing raster artwork unchanged.

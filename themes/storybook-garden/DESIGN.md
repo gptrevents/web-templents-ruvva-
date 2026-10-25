@@ -258,3 +258,20 @@ Two restrained global bird pairs have staggered travel times, depths, companion 
 Existing main artwork and composition preserved; this task changes alignment and ambient behavior only.
 
 Validation scope: browser touch emulation and local screenshots, not a physical Android-device certification. Full manual assistive-technology testing was not repeated for this decoration-only correction. Size measurements are in `natural-details-budget.txt`; Kalyana’s pre-existing artwork budget overrun remains, with its protected raster artwork untouched.
+
+## Shared runtime and Blessings — 25 October 2026
+
+- [x] Existing visual builders, artwork, openings and scroll choreography preserved; shared behavior moved to `../../shared/core.js`.
+- [x] Added section 11b after RSVP: amount chips/custom amount, guest/message fields, mobile UPI intent, desktop local QR, copy ID and reference.
+- [x] Invalid/disabled gifts hide cleanly; RSVP No offers one optional link.
+- [x] Guest claims use callback/demo only, inline retry, single successful submission and session persistence; payment confirmation is explicitly left to the couple.
+- [x] Fake sample IDs use demo mode so preview cannot initiate a payment. No real UPI ID or backend was added.
+- [x] English copy in COPY.en; guest data remains text; reduced-motion-safe thanks and theme-local Blessings styling.
+
+The shared behavior exception is explicitly requested by UPDATE_WEB_TEMPLATES.md and the
+user's request to finish the remaining common features across the collection. This task
+keeps all seven designs, including approved Kalyana artwork. No new image assets are added.
+See `shared/README.md`, `shared/vendor/LICENSES.md`, `tools/blessings-report.txt` and the
+current screenshot/check reports for verification. Pre-existing Sannidhi/Kalyana image
+budget overruns remain documented in their artwork notes; this task does not claim those
+image targets pass. Runtime JS/CSS budgets include shared modules and the QR encoder.

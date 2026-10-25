@@ -297,3 +297,20 @@ Sources, original prompts, extraction prompts and final paths: DEVOTIONAL_ART.md
 Performance limitation: requested dense calendar-style artwork exceeds the earlier basic-theme total-image targets; devotional-budget.txt reports the exact overrun, rather than claiming compliance. The phone welcome raster payload is 108,960 bytes (under 150 KB); larger inside/closing scenes are lazy-loaded and desktop sources are excluded on phones. JS/CSS remain below their limits. Existing assets required by other-faith/sample variants are retained. No physical-device or screen-reader certification is claimed.
 
 Final load-stability fix: removed the explicit `aspect-ratio:auto` override from devotional images, preserving their HTML width/height aspect hints before lazy image decoding. This prevents the closing tableau from expanding the page after keyboard End has already reached its previous bottom. The existing scrolling regression passes without changing its timing or assertions.
+
+## Shared runtime and Blessings — 25 October 2026
+
+- [x] Existing visual builders, artwork, openings and scroll choreography preserved; shared behavior moved to `../../shared/core.js`.
+- [x] Added section 11b after RSVP: amount chips/custom amount, guest/message fields, mobile UPI intent, desktop local QR, copy ID and reference.
+- [x] Invalid/disabled gifts hide cleanly; RSVP No offers one optional link.
+- [x] Guest claims use callback/demo only, inline retry, single successful submission and session persistence; payment confirmation is explicitly left to the couple.
+- [x] Fake sample IDs use demo mode so preview cannot initiate a payment. No real UPI ID or backend was added.
+- [x] English copy in COPY.en; guest data remains text; reduced-motion-safe thanks and theme-local Blessings styling.
+
+The shared behavior exception is explicitly requested by UPDATE_WEB_TEMPLATES.md and the
+user's request to finish the remaining common features across the collection. This task
+keeps all seven designs, including approved Kalyana artwork. No new image assets are added.
+See `shared/README.md`, `shared/vendor/LICENSES.md`, `tools/blessings-report.txt` and the
+current screenshot/check reports for verification. Pre-existing Sannidhi/Kalyana image
+budget overruns remain documented in their artwork notes; this task does not claim those
+image targets pass. Runtime JS/CSS budgets include shared modules and the QR encoder.

@@ -6,11 +6,11 @@ PASS varnika: 7 widths; mobile intent/desktop QR decode and regeneration; encode
 PASS sannidhi: 7 widths; mobile intent/desktop QR decode and regeneration; encoded URI; amount validation; callback retry and single success; reload persistence; RSVP link; hidden invalid/disabled.
 PASS kalyana-vaibhavam: 7 widths; mobile intent/desktop QR decode and regeneration; encoded URI; amount validation; callback retry and single success; reload persistence; RSVP link; hidden invalid/disabled.
 Shared core gzip: 8333 bytes (<25 KB).
-temple-dawn full runtime gzip: JS 36127 / 60000 B; CSS 15357 / 25000 B.
-floral-elegant full runtime gzip: JS 35614 / 60000 B; CSS 13043 / 25000 B.
-storybook-garden full runtime gzip: JS 38290 / 60000 B; CSS 14449 / 25000 B.
-ocean-serene full runtime gzip: JS 36873 / 60000 B; CSS 14178 / 25000 B.
-varnika full runtime gzip: JS 38786 / 60000 B; CSS 16799 / 25000 B.
-sannidhi full runtime gzip: JS 37589 / 60000 B; CSS 19718 / 25000 B.
-kalyana-vaibhavam full runtime gzip: JS 40037 / 60000 B; CSS 14968 / 25000 B.
+temple-dawn full runtime gzip: JS 36127 / 60000 B; CSS 15378 / 25000 B.
+floral-elegant full runtime gzip: JS 35614 / 60000 B; CSS 13064 / 25000 B.
+storybook-garden full runtime gzip: JS 38290 / 60000 B; CSS 14470 / 25000 B.
+ocean-serene full runtime gzip: JS 36873 / 60000 B; CSS 14199 / 25000 B.
+varnika full runtime gzip: JS 38786 / 60000 B; CSS 16820 / 25000 B.
+sannidhi full runtime gzip: JS 37589 / 60000 B; CSS 19739 / 25000 B.
+kalyana-vaibhavam full runtime gzip: JS 40037 / 60000 B; CSS 15030 / 25000 B.
 PASS injection, emoji-free note, required name, generated reference and session restoration. Samples use demo:true; preview cannot launch payment.

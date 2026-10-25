@@ -1,3 +1,4 @@
+import { runtimeBudget } from "./runtime-budget.mjs";
 import { chromium } from "playwright";
 import assert from "node:assert/strict";
 import { readFile, writeFile } from "node:fs/promises";
@@ -21,29 +22,7 @@ try {
       catalog.find((t) => t.id === id)?.tier,
       premium.includes(id) ? "premium" : "basic",
     );
-    for (const ext of ["js", "css"])
-      assert.equal(
-        await readFile(`themes/${id}/invitation-ui.${ext}`, "utf8"),
-        await readFile(`shared/invitation-ui.${ext}`, "utf8"),
-      );
-    const js = gzipSync(
-      Buffer.concat(
-        await Promise.all(
-          ["app.js", "invitation-ui.js"].map((f) =>
-            readFile(`themes/${id}/${f}`),
-          ),
-        ),
-      ),
-    ).length;
-    const css = gzipSync(
-      Buffer.concat(
-        await Promise.all(
-          ["style.css", "invitation-ui.css"].map((f) =>
-            readFile(`themes/${id}/${f}`),
-          ),
-        ),
-      ),
-    ).length;
+    const { js, css } = await runtimeBudget(id);
     assert(js < 60000 && css < 25000, `${id} combined code budget`);
     for (const width of [390, 820, 1440]) {
       const p = await browser.newPage({
@@ -187,7 +166,7 @@ try {
       await p.close();
     }
     report.push(
-      `${id}: PASS — tier, local UI sync, 390/820/1440 layout, collision sweep, keyboard, 5 data cases; combined gzip JS ${js} B / CSS ${css} B`,
+      `${id}: PASS — tier, shared runtime, 390/820/1440 layout, collision sweep, keyboard, 5 data cases; combined gzip JS ${js} B / CSS ${css} B`,
     );
     console.log(report.at(-1));
   }

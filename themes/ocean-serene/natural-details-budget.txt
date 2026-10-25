@@ -1,5 +1,5 @@
-All runtime JS gzip: 18364 B / 60000
-All runtime CSS gzip: 11113 B / 25000
+All runtime JS gzip: 36873 B / 60000
+All runtime CSS gzip: 14199 B / 25000
 Common image assets gzip: 424090 B / 450000
 Separate desktop backgrounds gzip: 144613 B / 400000
 Common image target met.
