@@ -1,3 +1,4 @@
+import { mountMarginArt } from "./margin-art.js";
 import {
   el,
   add,
@@ -293,6 +294,7 @@ function renderInvitation(root, d, ctx) {
   initializeWheelScroll();
   initControls(root);
   initializeEditorialMotion(root);
+  mountMarginArt(root);
 }
 function buildBlessing(d, c, ctx) {
   const s = section("blessing"),

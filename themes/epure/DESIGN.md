@@ -11,14 +11,14 @@ The user explicitly requests two new minimalist premium themes, unrelated to one
 | 2 Type | Libre Caslon Display + Work Sans; lowercase book typography with precise small English labels. |
 | 3 Opening | Oversized asymmetrical printed invitation, two paper fields part vertically along a fine registration rule. |
 | 4 Shapes | Open typesetter grid, thin baseline rules, generous unframed photographic rectangles; no ornamental containers. |
-| 5 Ornament | Small registration cross, slim editorial dash, three almost imperceptible paper motes. |
+| 5 Ornament | Small registration cross, slim editorial dash, quiet paper motes and original ginkgo ink engravings confined to the outer margins. |
 | 6 Hero | Overlapping oversized left-aligned name masthead, offset portrait, marginal date/caption; no central scenic arch. |
 | 7 Couple | A staggered photographic diptych with a narrow joining sentence and outside captions; no cards or enclosing common frame. |
 | 8 Countdown | A four-column typesetting specimen: large numerals over hairline baselines and small margin labels. |
 | 9 Events | Wide printed running order: numbered rows on a multi-column typesetter grid, with a fine drawn marginal rule. No disclosures, tabs, tickets, cards or winding path. |
 | 10 Gallery | A staggered photographic index: unequal open rows, alternating narrow portrait and wide image, written index beside each. No Masonry, bound album, filmstrip, fan or thumbnail selector. |
-| 11 Motion | Restrained editorial: paper separation, short line wipes, 12px arrivals; no swaying ornaments or photo zoom. |
-| 12 Texture | Uncoated chalk paper simulated with flat color; no photographic texture, grain overlay or decorative artwork. |
+| 11 Motion | Restrained editorial: paper separation, short line wipes, 12px arrivals; slow ink-engraving drift at the edges, no photo zoom. |
+| 12 Texture | Uncoated chalk paper with faint botanical engravings at the outer edges; no photographic texture or grain overlay. |
 | 13 Desktop | Asymmetric journal cover, staggered diptych, wide running-order table, photographic index and wide ruled response sheet. |
 
 ## Step 2 — Design review
@@ -194,3 +194,10 @@ A separate Our Story timeline and Wishes box are not part of either minimalist c
 
 ## Step 6 — Delivery
 Theme, original assets, fixture data, design/asset documentation and screenshots are committed on the theme's own branch. It is added as Premium to the existing collection and delivered through a GitHub pull request. Existing themed designs are unchanged.
+
+## Margin artwork refinement — requested after the initial review
+The user asked for visibly animated artwork at the sides while keeping both designs minimal. Added a single continuous, theme-local SVG layer: botanical ink engravings for Épure, optical satin contours for Vesper. It does not repeat at each section. All shapes are original code-native vector artwork in margin-art.js; margin-art.css controls appearance. No new raster image, font, library, API or data field is introduced.
+
+The strokes draw in, then slowly breathe with travelling highlights. Scroll adds a bounded vertical drift, smaller on phones. The center is masked clear, photos remain opaque above the artwork, and forms/maps automatically lower the margin opacity. The artwork also appears at the welcome screen. It never receives taps or focus and is hidden from accessibility APIs. Gallery and hidden-tab states pause the decorative loops; reduced motion shows completed static artwork with no drift. Existing section geometry was compared against pre-edit captures at 390/1440 and remains unchanged.
+
+`tools/check-minimal-margin-art.mjs` checks actual motion, scroll movement, visible edge pixels, a clear center, form hit targets, reduced-motion and hidden/gallery pause, nine viewport widths and the full runtime budget. Its optional RUVVA_MARGIN_BASELINE environment variable accepts a pre-edit geometry capture; without that file it verifies that removing the decorative layer does not affect section layout. `node tools/shoot.mjs epure` is run again for the required screenshots and fixtures. See tools/minimal-margin-art-report.txt and screenshots/margin-art for the result.
