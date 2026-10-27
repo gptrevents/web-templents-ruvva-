@@ -1,3 +1,10 @@
+import {
+  createRecipient,
+  recipientAddress,
+  personalMessage,
+  personalizeRsvp,
+  closingMessage,
+} from "./guest.js";
 import { mountArtMotion } from "./art-motion.js";
 import {
   BLESSINGS_COPY,
@@ -42,6 +49,31 @@ import {
 const COPY = {
   en: {
     ...BLESSINGS_COPY,
+    guestEyebrow: "An invitation especially for",
+    guestFamily: "Together with your family",
+    guestCouple: "Together with your partner",
+    guestNoteTitle: "A personal invitation",
+    guestMessage:
+      "Your presence would make our new beginning even more special. We would love to celebrate this moment with you.",
+    guestOpeningMessage:
+      "We would be delighted to welcome you to our new home.",
+    guestRsvpQuestion: "will you join us?",
+    guestClosingWaiting: "we look forward to welcoming you.",
+    guestClosingYes: "we are so happy you will be joining us.",
+    guestClosingNo: "thank you for letting us know. You will be missed.",
+    guestClosingMaybe: "thank you for your reply. We hope you can make it.",
+    guestThanksPrefix: "Thank you, ",
+    guestThanksEnd: "!",
+    guestCorrect: "Not you? Update guest details",
+    guestAdd: "Add your name to this invitation",
+    guestEditTitle: "Who is joining us?",
+    guestEditName: "Your name",
+    guestEditParty: "Invitation for",
+    guestPartyChoices: ["Just me", "Me and my partner", "Me and my family"],
+    guestApply: "Use these details",
+    guestCancel: "Cancel",
+    guestClear: "Continue without a personal name",
+    guestNameError: "Please enter your name.",
     newBeginning: "Our New Beginning",
     houseTitle: "Griha Pravesh",
     homeTitle: "Our New Home",
@@ -307,9 +339,14 @@ function buildEnvelope(d, c, ctx) {
   const copy = el("div", "opening-copy");
   add(copy, faithMark(d));
   if (c[d.faithId]) copy.append(el("p", "faith-line", c[d.faithId]));
-  copy.append(
-    el("p", "salutation", c.dear + " " + (ctx.guest || c.guest) + ","),
-  );
+  copy.append(recipientAddress(ctx.recipient, c));
+  ctx.recipient.bind(() => {
+    n.classList.toggle("guest-mode", !!ctx.recipient.state.name);
+    n.classList.toggle(
+      "guest-long",
+      Array.from(ctx.recipient.display).length > 34,
+    );
+  });
   add(
     copy,
     el("p", "label", c.newBeginning),
@@ -320,7 +357,13 @@ function buildEnvelope(d, c, ctx) {
         ? c.houseTitle
         : EVENT_NAMES.en[d.eventType] || c.ceremony,
     ),
-    el("p", "opening-message", d.message || c.openingMessage),
+    el(
+      "p",
+      "opening-message",
+      ctx.recipient.state.name
+        ? c.guestOpeningMessage
+        : d.message || c.openingMessage,
+    ),
     names(d, "host-names"),
   );
   stage.append(copy);
@@ -394,11 +437,12 @@ function buildHero(d, c, ctx) {
   canopy(s);
   return s;
 }
-function buildBlessing(d, c) {
+function buildBlessing(d, c, ctx) {
   const s = section("blessing"),
     w = s.firstChild;
   if (c[d.faithId]) add(w, faithMark(d), el("p", "faith-line", c[d.faithId]));
   w.append(el("p", "blessing-copy", d.message || c.blessing));
+  w.append(personalMessage(ctx.recipient, c));
   return s;
 }
 function portrait(name, relation, photo, c) {
@@ -647,15 +691,17 @@ function buildLiveStream(d, c) {
   add(s.firstChild, icon("play"), text, link(c.watch, url));
   return s;
 }
-function buildRsvp(d, c) {
+function buildRsvp(d, c, ctx) {
   if (!d.rsvp?.enabled) return null;
   const s = section("rsvp", c.rsvp),
     w = s.firstChild;
   w.querySelector(".section-head").prepend(icon("housewarming"));
   w.append(el("p", "rsvp-intro", c.presenceIntro));
-  const form = createRsvpForm(d, c, { ornament });
+  const formCopy = { ...c };
+  const form = createRsvpForm(d, formCopy, { ornament });
   addRsvpBlessingLink(form, d, c);
   w.append(form);
+  personalizeRsvp(s, form, ctx.recipient, c, formCopy);
   const warm = el("div", "warm-wishes");
   warm.append(el("h3", "", c.warmWishes));
   [
@@ -717,7 +763,7 @@ function buildFooter(d, c, ctx) {
     w,
     ornament(),
     el("h2", "", c.closing),
-    el("p", "closing-copy", c.closingHome),
+    closingMessage(ctx.recipient, c),
     names(d, "footer-names"),
     el("p", "footer-date", dateText(d, ctx)),
     ornament(),
@@ -808,6 +854,7 @@ function initializeStoryMotion(root) {
   });
 }
 function renderInvitation(root, d, ctx) {
+  ctx.recipient = createRecipient(d, ctx, COPY.en);
   ctx.lang = Object.hasOwn(LOCALE, ctx.lang) ? ctx.lang : "en";
   document.documentElement.lang = ctx.lang;
   document.body.dataset.faith = d.faithId || "none";

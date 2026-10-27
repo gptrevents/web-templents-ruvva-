@@ -1,0 +1,373 @@
+/* Recipient-first pilot. The household remains the host; the guest is addressed separately. */
+.guest-address {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 8px auto 12px;
+  gap: 3px;
+}
+.guest-eyebrow {
+  font: 12px/1.4 var(--f-body);
+  color: var(--ink);
+}
+.guest-display {
+  font: 500 14px/1.4 var(--f-display);
+  color: var(--rose);
+  overflow-wrap: anywhere;
+  max-width: 100%;
+  padding: 0.15em 0.12em;
+  margin: -0.15em -0.12em;
+}
+.has-recipient .guest-display {
+  font-size: clamp(25px, 7vw, 36px);
+  line-height: 1.35;
+}
+.guest-party {
+  font: 12px/1.5 var(--f-body);
+  color: var(--ink);
+}
+.guest-mode .opening-copy .ganesha {
+  width: 28px;
+  height: 28px;
+  margin: 0;
+}
+.guest-mode .opening-copy .faith-line {
+  font-size: 10px;
+}
+.guest-mode .opening-copy .label {
+  margin-top: 4px;
+  font-size: 10px;
+}
+.guest-mode .invitation-title {
+  font-size: 36px;
+}
+.guest-mode .opening-message {
+  font-size: 11px;
+  line-height: 1.4;
+  margin-top: 4px;
+}
+.guest-mode .host-names {
+  font-size: 14px;
+  margin-top: 4px;
+}
+.guest-mode .opening-copy {
+  top: 12px;
+}
+.guest-mode .guest-address {
+  margin: 5px auto 7px;
+}
+.personal-invitation {
+  position: relative;
+  margin: 30px auto 0;
+  max-width: 620px;
+  border: 1px solid #c8a159;
+  padding: 24px 24px 28px;
+  background: #fff8e3;
+  text-align: center;
+  box-shadow: inset 0 0 0 5px #fff1ce;
+}
+.personal-invitation:before,
+.personal-invitation:after {
+  content: "";
+  position: absolute;
+  left: calc(50% - 4px);
+  top: -5px;
+  width: 8px;
+  height: 8px;
+  rotate: 45deg;
+  background: #c69b4e;
+}
+.personal-invitation:after {
+  top: auto;
+  bottom: -5px;
+}
+.guest-note-label {
+  font-size: 13px;
+  color: var(--ink);
+  margin-bottom: 10px;
+}
+.guest-note-name {
+  font: 500 30px/1.45 var(--f-display);
+  color: var(--rose);
+  overflow-wrap: anywhere;
+  padding: 0.12em;
+  margin: -0.12em;
+}
+.guest-note-copy {
+  font-size: 16px;
+  line-height: 1.75;
+  margin-top: 10px;
+}
+.guest-note {
+  font: italic 18px/1.7 var(--f-display);
+  border-top: 1px solid var(--line);
+  padding-top: 16px;
+  margin: 18px auto 0;
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+}
+.recipient-correction {
+  max-width: 620px;
+  margin: 0 auto 24px;
+  text-align: center;
+}
+.guest-edit-toggle {
+  font-size: 13px;
+  min-height: 44px;
+}
+.guest-editor {
+  padding: 20px;
+  border: 1px solid var(--line);
+  background: #fff9e7;
+  text-align: left;
+  display: grid;
+  gap: 10px;
+}
+.guest-editor h3 {
+  font: 500 24px/1.4 var(--f-display);
+  margin: 0 0 8px;
+}
+.guest-editor label {
+  font: 500 14px var(--f-body);
+}
+.guest-editor input,
+.guest-editor select {
+  font: 16px var(--f-body);
+  width: 100%;
+  min-height: 46px;
+  border: 1px solid #b99450;
+  border-radius: 0;
+  padding: 10px;
+  background: #fffdf5;
+  color: var(--ink);
+}
+.guest-edit-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  margin-top: 8px;
+}
+.guest-edit-actions button {
+  min-height: 44px;
+}
+.guest-edit-actions .text-link {
+  font-size: 13px;
+}
+.guest-closing {
+  font-size: 20px;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+.rsvp h2 {
+  overflow-wrap: anywhere;
+}
+.guest-editor[hidden],
+.personal-invitation[hidden],
+.guest-note[hidden] {
+  display: none !important;
+}
+html:not([lang="en"]) .guest-eyebrow,
+html:not([lang="en"]) .guest-party {
+  font-size: 14px;
+}
+@media (min-width: 600px) {
+  .guest-mode .guest-address {
+    margin: 9px auto 12px;
+  }
+  .has-recipient .guest-display {
+    font-size: 40px;
+  }
+  .guest-mode .invitation-title {
+    font-size: 52px;
+  }
+  .guest-mode .opening-message {
+    font-size: 14px;
+    max-width: 360px;
+  }
+  .guest-mode .host-names {
+    font-size: 18px;
+  }
+  .guest-mode .opening-copy {
+    top: 25px;
+  }
+  .guest-mode .opening-copy .ganesha {
+    width: 40px;
+    height: 40px;
+  }
+  .guest-mode .opening-copy .label {
+    font-size: 12px;
+  }
+  .guest-mode .opening-copy .faith-line {
+    font-size: 12px;
+  }
+  .personal-invitation {
+    padding: 30px 40px;
+  }
+  .guest-note-name {
+    font-size: 36px;
+  }
+}
+@media (min-width: 1024px) {
+  .has-recipient .guest-display {
+    font-size: clamp(36px, 3.9vw, 58px);
+  }
+  .guest-mode .opening-copy {
+    top: 25px;
+    bottom: 25px;
+    min-height: calc(100% - 50px);
+  }
+  .guest-mode .guest-address {
+    margin: 16px auto 20px;
+  }
+  .guest-eyebrow {
+    font-size: 14px;
+  }
+  .guest-party {
+    font-size: 15px;
+  }
+  .guest-mode .invitation-title {
+    font-size: 68px;
+  }
+  .guest-mode .opening-copy .ganesha {
+    width: 52px;
+    height: 52px;
+  }
+  .guest-mode .opening-message {
+    font-size: 17px;
+    margin-top: 10px;
+  }
+  .guest-mode .host-names {
+    font-size: 22px;
+  }
+  .recipient-correction {
+    grid-column: 1/-1;
+    margin-top: -18px;
+  }
+  .rsvp .guest-editor {
+    max-width: 620px;
+    margin: auto;
+  }
+  .guest-closing {
+    font-size: 25px;
+  }
+}
+@media (max-height: 500px) and (min-width: 600px) and (max-width: 1023px) {
+  .guest-mode .opening-copy {
+    top: 12px;
+  }
+  .guest-mode .opening-copy .ganesha {
+    width: 26px;
+    height: 26px;
+  }
+  .guest-mode .opening-copy .faith-line {
+    font-size: 9px;
+  }
+  .guest-mode .guest-address {
+    margin: 4px auto 7px;
+  }
+  .has-recipient .guest-display {
+    font-size: 23px;
+  }
+  .guest-eyebrow,
+  .guest-party {
+    font-size: 10px;
+  }
+  .guest-mode .invitation-title {
+    font-size: 36px;
+  }
+  .guest-mode .opening-message {
+    font-size: 11px;
+  }
+  .guest-mode .host-names {
+    font-size: 14px;
+  }
+}
+@media (max-width: 359px) {
+  .guest-mode .opening-copy {
+    top: 10px;
+    left: 20px;
+    right: 20px;
+  }
+  .has-recipient .guest-display {
+    font-size: 24px;
+  }
+  .guest-mode .invitation-title {
+    font-size: 31px;
+  }
+  .guest-mode .opening-message {
+    font-size: 10px;
+  }
+}
+.guest-long .guest-display {
+  font-size: 22px;
+  line-height: 1.35;
+}
+.guest-long .opening-copy {
+  padding: 8px;
+  background: linear-gradient(#fff1bff5 0%, #fff1bfed 90%, #fff1bf00 100%);
+}
+.guest-long .invitation-title {
+  font-size: 32px;
+}
+.guest-long .opening-message {
+  font-size: 10px;
+}
+.rsvp.guest-rsvp .section-head h2 {
+  font-family: var(--f-display);
+  font-style: normal;
+  line-height: 1.35;
+  padding: 0.12em 0.1em;
+  margin: -0.12em -0.1em;
+  font-size: clamp(30px, 6vw, 54px);
+}
+@media (min-width: 600px) {
+  .guest-long .guest-display {
+    font-size: 30px;
+  }
+  .guest-long .invitation-title {
+    font-size: 46px;
+  }
+}
+@media (min-width: 1024px) {
+  .guest-long .opening-copy {
+    background: none;
+    padding: 0;
+  }
+  .guest-long .guest-display {
+    font-size: 42px;
+  }
+  .guest-long .invitation-title {
+    font-size: 60px;
+  }
+  .rsvp .recipient-correction {
+    grid-column: 1/-1;
+    grid-row: 3;
+  }
+  .rsvp .rsvp-form,
+  .rsvp .warm-wishes,
+  .rsvp .namaste {
+    grid-row: 4;
+  }
+  .rsvp .thanks {
+    grid-column: 1;
+    grid-row: 4;
+  }
+}
+@media (max-height: 500px) and (min-width: 600px) and (max-width: 1023px) {
+  .guest-long .guest-display {
+    font-size: 20px;
+  }
+  .guest-long .invitation-title {
+    font-size: 30px;
+  }
+  .guest-long .opening-copy {
+    background: #fff1bfed;
+  }
+  .rsvp.guest-rsvp .section-head h2 {
+    font-size: 38px;
+  }
+}
+.guest-mode .opening-copy .ganesha{margin:0 auto}.guest-long .opening-copy{background:linear-gradient(#fff1bff5 0%,#fff1bff5 97%,transparent 100%)}
+@media(min-width:1024px){.guest-long .opening-copy{background:none}}

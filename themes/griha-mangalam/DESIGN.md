@@ -187,3 +187,6 @@ Order on the page is fixed. Visual form is yours; the content and behaviour are 
 
 ## Art and motion refinement — October 26, 2026
 User explicitly requested the two housewarming and two birthday themes together, overriding the usual single-theme task scope. Existing layouts/content/shared behaviors remain intact. Middle chapters now have actual transparent side artwork, asymmetric placement, soft artwork watermarks, visible phone-safe breeze and scroll depth; birthday butterflies articulate their wings, housewarming lights breathe. The artwork pauses offscreen/in hidden documents and becomes static under reduced motion. Opening/closing paintings retain their established composition. New scene-owned margins replace the tiny faded fixed birthday edges and isolated modern top corners. Each theme keeps its own artwork and motion timing. Validation follows in ART_MOTION_REVIEW.md.
+
+## Guest-first pilot
+A user-requested single-theme prototype adds a prominent named opening, personal invitation panel, prefilled/correctable RSVP and attendance-aware closing. Guest names use the Indic-safe display serif, never the decorative script. Optional individual/couple/family data is supported without inferred honorifics. Other themes are intentionally unchanged pending user review. See GUEST_PERSONALIZATION.md for data, integration boundaries and validation.

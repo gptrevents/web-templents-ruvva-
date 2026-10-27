@@ -74,6 +74,7 @@ try {
       ).hostname,
       "calendar.google.com",
     );
+    await p.locator("#rsvp-name").fill("");
     await p.locator(".rsvp-form button[type=submit]").click();
     assert.equal(await p.locator("[aria-invalid=true]").count(), 2);
     await p
