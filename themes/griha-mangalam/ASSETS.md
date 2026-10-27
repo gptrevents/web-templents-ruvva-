@@ -24,3 +24,5 @@ Google Fonts: Cormorant Infant, Lora and Great Vibes, distributed under the SIL 
 The live sample is a fictional family and address for demonstration. No third-party photographs, songs, branding, embedded text, or external image dependencies are included. Shared QR encoding is the repository’s local MIT component.
 
 New October 26 refinement: `assets/ceremonial-rail.webp` is an original built-in image_gen transparent side-border illustration. Transparent bounds were trimmed, resized to (78, 509) and saved as WebP quality 53; original alpha retained. Exact prompt and original PNG path are in generation-prompts.json.
+
+Personal-letter refinement: the lotus crest and botanical corner engravings are original authored static SVG in guest.js. The guest initial is live Unicode text; no external icon/art library or bitmap was added.

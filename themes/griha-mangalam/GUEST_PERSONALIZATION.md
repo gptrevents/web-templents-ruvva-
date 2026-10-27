@@ -36,3 +36,6 @@ This is a visual/interaction pilot, not a guest authentication or invitation-ID 
 `node themes/griha-mangalam/qa/check.mjs`: existing invitation interactions pass; its required-name check now deliberately clears the prefilled guest name before testing empty fields.
 
 Required shoot and asset/runtime budgets are checked again; see shoot-report.txt and asset-report.txt. No new raster images or fonts are introduced. Customer review of this one pilot is required before propagating guest personalization to other themes.
+
+## Personal letter artwork refinement
+The user requested a distinctive design specifically for the personal-message card. It now uses an original authored SVG lotus crest, four independently positioned botanical corner engravings, a fine double brass border, luminous paper and a decorative embossed guest-initial seal. SVG corners keep their proportions as long text expands the card. The initial uses Unicode grapheme segmentation so Indic vowel signs stay attached; it updates after identity correction. It is decorative, hidden from assistive technology and makes no identity-verification claim. All guest content remains live safe text. No new raster assets, fonts or shared behaviors were added. Guest QA now verifies the initial updates from K to R along with the existing flow; phone and desktop personal-card captures were refreshed.

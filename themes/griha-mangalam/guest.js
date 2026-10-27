@@ -1,4 +1,4 @@
-import { el, add, button } from "../../shared/core.js";
+import { el, add, button, svg } from "../../shared/core.js";
 const text = (v, max = 160) =>
   typeof v === "string"
     ? Array.from(v.replace(/[\u0000-\u001f\u007f]/g, " ").trim())
@@ -60,19 +60,64 @@ export function recipientAddress(recipient, c) {
   });
   return box;
 }
+function letterCorner() {
+  const n = svg(
+    '<path d="M8 94V25Q8 8 25 8H94M15 80V29q0-14 14-14h51"/><path d="M21 56q2-25 30-35M21 40Q3 29 20 21q14 3 8 14M32 29Q30 8 47 16q7 11-8 15M43 24q9-18 22-8-2 12-17 12M24 48q17-2 16-18-16 1-16 18ZM27 62q20-3 17-19-16 1-17 19Z" fill="currentColor" fill-opacity=".12"/><path d="M29 76q-10-12 1-20 13 1 12 12-1 12-13 8Zm27-47q-12-10-20 1 1 13 12 12 12-1 8-13Z"/><circle cx="23" cy="23" r="3" fill="currentColor"/><circle cx="76" cy="15" r="1.5" fill="currentColor"/><circle cx="15" cy="76" r="1.5" fill="currentColor"/>',
+    "0 0 100 100",
+  );
+  n.classList.add("letter-corner");
+  n.setAttribute("aria-hidden", "true");
+  return n;
+}
+function letterCrest() {
+  const n = svg(
+    '<path d="M12 46h46m84 0h46M100 56c-30-17-26-37 0-52 26 15 30 35 0 52ZM100 56C69 46 57 26 70 12q28 7 30 44Zm0 0c31-10 43-30 30-44q-28 7-30 44ZM100 56C64 61 47 44 50 31q32-3 50 25Zm0 0c36 5 53-12 50-25q-32-3-50 25Z" fill="currentColor" fill-opacity=".08"/><path d="M67 62q33-8 66 0M76 67q24-4 48 0M100 14v36M24 42l5 4-5 4m152-8-5 4 5 4"/><circle cx="60" cy="46" r="2" fill="currentColor"/><circle cx="140" cy="46" r="2" fill="currentColor"/>',
+    "0 0 200 76",
+  );
+  n.classList.add("letter-crest");
+  n.setAttribute("aria-hidden", "true");
+  return n;
+}
 export function personalMessage(recipient, c) {
-  const box = el("aside", "personal-invitation"),
+  const box = el("aside", "personal-invitation guest-letter"),
+    art = el("div", "letter-art");
+  art.setAttribute("aria-hidden", "true");
+  for (const position of ["tl", "tr", "bl", "br"]) {
+    const corner = letterCorner();
+    corner.classList.add("corner-" + position);
+    art.append(corner);
+  }
+  const content = el("div", "letter-content"),
     title = el("p", "guest-note-label", c.guestNoteTitle),
     name = el("h3", "guest-note-name"),
     message = el("p", "guest-note-copy"),
     note = el("blockquote", "guest-note");
-  add(box, title, name, message, note);
+  const seal = el("div", "guest-seal");
+  seal.setAttribute("aria-hidden", "true");
+  const initial = el("span", "seal-initial");
+  seal.append(initial);
+  const rule = svg(
+    '<path d="M2 10h62m36 0h62M72 10l10-7 10 7-10 7Z"/><circle cx="82" cy="10" r="2" fill="currentColor"/>',
+    "0 0 164 20",
+  );
+  rule.classList.add("letter-rule");
+  rule.setAttribute("aria-hidden", "true");
+  add(content, letterCrest(), title, name, rule, message, note, seal);
+  add(box, art, content);
   recipient.bind(() => {
     box.hidden = !recipient.state.name;
     name.textContent = recipient.display + ",";
     message.textContent = c.guestMessage;
     note.textContent = recipient.state.note;
     note.hidden = !recipient.state.note;
+    initial.textContent =
+      typeof Intl.Segmenter === "function"
+        ? [
+            ...new Intl.Segmenter(undefined, {
+              granularity: "grapheme",
+            }).segment(recipient.state.name),
+          ][0]?.segment || ""
+        : Array.from(recipient.state.name)[0] || "";
   });
   return box;
 }
