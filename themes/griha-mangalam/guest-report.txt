@@ -1,0 +1,8 @@
+PASS 390: personal opening fits, four guest touchpoints, family label, RSVP prefill, correction and personalized success/closing; no overflow/errors.
+PASS 820: personal opening fits, four guest touchpoints, family label, RSVP prefill, correction and personalized success/closing; no overflow/errors.
+PASS 1440: personal opening fits, four guest touchpoints, family label, RSVP prefill, correction and personalized success/closing; no overflow/errors.
+PASS 844: personal opening fits, four guest touchpoints, family label, RSVP prefill, correction and personalized success/closing; no overflow/errors.
+PASS 320: personal opening fits, four guest touchpoints, family label, RSVP prefill, correction and personalized success/closing; no overflow/errors.
+PASS Telugu, long guest names and HTML injection rendered as safe text.
+PASS generic fallback, failed submission preserves waiting copy, decline/maybe success closing.
+PASS structured guest/honorific/party/note; corrected identity clears original note; generic reset.
