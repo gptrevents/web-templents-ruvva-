@@ -369,5 +369,220 @@ html:not([lang="en"]) .guest-party {
     font-size: 38px;
   }
 }
-.guest-mode .opening-copy .ganesha{margin:0 auto}.guest-long .opening-copy{background:linear-gradient(#fff1bff5 0%,#fff1bff5 97%,transparent 100%)}
-@media(min-width:1024px){.guest-long .opening-copy{background:none}}
+.guest-mode .opening-copy .ganesha {
+  margin: 0 auto;
+}
+.guest-long .opening-copy {
+  background: linear-gradient(#fff1bff5 0%, #fff1bff5 97%, transparent 100%);
+}
+@media (min-width: 1024px) {
+  .guest-long .opening-copy {
+    background: none;
+  }
+}
+/* The recipient's own keepsake letter: authored lotus crest, botanical corners and embossed initial. */
+.personal-invitation.guest-letter {
+  max-width: 660px;
+  margin: 44px auto 12px;
+  padding: 34px 28px 26px;
+  border: 1px solid #b98a3d;
+  background: linear-gradient(115deg, #fff9e9, #fff4d7 55%, #fff9e8);
+  box-shadow:
+    0 9px 24px #875c1910,
+    inset 0 0 0 6px #fff8e6,
+    inset 0 0 0 7px #d9bc80;
+  text-align: center;
+  isolation: isolate;
+}
+.guest-letter:before,
+.guest-letter:after {
+  display: none;
+}
+.letter-art {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+.letter-content {
+  position: relative;
+  z-index: 1;
+}
+.letter-corner {
+  position: absolute;
+  width: 61px;
+  height: 61px;
+  color: #a97a35;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.corner-tl {
+  top: 7px;
+  left: 7px;
+}
+.corner-tr {
+  top: 7px;
+  right: 7px;
+  transform: scaleX(-1);
+}
+.corner-bl {
+  bottom: 7px;
+  left: 7px;
+  transform: scaleY(-1);
+}
+.corner-br {
+  bottom: 7px;
+  right: 7px;
+  transform: scale(-1);
+}
+.letter-crest {
+  display: block;
+  width: 132px;
+  height: 51px;
+  margin: 0 auto 15px;
+  stroke: currentColor;
+  stroke-width: 1;
+  color: #a97a35;
+}
+.guest-letter .guest-note-label {
+  font-size: 12px;
+  line-height: 1.5;
+  color: #775321;
+  margin-bottom: 14px;
+}
+.guest-letter .guest-note-name {
+  font-size: clamp(29px, 8vw, 43px);
+  line-height: 1.4;
+  max-width: 100%;
+  padding: 0.15em 0.1em;
+  margin: -0.15em -0.1em;
+  overflow-wrap: anywhere;
+}
+.letter-rule {
+  display: block;
+  width: 130px;
+  height: 18px;
+  stroke: currentColor;
+  stroke-width: 0.8;
+  color: #ae8546;
+  margin: 17px auto 16px;
+}
+.guest-letter .guest-note-copy {
+  font: 17px/1.85 var(--f-display);
+  max-width: 480px;
+  margin: 0 auto;
+}
+.guest-letter .guest-note {
+  font-size: 18px;
+  padding: 18px 10px 0;
+  margin-top: 20px;
+  border-color: #d4b882;
+  white-space: pre-line;
+}
+.guest-seal {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 49px;
+  height: 49px;
+  margin: 25px auto 0;
+  border: 1px solid #a47732;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 25%, #fae4ab, #eacb83 70%, #d6b06c);
+  box-shadow:
+    inset 0 0 0 3px #f5dea5,
+    inset 0 0 0 4px #b98c42,
+    0 3px 0 #d8bc7b44;
+  color: #76501f;
+}
+.seal-initial {
+  font: 500 25px/1.35 var(--f-display);
+  padding: 0.12em;
+  max-width: 100%;
+}
+.guest-letter .letter-crest {
+  animation: letter-ink 1.1s ease both;
+  animation-play-state: paused;
+}
+.blessing.motion-active .guest-letter .letter-crest {
+  animation-play-state: running;
+}
+html[lang="en"] .guest-letter .guest-note-label {
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+html:not([lang="en"]) .guest-letter .guest-note-label {
+  font-size: 14px;
+}
+@keyframes letter-ink {
+  from {
+    opacity: 0.3;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (min-width: 600px) {
+  .personal-invitation.guest-letter {
+    padding: 38px 55px 30px;
+  }
+  .letter-corner {
+    width: 80px;
+    height: 80px;
+  }
+  .letter-crest {
+    width: 158px;
+    height: 60px;
+  }
+  .guest-letter .guest-note-name {
+    font-size: 43px;
+  }
+  .guest-letter .guest-note-copy {
+    font-size: 19px;
+  }
+  .guest-letter .guest-note-label {
+    font-size: 13px;
+  }
+}
+@media (min-width: 1024px) {
+  .personal-invitation.guest-letter {
+    padding: 40px 65px 34px;
+  }
+  .letter-corner {
+    width: 90px;
+    height: 90px;
+  }
+  .guest-letter .guest-note-name {
+    font-size: 46px;
+  }
+  .guest-seal {
+    width: 54px;
+    height: 54px;
+  }
+  .seal-initial {
+    font-size: 28px;
+  }
+}
+@media (max-width: 359px) {
+  .personal-invitation.guest-letter {
+    padding: 30px 22px 25px;
+  }
+  .letter-corner {
+    width: 49px;
+    height: 49px;
+  }
+  .guest-letter .guest-note-copy {
+    font-size: 16px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .guest-letter .letter-crest {
+    animation: none;
+  }
+}

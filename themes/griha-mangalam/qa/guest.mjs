@@ -41,6 +41,7 @@ try {
     });
     await enter(p);
     assert.equal(await p.locator("#rsvp-name").inputValue(), "Kiran Garu");
+    assert.equal(await p.locator(".seal-initial").textContent(),"K");
     assert((await p.locator("#rsvp h2").textContent()).includes("Kiran Garu"));
     assert(
       (await p.locator(".personal-invitation").textContent()).includes(
@@ -84,6 +85,7 @@ try {
       .getByRole("button", { name: "Use these details", exact: true })
       .click();
     assert.equal(await p.locator("#rsvp-name").inputValue(), "Raju");
+    assert.equal(await p.locator(".seal-initial").textContent(),"R");
     assert(
       (await p.locator(".guest-closing").textContent()).startsWith("Raju,"),
     );

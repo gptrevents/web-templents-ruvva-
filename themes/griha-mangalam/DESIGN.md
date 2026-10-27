@@ -190,3 +190,6 @@ User explicitly requested the two housewarming and two birthday themes together,
 
 ## Guest-first pilot
 A user-requested single-theme prototype adds a prominent named opening, personal invitation panel, prefilled/correctable RSVP and attendance-aware closing. Guest names use the Indic-safe display serif, never the decorative script. Optional individual/couple/family data is supported without inferred honorifics. Other themes are intentionally unchanged pending user review. See GUEST_PERSONALIZATION.md for data, integration boundaries and validation.
+
+### Personal-message letter refinement
+Only the guest personal-message card receives a new keepsake-letter design: independently scaled botanical SVG corners, lotus crest, fine double brass edging, warm paper and a decorative guest-initial seal. Existing opening, RSVP, closing and other themes retain their behavior. Guest QA, required shoot and asset/runtime budget checks were rerun; phone/desktop captures were visually reviewed. Details are in GUEST_PERSONALIZATION.md.
