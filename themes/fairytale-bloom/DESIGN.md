@@ -219,3 +219,11 @@ Validation results are recorded in `GUEST_REVIEW.md`.
 The recipient name now leads the opening hierarchy (about 38–48px on phones, 58px on tablet and 62–80px on desktop; the illustrated home/birthday openings use tuned sizes). Host names remain separately visible at a smaller size. Long names wrap in live Indic-safe text, with a landscape adjustment; the salutation has no clipped internal scroll box. No generic invitation is assigned a fabricated recipient. The collection's demo links explicitly carry a preview guest, and preserve a supplied guest/party query. See `opening-report.txt`, `guest-report.txt` where present, and `shoot-report.txt` for executed checks.
 
 Named opening legibility review: long recipient text is kept clear of the painting. The home uses a pale paper field behind live copy; the birthday age is compact and its small tagline moves to the action strip so it cannot cross the portrait.
+
+
+## Opening and closing guest motion — 28 October 2026
+User-approved across all themes. Only the opening guest name and footer guest block receive the new finite treatment: a small fade/rise plus a drawn hairline. No letter splitting, blur, masking or looping; Indic names remain whole live text. The closing name has its own larger line (smaller than the opening), with the existing attendance-aware sentence underneath. Long names use a calmer smaller type size.
+
+Theme-local variables tune timing, rise and line origin to the existing editorial, playful, coastal or ceremonial style. The footer observes its actual text and plays once on arrival; it never replays on scrolling back. Hidden tabs pause the effect, and reduced motion shows all text statically. No new images or fonts. The body sections receive no new guest-name motion. Behavior and generic fallback remain intact.
+
+Checks: `tools/check-recipient-motion.mjs`, existing guest checks and `tools/shoot.mjs`; executed results and captures are stored alongside the theme.

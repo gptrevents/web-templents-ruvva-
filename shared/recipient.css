@@ -1,3 +1,4 @@
+@import url("./recipient-motion.css");
 /* Shared recipient behavior, theme-local visual treatment. */
 .guest-address {
   letter-spacing: normal !important;

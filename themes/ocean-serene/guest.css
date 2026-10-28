@@ -14,3 +14,10 @@
   border-radius: 50% 50% 45% 45%;
   box-shadow: 0 3px 0 #b6d4dc;
 }
+
+/* Finite recipient entrances only at the two ends of the invitation. */
+:root {
+  --guest-motion-duration: 1.4s;
+  --guest-rise: 4px;
+  --guest-rule-origin: center;
+}

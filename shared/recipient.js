@@ -1,3 +1,8 @@
+import {
+  createGuestClosing,
+  setGuestClosing,
+  mountGuestMotion,
+} from "./recipient-motion.js";
 import { el, add, button, svg } from "./core.js";
 const text = (v, max = 160) =>
   typeof v === "string"
@@ -215,7 +220,7 @@ export function mountRecipient(root, ctx, c, makeLetter) {
   const original = footer.querySelector(
     ".footer-note,.night-note,.closing-note p,p.closing-copy,.footer-bottom > p",
   );
-  const closing = el("p", "guest-closing");
+  const closing = createGuestClosing();
   if (original) original.after(closing);
   else
     (
@@ -234,6 +239,7 @@ export function mountRecipient(root, ctx, c, makeLetter) {
           : response === "maybe"
             ? c.guestClosingMaybe
             : c.guestClosingWaiting;
-    closing.textContent = recipient.display + ", " + line;
+    setGuestClosing(closing, recipient.display, line);
   });
+  mountGuestMotion(root, recipient);
 }

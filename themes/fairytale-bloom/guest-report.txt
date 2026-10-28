@@ -8,4 +8,4 @@ URL markup rendered as text PASS
 Generic fallback has no letter, no named closing and blank RSVP PASS
 Failed callback retains input/waiting closing; No/Maybe retry changes closing only on success PASS
 Structured name/honorific/family/long note; changed identity clears old note; generic reset PASS
-Dependency-inclusive gzip: JS 31487/60000 B; CSS 18421/25000 B PASS
+Dependency-inclusive gzip: JS 32352/60000 B; CSS 19340/25000 B PASS

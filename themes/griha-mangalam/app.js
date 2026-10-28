@@ -1,3 +1,4 @@
+import { mountGuestMotion } from "../../shared/recipient-motion.js";
 import {
   createRecipient,
   recipientAddress,
@@ -897,6 +898,7 @@ function renderInvitation(root, d, ctx) {
     if (n) content.append(n);
   });
   root.append(buildEnvelope(d, COPY.en, ctx));
+  mountGuestMotion(root, ctx.recipient);
   initializeReveals(
     root,
     ".section-head,.person,.event-card,.home-portrait,.photo,.rsvp-form,.venue-grid",

@@ -14,3 +14,10 @@
 .personal-invitation .guest-seal {
   border: 3px double #b08a4e;
 }
+
+/* Finite recipient entrances only at the two ends of the invitation. */
+:root {
+  --guest-motion-duration: 1.25s;
+  --guest-rise: 6px;
+  --guest-rule-origin: center;
+}

@@ -1,3 +1,4 @@
+@import url("../../shared/recipient-motion.css");
 /* Recipient-first pilot. The household remains the host; the guest is addressed separately. */
 .guest-address {
   display: flex;
@@ -636,4 +637,11 @@ html:not([lang="en"]) .guest-letter .guest-note-label {
   .opening.guest-long .guest-display {
     font-size: 26px;
   }
+}
+
+/* Finite recipient entrances only at the two ends of the invitation. */
+:root {
+  --guest-motion-duration: 1.25s;
+  --guest-rise: 6px;
+  --guest-rule-origin: center;
 }

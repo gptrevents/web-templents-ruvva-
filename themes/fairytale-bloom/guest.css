@@ -84,8 +84,39 @@
     font-size: 26px;
   }
 }
-@media(max-width:599px){
- .opening.recipient-opening .age-inscription{display:flex;justify-content:center;align-items:baseline;gap:8px;margin-top:4px;}
- .opening.recipient-opening .birthday-age{font-size:40px;}
- .opening.recipient-opening .birthday-word{font-size:34px;margin:0;}
+@media (max-width: 599px) {
+  .opening.recipient-opening .age-inscription {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    gap: 8px;
+    margin-top: 4px;
+  }
+  .opening.recipient-opening .birthday-age {
+    font-size: 40px;
+  }
+  .opening.recipient-opening .birthday-word {
+    font-size: 34px;
+    margin: 0;
+  }
+}
+
+/* Finite recipient entrances only at the two ends of the invitation. */
+:root {
+  --guest-motion-duration: 1.1s;
+  --guest-rise: 6px;
+  --guest-rule-origin: center;
+}
+@media (max-width: 1023px) {
+  #footer .guest-closing .guest-closing-name {
+    font-size: 29px;
+    margin-bottom: 6px;
+  }
+  #footer .guest-closing .guest-closing-message {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+  #footer .guest-closing-name::after {
+    margin: 6px auto;
+  }
 }

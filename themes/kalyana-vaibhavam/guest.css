@@ -16,3 +16,10 @@
   background: #f0da9b;
   border: 3px double #a86c16;
 }
+
+/* Finite recipient entrances only at the two ends of the invitation. */
+:root {
+  --guest-motion-duration: 1.25s;
+  --guest-rise: 6px;
+  --guest-rule-origin: center;
+}
