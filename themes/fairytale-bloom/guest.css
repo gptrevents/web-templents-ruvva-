@@ -1,0 +1,40 @@
+@import url("../../shared/recipient.css");
+:root {
+  --guest-accent: #a9244b;
+  --guest-paper: #fff8f1;
+}
+.personal-invitation {
+  border: 1px solid #deb2b1;
+  border-radius: 90px 90px 14px 14px/25px 25px 14px 14px;
+  background: linear-gradient(125deg, #fff8f1, #fbe7e4);
+  box-shadow: 0 5px 0 #f0d5ce;
+}
+.personal-invitation .guest-seal {
+  background: #f7d9dd;
+  border-color: #cd8c9e;
+}
+.recipient-opening .guest-eyebrow {
+  display: none;
+}
+.recipient-opening .guest-display {
+  font-size: 22px;
+}
+.recipient-opening .guest-party {
+  font-size: 11px;
+}
+.recipient-opening .guest-address {
+  margin: 3px auto;
+}
+@media (min-width: 1024px) {
+  .recipient-opening .guest-display {
+    font-size: 32px;
+  }
+  .recipient-opening .guest-party {
+    font-size: 13px;
+  }
+}
+/* Keep live closing text in the painting's clearings; the art-motion layer sets wraps relative. */
+@media (max-width: 1023px) {
+  .footer > .wrap { position: absolute; width: auto; }
+  .closing-note .guest-closing { font: italic 17px/1.6 var(--f-display); margin: 0; }
+}

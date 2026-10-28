@@ -275,3 +275,12 @@ See `shared/README.md`, `shared/vendor/LICENSES.md`, `tools/blessings-report.txt
 current screenshot/check reports for verification. Pre-existing Sannidhi/Kalyana image
 budget overruns remain documented in their artwork notes; this task does not claim those
 image targets pass. Runtime JS/CSS budgets include shared modules and the QR encoder.
+
+
+## Guest personalization rollout — 28 October 2026
+
+User-approved multi-theme rollout of the reviewed Griha Mangalam pilot; shared recipient behavior is centralized in `shared/recipient.js` (the original pilot remains unchanged). Theme-specific artwork and composition live in `guest-art.js` and `guest.css`.
+
+Treatment: storybook; This chapter would be sweeter with you. Four touchpoints: opening, personal letter, editable RSVP, attendance-aware closing. Names remain live Indic-safe text; decorative monogram uses the first Unicode grapheme. Optional party and private note follow the pilot contract. URL values are display-only, not authenticated identity; no backend or verified RSVP persistence is introduced. No new bitmap or font assets.
+
+Validation results are recorded in `GUEST_REVIEW.md`.

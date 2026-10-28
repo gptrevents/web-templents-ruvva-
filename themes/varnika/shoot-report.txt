@@ -1,6 +1,6 @@
 
-phone: 16 screenshots, page height 10139px
-desktop: 16 screenshots, page height 10753px
+phone: 18 screenshots, page height 12067px
+desktop: 18 screenshots, page height 12321px
 width 360×740: scrollWidth 360 ok
 width 390×844: scrollWidth 390 ok
 width 844×390: scrollWidth 844 ok

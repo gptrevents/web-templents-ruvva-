@@ -1,3 +1,5 @@
+import { createRecipient, mountRecipient } from "../../shared/recipient.js";
+import { makeGuestLetter } from "./guest-art.js";
 import { mountArtMotion } from "./art-motion.js";
 import { buildWishbook } from "./wishbook.js";
 import {
@@ -42,6 +44,30 @@ import {
 const COPY = {
   en: {
     ...BLESSINGS_COPY,
+    guestEyebrow: "An invitation especially for",
+    guestFamily: "Together with your family",
+    guestCouple: "Together with your partner",
+    guestNoteTitle: "A little magic, especially for you",
+    guestMessage:
+      "A magical birthday is lovelier with the people who make us smile. We would be so happy to share this special day with you.",
+    guestRsvpQuestion: "will you join us?",
+    guestClosingWaiting: "we look forward to welcoming you.",
+    guestClosingYes: "we are so happy you will be joining us.",
+    guestClosingNo: "thank you for letting us know. You will be missed.",
+    guestClosingMaybe: "thank you for your reply. We hope you can make it.",
+    guestThanksPrefix: "Thank you, ",
+    guestThanksEnd: "!",
+    guestCorrect: "Not you? Update guest details",
+    guestAdd: "Add your name to this invitation",
+    guestEditTitle: "Who is joining us?",
+    guestEditName: "Your name",
+    guestEditParty: "Invitation for",
+    guestPartyChoices: ["Just me", "Me and my partner", "Me and my family"],
+    guestApply: "Use these details",
+    guestCancel: "Cancel",
+    guestClear: "Continue without a personal name",
+    guestNameError: "Please enter your name.",
+
     storyLabels: [
       "My First Smile",
       "First Steps",
@@ -301,6 +327,7 @@ function section(id, title, eyebrow) {
   return s;
 }
 function renderInvitation(root, d, ctx) {
+  ctx.recipient = createRecipient(d, ctx, COPY.en);
   ctx.lang = Object.hasOwn(LOCALE, ctx.lang) ? ctx.lang : "en";
   document.documentElement.lang = ctx.lang;
   document.body.dataset.faith = d.faithId || "none";
@@ -333,6 +360,7 @@ function renderInvitation(root, d, ctx) {
     if (n) content.append(n);
   });
   root.append(buildEnvelope(d, COPY.en, ctx));
+  mountRecipient(root, ctx, COPY.en, makeGuestLetter);
   initializeReveals(
     root,
     ".section-head,.person,.event-card,.photo,.memory-polaroid,.blessing-copy,.rsvp-form,.bless-content",
@@ -592,7 +620,7 @@ function buildRsvp(d, c, ctx) {
     d.name1 ? d.name1 + c.possessive + " " + c.specialDay : c.specialDay,
   );
   w.querySelector(".section-head").append(title);
-  const f = createRsvpForm(d, c, { ornament });
+  const f = createRsvpForm(d, (ctx.recipientFormCopy = { ...c }), { ornament });
   addRsvpBlessingLink(f, d, c);
   w.append(f);
   if (!d.name2 && !d.rsvp.askEvents && !d.rsvp.askDiet) {

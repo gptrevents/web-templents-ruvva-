@@ -201,3 +201,12 @@ The user asked for visibly animated artwork at the sides while keeping both desi
 The strokes draw in, then slowly breathe with travelling highlights. Scroll adds a bounded vertical drift, smaller on phones. The center is masked clear, photos remain opaque above the artwork, and forms/maps automatically lower the margin opacity. The artwork also appears at the welcome screen. It never receives taps or focus and is hidden from accessibility APIs. Gallery and hidden-tab states pause the decorative loops; reduced motion shows completed static artwork with no drift. Existing section geometry was compared against pre-edit captures at 390/1440 and remains unchanged.
 
 `tools/check-minimal-margin-art.mjs` checks actual motion, scroll movement, visible edge pixels, a clear center, form hit targets, reduced-motion and hidden/gallery pause, nine viewport widths and the full runtime budget. Its optional RUVVA_MARGIN_BASELINE environment variable accepts a pre-edit geometry capture; without that file it verifies that removing the decorative layer does not affect section layout. `node tools/shoot.mjs epure` is run again for the required screenshots and fixtures. See tools/minimal-margin-art-report.txt and screenshots/margin-art for the result.
+
+
+## Guest personalization rollout — 28 October 2026
+
+User-approved multi-theme rollout of the reviewed Griha Mangalam pilot; shared recipient behavior is centralized in `shared/recipient.js` (the original pilot remains unchanged). Theme-specific artwork and composition live in `guest-art.js` and `guest.css`.
+
+Treatment: letterpress; A letter, just for you. Four touchpoints: opening, personal letter, editable RSVP, attendance-aware closing. Names remain live Indic-safe text; decorative monogram uses the first Unicode grapheme. Optional party and private note follow the pilot contract. URL values are display-only, not authenticated identity; no backend or verified RSVP persistence is introduced. No new bitmap or font assets.
+
+Validation results are recorded in `GUEST_REVIEW.md`.

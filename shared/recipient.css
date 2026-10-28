@@ -1,0 +1,240 @@
+/* Shared recipient behavior, theme-local visual treatment. */
+.guest-address {
+  letter-spacing: normal !important;
+  text-transform: none !important;
+  font-style: normal;
+  overflow-wrap: anywhere;
+  max-width: 100%;
+  line-height: 1.35;
+}
+.guest-eyebrow {
+  display: block;
+  font: 12px/1.5 var(--f-body);
+  color: inherit;
+}
+.guest-display {
+  display: block;
+  font: 500 clamp(22px, 5.8vw, 32px) / 1.35 var(--guest-font, var(--f-display));
+  padding: 0.12em 0.08em;
+  margin: -0.12em -0.08em;
+  color: inherit;
+  overflow-wrap: anywhere;
+  letter-spacing: normal;
+  text-transform: none;
+}
+.guest-party {
+  display: block;
+  font: 12px/1.5 var(--f-body);
+  margin-top: 2px;
+}
+.guest-address:not(.has-recipient) .guest-display {
+  font-size: inherit;
+}
+.recipient-long .guest-display {
+  font-size: 20px;
+}
+.recipient-opening .guest-address {
+  margin-block: 8px;
+}
+.personal-invitation {
+  position: relative;
+  isolation: isolate;
+  clear: both;
+  grid-column: 1/-1;
+  width: 100%;
+  max-width: 660px;
+  margin: 38px auto 10px;
+  padding: 32px 24px;
+  background: var(--guest-paper);
+  color: var(--ink);
+  border: 1px solid var(--guest-line, var(--line));
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+.personal-invitation .guest-crest {
+  display: block;
+  position: relative;
+  width: 150px;
+  height: 60px;
+  margin: 0 auto 18px;
+  stroke: var(--guest-accent);
+  stroke-width: 1;
+  fill: none;
+  overflow: visible;
+}
+.personal-invitation .guest-note-label {
+  font: 13px/1.6 var(--f-body);
+  color: var(--guest-accent);
+  margin: 0 0 16px;
+}
+.personal-invitation .guest-note-name {
+  font: 500 clamp(29px, 7vw, 43px) / 1.4 var(--guest-font, var(--f-display));
+  color: var(--guest-accent);
+  padding: 0.12em 0.08em;
+  margin: -0.12em -0.08em 18px;
+  letter-spacing: normal;
+  text-transform: none;
+  overflow-wrap: anywhere;
+}
+.personal-invitation .guest-note-copy {
+  font: 17px/1.8 var(--f-body);
+  max-width: 480px;
+  margin: auto;
+  color: var(--ink);
+}
+.personal-invitation .guest-note {
+  font: italic 18px/1.7 var(--f-body);
+  white-space: pre-line;
+  margin: 20px auto 0;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
+.personal-invitation .guest-seal {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  margin: 22px auto 0;
+  border: 1px solid var(--guest-accent);
+  border-radius: 50%;
+  color: var(--guest-accent);
+  font: 24px/1.4 var(--guest-font, var(--f-display));
+}
+.recipient-correction {
+  grid-column: 1/-1;
+  max-width: 660px;
+  width: 100%;
+  margin: 0 auto 24px;
+  text-align: center;
+}
+.guest-edit-toggle,
+.guest-edit-actions button {
+  min-height: 44px;
+  cursor: pointer;
+}
+.guest-editor {
+  display: grid;
+  gap: 10px;
+  padding: 20px;
+  border: 1px solid var(--line);
+  background: var(--guest-paper);
+  color: var(--ink);
+  text-align: left;
+}
+.guest-editor h3 {
+  font: 500 25px/1.4 var(--guest-font, var(--f-display));
+  margin: 0 0 10px;
+  color: var(--guest-accent);
+}
+.guest-editor label {
+  font: 14px/1.5 var(--f-body);
+}
+.guest-editor input,
+.guest-editor select {
+  width: 100%;
+  min-height: 46px;
+  padding: 10px;
+  border: 1px solid var(--line);
+  background: var(--guest-paper);
+  color: var(--ink);
+  font: 16px/1.4 var(--f-body);
+}
+.guest-edit-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+.guest-edit-actions .text-link,
+.guest-edit-toggle {
+  font: 13px/1.5 var(--f-body);
+}
+#rsvp.guest-rsvp h2 {
+  font-family: var(--guest-font, var(--f-display));
+  font-style: normal;
+  letter-spacing: normal;
+  text-transform: none;
+  font-size: clamp(28px, 5vw, 46px);
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+.guest-closing {
+  font: 20px/1.7 var(--guest-font, var(--f-display));
+  padding: 0.12em;
+  max-width: 640px;
+  margin: 18px auto;
+  overflow-wrap: anywhere;
+  letter-spacing: normal;
+  text-transform: none;
+}
+.guest-editor[hidden],
+.personal-invitation[hidden],
+.guest-closing[hidden],
+.guest-note[hidden],
+.guest-address [hidden] {
+  display: none !important;
+}
+html:not([lang="en"]) .guest-eyebrow,
+html:not([lang="en"]) .guest-party,
+html:not([lang="en"]) .guest-note-label {
+  font-size: 14px;
+}
+@media (min-width: 600px) {
+  .personal-invitation {
+    padding: 40px 45px;
+  }
+  .guest-closing {
+    font-size: 23px;
+  }
+  .guest-display {
+    font-size: 34px;
+  }
+  .recipient-long .guest-display {
+    font-size: 26px;
+  }
+}
+@media (min-width: 1024px) {
+  .personal-invitation {
+    padding: 46px 60px;
+  }
+  .guest-display {
+    font-size: 38px;
+  }
+  .recipient-long .guest-display {
+    font-size: 30px;
+  }
+  .guest-closing {
+    font-size: 25px;
+  }
+}
+@media (max-height: 500px) {
+  .guest-eyebrow,
+  .guest-party {
+    font-size: 11px;
+  }
+  .guest-display {
+    font-size: 22px;
+  }
+  .recipient-opening .guest-address {
+    margin-block: 3px;
+  }
+  .recipient-long .guest-display {
+    font-size: 18px;
+  }
+}
+
+.section-head > .recipient-correction {
+  margin-top: 18px;
+  order: 3;
+}
+/* Quiet inline controls inherit the invitation palette, not browser button chrome. */
+.guest-edit-toggle,
+.guest-edit-actions .text-link {
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  background: transparent;
+  color: var(--guest-accent);
+  padding: 8px 0;
+}

@@ -1,0 +1,32 @@
+@import url("../../shared/recipient.css");
+:root {
+  --guest-accent: #d2baa6;
+  --guest-paper: #20292d;
+}
+:root {
+  --guest-font: Georgia, serif;
+}
+.personal-invitation {
+  border: 0;
+  border-left: 1px solid var(--copper);
+  background: linear-gradient(120deg, #263136, #182125);
+  text-align: left;
+}
+.personal-invitation .guest-crest {
+  margin-left: 0;
+}
+.personal-invitation .guest-note-copy {
+  margin-left: 0;
+}
+.personal-invitation .guest-seal {
+  border-radius: 0;
+}
+.guest-address {
+  text-align: right;
+}
+@media (min-width: 600px) {
+  .guest-address {
+    max-width: 50%;
+  }
+}
+.footer-bottom > .guest-closing { font: 18px/1.7 var(--guest-font); max-width: 65%; margin: 0; }

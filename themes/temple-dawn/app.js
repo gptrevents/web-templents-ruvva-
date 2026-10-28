@@ -1,3 +1,5 @@
+import { createRecipient, mountRecipient } from "../../shared/recipient.js";
+import { makeGuestLetter } from "./guest-art.js";
 import {
   BLESSINGS_COPY,
   validGifts,
@@ -41,6 +43,30 @@ import {
 const COPY = {
   en: {
     ...BLESSINGS_COPY,
+    guestEyebrow: "An invitation especially for",
+    guestFamily: "Together with your family",
+    guestCouple: "Together with your partner",
+    guestNoteTitle: "With blessings, an invitation for you",
+    guestMessage:
+      "We would be honoured by your presence as we begin a new chapter surrounded by the people we cherish.",
+    guestRsvpQuestion: "will you join us?",
+    guestClosingWaiting: "we look forward to welcoming you.",
+    guestClosingYes: "we are so happy you will be joining us.",
+    guestClosingNo: "thank you for letting us know. You will be missed.",
+    guestClosingMaybe: "thank you for your reply. We hope you can make it.",
+    guestThanksPrefix: "Thank you, ",
+    guestThanksEnd: "!",
+    guestCorrect: "Not you? Update guest details",
+    guestAdd: "Add your name to this invitation",
+    guestEditTitle: "Who is joining us?",
+    guestEditName: "Your name",
+    guestEditParty: "Invitation for",
+    guestPartyChoices: ["Just me", "Me and my partner", "Me and my family"],
+    guestApply: "Use these details",
+    guestCancel: "Cancel",
+    guestClear: "Continue without a personal name",
+    guestNameError: "Please enter your name.",
+
     loadFailure:
       "The invitation could not be loaded. Please refresh to try again.",
     closing: "With love and gratitude",
@@ -199,6 +225,7 @@ function section(id, title, eyebrow) {
   return s;
 }
 function renderInvitation(root, data, ctx) {
+  ctx.recipient = createRecipient(data, ctx, COPY.en);
   ctx.lang = LOCALE[ctx.lang] ? ctx.lang : "en";
   document.documentElement.lang = ctx.lang;
   document.body.setAttribute("data-faith", data.faithId || "none");
@@ -234,6 +261,7 @@ function renderInvitation(root, data, ctx) {
     const n = fn(data, c, ctx);
     if (n) root.append(n);
   });
+  mountRecipient(root, ctx, COPY.en, makeGuestLetter);
   initializeReveals(root, ".section .wrap,.person,.event-card", 0.08);
   initControls(root);
   initializeMotion(root);
@@ -556,10 +584,10 @@ function buildLiveStream(d, c) {
   add(s.firstChild, illustration, text, link(c.watch, url));
   return s;
 }
-function buildRsvp(d, c) {
+function buildRsvp(d, c, ctx) {
   if (!d.rsvp?.enabled) return null;
   const s = section("rsvp", c.rsvp, c.rsvpSub);
-  const form = createRsvpForm(d, c, { ornament });
+  const form = createRsvpForm(d, (ctx.recipientFormCopy = { ...c }), { ornament });
   addRsvpBlessingLink(form, d, c);
   s.firstChild.append(form);
   return s;

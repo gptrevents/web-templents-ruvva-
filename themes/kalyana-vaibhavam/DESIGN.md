@@ -287,3 +287,12 @@ budget overruns remain documented in their artwork notes; this task does not cla
 image targets pass. Runtime JS/CSS budgets include shared modules and the QR encoder.
 
 Opening frame audit found the fixed cover's paper background hiding the already-decoded hero while its child card pivoted. The opening-away cover now becomes transparent; the artwork, pivot motion and settled layout remain unchanged.
+
+
+## Guest personalization rollout — 28 October 2026
+
+User-approved multi-theme rollout of the reviewed Griha Mangalam pilot; shared recipient behavior is centralized in `shared/recipient.js` (the original pilot remains unchanged). Theme-specific artwork and composition live in `guest-art.js` and `guest.css`.
+
+Treatment: lotus; A personal invitation, with blessings. Four touchpoints: opening, personal letter, editable RSVP, attendance-aware closing. Names remain live Indic-safe text; decorative monogram uses the first Unicode grapheme. Optional party and private note follow the pilot contract. URL values are display-only, not authenticated identity; no backend or verified RSVP persistence is introduced. No new bitmap or font assets.
+
+Validation results are recorded in `GUEST_REVIEW.md`.

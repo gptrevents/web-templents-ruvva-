@@ -1,0 +1,16 @@
+@import url("../../shared/recipient.css");
+:root {
+  --guest-accent: #826126;
+  --guest-paper: #fff9ed;
+}
+.personal-invitation {
+  border-radius: 130px 130px 0 0/50px 50px 0 0;
+  border: 1px solid #b59a6b;
+  border-bottom: 5px double #b59a6b;
+}
+.personal-invitation .guest-crest {
+  height: 65px;
+}
+.personal-invitation .guest-seal {
+  background: #f1e3c9;
+}

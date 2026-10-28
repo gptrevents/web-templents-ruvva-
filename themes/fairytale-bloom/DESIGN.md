@@ -204,3 +204,12 @@ The transparent bouquet painting is drawn for a bottom-right corner. The user id
 
 ## Art and motion refinement — October 26, 2026
 User explicitly requested the two housewarming and two birthday themes together, overriding the usual single-theme task scope. Existing layouts/content/shared behaviors remain intact. Middle chapters now have actual transparent side artwork, asymmetric placement, soft artwork watermarks, visible phone-safe breeze and scroll depth; birthday butterflies articulate their wings, housewarming lights breathe. The artwork pauses offscreen/in hidden documents and becomes static under reduced motion. Opening/closing paintings retain their established composition. New scene-owned margins replace the tiny faded fixed birthday edges and isolated modern top corners. Each theme keeps its own artwork and motion timing. Validation follows in ART_MOTION_REVIEW.md.
+
+
+## Guest personalization rollout — 28 October 2026
+
+User-approved multi-theme rollout of the reviewed Griha Mangalam pilot; shared recipient behavior is centralized in `shared/recipient.js` (the original pilot remains unchanged). Theme-specific artwork and composition live in `guest-art.js` and `guest.css`.
+
+Treatment: fairytale; A little magic, especially for you. Four touchpoints: opening, personal letter, editable RSVP, attendance-aware closing. Names remain live Indic-safe text; decorative monogram uses the first Unicode grapheme. Optional party and private note follow the pilot contract. URL values are display-only, not authenticated identity; no backend or verified RSVP persistence is introduced. No new bitmap or font assets.
+
+Validation results are recorded in `GUEST_REVIEW.md`.
