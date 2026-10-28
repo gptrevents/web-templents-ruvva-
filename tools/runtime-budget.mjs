@@ -16,12 +16,20 @@ export async function runtimeBudget(id) {
     ))
       await script(path.resolve(path.dirname(file), m[1]));
   }
+  async function stylesheet(file) {
+    if (cssFiles.has(file)) return;
+    cssFiles.add(file);
+    const source = await readFile(file, "utf8");
+    for (const m of source.matchAll(/@import\s+(?:url\(\s*)?["']([^"']+)["']/g))
+      if (!/^(?:https?:|data:|\/\/)/.test(m[1]))
+        await stylesheet(path.resolve(path.dirname(file), m[1].split("?")[0]));
+  }
   for (const m of html.matchAll(/<script[^>]*src="([^"]+)"/g))
     await script(path.resolve(folder, m[1].split("?")[0]));
   for (const m of html.matchAll(
     /<link[^>]*rel="stylesheet"[^>]*href="([^"]+)"/g,
   ))
-    if (!/^https?:/.test(m[1])) cssFiles.add(path.resolve(folder, m[1]));
+    if (!/^https?:/.test(m[1])) await stylesheet(path.resolve(folder, m[1]));
   const sum = async (files) =>
     (
       await Promise.all(

@@ -1,0 +1,109 @@
+/* Only the opening and closing recipient names receive these finite effects. */
+#footer .guest-closing .guest-closing-name {
+  display: block;
+  font: 500 clamp(30px, 7.8vw, 38px) / 1.35 var(--guest-font, var(--f-display));
+  letter-spacing: normal;
+  text-transform: none;
+  overflow-wrap: anywhere;
+  padding: 0.15em 0.1em;
+  margin: -0.15em -0.1em 10px;
+}
+#footer .guest-closing .guest-closing-message {
+  display: block;
+  font: 400 17px/1.7 var(--f-body);
+  letter-spacing: normal;
+  text-transform: none;
+  overflow-wrap: anywhere;
+}
+.opening .guest-display.guest-name-enter,
+#footer .guest-name-enter .guest-closing-name {
+  animation: guest-name-arrival var(--guest-motion-duration, 1.1s)
+    cubic-bezier(0.2, 0.75, 0.25, 1) both;
+}
+.opening .guest-display.guest-name-enter::after,
+#footer .guest-closing-name::after {
+  content: "";
+  display: block;
+  width: var(--guest-rule-width, 96px);
+  max-width: 70%;
+  height: 1px;
+  margin: 12px auto 6px;
+  background: currentColor;
+  opacity: 0.55;
+  transform-origin: var(--guest-rule-origin, center);
+}
+.opening .guest-display.guest-name-enter::after,
+#footer .guest-name-enter .guest-closing-name::after {
+  animation: guest-rule-arrival var(--guest-motion-duration, 1.1s) 0.15s
+    cubic-bezier(0.2, 0.75, 0.25, 1) both;
+}
+#footer .guest-name-enter .guest-closing-message {
+  animation: guest-name-arrival 0.8s 0.18s ease-out both;
+}
+.guest-motion-paused .guest-name-enter,
+.guest-motion-paused .guest-name-enter::after,
+.guest-motion-paused .guest-name-enter .guest-closing-name,
+.guest-motion-paused .guest-name-enter .guest-closing-name::after,
+.guest-motion-paused .guest-name-enter .guest-closing-message {
+  animation-play-state: paused;
+}
+@keyframes guest-name-arrival {
+  from {
+    opacity: 0.55;
+    translate: 0 var(--guest-rise, 6px);
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+@keyframes guest-rule-arrival {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+@media (min-width: 1024px) {
+  #footer .guest-closing .guest-closing-name {
+    font-size: 44px;
+  }
+  #footer .guest-closing .guest-closing-message {
+    font-size: 18px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .opening .guest-display.guest-name-enter,
+  .opening .guest-display.guest-name-enter::after,
+  #footer .guest-name-enter .guest-closing-name,
+  #footer .guest-name-enter .guest-closing-name::after,
+  #footer .guest-name-enter .guest-closing-message {
+    animation: none !important;
+    opacity: 1;
+    translate: none;
+    transform: none;
+  }
+}
+#footer .guest-closing-name[hidden] {
+  display: none !important;
+}
+#footer .guest-closing[data-long-guest="true"] .guest-closing-name {
+  font-size: 26px;
+}
+@media (min-width: 1024px) {
+  #footer .guest-closing[data-long-guest="true"] .guest-closing-name {
+    font-size: 36px;
+  }
+}
+/* The opening hairline occupies the existing gap; it must not push the host copy over artwork. */
+.opening .guest-display.guest-name-enter {
+  position: relative;
+}
+.opening .guest-display.guest-name-enter::after {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+  margin: 0 auto;
+}

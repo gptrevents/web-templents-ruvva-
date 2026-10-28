@@ -1,3 +1,7 @@
+import {
+  createGuestClosing,
+  setGuestClosing,
+} from "../../shared/recipient-motion.js";
 import { el, add, button, svg } from "../../shared/core.js";
 const text = (v, max = 160) =>
   typeof v === "string"
@@ -245,7 +249,7 @@ export function personalizeRsvp(section, form, recipient, c, formCopy) {
   section.querySelector(".rsvp-intro").after(details);
 }
 export function closingMessage(recipient, c) {
-  const p = el("p", "closing-copy guest-closing");
+  const p = createGuestClosing("closing-copy guest-closing");
   recipient.bind(() => {
     const response = recipient.state.response;
     const message =
@@ -256,9 +260,11 @@ export function closingMessage(recipient, c) {
           : response === "maybe"
             ? c.guestClosingMaybe
             : c.guestClosingWaiting;
-    p.textContent = recipient.state.name
-      ? recipient.display + ", " + message
-      : c.closingHome;
+    setGuestClosing(
+      p,
+      recipient.display,
+      recipient.state.name ? message : c.closingHome,
+    );
   });
   return p;
 }

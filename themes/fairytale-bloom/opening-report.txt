@@ -1,0 +1,7 @@
+fairytale-bloom 390: 40px guest; 28px hosts; four touchpoints PASS
+fairytale-bloom 1440: 64px guest; 52px hosts; four touchpoints PASS
+fairytale-bloom 320: 40px guest; 28px hosts; four touchpoints PASS
+fairytale-bloom 820: 52px guest; 46px hosts; four touchpoints PASS
+fairytale-bloom 844: 32px guest; 26px hosts; four touchpoints PASS
+fairytale-bloom telugu: long guest name and family line are unclipped PASS
+fairytale-bloom long: long guest name and family line are unclipped PASS

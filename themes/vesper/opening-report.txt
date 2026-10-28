@@ -1,0 +1,7 @@
+vesper 390: 42.9px guest; 32px hosts; four touchpoints PASS
+vesper 1440: 80px guest; 52px hosts; four touchpoints PASS
+vesper 320: 38px guest; 32px hosts; four touchpoints PASS
+vesper 820: 58px guest; 40px hosts; four touchpoints PASS
+vesper 844: 34px guest; 26px hosts; four touchpoints PASS
+vesper telugu: long guest name and family line are unclipped PASS
+vesper long: long guest name and family line are unclipped PASS

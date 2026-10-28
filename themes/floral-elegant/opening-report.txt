@@ -1,0 +1,7 @@
+floral-elegant 390: 42.9px guest; 28px hosts; four touchpoints PASS
+floral-elegant 1440: 80px guest; 52px hosts; four touchpoints PASS
+floral-elegant 320: 38px guest; 28px hosts; four touchpoints PASS
+floral-elegant 820: 58px guest; 46px hosts; four touchpoints PASS
+floral-elegant 844: 34px guest; 26px hosts; four touchpoints PASS
+floral-elegant telugu: long guest name and family line are unclipped PASS
+floral-elegant long: long guest name and family line are unclipped PASS

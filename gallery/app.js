@@ -14,7 +14,8 @@ const COPY = {
     all: "All styles",
     searchLabel: "Search templates",
     searchPlaceholder: "Search the collection",
-    preview: "Open preview",
+    preview: "Open personalized preview",
+    demoGuest: "Kiran Garu",
     previewLabel: "Open the {title} invitation preview",
     screens: "Designed for every screen",
     empty: "No invitations match your search. Try another style or name.",
@@ -67,7 +68,15 @@ function image(src, className) {
 }
 function card(theme, index) {
   const item = el("article", "theme-card");
-  const url = localPath(`themes/${theme.id}/`),
+  const previewUrl = new URL(localPath(`themes/${theme.id}/`));
+  const params = new URLSearchParams(location.search);
+  previewUrl.searchParams.set("g", params.get("g")?.trim() || copy.demoGuest);
+  const party = params.get("party");
+  previewUrl.searchParams.set(
+    "party",
+    ["individual", "couple", "family"].includes(party) ? party : "family",
+  );
+  const url = previewUrl.href,
     label = copy.previewLabel.replace("{title}", theme.title);
   const preview = el("a", "preview");
   preview.href = url;

@@ -1,0 +1,7 @@
+storybook-garden 390: 42.9px guest; 32px hosts; four touchpoints PASS
+storybook-garden 1440: 80px guest; 48px hosts; four touchpoints PASS
+storybook-garden 320: 38px guest; 32px hosts; four touchpoints PASS
+storybook-garden 820: 58px guest; 32px hosts; four touchpoints PASS
+storybook-garden 844: 34px guest; 32px hosts; four touchpoints PASS
+storybook-garden telugu: long guest name and family line are unclipped PASS
+storybook-garden long: long guest name and family line are unclipped PASS

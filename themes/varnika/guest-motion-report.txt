@@ -1,0 +1,3 @@
+390: opening/closing only; finite entrance + rule, larger closing name, no replay/overflow/errors PASS
+1440: opening/closing only; finite entrance + rule, larger closing name, no replay/overflow/errors PASS
+320 Telugu name wraps; reduced motion fully static PASS

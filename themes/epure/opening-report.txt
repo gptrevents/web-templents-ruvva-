@@ -1,0 +1,7 @@
+epure 390: 42.9px guest; 29px hosts; four touchpoints PASS
+epure 1440: 80px guest; 54px hosts; four touchpoints PASS
+epure 320: 38px guest; 29px hosts; four touchpoints PASS
+epure 820: 58px guest; 32.8px hosts; four touchpoints PASS
+epure 844: 34px guest; 28px hosts; four touchpoints PASS
+epure telugu: long guest name and family line are unclipped PASS
+epure long: long guest name and family line are unclipped PASS

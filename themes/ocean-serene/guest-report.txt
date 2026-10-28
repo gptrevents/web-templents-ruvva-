@@ -1,0 +1,11 @@
+390: named opening, letter, editable RSVP, successful reply and closing; no overflow/page errors PASS
+820: named opening, letter, editable RSVP, successful reply and closing; no overflow/page errors PASS
+1440: named opening, letter, editable RSVP, successful reply and closing; no overflow/page errors PASS
+320: named opening, letter, editable RSVP, successful reply and closing; no overflow/page errors PASS
+844: named opening, letter, editable RSVP, successful reply and closing; no overflow/page errors PASS
+Long Telugu name: first grapheme, wrapping and no overflow PASS
+URL markup rendered as text PASS
+Generic fallback has no letter, no named closing and blank RSVP PASS
+Failed callback retains input/waiting closing; No/Maybe retry changes closing only on success PASS
+Structured name/honorific/family/long note; changed identity clears old note; generic reset PASS
+Dependency-inclusive gzip: JS 29956/60000 B; CSS 17023/25000 B PASS

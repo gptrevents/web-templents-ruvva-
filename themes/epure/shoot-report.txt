@@ -1,0 +1,17 @@
+
+phone: 19 screenshots, page height 12325px
+desktop: 21 screenshots, page height 14633px
+width 360×740: scrollWidth 360 ok
+width 390×844: scrollWidth 390 ok
+width 844×390: scrollWidth 844 ok
+width 820×1180: scrollWidth 820 ok
+width 1280×800: scrollWidth 1280 ok
+width 1440×900: scrollWidth 1440 ok
+width 1920×1080: scrollWidth 1920 ok
+sample empty: ok
+sample birthday: ok
+sample telugu: ok
+guest-name injection: ok (shown as text)
+reduced motion: screenshot saved (check it by eye)
+
+Automatic checks passed. Now do the manual checks in brief section 10.

@@ -1,0 +1,7 @@
+evergreen-home 390: 40px guest; 14px hosts; four touchpoints PASS
+evergreen-home 1440: 64px guest; 24px hosts; four touchpoints PASS
+evergreen-home 320: 40px guest; 12px hosts; four touchpoints PASS
+evergreen-home 820: 52px guest; 20px hosts; four touchpoints PASS
+evergreen-home 844: 32px guest; 12px hosts; four touchpoints PASS
+evergreen-home telugu: long guest name and family line are unclipped PASS
+evergreen-home long: long guest name and family line are unclipped PASS

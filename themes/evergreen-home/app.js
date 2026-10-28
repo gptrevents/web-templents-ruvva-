@@ -1,3 +1,5 @@
+import { createRecipient, mountRecipient } from "../../shared/recipient.js";
+import { makeGuestLetter } from "./guest-art.js";
 import { mountArtMotion } from "./art-motion.js";
 import {
   BLESSINGS_COPY,
@@ -42,6 +44,30 @@ import {
 const COPY = {
   en: {
     ...BLESSINGS_COPY,
+    guestEyebrow: "An invitation especially for",
+    guestFamily: "Together with your family",
+    guestCouple: "Together with your partner",
+    guestNoteTitle: "A welcome written just for you",
+    guestMessage:
+      "A house becomes a home through the people who fill it with love. We would be delighted to welcome you to our new beginning.",
+    guestRsvpQuestion: "will you join us?",
+    guestClosingWaiting: "we look forward to welcoming you.",
+    guestClosingYes: "we are so happy you will be joining us.",
+    guestClosingNo: "thank you for letting us know. You will be missed.",
+    guestClosingMaybe: "thank you for your reply. We hope you can make it.",
+    guestThanksPrefix: "Thank you, ",
+    guestThanksEnd: "!",
+    guestCorrect: "Not you? Update guest details",
+    guestAdd: "Add your name to this invitation",
+    guestEditTitle: "Who is joining us?",
+    guestEditName: "Your name",
+    guestEditParty: "Invitation for",
+    guestPartyChoices: ["Just me", "Me and my partner", "Me and my family"],
+    guestApply: "Use these details",
+    guestCancel: "Cancel",
+    guestClear: "Continue without a personal name",
+    guestNameError: "Please enter your name.",
+
     newBeginning: "You are cordially invited",
     houseTitle: "Housewarming Celebration",
     homeTitle: "New Home",
@@ -700,13 +726,13 @@ function buildLiveStream(d, c) {
   add(s.firstChild, icon("play"), text, link(c.watch, url));
   return s;
 }
-function buildRsvp(d, c) {
+function buildRsvp(d, c, ctx) {
   if (!d.rsvp?.enabled) return null;
   const s = section("rsvp", c.rsvp),
     w = s.firstChild;
   w.querySelector(".section-head").prepend(icon("housewarming"));
   w.append(el("p", "rsvp-intro", c.presenceIntro));
-  const form = createRsvpForm(d, c, { ornament });
+  const form = createRsvpForm(d, (ctx.recipientFormCopy = { ...c }), { ornament });
   addRsvpBlessingLink(form, d, c);
   w.append(form);
   const warm = el("div", "warm-wishes");
@@ -868,6 +894,7 @@ function initializeStoryMotion(root) {
   });
 }
 function renderInvitation(root, d, ctx) {
+  ctx.recipient = createRecipient(d, ctx, COPY.en);
   ctx.lang = Object.hasOwn(LOCALE, ctx.lang) ? ctx.lang : "en";
   document.documentElement.lang = ctx.lang;
   document.body.dataset.faith = d.faithId || "none";
@@ -910,6 +937,7 @@ function renderInvitation(root, d, ctx) {
     if (n) content.append(n);
   });
   root.append(buildEnvelope(d, COPY.en, ctx));
+  mountRecipient(root, ctx, COPY.en, makeGuestLetter);
   initializeReveals(
     root,
     ".section-head,.person,.event-card,.home-portrait,.photo,.rsvp-form,.venue-grid",

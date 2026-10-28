@@ -1,0 +1,32 @@
+@import url("../../shared/recipient.css");
+:root {
+  --guest-accent: #234d3f;
+  --guest-paper: #fbf5e7;
+}
+.personal-invitation {
+  border: 0;
+  outline: 1px solid #b8a78a;
+  outline-offset: -9px;
+  clip-path: polygon(
+    20px 0,
+    calc(100% - 20px) 0,
+    100% 20px,
+    100% calc(100% - 20px),
+    calc(100% - 20px) 100%,
+    20px 100%,
+    0 calc(100% - 20px),
+    0 20px
+  );
+}
+.personal-invitation .guest-seal {
+  border-radius: 0;
+  border: 1px solid #945c35;
+  color: #945c35;
+}
+
+/* Finite recipient entrances only at the two ends of the invitation. */
+:root {
+  --guest-motion-duration: 1.1s;
+  --guest-rise: 6px;
+  --guest-rule-origin: center;
+}
