@@ -1,0 +1,7 @@
+kalyana-vaibhavam 390: 42.9px guest; 28px hosts; four touchpoints PASS
+kalyana-vaibhavam 1440: 80px guest; 52px hosts; four touchpoints PASS
+kalyana-vaibhavam 320: 38px guest; 28px hosts; four touchpoints PASS
+kalyana-vaibhavam 820: 58px guest; 46px hosts; four touchpoints PASS
+kalyana-vaibhavam 844: 34px guest; 26px hosts; four touchpoints PASS
+kalyana-vaibhavam telugu: long guest name and family line are unclipped PASS
+kalyana-vaibhavam long: long guest name and family line are unclipped PASS

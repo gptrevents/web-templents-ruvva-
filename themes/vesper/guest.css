@@ -29,4 +29,48 @@
     max-width: 50%;
   }
 }
-.footer-bottom > .guest-closing { font: 18px/1.7 var(--guest-font); max-width: 65%; margin: 0; }
+.footer-bottom > .guest-closing {
+  font: 18px/1.7 var(--guest-font);
+  max-width: 65%;
+  margin: 0;
+}
+
+/* The recipient now leads the editorial opening, rather than a small corner salutation. */
+.opening.recipient-opening .opening-top {
+  display: block;
+}
+.opening.recipient-opening .guest-address {
+  text-align: left;
+  margin: 20px 0 0;
+  max-width: 100%;
+}
+.opening.recipient-opening .opening-statement {
+  font-size: clamp(34px, 5vw, 76px);
+}
+@media (max-height: 500px) {
+  .opening.recipient-opening .opening-statement {
+    font-size: 28px;
+    padding-block: 8px;
+  }
+  .opening.recipient-opening .opening-copy {
+    gap: 14px;
+  }
+}
+.opening.recipient-opening .opening-names {
+  font-size: 32px;
+}
+@media (min-width: 600px) {
+  .opening.recipient-opening .opening-names {
+    font-size: 40px;
+  }
+}
+@media (min-width: 1024px) {
+  .opening.recipient-opening .opening-names {
+    font-size: 52px;
+  }
+}
+@media (max-height: 500px) {
+  .opening.recipient-opening .opening-names {
+    font-size: 26px;
+  }
+}

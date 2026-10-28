@@ -6,4 +6,3 @@ PASS 320: personal opening fits, four guest touchpoints, family label, RSVP pref
 PASS Telugu, long guest names and HTML injection rendered as safe text.
 PASS generic fallback, failed submission preserves waiting copy, decline/maybe success closing.
 PASS structured guest/honorific/party/note; corrected identity clears original note; generic reset.
-PASS letter refinement: 320px long Telugu guest name, attached vowel-sign seal initial and 600-character host note; no overflow.

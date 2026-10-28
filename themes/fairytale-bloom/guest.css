@@ -35,6 +35,57 @@
 }
 /* Keep live closing text in the painting's clearings; the art-motion layer sets wraps relative. */
 @media (max-width: 1023px) {
-  .footer > .wrap { position: absolute; width: auto; }
-  .closing-note .guest-closing { font: italic 17px/1.6 var(--f-display); margin: 0; }
+  .footer > .wrap {
+    position: absolute;
+    width: auto;
+  }
+  .closing-note .guest-closing {
+    font: italic 17px/1.6 var(--f-display);
+    margin: 0;
+  }
+}
+
+.opening.recipient-opening .guest-address {
+  margin: 8px auto 12px;
+}
+.opening.recipient-opening .guest-display {
+  font-size: 40px;
+}
+.opening.recipient-opening .guest-party {
+  font-size: 13px;
+}
+.opening.recipient-opening .invitation-title {
+  font-size: 30px;
+}
+@media (min-width: 600px) {
+  .opening.recipient-opening .guest-display {
+    font-size: 52px;
+  }
+  .opening.recipient-opening .invitation-title {
+    font-size: 40px;
+  }
+}
+@media (min-width: 1024px) {
+  .opening.recipient-opening .guest-display {
+    font-size: 64px;
+  }
+  .opening.recipient-opening .invitation-title {
+    font-size: 48px;
+  }
+}
+@media (max-height: 500px) {
+  .opening.recipient-opening .guest-display {
+    font-size: 32px;
+  }
+  .opening.recipient-opening .guest-address {
+    margin-block: 4px;
+  }
+  .opening.recipient-opening .invitation-title {
+    font-size: 26px;
+  }
+}
+@media(max-width:599px){
+ .opening.recipient-opening .age-inscription{display:flex;justify-content:center;align-items:baseline;gap:8px;margin-top:4px;}
+ .opening.recipient-opening .birthday-age{font-size:40px;}
+ .opening.recipient-opening .birthday-word{font-size:34px;margin:0;}
 }

@@ -1,0 +1,7 @@
+ocean-serene 390: 42.9px guest; 28px hosts; four touchpoints PASS
+ocean-serene 1440: 80px guest; 52px hosts; four touchpoints PASS
+ocean-serene 320: 38px guest; 28px hosts; four touchpoints PASS
+ocean-serene 820: 58px guest; 46px hosts; four touchpoints PASS
+ocean-serene 844: 34px guest; 26px hosts; four touchpoints PASS
+ocean-serene telugu: long guest name and family line are unclipped PASS
+ocean-serene long: long guest name and family line are unclipped PASS

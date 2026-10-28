@@ -238,3 +238,102 @@ html:not([lang="en"]) .guest-note-label {
   color: var(--guest-accent);
   padding: 8px 0;
 }
+/* Guest-first opening hierarchy. Only named invitations change the host composition. */
+.opening.recipient-opening .guest-address {
+  margin: 16px auto 22px;
+  max-width: 100%;
+  color: inherit;
+}
+.opening.recipient-opening .guest-display {
+  font-size: clamp(38px, 11vw, 48px);
+  font-weight: 500;
+  line-height: 1.2;
+  padding: 0.15em 0.08em;
+  margin: -0.15em -0.08em;
+}
+.opening.recipient-opening .guest-eyebrow,
+.opening.recipient-opening .guest-party {
+  font-size: 13px;
+  line-height: 1.6;
+}
+.opening.recipient-opening .guest-eyebrow {
+  margin-bottom: 7px;
+}
+.opening.recipient-opening .guest-party {
+  margin-top: 8px;
+}
+.opening.recipient-opening.recipient-long .guest-display {
+  font-size: clamp(30px, 8vw, 38px);
+}
+.opening.recipient-opening .opening-content > .names,
+.opening.recipient-opening .opening-copy > .names {
+  font-size: clamp(28px, 7vw, 38px);
+}
+.opening.recipient-opening .opening-content > .label {
+  margin-block: 12px;
+}
+@media (min-width: 600px) {
+  .opening.recipient-opening .guest-display {
+    font-size: 58px;
+  }
+  .opening.recipient-opening.recipient-long .guest-display {
+    font-size: 44px;
+  }
+  .opening.recipient-opening .guest-party {
+    font-size: 15px;
+  }
+  .opening.recipient-opening .opening-content > .names,
+  .opening.recipient-opening .opening-copy > .names {
+    font-size: 46px;
+  }
+}
+@media (min-width: 1024px) {
+  .opening.recipient-opening .guest-display {
+    font-size: clamp(62px, 5.6vw, 80px);
+  }
+  .opening.recipient-opening.recipient-long .guest-display {
+    font-size: 50px;
+  }
+  .opening.recipient-opening .guest-eyebrow {
+    font-size: 14px;
+  }
+  .opening.recipient-opening .guest-party {
+    font-size: 16px;
+  }
+  .opening.recipient-opening .opening-content > .names,
+  .opening.recipient-opening .opening-copy > .names {
+    font-size: 52px;
+  }
+}
+@media (max-height: 500px) {
+  .opening.recipient-opening .guest-address {
+    margin-block: 6px;
+  }
+  .opening.recipient-opening .guest-display {
+    font-size: 34px;
+  }
+  .opening.recipient-opening.recipient-long .guest-display {
+    font-size: 28px;
+  }
+  .opening.recipient-opening .guest-eyebrow,
+  .opening.recipient-opening .guest-party {
+    font-size: 11px;
+    margin-block: 2px;
+  }
+  .opening.recipient-opening .opening-content > .names,
+  .opening.recipient-opening .opening-copy > .names {
+    font-size: 26px;
+  }
+}
+.opening.recipient-opening .guest-address {
+  max-height: none;
+  overflow: visible;
+}
+.opening.recipient-opening .hanging-sign .names {
+  font-size: 32px;
+}
+@media (min-width: 1024px) {
+  .opening.recipient-opening .hanging-sign .names {
+    font-size: 48px;
+  }
+}

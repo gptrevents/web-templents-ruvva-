@@ -586,3 +586,54 @@ html:not([lang="en"]) .guest-letter .guest-note-label {
     animation: none;
   }
 }
+
+/* Recipient is the first impression; the home remains the occasion below it. */
+.opening.guest-mode .guest-display {
+  font-size: 42px;
+  line-height: 1.2;
+}
+.opening.guest-mode .invitation-title {
+  font-size: 30px;
+}
+.opening.guest-mode .guest-address {
+  margin: 12px auto 15px;
+}
+.opening.guest-long .guest-display {
+  font-size: 30px;
+}
+@media (min-width: 600px) {
+  .opening.guest-mode .guest-display {
+    font-size: 56px;
+  }
+  .opening.guest-mode .invitation-title {
+    font-size: 40px;
+  }
+  .opening.guest-long .guest-display {
+    font-size: 40px;
+  }
+}
+@media (min-width: 1024px) {
+  .opening.guest-mode .guest-display {
+    font-size: 72px;
+  }
+  .opening.guest-mode .invitation-title {
+    font-size: 50px;
+  }
+  .opening.guest-long .guest-display {
+    font-size: 50px;
+  }
+}
+@media (max-height: 500px) {
+  .opening.guest-mode .guest-display {
+    font-size: 32px;
+  }
+  .opening.guest-mode .invitation-title {
+    font-size: 26px;
+  }
+  .opening.guest-mode .guest-address {
+    margin-block: 6px;
+  }
+  .opening.guest-long .guest-display {
+    font-size: 26px;
+  }
+}

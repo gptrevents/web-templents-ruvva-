@@ -193,3 +193,7 @@ A user-requested single-theme prototype adds a prominent named opening, personal
 
 ### Personal-message letter refinement
 Only the guest personal-message card receives a new keepsake-letter design: independently scaled botanical SVG corners, lotus crest, fine double brass edging, warm paper and a decorative guest-initial seal. Existing opening, RSVP, closing and other themes retain their behavior. Guest QA, required shoot and asset/runtime budget checks were rerun; phone/desktop captures were visually reviewed. Details are in GUEST_PERSONALIZATION.md.
+
+
+## Guest-first opening correction — 28 October 2026
+The recipient name now leads the opening hierarchy (about 38–48px on phones, 58px on tablet and 62–80px on desktop; the illustrated home/birthday openings use tuned sizes). Host names remain separately visible at a smaller size. Long names wrap in live Indic-safe text, with a landscape adjustment; the salutation has no clipped internal scroll box. No generic invitation is assigned a fabricated recipient. The collection's demo links explicitly carry a preview guest, and preserve a supplied guest/party query. See `opening-report.txt`, `guest-report.txt` where present, and `shoot-report.txt` for executed checks.

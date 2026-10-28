@@ -1,0 +1,7 @@
+griha-mangalam 390: 42px guest; 14px hosts; four touchpoints PASS
+griha-mangalam 1440: 72px guest; 22px hosts; four touchpoints PASS
+griha-mangalam 320: 42px guest; 14px hosts; four touchpoints PASS
+griha-mangalam 820: 56px guest; 18px hosts; four touchpoints PASS
+griha-mangalam 844: 32px guest; 14px hosts; four touchpoints PASS
+griha-mangalam telugu: long guest name and family line are unclipped PASS
+griha-mangalam long: long guest name and family line are unclipped PASS

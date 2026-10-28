@@ -863,6 +863,7 @@ function buildEnvelope(d, c, ctx) {
   });
   open.append(icon("chevron"));
   add(lower, open, el("p", "tagline", c.singleTagline));
+  if (ctx.recipient.state.name) lower.append(copy.querySelector(".cover-tagline"));
   const veilA = el("div", "petal-veil veil-left"),
     veilB = el("div", "petal-veil veil-right");
   cover.append(stage, lower, veilA, veilB);

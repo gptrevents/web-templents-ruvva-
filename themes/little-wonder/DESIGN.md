@@ -197,3 +197,7 @@ User-approved multi-theme rollout of the reviewed Griha Mangalam pilot; shared r
 Treatment: party; A special party pass for you. Four touchpoints: opening, personal letter, editable RSVP, attendance-aware closing. Names remain live Indic-safe text; decorative monogram uses the first Unicode grapheme. Optional party and private note follow the pilot contract. URL values are display-only, not authenticated identity; no backend or verified RSVP persistence is introduced. No new bitmap or font assets.
 
 Validation results are recorded in `GUEST_REVIEW.md`.
+
+
+## Guest-first opening correction — 28 October 2026
+The recipient name now leads the opening hierarchy (about 38–48px on phones, 58px on tablet and 62–80px on desktop; the illustrated home/birthday openings use tuned sizes). Host names remain separately visible at a smaller size. Long names wrap in live Indic-safe text, with a landscape adjustment; the salutation has no clipped internal scroll box. No generic invitation is assigned a fabricated recipient. The collection's demo links explicitly carry a preview guest, and preserve a supplied guest/party query. See `opening-report.txt`, `guest-report.txt` where present, and `shoot-report.txt` for executed checks.
